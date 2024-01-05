@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: UrbanEcon3320SyllabusSpring2024HHadah.aux
+The style file: aea.bst
+Database file #1: library.bib
+Warning--empty note in Sloan2020
+You've used 67 entries,
+            2695 wiz_defined-function locations,
+            1039 strings with 15398 characters,
+and the built_in function-call counts, 420941 in all, are:
+= -- 70633
+> -- 4447
+< -- 0
++ -- 34241
+- -- 1393
+* -- 37769
+:= -- 81986
+add.period$ -- 472
+call.type$ -- 67
+change.case$ -- 871
+chr.to.int$ -- 67
+cite$ -- 68
+duplicate$ -- 1010
+empty$ -- 2699
+format.name$ -- 1417
+if$ -- 75686
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 208
+num.names$ -- 739
+pop$ -- 68
+preamble$ -- 1
+purify$ -- 1005
+quote$ -- 0
+skip$ -- 875
+stack$ -- 0
+substring$ -- 101559
+swap$ -- 426
+text.length$ -- 938
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 264
+warning$ -- 1
+while$ -- 1685
+width$ -- 0
+write$ -- 341
+(There was 1 warning)
