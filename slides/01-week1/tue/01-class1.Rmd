@@ -1,0 +1,395 @@
+---
+title: "Urban Economics"
+subtitle: "Introduction to Class"
+author: "Hussain Hadah"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/tulane-fonts.css", "assets/tulane.css"]
+    self_contained: false # if true, fonts will be stored locally
+    seal: true # show a title slide with YAML information
+    includes:
+      in_header: "assets/mathjax-equation-numbers.html"
+    nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9' # alternatives '16:9' or '4:3' or others e.g. 13:9
+      navigation:
+        scroll: false # disable slide transitions by scrolling
+---
+layout: true
+<div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;">`r rmarkdown::metadata$author` (Tulane) | `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`</div>
+
+<!--- `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`-->
+
+---
+
+```{r, load_refs, echo=FALSE, cache=FALSE, message=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'authoryear', 
+           style = "markdown",
+           hyperlink = FALSE, 
+           dashed = FALSE)
+myBib <- ReadBib("assets/example.bib", check = FALSE)
+top_icon = function(x) {
+  icons::icon_style(
+    icons::fontawesome(x),
+    position = "fixed", top = 10, right = 10
+  )
+}
+```
+
+```{r setup, include=FALSE}
+# xaringanExtra::use_scribble() ## Draw on slides. Requires dev version of xaringanExtra.
+
+options(htmltools.dir.version = FALSE)
+library(knitr)
+opts_chunk$set(
+  fig.align="center",  
+  fig.height=4, fig.width=6,
+  out.width="748px", out.length="520.75px",
+  dpi=300, #fig.path='Figs/',
+  cache=F#, echo=F, warning=F, message=F
+  )
+```
+
+
+```{r, cache=FALSE, message=FALSE, warning=FALSE, include=TRUE, eval=TRUE, results=FALSE, echo=FALSE, tidy.opts = list(width.cutoff = 50), tidy = TRUE}
+## Load and install the packages that we'll be using today
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tictoc, parallel, pbapply, future, future.apply, furrr, RhpcBLASctl, memoise, here, foreign, mfx, tidyverse, hrbrthemes, estimatr, ivreg, fixest, sandwich, lmtest, margins, vtable, broom, modelsummary, stargazer, fastDummies, recipes, dummy, gplots, haven, huxtable, kableExtra, gmodels, survey, gtsummary, data.table, tidyfast, dtplyr, microbenchmark, ggpubr, tibble, viridis, wesanderson, censReg, rstatix, srvyr, formatR, sysfonts, showtextdb, showtext, thematic, sampleSelection, RefManageR, DT, googleVis, png, grid)
+# devtools::install_github("thomasp85/patchwork")
+remotes::install_github("mitchelloharawild/icons")
+remotes::install_github("ROpenSci/bibtex")
+
+# devtools::install_github("ajdamico/lodown")
+## My preferred ggplot2 plotting theme (optional)
+## https://github.com/hrbrmstr/hrbrthemes
+# scale_fill_ipsum()
+# scale_color_ipsum()
+font_add_google("Fira Sans", "firasans")
+font_add_google("Fira Code", "firasans")
+
+showtext_auto()
+
+theme_customs <- theme(
+  text = element_text(family = 'firasans', size = 16),
+  plot.title.position = 'plot',
+  plot.title = element_text(
+    face = 'bold', 
+    colour = thematic::okabe_ito(8)[6],
+    margin = margin(t = 2, r = 0, b = 7, l = 0, unit = "mm")
+  ),
+)
+
+colors <-  thematic::okabe_ito(5)
+
+# theme_set(theme_minimal() + theme_customs)
+theme_set(hrbrthemes::theme_ipsum() + theme_customs)
+## Set master directory where all sub-directories are located
+mdir <- "/Users/hhadah/Documents/GiT/urban-econ/slides/01-week1/tue"
+
+## Set working directory
+
+# COLOR PALLETES
+library(paletteer) 
+# paletteer_d("awtools::a_palette")
+# paletteer_d("suffrager::CarolMan")
+
+### COLOR BLIND PALLETES
+#paletteer_d("colorblindr::OkabeIto")
+#paletteer_d("colorblindr::OkabeIto_black")
+# paletteer_d("colorBlindness::paletteMartin")
+# paletteer_d("colorBlindness::Blue2DarkRed18Steps")
+# paletteer_d("colorBlindness::SteppedSequential5Steps")
+# paletteer_d("colorBlindness::PairedColor12Steps")
+# paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps")
+colorBlindness <- paletteer_d("colorBlindness::Blue2Orange12Steps")
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+# scale_colour_paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps", dynamic = FALSE)
+# To use for fills, add
+  scale_fill_manual(values="colorBlindness::Blue2Orange12Steps")
+
+# To use for line and point colors, add
+  scale_colour_manual(values="colorBlindness::Blue2Orange12Steps")
+  #<a><button>[Click me](#sources)</button></a>
+```
+
+```{css, echo=F}
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+```
+
+## About Me `r top_icon("user")`
+
+- My name is [Hussain Hadah](https://hussainhadah.com)  
+
+- Email: [hhadah@tulane.edu](mailto:hhadah@tulane.edu)
+
+- I am an labor economist
+
+  - I study topics on discrimination, racial and ethnic identities, mental health, and immigration
+
+- I love to run
+
+  - You can find me running in Audubon Park with my dog Bill
+
+```{r example1, echo=FALSE, warning=FALSE, out.width="30%", fig.show='hold', fig.align='right'}
+# Read the image file
+img <- readPNG("assets/bill.png")
+
+# Plot the image
+grid.raster(img)
+```
+
+- Student hours/office hours are by appointment using  [https://hussainhadah.youcanbook.me/](https://hussainhadah.youcanbook.me/)
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Overview `r top_icon("list-ul")`
+
+---
+## This Week `r top_icon("calendar-week")`
+
+1. Introduction to the course
+
+2. Geographical data
+
+### Readings `r icons::fontawesome("book-open")`
+
+- Syllabus
+
+- OSullivan - Census Definitions
+
+### What's due? `r icons::fontawesome("exclamation")`
+
+- Scavenger Hunt---no due date and you can redo to improve your grade
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Introducing Urban Economics `r top_icon("list-ul")`
+
+---
+
+## What is Urban Economics?
+
+.blockquote[
+### `r icons::fontawesome("comment-dots")` .brand-crawfest[Urban economics]
+
+- .black[Introduces space into economics models and studies the location of economic activity]
+]
+
+--
+- A lot of fields in economics overlap with .brand-crawfest[urban economics]
+
+  - For example, economics of crime overlaps with labor economics and .brand-crawfest[urban economics]
+
+
+---
+
+## What is Urban Economics?
+
+- Given how broad .brand-crawfest[urban economics] is, I will focus on the following topics
+
+  - Geographical data
+  - Agglomeration economies and the economics of cities
+  - Economic development and tax incentives
+  - Crime
+  - Gender-based violence
+  - Housing and housing policy
+    - Zoning laws (maybe?)
+  - Neighborhood effects
+  - Transportation
+
+---
+
+## What is Urban Economics?
+
+- This class will be a mix of .brand-medallion[theory] and .brand-blue[empirical] research on urban economics
+
+  - .brand-medallion[Theory]: Applications of mathematical models
+
+  - .brand-blue[Empirical]: Applications of statistical analysis
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Going Over the Syllabus `r top_icon("list-ul")`
+
+---
+## Prerequisites
+
+- This class assumes that you have taken: 
+
+  1. Introductory microeconomics (ECON 1010)
+  2. High school algebra (solve for X, graph a line, etc.)
+  3. High school statistics (calculating medi- ans, ideally remembering the basics of hypothesis testing, etc.)
+
+- It is helpful if you are familiar with statistics and econometrics, but it is not required
+  - Knowing what a standard error and confidence interval are is helpful
+  - The basics of linear regression
+
+---
+## Readings
+
+The required book is Brueckner, Jan. 2011. Lectures on Urban Economics. Cambridge: MIT University Press
+
+- Half of the readings are from the textbook
+
+- The other half are from other sources or my lectures
+
+- Some of the readings are technical pieces from economics journals
+
+- The degree to which you to be familiar with the details of a paper will be clear from the emphasis given to the paper in lecture or will be clear based on instructions I give you
+
+--
+- I will either send emails about the readings or announce in class
+
+- It is your responsibility to keep up with the announcements, not doing so will affect your grade
+
+  - Many in-class activities may require that you have read the readings before class
+
+---
+## Grading
+
+.left-column[
+- Quizzes(Best $3$ out of $4 \times 20\%=60\%$)
+- Group Briefing Notes (Best $2$ out of $3 \times 10\%=20\%$)
+- Other Activities ($20%$) (Three activities dropped)
+]
+
+.right-column[
+| Grade | Percentage Range |
+|:-----:|:----------------:|
+| A     | 93% to 100%      |
+| A-    | 90% to 92.99%    |
+| B+    | 87% to 89.99%    |
+| B     | 83% to 86.99%    |
+| B-    | 80% to 82.99%    |
+| C+    | 77% to 79.99%    |
+| C     | 73% to 76.99%    |
+| C-    | 70% to 72.99%    |
+| D+    | 67% to 69.99%    |
+| D     | 63% to 66.99%    |
+| D-    | 60% to 62.99%    |
+| F     | 0% to 59.99%     |
+]
+
+---
+## Quizzes
+
+.pull-left[
+
+- There will be four quizzes
+
+- During class time
+
+- Tentative schedule is Feb. 8, Mar. 5, Mar. 28, and Apr. 25
+
+- Quiz are open book, you can bring notes, documents, computer, etc.
+
+- You cannot talk or work with other students
+
+- You can take the quiz remotely as well
+
+
+]
+
+--
+
+.pull-right[
+
+- There will be two or three short answer questions
+
+- Zero to two multiple choice questions
+
+]
+
+---
+## Group Briefing Notes
+
+.pull-left[
+
+- There will be three group briefing notes
+
+- The goal is to practice:
+    - Concise writing
+    - Citing sources, and creating a references section in APA format or Chicago Author-Year format
+    - Doing a literature review using Google Scholar
+    - Reading and summarizing published economics journal articles
+    - Coming to reasonable conclusions based on your assessment of the research
+
+]
+
+.pull-right[
+
+- You will form groups of 3-5 students beforehand, or I will create groups for you randomly though a jigsaw activity
+
+- The group will work during class time to write a one-page briefing note, single-spaced, in a Google Doc or OneDrive
+
+- Guidance for the content will be given through handouts that are on Canvas beforehand
+
+- The note will quickly introduce the reader to the topic and summarize the main findings of the research
+]
+
+---
+## Group Briefing Notes Topics 
+
+.pull-left[
+1. To what extent do tax incentives encourage economic development? 
+2. Is there racial bias in policing and in the criminal justice system?
+3. What are the impacts of rent control on housing markets?
+
+- You will work on first draft in-class
+- You can finish on your own time if you did not finish
+- There are .red[NO] deadlines to submit the notes---other than the firm end-of-course deadlines
+- After Apr. 30, I will grade the notes as your final version
+
+
+]
+
+.pull-right[
+- I will then grade your first draft as if it is a final document, so your grade will be lower
+
+- First round is only temporary
+
+- If you submit the draft before the next class (deadline), you will have chance to make revisions
+
+]
+
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
+library(renderthis)
+# https://hhadah.github.io/xaringan/index.html
+
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html", 
+       to = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html")
+```
