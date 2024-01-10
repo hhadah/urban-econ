@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex UrbanEcon3320SyllabusSpring2024HHadah"] 1703626027 "UrbanEcon3320SyllabusSpring2024HHadah.aux" "UrbanEcon3320SyllabusSpring2024HHadah.bbl" "UrbanEcon3320SyllabusSpring2024HHadah" 1703626257
+["bibtex UrbanEcon3320SyllabusSpring2024HHadah"] 1703626027 "UrbanEcon3320SyllabusSpring2024HHadah.aux" "UrbanEcon3320SyllabusSpring2024HHadah.bbl" "UrbanEcon3320SyllabusSpring2024HHadah" 1704843413
   "./aea.bst" 1695579707 23105 ced7c75addb710fdb85503a64b9bafa7 ""
-  "UrbanEcon3320SyllabusSpring2024HHadah.aux" 1703626257 12933 4facaf2236370273566cd8ee175c4d25 "pdflatex"
+  "UrbanEcon3320SyllabusSpring2024HHadah.aux" 1704843413 12933 4facaf2236370273566cd8ee175c4d25 "pdflatex"
   "library.bib" 1696805641 3675778 03ccd15f8679eceb8fed44831ee44fdb ""
   (generated)
   "UrbanEcon3320SyllabusSpring2024HHadah.bbl"
   "UrbanEcon3320SyllabusSpring2024HHadah.blg"
-["pdflatex"] 1703626256 "UrbanEcon3320SyllabusSpring2024HHadah.tex" "UrbanEcon3320SyllabusSpring2024HHadah.pdf" "UrbanEcon3320SyllabusSpring2024HHadah" 1703626257
+["pdflatex"] 1704843412 "UrbanEcon3320SyllabusSpring2024HHadah.tex" "UrbanEcon3320SyllabusSpring2024HHadah.pdf" "UrbanEcon3320SyllabusSpring2024HHadah" 1704843413
   "/Users/hhadah/Library/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1643922251 2796795 9b37e65f83922863af74fc947fc5804c ""
   "/Users/hhadah/Library/texmf/tex/latex/multicol.sty" 1084240224 25928 526edd03c609ff2cdc4805a41441008e ""
   "/Users/hhadah/Library/texmf/tex/latex/setspace.sty" 1130857036 22518 969fcbccb9feb6c080f52825bb5fe1e1 ""
@@ -148,11 +148,11 @@
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
   "TulaneEmergency2.jpg" 1703460199 742735 257eb0eba3a8a6822ffa19b34e6475b6 ""
   "TulaneTitleIX.jpg" 1696804997 182605 e2ad27328cf4d4d23652890581cbce38 ""
-  "UrbanEcon3320SyllabusSpring2024HHadah.aux" 1703626257 12933 4facaf2236370273566cd8ee175c4d25 "pdflatex"
+  "UrbanEcon3320SyllabusSpring2024HHadah.aux" 1704843413 12933 4facaf2236370273566cd8ee175c4d25 "pdflatex"
   "UrbanEcon3320SyllabusSpring2024HHadah.bbl" 1703626028 19139 61a29f10b3c5386b570263d4094ef123 "bibtex UrbanEcon3320SyllabusSpring2024HHadah"
-  "UrbanEcon3320SyllabusSpring2024HHadah.out" 1703626257 2245 c4425ce0c4ded6ee04073870e860771f "pdflatex"
-  "UrbanEcon3320SyllabusSpring2024HHadah.tex" 1703626255 56339 45bc74b42ad4967964f2f25fcc498dfb ""
-  "UrbanEcon3320SyllabusSpring2024HHadah.toc" 1703626257 2289 b5a91e9b9003a1a1f420b7fccfb7e9c9 "pdflatex"
+  "UrbanEcon3320SyllabusSpring2024HHadah.out" 1704843413 2245 c4425ce0c4ded6ee04073870e860771f "pdflatex"
+  "UrbanEcon3320SyllabusSpring2024HHadah.tex" 1704843409 56320 95f339e8be23f4384eb88fec85f3523c ""
+  "UrbanEcon3320SyllabusSpring2024HHadah.toc" 1704843413 2289 b5a91e9b9003a1a1f420b7fccfb7e9c9 "pdflatex"
   (generated)
   "UrbanEcon3320SyllabusSpring2024HHadah.aux"
   "UrbanEcon3320SyllabusSpring2024HHadah.log"

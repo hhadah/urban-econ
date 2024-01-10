@@ -1,7 +1,7 @@
 ---
 title: "Urban Economics"
 subtitle: "Introduction to Class"
-author: "Hussain Hadah"
+author: "Hussain Hadah (he/him)"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   xaringan::moon_reader:
@@ -384,6 +384,133 @@ The required book is Brueckner, Jan. 2011. Lectures on Urban Economics. Cambridg
 - If you submit the draft before the next class (deadline), you will have chance to make revisions
 
 ]
+
+---
+## Other Activities
+
+- Lots of research shows that students learn better when they are actively engaged in the learning process
+
+- I will use a variety of activities to engage you in the learning process
+
+- Weight of activity will depend on complexity
+
+- Lowest three will be dropped
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# ADA, Accessibility, Title IX, and Inclusivity Statements and Supports
+
+---
+## Making this Class an Inclusive Environment
+
+- I am committed to making this class an inclusive environment for all students
+
+- If you require accommodations, please do the following:
+
+  - Contact me immediately
+
+  - Contact the Goldman Center for Student Accessibility
+
+    - goldman@tulane.edu
+    - (504) 862-8433 
+    - https://accessibility.tulane.edu/
+
+- I **.red[DO NOT]** need to know the details of your accommodations
+
+- I will **.red[NOT]** ask you for a proof of your accommodations
+
+- Register with the Goldman Center for Student Accessibility as soon as possible
+
+- More details on the syllabus
+
+---
+## Children in Class
+
+- I believe that more women and parents should be in academia
+
+- I am happy to have children in class
+
+- More details on the syllabus
+
+- I ask of you to create a welcoming environment for parents and children
+
+---
+## Preferred Pronouns
+
+- My preferred pronouns are he/him/his
+
+- Thanks to those that already have it on their accounts
+
+- I recommend everyone to add their preferred pronouns to their accounts
+
+---
+## Title IX
+
+- Respect for all people is a core value of Tulane University
+
+- Tulane is committed to providing an environment free of all forms of discrimination and sexual harassment, including sexual assault, domestic and dating violence, and stalking
+
+- If you (or someone you know) has experienced or is experiencing these types of behaviors, know that you are not alone:
+
+  - Resources and support are available: you can learn more at https://allin.tulane.edu/
+
+- Please know that if you choose to confide in me I am required by the university to share your disclosure with Care Connection to the Office of Case Management and Victim Support Services
+
+- You can also make a disclosure yourself, including an anonymous report
+  
+  - The form is available at tulane.edu/concerns
+---
+## Lauren’s Promise
+
+- **I will listen and believe you if someone is threatening or harassing you**
+
+- Lauren McCluskey, a 21-year-old honors student athlete, was murdered on Oct. 22, 2018, by a man she briefly dated on the University of Utah campus
+- Lauren’s mother, Jill McCluskey, has made it her mission to ensure that no other parent experiences the loss of a child to violence
+- We must all do our part to keep our community safe so that this would never happen again
+
+- Learn more at https://laurenmccluskey.org/laurens-promise/
+
+---
+## Title IX
+
+```{r title-ix, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+# Read the image file
+img <- readPNG("/Users/hhadah/Documents/GiT/urban-econ/syllabus/TulaneTitleIX.jpg")
+
+# Plot the image
+grid.raster(img)
+```
+
+---
+class: tulane-blue
+background-image: url(assets/TulaneLogo-white.svg)
+background-size: 260px
+background-position: 5% 95%
+
+# Any questions?
+
+.pull-right[.pull-down[
+
+<a href="mailto:hhadah@tulane.edu">
+.white[`r icons::fontawesome("paper-plane")` hhadah@tulane.edu]
+</a>
+
+<a href="https://hussainhadah.com/">
+.white[`r icons::fontawesome("link")` https://hussainhadah.com/]
+</a>
+
+<a href="https://github.com/hhadah">
+.white[`r icons::fontawesome("github")` @hhadah]
+</a>
+
+<br><br><br>
+
+]]
+
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
