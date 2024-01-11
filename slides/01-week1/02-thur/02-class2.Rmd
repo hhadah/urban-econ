@@ -287,7 +287,7 @@ grid.raster(img3)
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
-# https://hhadah.github.io/xaringan/index.html
+# https://hhadah.github.io/urban-econ/slides/01-week1/02-thur/02-class2.html
 
 to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/02-thur/02-class2.html", 
        to = "~/Documents/GiT/urban-econ/slides/01-week1/02-thur/02-class2.pdf")
