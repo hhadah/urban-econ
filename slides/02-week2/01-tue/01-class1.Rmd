@@ -1,0 +1,336 @@
+---
+title: "Agglomeration, Clusters, and Cities "
+subtitle: "Agglomeration"
+author: "Hussain Hadah (he/him)"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/tulane-fonts.css", "assets/tulane.css"]
+    self_contained: false # if true, fonts will be stored locally
+    seal: true # show a title slide with YAML information
+    includes:
+      in_header: "assets/mathjax-equation-numbers.html"
+    nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9' # alternatives '16:9' or '4:3' or others e.g. 13:9
+      navigation:
+        scroll: false # disable slide transitions by scrolling
+---
+layout: true
+<div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;">`r rmarkdown::metadata$author` (Tulane) | `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`</div>
+
+<!--- `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`-->
+
+---
+
+class: title-slide
+background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+
+```{r, load_refs, echo=FALSE, cache=FALSE, message=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'authoryear', 
+           style = "markdown",
+           hyperlink = FALSE, 
+           dashed = FALSE)
+myBib <- ReadBib("assets/example.bib", check = FALSE)
+top_icon = function(x) {
+  icons::icon_style(
+    icons::fontawesome(x),
+    position = "fixed", top = 10, right = 10
+  )
+}
+```
+
+```{r setup, include=FALSE}
+# xaringanExtra::use_scribble() ## Draw on slides. Requires dev version of xaringanExtra.
+
+options(htmltools.dir.version = FALSE)
+library(knitr)
+opts_chunk$set(
+  fig.align="center",  
+  fig.height=4, fig.width=6,
+  out.width="748px", out.length="520.75px",
+  dpi=300, #fig.path='Figs/',
+  cache=F#, echo=F, warning=F, message=F
+  )
+```
+
+
+```{r, cache=FALSE, message=FALSE, warning=FALSE, include=TRUE, eval=TRUE, results=FALSE, echo=FALSE, tidy.opts = list(width.cutoff = 50), tidy = TRUE}
+## Load and install the packages that we'll be using today
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tictoc, parallel, pbapply, future, future.apply, furrr, RhpcBLASctl, memoise, here, foreign, mfx, tidyverse, hrbrthemes, estimatr, ivreg, fixest, sandwich, lmtest, margins, vtable, broom, modelsummary, stargazer, fastDummies, recipes, dummy, gplots, haven, huxtable, kableExtra, gmodels, survey, gtsummary, data.table, tidyfast, dtplyr, microbenchmark, ggpubr, tibble, viridis, wesanderson, censReg, rstatix, srvyr, formatR, sysfonts, showtextdb, showtext, thematic, sampleSelection, RefManageR, DT, googleVis, png, grid)
+# devtools::install_github("thomasp85/patchwork")
+remotes::install_github("mitchelloharawild/icons")
+remotes::install_github("ROpenSci/bibtex")
+
+# devtools::install_github("ajdamico/lodown")
+## My preferred ggplot2 plotting theme (optional)
+## https://github.com/hrbrmstr/hrbrthemes
+# scale_fill_ipsum()
+# scale_color_ipsum()
+font_add_google("Fira Sans", "firasans")
+font_add_google("Fira Code", "firasans")
+
+showtext_auto()
+options(modelsummary_format_numeric_latex = "mathmode")
+showtext_opts(dpi = 300)
+theme_customs <- function() {
+  theme_minimal(base_family = "serif") +
+    theme(panel.grid.minor = element_blank(),
+          panel.grid.major = element_blank(),
+          plot.background = element_rect(fill = "white", color = NA),
+          # plot.title = element_text(face = "bold", size = rel(2)),
+          axis.title = element_text(face = "bold"),
+          strip.text = element_text(face = "bold"),
+          strip.background = element_rect(
+          color="black", fill="white", size=1.5
+          ),
+          legend.title = element_text(face = "bold", size = rel(1)),
+          axis.text.y  = element_text(size = 16),
+          axis.text.x  = element_text(size = 16),
+          axis.title.x = element_text(size = 20),
+          axis.title.y = element_text(size = 20),
+          panel.grid.major.x = element_blank(),
+          panel.grid.minor.x = element_blank(),
+          axis.line = element_line(colour = "black"),
+          legend.text = element_text(size = rel(1)))
+}
+
+colors <-  thematic::okabe_ito(5)
+
+# theme_set(theme_minimal() + theme_customs)
+# theme_set(hrbrthemes::theme_ipsum() + theme_customs)
+## Set master directory where all sub-directories are located
+mdir <- "/Users/hhadah/Documents/GiT/urban-econ/slides/01-week1/tue"
+
+## Set working directory
+
+# COLOR PALLETES
+library(paletteer) 
+# paletteer_d("awtools::a_palette")
+# paletteer_d("suffrager::CarolMan")
+
+### COLOR BLIND PALLETES
+#paletteer_d("colorblindr::OkabeIto")
+#paletteer_d("colorblindr::OkabeIto_black")
+# paletteer_d("colorBlindness::paletteMartin")
+# paletteer_d("colorBlindness::Blue2DarkRed18Steps")
+# paletteer_d("colorBlindness::SteppedSequential5Steps")
+# paletteer_d("colorBlindness::PairedColor12Steps")
+# paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps")
+colorBlindness <- paletteer_d("colorBlindness::Blue2Orange12Steps")
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+# scale_colour_paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps", dynamic = FALSE)
+# To use for fills, add
+  scale_fill_manual(values="colorBlindness::Blue2Orange12Steps")
+
+# To use for line and point colors, add
+  scale_colour_manual(values="colorBlindness::Blue2Orange12Steps")
+  #<a><button>[Click me](#sources)</button></a>
+```
+
+```{css, echo=F}
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+```
+
+# .text-shadow[.white[Outline for Today]]
+
+<ol>
+    <li><h4 class="white">Economic reasons why clustering</h4></li>
+    <li><h4 class="white">Practice question on economies of scale</h4></li>
+    <li><h4 class="white">Benefits of Agglomeration</h4></li>
+    <li><h4 class="white">Tech clusters</h4></li>
+    <li><h4 class="white">Activity on COVID-19 and agglomeration</h4></li>
+    <li><h4 class="white">Practice questions in groups </h4></li>
+
+</ol>
+
+---
+## Next Week `r top_icon("calendar-week")`
+
+1. Greenstone, Hornbeck, & Moretti (2010)
+
+2. Introduction to Difference-in-Differences
+
+3. Reading results tables
+
+### Readings `r icons::fontawesome("book-open")`
+
+- Greenstone, Hornbeck, & Moretti (2010)
+
+- Difference-in-Differences in _Mastering Metrics Difference in Differences_
+
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Background - Cities `r top_icon("city")`
+
+---
+
+## Most people live in cities
+
+- According to the 2010 Census (data from data.census.gov), out of all the 131,704,730 housing units (“households”) in the United States, 105,019,731 or 79% are in urban areas
+
+- Urban areas here is defined as living in an area with at least 2,500 people, otherwise it’s a rural area
+
+- So, only 21% of people live in rural areas
+
+- Even within cities there is a lot of concentration
+
+  - E.g., the New York metropolitan statistical areas has a population of 20.3 million
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Background - Clusters `r top_icon("city")`
+
+---
+
+## People live in cities
+
+-  In addition to people clustering in cities, businesses that are similar also
+cluster
+
+- A few examples:
+  - Silicon Valley in the greater San Francisco area (tech firms)
+  - Hollywood” in the greater Los Angeles area (entertainment), and a similar entertainment cluster in New York City
+    - About half of all motion picture production in the US occurs in Los Angeles County!
+  - Automobile manufacturing in Detroit
+  - Biotech and health sciences firms in Boston
+  - Tourism in New Orleans
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Why Is There Agglomeration? -Summary `r top_icon("city")`
+
+---
+## Lots of reasons, but here is a summary of some more economic ones
+
+- Economies of scale (aka scale economies)
+- What are agglomeration economies? Definition and introduction
+- Pecuniary agglomeration economies
+- Technological agglomeration economies
+  - Knowledge spillovers (e.g., “happy hour effect”)
+- Transportation costs
+
+---
+## Economies of scale
+
+- The idea here is that firms become more productive as their scale (their size, production capacity) increases
+- Larger production plants can produce output more efficiently (less cost per unit) than smaller production plants
+- Many firms exhibit economics of scale, but they are especially common in situations where there are high fixed costs (e.g., need to invest in lots of technology)
+- Economies of scale create the incentive for firms to be large and in one place (one big plant) rather than having smaller production units (many smaller plants)
+
+---
+## Economies of scale
+
+- More formally, increasing economies of scale (aka “increasing returns to scale” or just “economies of scale”) occurs when, if inputs into production are doubled, output more than doubles.
+- Decreasing economies of scale: double inputs => less than double output
+- Constant economies of scale: double inputs => doubles output
+- E.g., suppose the inputs into production are capital (e.g., machines) and labor (e.g., workers). Suppose that with 10 machines and 10 workers, the plant can produce 10,000 widgets. The plant would have increasing economies of scale if, with 20 machines and 20 workers, they produce at least 20,001 widgets.
+
+---
+## Economies of scale
+
+.left-column[
+  - Economies of scale occurs when, as scale increases (producing more quantity), average total costs decrease
+  ]
+.right-column[
+```{r scale-plot, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+library(ggplot2)
+
+# Define the quantities and the fixed cost
+quantities <- seq(100, 1000, length.out = 100)
+fixed_cost <- 1000
+variable_cost_per_unit <- 5
+
+# Define the average total cost (AC) and marginal cost (MC) functions
+average_cost <- function(quantity, fixed_cost, variable_cost_per_unit) {
+  (fixed_cost + variable_cost_per_unit * quantity) / quantity
+}
+
+marginal_cost <- function(quantity, variable_cost_per_unit) {
+  # Assuming marginal cost is constant and equal to the variable cost per unit
+  rep(variable_cost_per_unit, length(quantity))
+}
+
+# Calculate the cost values
+ac_values <- average_cost(quantities, fixed_cost, variable_cost_per_unit)
+mc_values <- marginal_cost(quantities, variable_cost_per_unit)
+
+# Create a data frame for plotting
+economies_scale_data <- data.frame(quantities, ac_values, mc_values)
+
+# Create the plot
+economies_scale_plot <- ggplot(economies_scale_data, aes(x = quantities)) +
+  geom_line(aes(y = ac_values), color = "blue", size = 1.5) +
+  geom_line(aes(y = mc_values), color = "black",  size = 1.5) +
+  labs(title = "Economies of Scale",
+       x = "Quantity of production (q)",
+       y = "Cost ($) \n AC, MC",
+       caption = "AC = Average Cost, MC = Marginal Cost, FC = Fixed Cost") +
+  annotate("text", x = max(quantities) + 1, y = tail(ac_values, 1) + 1, label = "AC", hjust = 1.5, vjust = 1.5, color = "blue") +
+  annotate("text", x = max(quantities) + 1, y = tail(mc_values, 1), label = "MC", hjust = 1.5, vjust = -0.5, color = "black") +
+  annotate("text", x = 200, y = 14, label = "With a Fixed Cost and Constant Marginal Cost,\nthe Degree of Returns to Scale = AC/MC Declines\nwith the Level of a Firms Output q:", size = 3.5, hjust = 0) +
+  annotate("text", x = 200, y = 12, label = "AC=[FC + q*MC]/q = [FC/q] + MC\n\nAC/MC = 1 + (FC/MC)/q", size = 3.5, hjust = 0) +
+  theme_customs()
+
+# Print the plot
+print(economies_scale_plot)
+```
+]
+
+---
+## Economies of scale: Practice questions
+
+- Which out of the following situations represent INCREASING economies of scale? Respond on Canvas for the Quiz “Economies of Scale – Practice Question”
+
+1. A firm doubles all its inputs and its output more than doubles.
+2. A firm doubles all its inputs and its output less than doubles.
+3. A firm doubles all its inputs and its output exactly doubles.
+4. A firm doubles its employment and its output more than doubles.
+5. With 10 employees and $10,000 of capital, output is 10 units. With 30 employees and $30,000 of capital, output is 33 units.
+6. With 10 employees and $10,000 of capital, output is 10 units. With 30 employees and $30,000 of capital, output is 27 units.
+
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
+library(renderthis)
+# https://hhadah.github.io/urban-econ/slides/02-week2/01-tue/01-class1.html
+
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/02-week2/01-tue/01-class1.html", 
+       to = "~/Documents/GiT/urban-econ/slides/02-week2/01-tue/01-class1.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/02-week2/01-tue/01-class1.html")
+```

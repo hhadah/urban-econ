@@ -1,0 +1,341 @@
+---
+title: "Urban Economics"
+subtitle: "Geographical Definitions and Data "
+author: "Hussain Hadah (he/him)"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/tulane-fonts.css", "assets/tulane.css"]
+    self_contained: false # if true, fonts will be stored locally
+    seal: true # show a title slide with YAML information
+    includes:
+      in_header: "assets/mathjax-equation-numbers.html"
+    nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9' # alternatives '16:9' or '4:3' or others e.g. 13:9
+      navigation:
+        scroll: false # disable slide transitions by scrolling
+---
+layout: true
+<div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;">`r rmarkdown::metadata$author` (Tulane) | `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`</div>
+
+<!--- `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`-->
+
+---
+
+class: title-slide
+background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+
+```{r, load_refs, echo=FALSE, cache=FALSE, message=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'authoryear', 
+           style = "markdown",
+           hyperlink = FALSE, 
+           dashed = FALSE)
+myBib <- ReadBib("assets/example.bib", check = FALSE)
+top_icon = function(x) {
+  icons::icon_style(
+    icons::fontawesome(x),
+    position = "fixed", top = 10, right = 10
+  )
+}
+```
+
+```{r setup, include=FALSE}
+# xaringanExtra::use_scribble() ## Draw on slides. Requires dev version of xaringanExtra.
+
+options(htmltools.dir.version = FALSE)
+library(knitr)
+opts_chunk$set(
+  fig.align="center",  
+  fig.height=4, fig.width=6,
+  out.width="748px", out.length="520.75px",
+  dpi=300, #fig.path='Figs/',
+  cache=F#, echo=F, warning=F, message=F
+  )
+```
+
+
+```{r, cache=FALSE, message=FALSE, warning=FALSE, include=TRUE, eval=TRUE, results=FALSE, echo=FALSE, tidy.opts = list(width.cutoff = 50), tidy = TRUE}
+## Load and install the packages that we'll be using today
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tictoc, parallel, pbapply, future, future.apply, furrr, RhpcBLASctl, memoise, here, foreign, mfx, tidyverse, hrbrthemes, estimatr, ivreg, fixest, sandwich, lmtest, margins, vtable, broom, modelsummary, stargazer, fastDummies, recipes, dummy, gplots, haven, huxtable, kableExtra, gmodels, survey, gtsummary, data.table, tidyfast, dtplyr, microbenchmark, ggpubr, tibble, viridis, wesanderson, censReg, rstatix, srvyr, formatR, sysfonts, showtextdb, showtext, thematic, sampleSelection, RefManageR, DT, googleVis, png, grid)
+# devtools::install_github("thomasp85/patchwork")
+remotes::install_github("mitchelloharawild/icons")
+remotes::install_github("ROpenSci/bibtex")
+
+# devtools::install_github("ajdamico/lodown")
+## My preferred ggplot2 plotting theme (optional)
+## https://github.com/hrbrmstr/hrbrthemes
+# scale_fill_ipsum()
+# scale_color_ipsum()
+font_add_google("Fira Sans", "firasans")
+font_add_google("Fira Code", "firasans")
+
+showtext_auto()
+
+theme_customs <- theme(
+  text = element_text(family = 'firasans', size = 16),
+  plot.title.position = 'plot',
+  plot.title = element_text(
+    face = 'bold', 
+    colour = thematic::okabe_ito(8)[6],
+    margin = margin(t = 2, r = 0, b = 7, l = 0, unit = "mm")
+  ),
+)
+
+colors <-  thematic::okabe_ito(5)
+
+# theme_set(theme_minimal() + theme_customs)
+theme_set(hrbrthemes::theme_ipsum() + theme_customs)
+## Set master directory where all sub-directories are located
+mdir <- "/Users/hhadah/Documents/GiT/urban-econ/slides/01-week1/tue"
+
+## Set working directory
+
+# COLOR PALLETES
+library(paletteer) 
+# paletteer_d("awtools::a_palette")
+# paletteer_d("suffrager::CarolMan")
+
+### COLOR BLIND PALLETES
+#paletteer_d("colorblindr::OkabeIto")
+#paletteer_d("colorblindr::OkabeIto_black")
+# paletteer_d("colorBlindness::paletteMartin")
+# paletteer_d("colorBlindness::Blue2DarkRed18Steps")
+# paletteer_d("colorBlindness::SteppedSequential5Steps")
+# paletteer_d("colorBlindness::PairedColor12Steps")
+# paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps")
+colorBlindness <- paletteer_d("colorBlindness::Blue2Orange12Steps")
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+# scale_colour_paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps", dynamic = FALSE)
+# To use for fills, add
+  scale_fill_manual(values="colorBlindness::Blue2Orange12Steps")
+
+# To use for line and point colors, add
+  scale_colour_manual(values="colorBlindness::Blue2Orange12Steps")
+  #<a><button>[Click me](#sources)</button></a>
+```
+
+```{css, echo=F}
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+```
+
+# .text-shadow[.white[Outline for Today]]
+
+<ol>
+    <li><h4 class="white">Go Over Some Geographic Definitions Briefly</h4></li>
+    <li><h4 class="white">See Some Geographical Aggregation Levels</h4></li>
+    <li><h4 class="white">Geographical Definitions & Scavenger Hunt</h4></li>
+    <li><h4 class="white">Finding Data on Census.com</h4></li>
+    <li><h4 class="white">Finding data on data.census.gov</h4></li>
+</ol>
+
+---
+## Next Week `r top_icon("calendar-week")`
+
+1. Agglomeration, Clusters, and Cities
+
+2. Practice Jigsaw
+
+### Readings `r icons::fontawesome("book-open")`
+
+- Chapter 1 to 1.3 Brueckner
+
+- Read Glaeser, Kolko, Saiz (2001)
+
+- Read Kerr, Robert-Nicoud (2020)
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Urban Economics and Data `r top_icon("university")`
+
+---
+
+## The Importance of Data
+
+- To understand the economics of urban population, we will need data on them
+
+- The data is based on the Census Bureau geographical unit
+
+.blockquote[
+###  .brand-crawfest[Census block]
+
+- .black[Area bounded on all sides by visible features---streets, roads, streams, and railroad tracks---and by invisible boundaries---property lines and political boundaries. A block has between a few dozen to a few hundred people.]
+]
+
+.blockquote[
+###  .brand-crawfest[Block group]
+
+- .black[Group of contiguous census blocks.]
+]
+
+- These data are based on three _Census_ geographical units:
+
+---
+## Census Blocks
+
+```{r census-block, echo=FALSE, warning=FALSE, out.width="60%", fig.show='hold', fig.align='center'}
+# Read the image file
+img <- readPNG("census-blocks.png")
+
+# Plot the image
+grid.raster(img)
+```
+
+---
+## Types of Urban Populations
+
+.blockquote[
+###  .brand-crawfest[Urbanized area]
+
+- .black[A densely settled territory of census block groups and surrounding census blocks that meet a minimum population density. The minimum population density is 1,000 people per square mile for the core block groups and 500 people per square mile for the surrounding blocks.]
+]
+
+.blockquote[
+###  .brand-crawfest[Urban cluster]
+
+- .black[Is a scaled-down version of the urbanized area.]
+]
+
+.blockquote[
+###  .brand-crawfest[Urban population]
+
+- .black[All the people living in urbanized areas and urban clusters.]
+]
+
+---
+## Urbanized Area Map
+
+```{r urban-area, echo=FALSE, warning=FALSE, out.width="60%", fig.show='hold', fig.align='center'}
+# Read the image file
+img2 <- readPNG("urbanized-area.png")
+
+# Plot the image
+grid.raster(img2)
+```
+
+---
+## Evolution of Metropolitan Area Definitions
+
+- 1949: Standard Metropolitan Area (SMA)
+- 1959: Standard Metropolitan Statistical Area (SMSA)
+- 1983: Metropolitan Statistical Area (MSA)
+- 1990: Metropolitan Area (MA) encompasses MSAs, CMSAs, PMSAs
+- 2000: Shift to Core Based Statistical Areas (CBSAs)
+
+---
+## Core Based Statistical Area (CBSA)
+
+
+.blockquote[
+###  .brand-crawfest[Metropolitan Statistical Area]
+
+- .black[Urbanized area with 50,000+ population]
+]
+
+.blockquote[
+###  .brand-crawfest[Micropolitan Statistical Area]
+
+- .black[Urban cluster with 10,000 to 50,000 population]
+]
+
+--
+- Building blocks: Counties
+- 361 Metropolitan and 559 Micropolitan areas (as of 2000)
+- 93% of U.S. population in CBSAs (83% Metropolitan, 10% Micropolitan)
+
+---
+## Principal Cities in CBSAs
+
+- Largest municipality is the principal city
+- Additional cities qualify based on population and employment
+- CBSA names include up to three principal cities and the states they extend into
+- This format breaks down the information into digestible parts, suitable for presentation slides
+
+---
+## Metropolitan Statistical Area (MSA)
+
+```{r msa-map, echo=FALSE, warning=FALSE, out.width="60%", fig.show='hold', fig.align='center'}
+# Read the image file
+
+img3 <- readPNG("metropolitan-areas.png")
+
+# Plot the image
+grid.raster(img3)
+```
+
+---
+## Metropolitan Statistical Area (MSA)
+
+```{r msa-map-2, echo=FALSE, warning=FALSE, out.width="60%", fig.show='hold', fig.align='center'}
+# Read the image file
+
+img4 <- readPNG("msa.png")
+
+# Plot the image
+grid.raster(img4)
+```
+
+---
+## CBSA
+
+```{r CBSA-map, echo=FALSE, warning=FALSE, out.width="60%", fig.show='hold', fig.align='center'}
+# Read the image file
+
+img5 <- readPNG("cbsa.png")
+
+# Plot the image
+grid.raster(img5)
+```
+
+---
+## Scavenger Hunt
+
+- You will form groups with others in the classroom. Aim for groups of 2 or 3 people with at least one laptop.
+
+  - If in person, I prefer that you submit the scavenger hunt answers using Canvas. However, if you don't have a laptop with you then I can print the questions for you and you can complete it on paper. Please led me know if you need this option. However, if using a printed copy, i'd prefer that you upload your answers to Canvas later instead of handing in the printed copy.
+
+- You are very welcome to move outside of the classroom. The entire rest of the class is dedicated to doing this activity, so you do not need to return. You may decide that it's better to work outside or in a different location. You can email me with any questions you have as i'll be monitoring my email during the activity.
+
+---
+## Data Sources
+
+- Watch the video on Census data
+
+- Complete the scavenger hunt
+
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
+library(renderthis)
+# https://hhadah.github.io/urban-econ/slides/01-week1/02-thur/02-class2.html
+
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/02-thur/02-class2.html", 
+       to = "~/Documents/GiT/urban-econ/slides/01-week1/02-thur/02-class2.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/02-thur/02-class2.html")
+```

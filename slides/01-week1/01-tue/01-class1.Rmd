@@ -370,7 +370,8 @@ The required book is Brueckner, Jan. 2011. Lectures on Urban Economics. Cambridg
 
 - You will work on first draft in-class
 - You can finish on your own time if you did not finish
-- There are .red[NO] deadlines to submit the notes---other than the firm end-of-course deadlines
+- The first draft is due on Canvas before the next class
+- Then you will have a week to revise the note
 - After Apr. 30, I will grade the notes as your final version
 
 
@@ -395,6 +396,8 @@ The required book is Brueckner, Jan. 2011. Lectures on Urban Economics. Cambridg
 - Weight of activity will depend on complexity
 
 - Lowest three will be dropped
+
+- These activities are always due the next Sunday
 
 ---
 class: segue-yellow
