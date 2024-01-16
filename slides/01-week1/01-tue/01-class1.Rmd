@@ -184,7 +184,7 @@ background-position: 95% 95%
 
 ### What's due? `r icons::fontawesome("exclamation")`
 
-- Scavenger Hunt---no due date and you can redo to improve your grade
+- Scavenger Hunt—no due date and you can redo to improve your grade
 
 ---
 class: segue-yellow
@@ -251,7 +251,7 @@ background-position: 95% 95%
 
   1. Introductory microeconomics (ECON 1010)
   2. High school algebra (solve for X, graph a line, etc.)
-  3. High school statistics (calculating medi- ans, ideally remembering the basics of hypothesis testing, etc.)
+  3. High school statistics (calculating medians and means, ideally remembering the basics of hypothesis testing, etc.)
 
 - It is helpful if you are familiar with statistics and econometrics, but it is not required
   - Knowing what a standard error and confidence interval are is helpful
@@ -280,13 +280,17 @@ The required book is Brueckner, Jan. 2011. Lectures on Urban Economics. Cambridg
 ---
 ## Grading
 
-.left-column[
+.pull-left[
+
 - Quizzes(Best $3$ out of $4 \times 20\%=60\%$)
-- Group Briefing Notes (Best $2$ out of $3 \times 10\%=20\%$)
-- Other Activities ($20%$) (Three activities dropped)
+- Group Briefing Notes (Best $2$ out of $3 \times 10\% = 20\%$)
+- Other Activities $20\%$ (Three activities dropped)
+- Extra credit $3\%$
+  - $1\%$ if $70\%$ of class submitted the class evaluation, $2\%$ if $80\%$ of class submitted the class evaluation, $3\%$ if $90\%$ of class submitted the class evaluation
+- Total $103\%$
 ]
 
-.right-column[
+.pull-right[
 | Grade | Percentage Range |
 |:-----:|:----------------:|
 | A     | 93% to 100%      |
@@ -371,13 +375,13 @@ The required book is Brueckner, Jan. 2011. Lectures on Urban Economics. Cambridg
 - You will work on first draft in-class
 - You can finish on your own time if you did not finish
 - The first draft is due on Canvas before the next class
-- Then you will have a week to revise the note
-- After Apr. 30, I will grade the notes as your final version
-
 
 ]
 
 .pull-right[
+
+- Then you will have a week to revise the note, after which I will grade whatever is submitted on Canvas as the final version
+
 - I will then grade your first draft as if it is a final document, so your grade will be lower
 
 - First round is only temporary
@@ -517,7 +521,7 @@ background-position: 5% 95%
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
-# https://hhadah.github.io/xaringan/index.html
+# https://hhadah.github.io/urban-econ/slides/01-week1/01-tue/01-class1.html
 
 to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/01-tue/01-class1.html", 
        to = "~/Documents/GiT/urban-econ/slides/01-week1/01-tue/01-class1.pdf")
