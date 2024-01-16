@@ -180,7 +180,7 @@ background-position: 95% 95%
 
 - Syllabus
 
-- OSullivan - Census Definitions
+- OSullivan - Census Definitions (pdf posted on Canvas)
 
 ### What's due? `r icons::fontawesome("exclamation")`
 
@@ -287,7 +287,8 @@ The required book is Brueckner, Jan. 2011. Lectures on Urban Economics. Cambridg
 - Other Activities $20\%$ (Three activities dropped)
 - Extra credit $3\%$
   - $1\%$ if $70\%$ of class submitted the class evaluation, $2\%$ if $80\%$ of class submitted the class evaluation, $3\%$ if $90\%$ of class submitted the class evaluation
-- Total $103\%$
+  - $4\%$ if a $100\%$ of class submitted the class evaluation
+- .red[Total] $103\%$
 ]
 
 .pull-right[
@@ -506,13 +507,13 @@ background-position: 5% 95%
 .white[`r icons::fontawesome("paper-plane")` hhadah@tulane.edu]
 </a>
 
-<a href="https://hussainhadah.com/">
+<!-- <a href="https://hussainhadah.com/">
 .white[`r icons::fontawesome("link")` https://hussainhadah.com/]
 </a>
 
 <a href="https://github.com/hhadah">
 .white[`r icons::fontawesome("github")` @hhadah]
-</a>
+</a> -->
 
 <br><br><br>
 
