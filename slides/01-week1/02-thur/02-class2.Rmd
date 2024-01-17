@@ -196,7 +196,6 @@ background-position: 95% 95%
 - .black[Group of contiguous census blocks.]
 ]
 
-- These data are based on three _Census_ geographical units:
 
 ---
 ## Census Blocks
@@ -318,9 +317,17 @@ grid.raster(img5)
 ---
 ## Scavenger Hunt
 
+<iframe src="https://giphy.com/embed/PjxWpnShj8mAS2qYAK" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/bigbangtheory-episode-3-season-7-big-bang-theory-PjxWpnShj8mAS2qYAK"> </a></p>
+
+---
+## Scavenger Hunt
+
 - You will form groups with others in the classroom. Aim for groups of 2 or 3 people with at least one laptop.
 
-  - If in person, I prefer that you submit the scavenger hunt answers using Canvas. However, if you don't have a laptop with you then I can print the questions for you and you can complete it on paper. Please led me know if you need this option. However, if using a printed copy, i'd prefer that you upload your answers to Canvas later instead of handing in the printed copy.
+  - If in person, I prefer that you submit the scavenger hunt answers using Canvas
+  - If you don't have a laptop with you then I can print the questions for you and you can complete it on paper
+  - Let me know if you need this option
+  - If using a printed copy, I'd prefer that you upload your answers to Canvas later instead of handing in the printed copy
 
 - You are very welcome to move outside of the classroom. The entire rest of the class is dedicated to doing this activity, so you do not need to return. You may decide that it's better to work outside or in a different location. You can email me with any questions you have as i'll be monitoring my email during the activity.
 
@@ -330,6 +337,7 @@ grid.raster(img5)
 - Watch the video on Census data
 
 - Complete the scavenger hunt
+
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
