@@ -149,7 +149,6 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
     <li><h4 class="white">Go Over Some Geographic Definitions Briefly</h4></li>
     <li><h4 class="white">See Some Geographical Aggregation Levels</h4></li>
     <li><h4 class="white">Geographical Definitions & Scavenger Hunt</h4></li>
-    <li><h4 class="white">Finding Data on Census.com</h4></li>
     <li><h4 class="white">Finding data on data.census.gov</h4></li>
 </ol>
 
@@ -315,6 +314,8 @@ grid.raster(img5)
 ```
 
 ---
+class: center
+
 ## Scavenger Hunt
 
 <iframe src="https://giphy.com/embed/PjxWpnShj8mAS2qYAK" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/bigbangtheory-episode-3-season-7-big-bang-theory-PjxWpnShj8mAS2qYAK"> </a></p>
