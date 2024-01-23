@@ -195,6 +195,15 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 
 - Difference-in-Differences in _Mastering Metrics Difference in Differences_
 
+---
+## Thursday Readings `r icons::fontawesome("book-open")`
+
+- Last name A to G
+  - Saxenian - 1996
+- Last name H to R
+  - Florida, Mellander, Stolarick - 2011
+- Last name S to Z
+  - Klepper - 2007
 
 ---
 class: segue-yellow
@@ -230,16 +239,16 @@ background-position: 95% 95%
 
 ## People live in cities
 
--  In addition to people clustering in cities, businesses that are similar to each other also
+- In addition to people clustering in cities, businesses that are similar to each other also
 cluster
-
 - A few examples:
   - Silicon Valley in the greater San Francisco area (tech firms)
   - Hollywood” in the greater Los Angeles area (entertainment), and a similar entertainment cluster in New York City
-    - About half of all motion picture production in the US occurs in Los Angeles County!
+      - About half of all motion picture production in the US occurs in Los Angeles County!
   - Automobile manufacturing in Detroit
   - Biotech and health sciences firms in Boston
   - Tourism in New Orleans
+      - Live music venues on Frenchmen Street
 
 ---
 class: segue-yellow
@@ -489,6 +498,20 @@ gridExtra::grid.arrange(
 
 ```
 
+---
+## Some of My favorite pieces of art
+
+```{r art-paintings, echo=FALSE, warning=FALSE, out.width="60%", fig.show='hold', fig.align='center', include=TRUE, eval=TRUE, fig.cap="Clockwise from top left: The Yellow Scale, František Kupka; Joan of Arc, Jules Bastien-Lepage; Evening Calm, Paul Signac; Ancient Rome, Giovanni Paolo Panini"}
+img1 <- grid::rasterGrob(readPNG("/Users/hhadah/Documents/GiT/urban-econ/slides/02-week2/01-tue/yellow-scale.png"))
+img2 <- grid::rasterGrob(readPNG("/Users/hhadah/Documents/GiT/urban-econ/slides/02-week2/01-tue/painting2.png"))
+img3 <- grid::rasterGrob(readPNG("/Users/hhadah/Documents/GiT/urban-econ/slides/02-week2/01-tue/panini.png"))
+img4 <- grid::rasterGrob(readPNG("/Users/hhadah/Documents/GiT/urban-econ/slides/02-week2/01-tue/painting3.png"))
+gridExtra::grid.arrange(
+  grobs = list(img1, img2, img3, img4),
+  ncol = 2, nrow = 2
+)
+
+```
 
 ---
 ## 2) Aesthetics and physical setting
