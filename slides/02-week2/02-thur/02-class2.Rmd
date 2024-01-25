@@ -42,8 +42,6 @@ top_icon = function(x) {
 ```
 
 ```{r setup, include=FALSE}
-# xaringanExtra::use_scribble() ## Draw on slides. Requires dev version of xaringanExtra.
-
 options(htmltools.dir.version = FALSE)
 library(knitr)
 opts_chunk$set(
@@ -116,6 +114,10 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 # To use for line and point colors, add
   scale_colour_manual(values="colorBlindness::Blue2Orange12Steps")
   #<a><button>[Click me](#sources)</button></a>
+remotes::install_github("gadenbuie/xaringanExtra")
+xaringanExtra::use_scribble() ## Draw on slides. Requires dev version of xaringanExtra.
+xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
+#install.packages("countdown")
 ```
 
 ```{css, echo=F}
@@ -138,11 +140,25 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 ---
 ## Jigsaw Activity
 
+![](jigsaw.jpg)
+
+---
+## Jigsaw Activity
+
 1) First grouping - "Focus Groups" - about 20 minutes
 
   1. You will be in a groups with those who read the same paper as you. You will discuss your paper to all get on the same page about it. Specially, you will to be able to summarize your paper to your peers who have not read it in the next group, so you want to ensure you can provide a summary. Probably the best way to get on the same page about your reading is to share your summaries that you submitted before class and discuss how you can improve them. 
 
   2. While in this group, each of you will answer the first set of questions here -> Cluster Jigsaw Questions (Work on During Class Jan 25.)
+
+```{r first-timer, echo=FALSE, message=FALSE}
+library(countdown)
+countdown(
+  minutes = 20, seconds = 0,
+  top = 0, # right = "50%",
+  play_sound = FALSE
+)
+```
 
 ---
 ## Jigsaw Activity
@@ -155,6 +171,11 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
   1. While others are summarizing their papers to you, feel free to ask questions to help you better understand the papers.
   1. Your goal will be to learn enough about the other papers such that you can answer the second set of questions here -> Cluster Jigsaw Questions (Work on During Class Jan. 25)
   1. You are free to go once you've submitted your answers.
+
+```{r second-timer, echo=FALSE, message=FALSE}
+library(countdown)
+countdown(minutes = 50, seconds = 0, top = 0)
+```
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
