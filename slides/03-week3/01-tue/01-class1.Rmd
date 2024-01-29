@@ -174,10 +174,6 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
     <li><h4 class="white">Introduce you to the GHM paper</h4></li>
     <li><h4 class="white">Basics of "Difference-in-Differences"</h4></li>
     <li><h4 class="white">Summary of the results of GHM</h4></li>
-    <li><h4 class="white">Tech clusters</h4></li>
-    <li><h4 class="white">Activity on COVID-19 and agglomeration</h4></li>
-    <li><h4 class="white">Practice quiz on Canvas in pairs</h4></li>
-
 </ol>
 
 ---
@@ -506,6 +502,158 @@ To better illustrate how DiD can estimate causal effects better than other compa
   - Suppose that productivity was decreasing in the county anyways before the MDP moved in.
   - Therefore, if we use A – B as our estimate, it might understate the effect of spillovers. The estimated effect would be the actual effect + the productivity change that would have happened anyways (negative in this example).
 
+---
+## Naïve Comparison 2: No Before Period
+
+- Suppose I did have a control group, but I didn’t have or use data from before the MDP moved in.
+- That is, I compare the productivity of the existing firms in the county that wins the MDP after the MDP arrives (“A”) to the productivity of the existing firms in the counties that do not win the MDP in the same period (“C”).
+- That is, I calculate A – C and use that as my estimate of the effect of spillovers on productivity.
+- The problem with using A – C as the estimate is that it could include bias from **uncontrolled differences between groups**.
+- Differences between groups = groups (e.g., existing firms and winning and losing counties) are on-average different, such as having different existing productivity levels.
+- The estimate A - C does not control for these existing group differences. It’s not an “apples to apples” comparison because the treatment group and control group are not on-average the same.
+- This means that A – C could be either positively or negatively biased depending on the differences between groups.
+
+---
+## Naïve Comparison 2: No Before Period
+
+- Example of overstating the effect (upwardly/positively biased estimate):
+
+  - Suppose that the existing firms in the winning counties are on-average more productive. It may be that the MDP chose to go to that winning county for that reason.
+  - Therefore, if we use A – C as our estimate, it might overstate the effect of spillovers, attributing the differences as due to the benefits of spillovers, when really that difference captures the benefits of spillovers plus the average difference between groups.
+
+--
+
+- Example of understating the effect (downwardly/negatively biased estimate):
+
+  - Suppose that the existing firms in the winning counties are on-average less productive. 
+  - Therefore, if we use A – C as our estimate, it might understate the effect of spillovers, attributing the differences as due to the benefits of spillovers, when really that difference captures the benefits of spillovers plus the average difference between groups.
+
+---
+## DiD removes (some) sources of bias
+
+DiD removes two sources of bias:
+
+1. Existing time trends -> under the assumption the control group tells you the counterfactual, what would have happened had treatment not occurred, then DiD removes the existing time trend.
+2. Existing fixed differences between groups -> The use of data before and after the treatment (MDP moving in) allows researchers to subtract out the fixed differences between the treatment and control group.
+
+- However, DiD could still give a biased estimate if an important assumption, called the parallel trends assumption, does not hold.
+
+---
+## Parallel Trends Assumption
+
+- This assumption must be true for the DiD to provide an unbiased estimate of the causal effect.
+- .red[Parallel trends assumption] = The assumption that, had treatment not occurred (the MDP actually didn’t move in), then the treatment group and control group would have had the same changes in productivity over time (i.e. parallel changes).
+
+- I am going to rephrase this several times as rephrasing this might make it more understandable.
+
+---
+## Parallel Trends Assumption
+
+- Another way to phrase this assumption is that the control group is a correct estimate of the counterfactual.
+- Counterfactual = what would have happened to the existing firms in the winning county, had the MDP not moved in.
+- We do not know this counterfactual. For us to know it, we would have to observe a universe both where the MDP moved in and one where it did not.
+- Since we only observe either the MDP moving in, or not moving in, we use the control group to **estimate** the unobserved case.
+
+--
+
+- Another way to phrase the parallel trends assumption is that the control group gives an accurate estimate of the “business as usual” – what would have happened to those firms without the MDP moving in.
+- The counterfactual estimate (C – D) gives us the change we would expect in the outcome variable anyways, independent of the “treatment” (the MDP moving in).
+
+---
+## Violations of Parallel Paths
+
+Violations of the Parallel Paths assumption lead the DiD estimate to be biased. Examples:
+1. Suppose that the control counties had existing productivity growth that was slower than the existing growth trend in the treated county(ies). Then my DiD estimate would overstate the true causal effect, since my estimated counterfactual growth rate of productivity would be too small.
+2. Suppose that something happens over time that is not controlled for that affects either the treatment of control group, or affects one differently than the other.
+  1. E.g., suppose that the MDP moves in at the same time that the county cuts taxes for all businesses. This means that existing productivity trends, that are independent of the MDP moving in, may be different since there is this uncontrolled event.
+  2. In this case, the DiD estimate would also likely overstate the true causal effect, with the DiD estimate being the causal effect + the effect of the tax cut
+
+---
+## Investigating Parallel Trends
+
+How do we know if Parallel Trends holds? 
+1. Check to make sure that nothing else happened over the same time period. Maybe taxes were cut in the winning counties before the firms moved in?
+2. Look at pre-trends. Look at the trends in productivity in the winning and losing counties before the new firm enters. Did they seem to trend similarly? If they weren’t then that might suggest that parallel trends doesn’t hold.
+
+--
+
+How would this work in Greenstone el al. (2010)?
+
+1. Seems unlikely that something happened in the winning counties before firm entry, relative to the losing counties.
+2. They look at the pre-trends and note that they are similar for the firms in winning and losing counties.
+
+- This seems to suggest that parallel trends holds.
+
+---
+## Ok, so what exactly do they do?
+
+- Greenstone el al. (2010) use the difference-in-differences strategy to measure productivity spillovers on existing firms when the new firms enter the winning counties.
+- They use “total factor productivity” to measure productivity of the existing firms.
+
+---
+## Total Factor Productivity and Production Functions
+
+- Total factor productivity (TFP) is a measure of how efficiently inputs are used to produce output.
+
+- Going back to the Cobb-Douglas Production Function…
+
+$$
+Y = A K^{\alpha} L^{1-\alpha}
+$$
+
+Where:
+
+- Y = Output
+- K = Capital
+- L = Labor
+- A = Total Factor Productivity -> usually though of as technology or production practices.
+  - Measures how much you can get out of fixed inputs (K and L constant).
+  - E.g., hold K and L fixed. Double A, then Y doubles. Making double output with the same inputs.
+
+--
+
+- Greenstone et al. (2010) use the “augmented” Cobb-Douglas production function to model the production (and productivity) of each firm.
+  - Augmented as in, they used a more complicated model than the one earlier.
+- They use “A” to measure productivity.
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Results of Greenstone et al. (2010) `r top_icon("chart-line")`
+
+---
+## Winning counties have higher productivity
+
+- Five years after the new manufacturing plants open in the winning counties, total factor productivity (TFP) is 12 percent higher in winning counties (relative to before, relative to losing counties).
+- Pretty big effect!
+- Greenstone et al. (2010) also found that the spillover effect was larger for firms that shared similar labor and technology pools with the new plants. This makes sense.
+
+---
+## What about labor costs?
+
+.pull-left[
+  
+  - But something else happens. Labor costs increase.
+  - This makes sense. A big manufacturing plant moves into the country. Demand for manufacturing works goes up.
+  - Labor demand curve shifts to the right.
+  - The wage increase should be higher in the short term than in the long term.
+  - In the long term, more workers can move to that country (supply shifts right).
+
+]
+
+.pull-right[
+  ![](assets/Picture1.png)
+]
+
+---
+## Total Effect on Existing Firms
+
+- Total Factor Productivity for existing firms increases by 12 percent over five years.
+- But labor costs also increase.
+- So part of the profit increase that would come from the TFP increase is eaten by labor costs.
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
