@@ -683,17 +683,20 @@ background-position: 95% 95%
 
 - First, we need to load the data and install the packages we will use.
 
+- The dataset could be downloaded from [here](https://raw.githubusercontent.com/hhadah/urban-econ/main/slides/03-week3/02-thur/assets/minwage_short.csv)
+
 ```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
 # Load the data
 library(haven)
 library(tidyverse)
 library(dplyr)
 library(readr)
+library(broom)
 
-urlfile = "https://github.com/hhadah/urban-econ/blob/main/slides/03-week3/02-thur/assets/minwage_short.csv"
+urlfile = "https://raw.githubusercontent.com/hhadah/urban-econ/main/slides/03-week3/02-thur/assets/minwage_short.csv"
 
 # Load the data
-data <- read_dta(url(urlfile))
+data <- read_csv(url(urlfile))
 names(data)
 ```
 
@@ -702,6 +705,80 @@ names(data)
 ## Difference-in-differences R Code
 
 - Filter missing data
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+min_wage_data <- data %>%
+  filter(!(is.na(emptot1)), !(is.na(emptot2)))
+names(min_wage_data)
+```
+
+- Create a new variable `treat` to indicate the treatment group
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+min_wage_data <- min_wage_data %>%
+  mutate(nj = state == 1)
+```
+
+---
+## Do Difference-in-differences by hand
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+nj_before <- min_wage_data %>%
+  filter(nj == 1) %>%
+  summarise(mean_empt1 = mean(emptot1), sd_empt1 = sd(emptot1))
+nj_after <- min_wage_data %>%
+  filter(nj == 0) %>%
+  summarise(mean_empt1 = mean(emptot1), sd_empt1 = sd(emptot1))
+pa_before <- min_wage_data %>%
+  filter(nj == 1) %>%
+  summarise(mean_empt2 = mean(emptot2), sd_empt2 = sd(emptot2))
+pa_after <- min_wage_data %>%
+  filter(nj == 0) %>%
+  summarise(mean_empt2 = mean(emptot2), sd_empt2 = sd(emptot2))
+```
+
+---
+## Do Difference-in-differences by hand
+
+.pull-left[
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+nj_after
+nj_before
+```
+]
+
+.pull-right[
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+pa_after
+pa_before
+```
+]
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+nj_after - nj_before - (pa_after - pa_before)
+```
+
+---
+## Do Difference-in-differences by hand
+
+### Now, change over time (after - before)
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+min_wage_data <- min_wage_data %>%
+  mutate(demp = (emptot2 - emptot1))
+summary_demp <- min_wage_data %>%
+  group_by(state) %>%
+  summarise(mean = mean(demp), sd = sd(demp))
+summary_demp
+```
+
+---
+## Difference-in-differences in regression form
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+DD_Regression <- lm(demp ~ nj, data = min_wage_data)
+tidy(DD_Regression)
+```
 
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = FALSE}
