@@ -688,9 +688,12 @@ background-position: 95% 95%
 library(haven)
 library(tidyverse)
 library(dplyr)
+library(readr)
+
+urlfile = "https://github.com/hhadah/urban-econ/blob/main/slides/03-week3/02-thur/assets/minwage_short.csv"
 
 # Load the data
-data <- read_dta("assets/minwage_short.dta")
+data <- read_dta(url(urlfile))
 names(data)
 ```
 

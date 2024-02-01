@@ -263,7 +263,7 @@ background-position: 95% 95%
 - Remember order of operations -&gt; multiply SE by 2 first!
 - I’ll give you five minutes to do the short quiz “Confidence Interval Calculation” on Canvas. I’ll put you into breakout rooms so you can more easily ask each other or me (by summoning me) questions.
 
-<div class="countdown" id="timer_7cd44912" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_b72200da" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -384,7 +384,7 @@ $$
   - `\(|t-statistic| \ge 2\)`
 - I’ll give you five minutes to do the short quiz “t-statistics and hypothesis testing” on Canvas. Ask each other or me questions.
 
-<div class="countdown" id="timer_12d1be4f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_a8240dba" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -491,9 +491,14 @@ background-position: 95% 95%
 library(haven)
 library(tidyverse)
 library(dplyr)
+#library(readr)
+
+#urlfile = "https://github.com/hhadah/urban-econ/blob/main/slides/03-week3/02-thur/assets/minwage_short.dta"
 
 # Load the data
+#data &lt;- read_dta(url(urlfile))
 data &lt;- read_dta("assets/minwage_short.dta")
+write_csv(data, "assets/minwage_short.csv")
 names(data)
 ```
 
