@@ -343,6 +343,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 
+# Set the seed at the beginning to ensure reproducibility for the entire process
+np.random.seed(0)
+
 # Creating a large sample to represent the population
 population_size = 10000
 population = np.random.normal(loc=10, scale=1, size=population_size)
@@ -350,7 +353,6 @@ population_mean = np.mean(population)  # Calculating the actual mean of the popu
 
 # Function to simulate confidence intervals
 def simulate_confidence_intervals(simulations, sample_size, confidence_level):
-    np.random.seed(0)
     sample_means = []
     confidence_intervals = []
 
@@ -369,7 +371,6 @@ def simulate_confidence_intervals(simulations, sample_size, confidence_level):
     return sample_means, confidence_intervals
 
 # Generating a random sample of size 30 from the population
-np.random.seed(0)
 sample_size = 30
 sample = np.random.choice(population, size=sample_size, replace=False)
 sample_mean = np.mean(sample)  # Calculating the actual mean of the sample
@@ -386,7 +387,7 @@ fig, axs = plt.subplots(1, 3, figsize=(18, 6))  # 1 row, 3 columns
 
 # Plotting the population distribution in the first subplot
 axs[0].hist(population, bins=30, color='skyblue', edgecolor='black', alpha=0.7)
-axs[0].axvline(population_mean, color='red', linestyle='dashed', linewidth=2, label=f'Mean: {population_mean:.2f}')
+axs[0].axvline(10, color='red', linestyle='dashed', linewidth=2, label=f'Mean: 10')
 axs[0].set_title('Population Distribution')
 axs[0].set_xlabel('Value')
 axs[0].set_ylabel('Frequency')
@@ -395,6 +396,7 @@ axs[0].legend()
 # Plotting the sample distribution and its 95% CI in the second subplot
 axs[1].hist(sample, bins=15, color='green', edgecolor='black', alpha=0.7)
 axs[1].axvline(sample_mean, color='red', linestyle='dashed', linewidth=2, label=f'Mean: {sample_mean:.2f}')
+axs[1].axvline(10, color='blue', linestyle='dashed', linewidth=2, label=f'Actual Mean: 10')
 axs[1].axvspan(sample_confidence_interval[0], sample_confidence_interval[1], alpha=0.3, color='yellow', label='95% CI')
 axs[1].set_title('Sample Distribution')
 axs[1].set_xlabel('Value')
@@ -497,6 +499,22 @@ grid.raster(img5)
 If we decrease the level that we test at (e.g., from 5% to 1%, which would be the same as moving from a 95%
 confidence interval to a 99% confidence interval) then we decrease the probability of making Type 1 Errors
 (fewer false positives) but we increase the probability of making Type 2 Errors (more false negatives).
+
+---
+
+.center[![image](assets/pregnant.jpg)]
+
+---
+## Which Type of error is this concept minimizing?
+
+> It is better that ten guilty persons escape than that one innocent suffer. - William Blackstone
+
+
+--
+
+- In the context of the criminal justice system
+  - Type I error occurs when an innocent person is wrongfully convicted
+  - Type II error, or "false negative," occurs when a guilty person is wrongfully acquitted
 
 ---
 ## Hypothesis testing formula
