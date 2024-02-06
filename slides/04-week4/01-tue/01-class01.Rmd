@@ -491,12 +491,45 @@ background-position: 95% 95%
 ]
 
 .pull-right[
-```{r picture2, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
-# Read the image file
-img2 <- readPNG("assets/Picture2.png")
+```{python, echo=FALSE, warning=FALSE, results='hide', out.width="80%", fig.show='hold', fig.align='center'}
+import matplotlib.pyplot as plt
+import numpy as np
 
-# Plot the image
-grid.raster(img2)
+# Editing the code to place the labels of the curves next to the lines themselves instead of using a legend
+
+fig, ax = plt.subplots(figsize=(8, 6))
+
+# Quantity of labor
+labor = np.linspace(1, 10, 100)
+
+# Demand curves
+demand = 100 - 8 * labor
+demand_star = 120 - 8 * labor  # Higher demand curve
+
+# Supply curve (Short Run)
+supply_short_run = 20 + 5 * labor
+
+# Plotting the curves
+demand_line, = ax.plot(labor, demand, color='blue')
+demand_star_line, = ax.plot(labor, demand_star, color='blue', linestyle='dashed')
+supply_short_run_line, = ax.plot(labor, supply_short_run, color='red')
+
+# Adding labels next to the lines
+ax.text(labor[-1], demand[-1], 'D', color='blue', verticalalignment='bottom')
+ax.text(labor[-1], demand_star[-1], 'D*', color='blue', verticalalignment='bottom')
+ax.text(labor[-1], supply_short_run[-1], 'Short Run', color='red', verticalalignment='bottom')
+
+# Adding titles and labels
+ax.set_title('Real Wage vs. Quantity of Labor')
+ax.set_xlabel('Quantity of Labor')
+ax.set_ylabel('Real Wage')
+
+# Removing ticks and numbers on both axes
+ax.set_xticks([])
+ax.set_yticks([])
+
+# Show plot
+plt.show()
 ```
 
 ]
@@ -513,12 +546,52 @@ grid.raster(img2)
 ]
 
 .pull-right[
-```{r picture3, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
-# Read the image file
-img2 <- readPNG("assets/Picture2.png")
+```{python, echo=FALSE, warning=FALSE, results='hide', out.width="80%", fig.show='hold', fig.align='center'}
+import matplotlib.pyplot as plt
+import numpy as np
 
-# Plot the image
-grid.raster(img2)
+# Setting up the figure and axis
+fig, ax = plt.subplots(figsize=(8, 6))
+
+# Quantity of labor
+labor = np.linspace(1, 10, 100)
+
+# Demand curves
+demand = 100 - 8 * labor
+demand_star = 120 - 8 * labor  # Higher demand curve
+
+# Supply curve (Short Run)
+supply_short_run = 20 + 5 * labor
+
+# Plotting the original curves
+ax.plot(labor, demand, color='blue')
+ax.plot(labor, demand_star, color='blue', linestyle='dashed')
+ax.plot(labor, supply_short_run, color='red')
+
+# Adding labels next to the lines for the original curves
+ax.text(labor[-1], demand[-1], 'D', color='blue', verticalalignment='bottom')
+ax.text(labor[-1], demand_star[-1], 'D*', color='blue', verticalalignment='bottom')
+ax.text(labor[-1], supply_short_run[-1], 'Short Run', color='red', verticalalignment='bottom')
+
+# Adding the Long Run Supply Curve that is parallel to the Short Run Supply
+# and intersects with D* at the initial intersection point between D and the Short Run Supply.
+# For visual approximation, we adjust the position slightly.
+supply_long_run = 20 + 5 * labor - 12  # Adjusted to visually match the specified conditions
+ax.plot(labor, supply_long_run, color='green', linestyle='--')
+ax.text(labor[-1], supply_long_run[-1], 'Long Run', color='green', verticalalignment='bottom')
+
+# Adding titles and labels for the graph
+ax.set_title('Real Wage vs. Quantity of Labor')
+ax.set_xlabel('Quantity of Labor')
+ax.set_ylabel('Real Wage')
+
+# Removing ticks and numbers on both axes
+ax.set_xticks([])
+ax.set_yticks([])
+
+# Show plot
+plt.show()
+
 ```
 ]
 
