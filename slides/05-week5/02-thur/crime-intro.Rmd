@@ -1,0 +1,307 @@
+---
+title: "The Economics of Crime: An Overview"
+subtitle: "Economics of Crime"
+author: "Hussain Hadah (he/him)"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/tulane-fonts.css", "assets/tulane.css"]
+    self_contained: false # if true, fonts will be stored locally
+    seal: true # show a title slide with YAML information
+    includes:
+      in_header: "assets/mathjax-equation-numbers.html"
+    nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9' # alternatives '16:9' or '4:3' or others e.g. 13:9
+      navigation:
+        scroll: false # disable slide transitions by scrolling
+---
+layout: true
+<div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;">`r rmarkdown::metadata$author` (Tulane) | `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`</div>
+
+<!--- `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`-->
+
+---
+class: title-slide
+background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+
+```{r, load_refs, echo=FALSE, cache=FALSE, message=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'authoryear', 
+           style = "markdown",
+           hyperlink = FALSE, 
+           dashed = FALSE)
+myBib <- ReadBib("assets/example.bib", check = FALSE)
+top_icon = function(x) {
+  icons::icon_style(
+    icons::fontawesome(x),
+    position = "fixed", top = 10, right = 10
+  )
+}
+```
+
+```{r setup, include=FALSE}
+# xaringanExtra::use_scribble() ## Draw on slides. Requires dev version of xaringanExtra.
+
+options(htmltools.dir.version = FALSE)
+library(knitr)
+opts_chunk$set(
+  fig.align="center",  
+  fig.height=4, fig.width=6,
+  out.width="748px", out.length="520.75px",
+  dpi=300, #fig.path='Figs/',
+  cache=F#, echo=F, warning=F, message=F
+  )
+```
+
+
+```{r, cache=FALSE, message=FALSE, warning=FALSE, include=TRUE, eval=TRUE, results=FALSE, echo=FALSE, tidy.opts = list(width.cutoff = 50), tidy = TRUE}
+## Load and install the packages that we'll be using today
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tictoc, parallel, pbapply, future, future.apply, furrr, RhpcBLASctl, memoise, here, foreign, mfx, tidyverse, hrbrthemes, estimatr, ivreg, fixest, sandwich, lmtest, margins, vtable, broom, modelsummary, stargazer, fastDummies, recipes, dummy, gplots, haven, huxtable, kableExtra, gmodels, survey, gtsummary, data.table, tidyfast, dtplyr, microbenchmark, ggpubr, tibble, viridis, wesanderson, censReg, rstatix, srvyr, formatR, sysfonts, showtextdb, showtext, thematic, sampleSelection, RefManageR, DT, googleVis, png, grid)
+# devtools::install_github("thomasp85/patchwork")
+#remotes::install_github("mitchelloharawild/icons")
+#remotes::install_github("ROpenSci/bibtex")
+
+# devtools::install_github("ajdamico/lodown")
+## My preferred ggplot2 plotting theme (optional)
+## https://github.com/hrbrmstr/hrbrthemes
+# scale_fill_ipsum()
+# scale_color_ipsum()
+font_add_google("Fira Sans", "firasans")
+font_add_google("Fira Code", "firasans")
+
+showtext_auto()
+
+theme_customs <- theme(
+  text = element_text(family = 'firasans', size = 16),
+  plot.title.position = 'plot',
+  plot.title = element_text(
+    face = 'bold', 
+    colour = thematic::okabe_ito(8)[6],
+    margin = margin(t = 2, r = 0, b = 7, l = 0, unit = "mm")
+  ),
+)
+
+colors <-  thematic::okabe_ito(5)
+
+# theme_set(theme_minimal() + theme_customs)
+theme_set(hrbrthemes::theme_ipsum() + theme_customs)
+## Set master directory where all sub-directories are located
+mdir <- "/Users/hhadah/Documents/GiT/urban-econ/slides/01-week1/tue"
+
+## Set working directory
+
+# COLOR PALLETES
+library(paletteer) 
+# paletteer_d("awtools::a_palette")
+# paletteer_d("suffrager::CarolMan")
+
+### COLOR BLIND PALLETES
+#paletteer_d("colorblindr::OkabeIto")
+#paletteer_d("colorblindr::OkabeIto_black")
+# paletteer_d("colorBlindness::paletteMartin")
+# paletteer_d("colorBlindness::Blue2DarkRed18Steps")
+# paletteer_d("colorBlindness::SteppedSequential5Steps")
+# paletteer_d("colorBlindness::PairedColor12Steps")
+# paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps")
+colorBlindness <- paletteer_d("colorBlindness::Blue2Orange12Steps")
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+# scale_colour_paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps", dynamic = FALSE)
+# To use for fills, add
+  scale_fill_manual(values="colorBlindness::Blue2Orange12Steps")
+
+# To use for line and point colors, add
+  scale_colour_manual(values="colorBlindness::Blue2Orange12Steps")
+  #<a><button>[Click me](#sources)</button></a>
+```
+
+```{css, echo=F}
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+```
+# .text-shadow[.white[Outline for Today]]
+
+<ol>
+    <li><h4 class="white">Key points in Marie (2014)</h4></li>
+    <li><h4 class="white">Overview of Becker model of crime</h4></li>
+    <li><h4 class="white">Non-data points from Dills, Miron, and </br>Summers (2010)</h4></li>
+    <li><h4 class="white">Crime trends in US</h4></li>
+    <li><h4 class="white">Popular crime topics studied by economists</h4></li>
+</ol>
+
+---
+## Some housekeeping first
+
+```{r meme, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image file
+img1 <- readPNG("assets/kelce-meme.png")
+
+# Plot the image
+grid.raster(img1)
+```
+
+---
+## Next week `r top_icon("calendar-week")`
+
+- Intro to Measuring the Effect of Police on Crime
+
+- Measuring the Effect of Police on Crime - Jigsaw Activity
+
+  - To make the in-class activities more smooth, I will assign the readings and groups to students randomly
+  - I assigned the readings to students randomly on Canvas
+  - I also assigned task groups randomly
+
+- Measuring the effect of economic circumstances on crime
+
+### Readings
+
+- Jigsaw Activity: Readings on Canvas
+
+- Yang (2017)
+
+- Palmer, Phillips, Sullivan (2019)
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# The Contribution of Economist to the Study of Crime
+
+---
+## Key points in Marie (2014)
+
+1. A .brand-blue[normative] framework for evaluating crime policy.
+2. The application of sophisticated quantitative methods to analyze the causes of crime and the
+effects of crime-control measures in this framework.
+3. The conception of criminal behavior as individual choice, influenced by perceived
+consequences.
+4. The aggregation of individual choices into a systems framework for understanding crime
+rates and patterns.
+
+
+---
+## Economists focus on policy
+
+
+> Among the social sciences, economics tends to be best suited for addressing issues relevant to policy design. The economic model presumes that observed behaviour is not the inevitable result of underlying social conditions, but rather results from individual choices influenced by perceived consequences. If government policy can change those consequences, then behaviour change will follow.
+
+---
+## Economists focus on policy
+
+- We went over one method in which economists try to infer causality of an intervention on an outcome---Million Dollar Plants.
+
+- Economics can better focus on policy by studying causality.
+
+- What is the effect of some factor (e.g., economic opportunity, police spending) on crime?
+
+- The idea to go beyond just noticing correlations or associations, which, up until recently was more-so what those in sociology and psychology had done.
+
+---
+## Economics can help answer these questions in two ways
+
+1. Economic (mathematical) models
+  - The model comes up with predictions as to causal effects.
+  - Pros: the conclusions are irrefutable if the model is correct.
+  - Cons: the model could be incorrect (e.g., oversimplified)
+
+2. Empirical methods (econometrics, data)
+  - Uses data and actual policy events.
+  - Either uses a randomized control trial or uses another methodology (e.g., difference-in-differences) to estimate a causal effect.
+
+---
+## Empirical methods (econometrics, data)
+
+- Sometimes uses .blue[field experiments] (e.g., doing the randomization yourself, e.g., randomizing extra police presence)
+- Often leverages so-called “.blue[natural experiments]” (a.k.a. quasi-experiments)
+- The idea behind a .blue[natural experiment] is that there is something close to randomization happening without researcher intervention.
+- E.g., studying the impacts of a welfare program on criminal activity, by leveraging the fact that funding was only available for people depending on what day and what time of day they called into the hotline (Palmer, Phillips, and Sullivan, 2019, which we cover later)
+- E.g., you can argue that a policy or event was random, like in Tella and Schargrodsky (2004) who found that a random terrorist event led to an increase in policy presence, and they leverage that to do a DiD (you will see more about this paper later)
+
+---
+## Empirical methods (econometrics, data)
+
+- Pro: Observes real-life data and policy changes. The research is more “externally valid” compared to using models (e.g., models may not characterize actual behavior, which is complex).
+- Pro: Since this approach often has economists estimating the causal effects of actual policies or events, it’s easier to comment on those events.
+- Con: using real-life data is complicated, and it’s often difficult to control for all factors (although this is a difficulty with models, too)
+- Con: The causal estimation strategy (e.g., DiD) requires assumptions that may not hold. E.g., the parallel trends assumption might not hold.
+
+---
+## Economics focuses on policy
+- Given that both mathematical models and empirical (statistical) methods have pros and cons, it’s ideal to use both if possible.
+
+- There has been more growth in empirical, data-driven research over models, likely due to:
+   1. The increase in available data.
+   2. Improvements in causal estimation techniques and statistical software.
+   3. Stronger emphasis on studying actual events and actual human behavior.
+
+
+---
+## Cost-benefit analysis
+
+- The economic approach to studying crime also brings with it cost-benefit analysis, which
+balances the cost and benefits of policy actions.
+
+- E.g., balance the benefits of reducing crime with the costs of reducing it.
+
+- Cost-benefit analysis is frequently used by government to guide policy.
+
+- Concepts like marginal costs come into play with cost-benefit analysis:
+
+> “The optimal amount of crime is unlikely to be zero, since at some point the marginal costs of
+additional prevention will exceed the marginal benefit of an additional reduction in crime.” (p.
+8)
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# The Rational Criminal Model
+
+---
+## The Rational Criminal by DALL-E
+
+```{r rational-criminal, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center', caption="The Rational Criminal by DALL-E"}
+# Read the image file
+img2 <- readPNG("assets/dalle-rational-criminal.png")
+
+# Plot the image
+grid.raster(img2)
+```
+
+---
+## The “Rational Criminal” Model
+
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
+library(renderthis)
+# https://hhadah.github.io/xaringan/index.html
+
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/05-week5/02-thur/crime-intro.html", 
+       to = "~/Documents/GiT/urban-econ/slides/05-week5/02-thur/crime-intro.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/05-week5/02-thur/crime-intro.html")
+```
