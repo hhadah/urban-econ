@@ -254,7 +254,7 @@ rates and patterns.
 - Often leverages so-called “.blue[natural experiments]” (a.k.a. quasi-experiments)
 - The idea behind a .blue[natural experiment] is that there is something close to randomization happening without researcher intervention.
 - E.g., studying the impacts of a welfare program on criminal activity, by leveraging the fact that funding was only available for people depending on what day and what time of day they called into the hotline (Palmer, Phillips, and Sullivan, 2019, which we cover later)
-- E.g., you can argue that a policy or event was random, like in Tella and Schargrodsky (2004) who found that a random terrorist event led to an increase in policy presence, and they leverage that to do a DiD (you will see more about this paper later)
+- E.g., you can argue that a policy or event was random, like in Tella and Schargrodsky (2004) who found that a random terrorist event led to an increase in police presence, and they leverage that to do a DiD (you will see more about this paper later)
 
 ---
 ## Empirical methods (econometrics, data)
@@ -308,6 +308,14 @@ img2 <- readPNG("assets/dalle-rational-criminal.png")
 # Plot the image
 grid.raster(img2)
 ```
+
+---
+
+.blockquote[
+  All models are wrong, but some are useful.
+
+  - George Box
+]
 
 ---
 ## The “Rational Criminal” Model
@@ -583,7 +591,7 @@ Consider two cases:
 
 .pull-left[
 
-- If increase for the disadvantaged decreases, the legitimate-income curve gets steeper.
+- If income for the disadvantaged decreases, the legitimate-income curve gets steeper.
 
 - This curve intersects the criminal income line at higher value of n.
 
@@ -824,7 +832,7 @@ background-position: 95% 95%
 
 - There has also been better access to data since 2010. For example:
 1. Crystal Yang, whose paper we will discuss later, leverages detailed sentencing data to study how economic circumstances affect recidivism (reoffending). (Yang, 2017)
-2. Teams of economists have used administrative data (government-held data) in counties such as Norway that matches criminal justice records with other data like tax and program use data. They use this data and a “judge fixed effects” approach (discussed briefly in next slide, and later on in the course in more detail) to see how incarceration affects future criminal behavior. (Bhuller et al., 2020)
+2. Teams of economists have used administrative data (government-held data) in countries such as Norway that matches criminal justice records with other data like tax and program use data. They use this data and a “judge fixed effects” approach (discussed briefly in next slide, and later on in the course in more detail) to see how incarceration affects future criminal behavior. (Bhuller et al., 2020)
 
 ---
 ## Judge Fixed Effects
