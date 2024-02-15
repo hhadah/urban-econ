@@ -151,16 +151,6 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
     <li><h4 class="white">Popular crime topics studied by economists</h4></li>
 </ol>
 
----
-## Some housekeeping first
-
-```{r meme, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
-# Read the image file
-img1 <- readPNG("assets/kelce-meme.png")
-
-# Plot the image
-grid.raster(img1)
-```
 
 ---
 ## Next week `r top_icon("calendar-week")`
@@ -296,6 +286,585 @@ grid.raster(img2)
 
 ---
 ## The “Rational Criminal” Model
+
+- A popular economic model of crime.
+
+- Models choice between criminal vs non-criminal activity.
+
+- Explains how criminal activity can be related to individual economic opportunities and to income inequality.
+
+  - A simplified “rational criminal” model is presented in the textbook and in these slides.
+
+  - Chapter 10.1 to 10.2.2 (up to page 214), and 10.3.4 (page 220)
+
+- This model is not supposed to explain all criminal behavior, but rather I am summarizing a simple version of this model so you have a sense of the types of models that economists often construct to explore how factors such as economic opportunity affect criminal behavior.
+
+---
+## The Simple Model
+
+- Based on the work by Gary Becker and Edward Glaeser.
+
+- Focuses on the occupational choice: criminal vs non-criminal.
+
+- Suppose a city has $\overline{n}$ residents; where $n = 1, 2, 3, \ldots, \overline{n}$.
+
+- Each resident can earn some income level from legitimate employment (non-criminal).
+
+- For easy of exposition, we will sort people by increasing income.
+
+- So if y is income, then Person 1 has the lowest income, and Person $\overline{n}$ has the highest income.
+
+$$
+y_1 < y_2 < \ldots < y_k < \ldots < y_n
+$$
+
+---
+## Income for Each Individual
+
+.pull-left[
+
+- So if y is income, then Person 1 has the lowest income, and Person $\overline{n}$ has the highest income.
+
+$$
+y_1 < y_2 < \ldots < y_k < \ldots < y_n
+$$
+
+- Called the legitimate-income curve.
+
+- The value at $n = k$ gives the legitimate income for individual $k$.
+
+
+]
+
+.pull-right[
+```{r img1, echo=FALSE, warning=FALSE, out.width="90%", fig.show='hold', fig.align='center'}
+# Read the image file
+img1 <- readPNG("assets/Picture1.png")
+
+# Plot the image
+grid.raster(img1)
+```
+
+]
+
+---
+## Criminal Activity – Overview
+
+- The alternative to legitimate income is criminal activity.
+
+- Individuals can instead steal from others.
+
+- Four variables go into calculating the benefits/costs of criminal activity:
+
+1. Value of loot (called $L$);
+2. Probability of apprehension by police (called $a$);
+3. Cost of Jail Time (called $J$ and $J$ is positive as it gets subtracted);
+4. Stigma cost to being a criminal (called $e$).
+
+---
+## Criminal Activity – Set Up 
+
+- The amount per period that individuals can steal is $L$ ( $L$ for “loot”).
+- The value of $L$ is linked to the incomes of rich individuals.
+- Criminals can be apprehended by police and lose their loot. Let the variable $a$ be the probability of apprehension. So $0 < a < 1$. 
+  - 0 = never apprehended, 1 = always apprehended
+- Apprehension also imposes the cost of a jail term. Let this be $J$.
+- There is a stigma cost that criminals face regardless of if they are apprehended. This is $e$. 
+
+---
+## Criminal Activity - Value
+
+1. If apprehended, the criminal has a benefit equal to $-J - e$ 
+2. If they are not apprehended, the criminal has a benefit equal to $L - e$.
+
+- Case (1) happens with probability $a$, so Case (2) happens with probability $1-a$.
+
+- The expected value of the benefit (weighted average between both cases) is:
+
+- Probability of Case 2 * Benefit of Case 2 + Probability of Case 1 * Benefit of Case 1
+
+$$
+\begin{align*}
+\text{Expected Value}&=\underbrace{(1 - a)L}_{\text{Value of crime if not caught}} – \underbrace{(1 – a)e}_{\text{Stigma cost if not caught}} + \underbrace{a(-J - e)}_{\text{Cost if jail and stigma if caught}} \\
+&= (1 – a)L – e + ae –aJ -ae \\
+\text{Expected Value}&= (1 – a)L – aJ - e
+\end{align*}
+$$
+
+---
+## Criminal Activity - Value
+
+- Criminal income = $y_{crime} = (1 – a)L – aJ - e$
+
+- If we assume that these variables $(L, J, a, e)$ are the same for everyone then criminal income is the same for everyone, regardless of their level of legitimate income.
+
+- So the criminal income is a flat line at the value:
+
+$$
+Y = y_{crime} = (1 – a)L – aJ - e
+$$
+
+---
+## Adding Criminal Income
+
+.pull-left[
+
+- The criminal income curve is a flat line at the value:
+
+$$
+Y = y_{crime} = (1 – a)L – aJ - e
+$$
+
+- Criminal and legitimate income is equal where $y_{crime} = y_c$ (intersection point).
+
+- Individuals $c$ to $\overline{n}$ have $y_{crime} \leq y$. These individuals choose to be legitimate workers.
+
+- Individuals 1 to $c$ have $y_{crime} \geq y$ These individuals choose to be criminals.
+  
+  ]
+
+.pull-right[
+```{r img2, echo=FALSE, warning=FALSE, out.width="90%", fig.show='hold', fig.align='center'}
+# Read the image file
+img2 <- readPNG("assets/Picture2.png")
+
+# Plot the image
+grid.raster(img2)
+```
+
+]
+
+---
+## City Characteristics and Crime
+
+-Changing in exogenous variables will predict changes in crime rates.
+
+$$
+y_{crime} = (1 – a)L – aJ - e
+$$
+
+- So changes to $L$ (loot value), $J$ (jail cost), $a$ (probability of apprehension), and $e$ (social stigma) will affect criminal income.
+- If $y_{crime}$ increases (decreases), the line shifts up (down) and more individuals switch from legitimate income to crime (crime to legitimate income).
+
+- Increasing $L$ leads to an increase in $y_{crime}$. Better “loot” encourages crime.
+- Increasing $J$ leads to a decrease in $y_{crime}$. So harsher punishments deter crime.
+- Increasing $a$ leads to a decrease in $y_{crime}$. More police deters crime.
+- Increasing $e$ leads to a decrease in $y_{crime}$. More social stigma to criminal activity deters crime.
+
+---
+## City Characteristics and Crime
+
+.pull-left[
+
+- Increase in J (jail cost), a (probability of apprehension), e (social stigma) 
+
+or
+
+- Decrease in L (loot value)
+
+- Leads to a decrease in criminal income.
+
+$$
+Y = y_{crime} = (1 – a)L – aJ - e
+$$
+
+- Line shifts down
+
+- (A decrease in $J, a, e$ or an increase in $L$ leads to an increase in criminal income and line shifts up)
+  ]
+
+.pull-right[
+```{r img3, echo=FALSE, warning=FALSE, out.width="90%", fig.show='hold', fig.align='center'}
+# Read the image file
+img3 <- readPNG("assets/Picture3.png")
+
+# Plot the image
+grid.raster(img3)
+```
+
+]
+
+---
+## City Characteristics and Crime
+
+.pull-left[
+
+- Increase in J (jail cost), a (probability of apprehension), e (social stigma) 
+
+or
+
+- Decrease in L (loot value)
+
+- Leads to a decrease in the number of individuals who chose criminal income (those from $n_c$ to $n_c^{''}$) convert from criminal to legitimate income.
+
+$$
+Y = y_{crime} = (1 – a)L – aJ - e
+$$
+
+- Or, comparing two cities, in the one with the higher value of $y_{crime}$, $n_c$ to $n_c^{''}$ are
+
+  ]
+
+.pull-right[
+```{r img3-again, echo=FALSE, warning=FALSE, out.width="90%", fig.show='hold', fig.align='center'}
+# Read the image file
+img3 <- readPNG("assets/Picture3.png")
+
+# Plot the image
+grid.raster(img3)
+```
+
+]
+
+---
+## City Characteristics and Crime
+
+.pull-left[
+
+- Increase in J (jail cost), a (probability of apprehension), e (social stigma) 
+
+or
+
+- Decrease in L (loot value)
+
+- Or, comparing two cities, in the one with the higher value of $y_{crime}$, $n_c$ to $n_c^{''}$ are criminals, but in the city with the lower value of $y_{crime}$ they earn legitimate income instead.
+
+  ]
+
+.pull-right[
+```{r img3-2, echo=FALSE, warning=FALSE, out.width="90%", fig.show='hold', fig.align='center'}
+# Read the image file
+img3 <- readPNG("assets/Picture3.png")
+
+# Plot the image
+grid.raster(img3)
+```
+
+]
+
+---
+## The Economy and Criminal Behavior
+
+The economy could affect criminal behavior.
+
+Consider two cases:
+
+1. Income changes for the disadvantaged population (those with lower values for legitimate income);
+
+2. Income changes for the advantaged population (those with higher values for legitimate income).
+
+---
+## Income Decrease for the Disadvantaged
+
+.pull-left[
+
+- If increase for the disadvantaged decreases, the legitimate-income curve gets steeper.
+
+- This curve intersects the criminal income line at higher value of n.
+
+- More individuals rely on criminal rather than legitimate income.
+
+- Effect is the opposite for an income increase.
+
+  ]
+
+.pull-right[
+```{r img4, echo=FALSE, warning=FALSE, out.width="90%", fig.show='hold', fig.align='center'}
+# Read the image file
+img4 <- readPNG("assets/Picture4.png")
+
+# Plot the image
+grid.raster(img4)
+```
+
+]
+
+---
+## Income Increase for the Disadvantaged
+
+.pull-left[
+
+- Suppose income increases for the advantaged.
+
+- These individuals where not engaging in criminal activity anyways, and this does not change.
+
+- BUT the loot value is linked to the incomes of advantaged individuals.
+
+- So this income increase causes $L$ to increase.
+
+  ]
+
+.pull-right[
+```{r img5, echo=FALSE, warning=FALSE, out.width="90%", fig.show='hold', fig.align='center'}
+# Read the image file
+img5 <- readPNG("assets/Picture5.png")
+
+# Plot the image
+grid.raster(img5)
+```
+
+]
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# What do Economists Know About Crime?
+
+---
+### Key points in: Dills, Angela K., Jeffrey A. Miron, and Garrett Summers. 2010 
+
+.blockquote[
+
+ Abstract: In this paper we evaluate what economists have learned [since about 2010] about the determinants of crime. We base our evaluation on two  kinds of evidence: an examination of aggregate data over long time periods and across countries, and a critical review of the literature. 
+
+
+We argue that economists know little about the empirically relevant determinants of crime. Even hypotheses that find some support in U.S. data for recent decades are inconsistent with data over longer horizons or across countries. This conclusion applies both to policy variables like arrest rates or capital punishment and to less conventional factors such as abortion or gun laws. 
+
+
+The hypothesis that drug prohibition generates violence, however, is generally consistent with the long times-series and cross-country facts. This analysis is also consistent with a broader perspective in which government policies that affect the nature and amount of dispute resolution play an important role in determining violence.
+]
+
+---
+## Overview of Economics Research
+
+- Economists have devoted significant effort to determining to what extent the Becker model or crime (“rational criminal” model, from earlier) is empirical valid, and to what extent factors like policing, income levels, etc., affect crime rates.
+
+- Much research examines deterrence – which factors could reduce crime. This literature focuses especially on arrest and incarceration rates, policing levels, and punishments like longer sentences or the death penalty.
+
+- Other research done by economists studies the causal effects of crime related laws. I.e., can they isolate the actual effect of a law, beyond just a correlation? 
+
+- Much of this work uses a difference-in-differences approach – comparing areas/people affected by a law change or event (e.g., change in state gun laws) to unaffected control group(s), before and after the law change or event. 
+
+---
+## Examples of This Work on the Causal Effect of Laws
+
+1. Controversial and notable work on how abortion legalization affects crime rates.
+2. Numerous studies on changes in gun laws, often at the state level.
+  - .small[E.g., increased or decreased barriers to gun access or public holding, gun bans, and related legislation like “stand your ground” laws.]
+3. Effects of lead exposure on crime (lots of work also in public health on lead).
+4. Drug laws and drug prohibition.
+  - .small[E.g., lots of recent work on state legalization of marijuana and how it affects numerous outcomes, ranging from crime to health.]
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Stylized Facts about Crime in the US (from Pew)
+
+---
+## Most Common Crime and Crime Trends in the US
+
+.pull-left[
+```{r img6, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image file
+img6 <- readPNG("assets/Picture6.png")
+
+# Plot the image
+grid.raster(img6)
+```
+]
+
+.pull-right[
+```{r img7, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image file
+img7 <- readPNG("assets/Picture7.png")
+
+# Plot the image
+grid.raster(img7)
+```
+]
+
+---
+## Perceived Crime and Reported Crime
+
+.pull-left[
+```{r img8, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image file
+img8 <- readPNG("assets/Picture8.png")
+
+# Plot the image
+grid.raster(img8)
+```
+]
+
+.pull-right[
+```{r img9, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image file
+img9 <- readPNG("assets/Picture9.png")
+
+# Plot the image
+grid.raster(img9)
+```
+]
+
+
+---
+## Reported and Cleared Crime
+
+.pull-left[
+```{r img10, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image file
+img10 <- readPNG("assets/Picture10.png")
+
+# Plot the image
+grid.raster(img10)
+```
+]
+
+.pull-right[
+```{r img11, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the
+img11 <- readPNG("assets/Picture11.png")
+
+# Plot the image
+grid.raster(img11)
+```
+]
+
+---
+## Crime Rates by State
+
+```{r img12, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the
+img12 <- readPNG("assets/Picture12.png")
+
+# Plot the image
+grid.raster(img12)
+```
+
+---
+## Crime Rate in Louisiana
+
+```{r img13, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the
+img13 <- readPNG("assets/Picture13.png")
+
+# Plot the image
+grid.raster(img13)
+```
+
+---
+## Crime Rate in New Orleans
+
+```{r img14, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+
+# Read the
+img14 <- readPNG("assets/Picture14.png")
+
+# Plot the image
+grid.raster(img14)
+```
+
+---
+## Crime Index by Country
+
+```{r img15, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+
+# Read the
+img15 <- readPNG("assets/Picture15.png")
+
+# Plot the image
+grid.raster(img15)
+```
+
+---
+## Prison Population by Country
+
+```{r img16, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+
+# Read the
+img16 <- readPNG("assets/Picture16.png")
+
+# Plot the image
+grid.raster(img16)
+```
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Overview of Economics Research – Past Dills, Miron, and Summers (2010)
+
+---
+## There has been a lot of research on crime since Mirone, Dills, and Summers (2010)
+
+- There has been much work on measuring racial bias in policing and criminal justice in various contexts. We will see this come up in the next briefing note on racial bias, and in some other content later in the course.
+
+- There has also been better access to data since 2010. For example:
+1. Crystal Yang, whose paper we will discuss later, leverages detailed sentencing data to study how economic circumstances affect recidivism (reoffending). (Yang, 2017)
+2. Teams of economists have used administrative data (government-held data) in counties such as Norway that matches criminal justice records with other data like tax and program use data. They use this data and a “judge fixed effects” approach (discussed briefly in next slide, and later on in the course in more detail) to see how incarceration affects future criminal behavior. (Bhuller et al., 2020)
+
+---
+## Judge Fixed Effects
+
+- The other “hot” area of research by economists right now uses an approach called “judge fixed effects”. 
+- While we will get into this in more detail, here is a quick summary.
+- The idea is to leverage the fact that many cases or situations in policing or criminal justice have random or conditional random assignment of judges/prosecuters/police to cases or incidents.
+
+- Sometimes judges are randomized to cases, leading to key characteristics such as strictness or race, to be randomized to cases. 
+
+- Or maybe it’s police officers (white vs. black) being randomly assigned to incidents involving white or black individuals.
+
+- The idea is to exploit this “natural” randomization to see if it affects an outcome. This is usually better than difference-in-differences in getting us closer to a randomized control trial’s ability to estimate causal effects.
+
+---
+## Quasi-Experimental Approaches: Judges
+
+.pull-left[
+```{r img17, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+
+# Read the
+img17 <- readPNG("assets/Picture17.png")
+
+# Plot the image
+grid.raster(img17)
+```
+]
+
+.pull-right[
+
+- This quasi-random assignment of cases to judges creates quasi-random variation that can be used to study the causal effect of a conviction (or other judicial decision) on causal outcomes (Bhuller et al., 2020; Eren and Mocan, 2021)
+
+]
+
+---
+## Quasi-Experimental Approaches: Prosecutors
+
+.pull-left[
+```{r img18, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+
+# Read the
+img18 <- readPNG("assets/Picture18.png")
+
+# Plot the image
+grid.raster(img18)
+```
+]
+
+.pull-right[
+
+- Or random assignment to a judge/prosecutor of a particular race, to defendants, to study racial bias (Sloan, 2020)
+
+]
+
+---
+## Other Examples of Judge---or Other Fixed Effects---Approaches
+
+1. Random assignment of prosecutors (white vs. black) to cases of white vs. black defendants (Sloan, 2020).
+
+2. Same as 1. but using bail judges (Arnold, Dobbie, and Yang, 2018)
+
+3. Random assignment of police (white vs. black) to policing incidents that involve white vs. black people, and how this affects police use of force (Hoekstra and Sloan, 2020).
+
+4. Random assignment of pickier judges (more likely to convict) to cases to see how this “random” variation in sentencing affects future criminal activity (Bhuller et al., 2020 using Norway data; Eren and Mocan, 2021, using Louisiana data).
+
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
