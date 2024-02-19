@@ -1,0 +1,463 @@
+---
+title: "Explanation of Common Terminology in Causal Studies in (Urban) Economics"
+subtitle: "Common Terminology in Causal Studies"
+author: "Hussain Hadah (he/him)"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/tulane-fonts.css", "assets/tulane.css"]
+    self_contained: false # if true, fonts will be stored locally
+    seal: true # show a title slide with YAML information
+    includes:
+      in_header: "assets/mathjax-equation-numbers.html"
+    nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9' # alternatives '16:9' or '4:3' or others e.g. 13:9
+      navigation:
+        scroll: false # disable slide transitions by scrolling
+---
+layout: true
+<div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;">`r rmarkdown::metadata$author` (Tulane) | `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`</div>
+
+<!--- `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`-->
+
+---
+class: title-slide
+background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+
+```{r, load_refs, echo=FALSE, cache=FALSE, message=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'authoryear', 
+           style = "markdown",
+           hyperlink = FALSE, 
+           dashed = FALSE)
+myBib <- ReadBib("assets/example.bib", check = FALSE)
+top_icon = function(x) {
+  icons::icon_style(
+    icons::fontawesome(x),
+    position = "fixed", top = 10, right = 10
+  )
+}
+```
+
+```{r setup, include=FALSE}
+# xaringanExtra::use_scribble() ## Draw on slides. Requires dev version of xaringanExtra.
+
+options(htmltools.dir.version = FALSE)
+library(knitr)
+opts_chunk$set(
+  fig.align="center",  
+  fig.height=4, fig.width=6,
+  out.width="748px", out.length="520.75px",
+  dpi=300, #fig.path='Figs/',
+  cache=F#, echo=F, warning=F, message=F
+  )
+```
+
+
+```{r, cache=FALSE, message=FALSE, warning=FALSE, include=TRUE, eval=TRUE, results=FALSE, echo=FALSE, tidy.opts = list(width.cutoff = 50), tidy = TRUE}
+## Load and install the packages that we'll be using today
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tictoc, parallel, pbapply, future, future.apply, furrr, RhpcBLASctl, memoise, here, foreign, mfx, tidyverse, hrbrthemes, estimatr, ivreg, fixest, sandwich, lmtest, margins, vtable, broom, modelsummary, stargazer, fastDummies, recipes, dummy, gplots, haven, huxtable, kableExtra, gmodels, survey, gtsummary, data.table, tidyfast, dtplyr, microbenchmark, ggpubr, tibble, viridis, wesanderson, censReg, rstatix, srvyr, formatR, sysfonts, showtextdb, showtext, thematic, sampleSelection, RefManageR, DT, googleVis, png, grid)
+# devtools::install_github("thomasp85/patchwork")
+remotes::install_github("mitchelloharawild/icons")
+remotes::install_github("ROpenSci/bibtex")
+
+# devtools::install_github("ajdamico/lodown")
+## My preferred ggplot2 plotting theme (optional)
+## https://github.com/hrbrmstr/hrbrthemes
+# scale_fill_ipsum()
+# scale_color_ipsum()
+font_add_google("Fira Sans", "firasans")
+font_add_google("Fira Code", "firasans")
+
+showtext_auto()
+
+theme_customs <- theme(
+  text = element_text(family = 'firasans', size = 16),
+  plot.title.position = 'plot',
+  plot.title = element_text(
+    face = 'bold', 
+    colour = thematic::okabe_ito(8)[6],
+    margin = margin(t = 2, r = 0, b = 7, l = 0, unit = "mm")
+  ),
+)
+
+colors <-  thematic::okabe_ito(5)
+
+# theme_set(theme_minimal() + theme_customs)
+theme_set(hrbrthemes::theme_ipsum() + theme_customs)
+## Set master directory where all sub-directories are located
+mdir <- "/Users/hhadah/Documents/GiT/urban-econ/slides/06-week6/01-tue"
+
+## Set working directory
+
+# COLOR PALLETES
+library(paletteer) 
+# paletteer_d("awtools::a_palette")
+# paletteer_d("suffrager::CarolMan")
+
+### COLOR BLIND PALLETES
+#paletteer_d("colorblindr::OkabeIto")
+#paletteer_d("colorblindr::OkabeIto_black")
+# paletteer_d("colorBlindness::paletteMartin")
+# paletteer_d("colorBlindness::Blue2DarkRed18Steps")
+# paletteer_d("colorBlindness::SteppedSequential5Steps")
+# paletteer_d("colorBlindness::PairedColor12Steps")
+# paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps")
+colorBlindness <- paletteer_d("colorBlindness::Blue2Orange12Steps")
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+# scale_colour_paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps", dynamic = FALSE)
+# To use for fills, add
+  scale_fill_manual(values="colorBlindness::Blue2Orange12Steps")
+
+# To use for line and point colors, add
+  scale_colour_manual(values="colorBlindness::Blue2Orange12Steps")
+  #<a><button>[Click me](#sources)</button></a>
+```
+
+```{css, echo=F}
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+```
+# .text-shadow[.white[Outline for Today]]
+
+<ol>
+    <li><h4 class="white">Introduce Endogeneity <br> ("Chicken or the Egg") Issue in Crime Econ</h4></li>
+    <li><h4 class="white">Exogeneity vs. Endogeneity</h4></li>
+    <li><h4 class="white">Bias in Causal Inference</h4></li>
+    <li><h4 class="white">Jigsaw Activity</h4></li>
+</ol>
+
+---
+## Next week `r top_icon("calendar-week")`
+
+- Crime - Gender-Based Violence Module
+  - Jigsaw Activity: will randomize groups again
+  - Please read the content warning in the module and contact me if you have questions or concerns
+
+- COVID-19 and Gender-Based Violence
+
+- Introduction to the Economics of Discrimination
+
+- Quiz 2 is on March 5th 
+
+### Readings `r icons::fontawesome("book-open")`
+
+- Ravindran, Shah (2020)
+
+- Bullinger, Carr, Packham (2020)
+
+- Slides on Gender-Based Violence Module
+
+- Grant proposal for a project I am wokring on
+
+---
+## Group Briefing Note `r top_icon("exclamation")`
+
+- It is due on Sunday
+
+- I graded the first drafts from those that submitted
+
+- Create a group when you submit the final version
+
+- You need to be in a group
+
+- Read the syllabus and module for more information
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Issues in Causal Inference: Endogeneity
+
+---
+## Endogeneity in Crime Econ `r top_icon("question")`
+
+.pull-left[
+- Suppose you were to compare areas/cities with more police officers to areas/cities with fewer officers to see how crime differs. 
+- Do the areas/cities with more officers have less crime?
+- But the number of police officers is endogenous to crime.
+- Endogenous since crime affects the number of police officers, but police officers affect crime.
+- E.g., police officers allocated to high crime areas.
+- Increases in crime prompt the hiring of additional officers.
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center', caption="The Rational Criminal by DALL-E"}
+# Read the image file
+img1 <- readPNG("assets/Picture1.png")
+
+# Plot the image
+grid.raster(img1)
+```
+
+]
+
+---
+## Endogeneity in Crime Econ `r top_icon("question")`
+
+.pull-left[
+- Suppose you were to do this comparison anyways…
+
+- Suppose you were to compare areas/cities with more police officers to areas/cities with fewer officers to see how crime differs. 
+- Do the areas/cities with more officers have less crime?
+- Do you think that by doing this comparison you would overestimate or underestimate the effect of police on reducing crime?
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center', caption="The Rational Criminal by DALL-E"}
+# Read the image file
+img1 <- readPNG("assets/Picture1.png")
+
+# Plot the image
+grid.raster(img1)
+```
+
+]
+
+---
+## Endogeneity in Crime Econ `r top_icon("question")`
+
+.pull-left[
+- Suppose you were to compare areas/cities with more police officers to areas/cities with fewer officers to see how crime differs.
+- This would probably underestimate the effect of police on crime, perhaps showing incorrectly that they increase crime, or that their effect on crime reduction is smaller than it actually is.
+- Estimates would be negatively biased.
+- Why?
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center', caption="The Rational Criminal by DALL-E"}
+# Read the image file
+img1 <- readPNG("assets/Picture1.png")
+
+# Plot the image
+grid.raster(img1)
+```
+
+]
+
+---
+## Endogeneity in Crime Econ `r top_icon("question")`
+
+.pull-left[
+- Estimates would be negatively biased.
+- Why?
+- Since police are allocated to places with higher crime rates, or more police are deployed when crime increases, there is going to be a positive correlation between the two.
+- Mistaking that for a causal relationship will bias the estimate.
+- We have to break this endogeneity loop!
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center', caption="The Rational Criminal by DALL-E"}
+# Read the image file
+img1 <- readPNG("assets/Picture1.png")
+
+# Plot the image
+grid.raster(img1)
+```
+
+]
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# How to Break the Endogeneity Loop?
+
+---
+## Solving the Egg and Chicken Problem: DALL-E
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center', caption="The Rational Criminal by DALL-E"}
+# Read the image file
+img2 <- readPNG("assets/egg-chicken.png")
+
+# Plot the image
+grid.raster(img2)
+```
+
+---
+## Randomization
+
+- We covered how Differece-in-Difference (DiD) can help us break the endogeneity loop.
+- The ideal way to investigate the effect of police on crime would be to randomly allocate areas/cities with more/fewer police officers.
+- Likely not possible…
+- Is there a way that police are allocated that is “quasi-random”?
+- Is there a natural experiment?
+- Or, phrased another way, is there a way that police were allocated that was independent from the crime level (i.e. Is there a case where police officers were not allocated based on crime levels?)
+
+---
+## Empirical Studies on How Police Affect Crime
+
+- In this course we will cover some neat empirical research articles that investigate how police affect crime using different experimental or “quasi-experimental” methods.
+- These are the readings for the Jigsaw activity
+- **Levitt, Steven D.** 1997. “Using Electoral Cycles in Police Hiring to Estimate the Effect of Police on
+Crime.” American Economic Review, 87(3): 270–290.
+- **Sullivan, Christopher M, and Zachary P. O’Keeffe.** 2017. “Evidence that curtailing proactive
+policing can reduce major crime.” Nature Human Behaviour, 1(10): 730–737.
+- **Di Tella, Rafael, and Ernesto Schargrodsky.** 2004. “Do Police Reduce Crime? Estimate Using the
+Allocation of Police Forces after a Terrorist Attack.” American Economic Review, 94(1): 115–133.
+- **Dur, Robert, and Ben Vollaard. 2019.** “Salience of law enforcement: A field experiment.” Journal
+of Environmental Economics and Management, 93: 208–220.
+- **Cheng, Cheng, and Wei Long. 2018.** “Improving police services: Evidence from the French quarter
+task force.” Journal of Public Economics, 164: 1–18.
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Terminology
+
+---
+## Some Terms that are Helpful to Know
+
+- These terms will come up in the practice questions you’ll do today, in the course, and in economics in general.
+1. Treatment variation
+1. Exogenous
+1. Endogenous
+1. External validity
+
+---
+## Treatment Variation
+
+- This term often comes up in empirical research that estimates causal effects.
+- Treatment variation refers to the variation in X that you are using to identify the causal effect of X on Y.
+- E.g., the variation in the timing and location of MDPs (as in GHM).
+- E.g., the increase in police officer hiring that occurs before elections (this is the variation used in Levitt, 1997).
+- E.g., the randomly-assigned change in police enforcement by location (as in Dur and Voolaard, 2019).
+
+---
+## Exogenous
+
+- If a variation is exogenous, then it is not a function of other factors.
+- It is not a function of other variable in the economic/statistical model.
+- If something is exogenous, you can think of it being random.
+- We ideally want to use treatment variation that is exogenous. 
+- The gold standard would be randomization $\rightarrow$ randomized treatment (e.g., randomizing police) would be strictly exogenous since treatment status does not depend on anything.
+
+---
+## Endogenous
+
+- The opposite of exogenous.
+- More specifically, if something is endogenous, it means it is a function of (it depends on, it is endogenous to) something else.
+- E.g., police allocation is endogenous to crime (unless we find some random or quasi-random variation to use).
+- E.g., state adoption of tax incentives for the film industry may be endogenous to the size of the existing film industry (larger existing film industry = more likely to adopt an incentive)
+
+---
+## Endogenous vs. Exogenous
+
+- The key question is how exogenous/endogenous the treatment variation is. 
+- It’s not black and white where it is always clearly one or the other.
+- Most treatment variation outside of an experiment lies on a spectrum between fully exogenous and strongly endogenous.
+- There is no way to know or to test of treatment variation is endogenous.
+- Determining how endogenous it is requires thinking critically about the factors that affect the treatment variation.
+- For example, is there something non-random about the change in policing that is used in the paper? Could this non-randomness cause bias by creating a feedback loop (like the crime $\leftrightarrow$ police feedback loop shown earlier)?
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Jigsaw Activity
+
+---
+## Jigsaw Activity
+
+1) First grouping - "Focus Groups" - about 10 minutes
+
+  1. You will be in a groups with those who read the same paper as you. You will discuss your paper to all get on the same page about it. Specially, you will to be able to summarize your paper to your peers who have not read it in the next group, so you want to ensure you can provide a summary. Probably the best way to get on the same page about your reading is to share your summaries that you submitted before class and discuss how you can improve them. 
+
+  2. While in this group, each of you will answer the first set of questions here -> Cluster Jigsaw Questions (Work on During Class Jan 25.)
+
+---
+## First grouping - "Focus Groups"
+
+- **Cheng, Long (2018):** O. Bisley, E. Jackson, E. Goldberg, A. Campisi, V. Chan, B. Butler, W. Scher, P. Bui, B. Zislin, D. Schaffer, K. Nguyen, T. Abbazia
+
+- **Dur, Vollaard (2019):** D. Morris, A. Curtis, S. Potter, C. Glew, L. Harding, J. Xu, R. Keegan, J. Agoglia, A. Lesser, T. Kang, S. Herbert, S. Maguire
+
+- **Di Tella, Schargrodsky (2004):** A. Stenzel, C. Walsh, A. Herrera, S. Roskin, N. Acosta, J. Odell, C. Allmon, C. Ates, I. Bedziner, A. Salcedo, B. Huang, S. Lum
+
+- **Levitt (1997):** T. Precilla, I. Arnold, M. Mangum, D. Pepe, J. Zhu, R. Sklar, T. Tewari, S. Schweitzer, J. Huang, S.C. Burgess, S. Lewis, A. Halfon
+
+- **Sullivan, O'Keeffe (2017):** T. Padon, L. Turner, V. Mahanti, D. Lutz, E. Meyer, T.-Y. Nguyen, S. Doran, Z. Burnett, K. Schwartz, T. Tran, A. Anderson, S. Mehran
+
+
+```{r first-timer, echo=FALSE, message=FALSE}
+library(countdown)
+countdown(
+  minutes = 10, seconds = 0,
+  top = 0, # right = "50%",
+  play_sound = FALSE
+)
+```
+
+---
+## Jigsaw Activity
+
+2) Second grouping - "Task Groups" - remaining time of about 30 minutes
+
+  1. You will be in groups with those who read a different paper than you.
+  1. Briefly introduce yourselves and note which papers you were assigned. In some cases there may be two people who read the same paper. That is fine.
+  1. Take turns summarizing your paper to your peers orally in about 4 minutes. Focus on the key "takeaways" (think TL;DR). You can also provide them with the written summary by copy-pasting it into the chat. If there is more than one of you who did the same paper then please collaborate on this. Perhaps one person could give a summary and the second person can add anything that was missed or confirm those points.
+  1. While others are summarizing their papers to you, feel free to ask questions to help you better understand the papers.
+  1. Your goal will be to learn enough about the other papers such that you can answer the second set of questions here -> Cluster Jigsaw Questions (Work on During Class Jan. 25)
+  1. You are free to go once you've submitted your answers.
+
+---
+## Task Groups
+
+- **Group 0:** E. Jackson, A. Curtis, J. Huang, S. Roskin, K. Nguyen, A. Lesser
+- **Group 1:** J. Xu, A. Halfon, T. Padon, K. Schwartz, O. Bisley, D. Morris
+- **Group 2:** A. Salcedo, S. Lewis, B. Huang, S. Mehran, J. Agoglia, V. Chan
+- **Group 3:** S. Schweitzer, R. Sklar, A. Anderson, V. Mahanti, L. Turner, T.-Y. Nguyen
+- **Group 4:** Z. Burnett, C. Glew, A. Stenzel, S. Maguire, C. Walsh, W. Scher
+- **Group 5:** S. Lum, D. Schaffer, A. Campisi, E. Meyer, M. Mangum
+- **Group 6:** R. Keegan, T. Tran, D. Pepe, J. Zhu, C. Allmon
+- **Group 7:** L. Harding, T. Precilla, T. Tewari, B. Butler, D. Lutz
+- **Group 8:** T. Abbazia, P. Bui, C. Ates, N. Acosta, E. Goldberg
+- **Group 9:** T. Kang, J. Odell, I. Bedziner, S. Creager Burgess, S. Herbert
+
+
+```{r second-timer, echo=FALSE, message=FALSE}
+library(countdown)
+countdown(minutes = 30, seconds = 0, top = 0)
+```
+
+
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
+library(renderthis)
+# https://hhadah.github.io/xaringan/index.html
+
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/06-week6/01-tue/causal-term.html", 
+       to = "~/Documents/GiT/urban-econ/slides/06-week6/01-tue/causal-term.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/06-week6/01-tue/causal-term.html")
+```
