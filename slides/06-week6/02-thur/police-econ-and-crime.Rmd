@@ -760,12 +760,205 @@ The key example of possible differences are that the types of people released du
 - While some of this can be controlled for in the regression analysis (i.e. control variables), any differences that are not controlled for could cause bias
 
 ---
+## Results
+
+.pull-left[
+- This is the main results table
+- Results show that if the low-skill wage is higher, then recidivism decreases (hence the negative coefficient)
+- Results are very similar even when control variables are added
+- Other results:
+  - Blacks, non-Hispanics, younger people, those with less education, men, and those with less time served are more likely to recidivate
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img18 <- readPNG("assets/Picture18.png")
+
+# Plot the image
+grid.raster(img18)
+```
+]
+
+---
+## Results
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img19 <- readPNG("assets/Picture19.png")
+
+# Plot the image
+grid.raster(img19)
+```
+
+---
+## Results: Heterogeneity
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img20 <- readPNG("assets/Picture20.png")
+
+# Plot the image
+grid.raster(img20)
+```
+
+---
 class: segue-yellow
 background-image: url("assets/TulaneLogo.svg")
 background-size: 20%
 background-position: 95% 95%
 
 # Palmer, Phillips, Sullivan (2019)
+
+---
+## Abstract
+
+> Abstract: “Does emergency financial assistance reduce criminal behavior among those experiencing negative shocks? To address this question, we exploit quasi-random variation in the allocation of temporary financial assistance to eligible individuals and families that have experienced an economic shock. Chicago's Homelessness Prevention Call Center (HPCC) connects such families and individuals with assistance, but the availability of funding varies unpredictably. Consequently, we can determine the impact of temporary assistance on crime by comparing outcomes for those who call when funds are available to those who call when no funds are available…
+
+---
+## What do they do?
+
+- Linking this call center information to arrest records from the Chicago Police Department, we find some evidence that total arrests fall between 1 and 2 years after the call
+- For violent crime, police arrest those for whom funds were available 51% less often than those who were eligible but for whom no funds were available.
+- Single individuals drive this decrease.
+- The decline in crime appears to be related, in part, to greater housing stability—being referred to assistance significantly decreases arrests for homelessness-related, outdoor crimes such as trespassing
+
+---
+## What do they do?
+
+- However, we also find that financial assistance leads to an increase in property crime arrests
+
+- This increase is evident for family heads, but not single individuals; 
+
+- The increase is mostly due to shoplifting; and the timing of this increase suggests that financial assistance enables some families to take on financial obligations that they are subsequently unable to meet
+
+- Overall, the change in the mix of crime induced by financial assistance generates considerable social benefits due to the greater social cost of violence”
+
+
+---
+## Call Volumes
+
+.pull-left[
+- The researchers use “eligible calls”, which are the people who are eligible, based on the HPCC’s criteria, for the assistance
+
+- For these people it’s almost a coin toss if they get the funding
+
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img21 <- readPNG("assets/Picture21.png")
+
+# Plot the image
+grid.raster(img21)
+```
+]
+
+---
+## Funding is Random
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img22 <- readPNG("assets/Picture22.png")
+
+# Plot the image
+grid.raster(img22)
+```
+
+---
+## Sample of Callers
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img23 <- readPNG("assets/Picture23.png")
+
+# Plot the image
+grid.raster(img23)
+```
+
+---
+## Main Results
+
+.pull-left[
+- Effect are strongest (more statistically significant) for violent arrests
+
+- E.g., one year after getting the funding, violent arrests are 0.0087 lower
+
+- Compared to average rate (control group mean of 0.017), this is a decrease of about 50%!!!
+
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img24 <- readPNG("assets/Picture24.png")
+
+# Plot the image
+grid.raster(img24)
+```
+]
+
+---
+## Main Results
+
+.pull-left[
+- There is an increase in property arrests three years later, due to getting the funding
+
+- The authors argue that this may be that when the families get the funding, they get requests for that money, and they overcommit on who they promise to give money to
+
+- This could lead to an incentive to commit shoplifting once those “debts” catch up
+
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img24 <- readPNG("assets/Picture24.png")
+
+# Plot the image
+grid.raster(img24)
+```
+]
+
+---
+## More Results
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img25 <- readPNG("assets/Picture25.png")
+
+# Plot the image
+grid.raster(img25)
+```
+
+---
+## Effects on Single Individuals vs Families
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img26 <- readPNG("assets/Picture26.png")
+
+# Plot the image
+grid.raster(img26)
+```
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Practice Questions
+
+---
+## What could be on the quiz?
+
+- You may be wondering what quiz/exam questions on this content might be like
+
+- One question on Yang, one on Palmer et al
+
+- If you want feedback on these practice problems, then please submit by Sunday
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
