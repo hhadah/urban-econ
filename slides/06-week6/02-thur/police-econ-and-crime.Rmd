@@ -690,6 +690,74 @@ background-position: 95% 95%
 
 > Abstract: “This paper estimates the impact of local labor market conditions on criminal recidivism using administrative prison records on four million offenders released from 43 states between 2000 and 2013. Exploiting the timing of each offender’s release from prison, I find that being released to a county with higher low-skilled wages significantly decreases the risk of recidivism. The impact of higher wages on recidivism is larger for both black offenders and first-time offenders, and in sectors that report being more willing to hire ex-offenders. These results are robust to individual- and county-level controls, such as policing and corrections activity, and do not appear to be driven by changes in the composition of released offenders during good or bad economic times.”
 
+---
+## Summary Statistics
+
+.pull-left[
+
+- This is a summary statistics table showing you what her data looks like
+- This one shows facts about how often people return to prison (recidivate)
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img16 <- readPNG("assets/Picture16.png")
+
+# Plot the image
+grid.raster(img16)
+```
+]
+
+---
+## Summary Statistics
+
+.pull-left[
+
+- This is another summary statistics table, showing what her sample looks like
+- E.g., what is the demographic and educational make-up of her sample?
+- What kind of offenses were committed?
+
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img17 <- readPNG("assets/Picture17.png")
+
+# Plot the image
+grid.raster(img17)
+```
+]
+
+---
+## Methodology
+
+- Yang’s general approach is a version of a difference-in-differences
+- The idea to compare people released from prison in the same county in good economic conditions versus bad economic conditions
+- Yang measures economic conditions through wages in low skilled jobs
+- These are the jobs that are most likely to hire those with criminal records
+
+- By looking at people within the same county, during times with higher vs. lower wages, it removes any bias for the fixed differences between counties
+  - Recidivism rates and other factors may be different between counties
+- Comparisons between, rather than within counties would be more of an “apples to oranges” comparison
+- Like other DiD examples, where there are fixed differences that exist between groups
+
+---
+## Methodology
+
+- An assumption is required for Yang’s approach to provide an unbiased estimate of the causal effect of local economic conditions on crime
+- The assumption is that when comparing those within the same county in good and bad economic times, there are no differences other than the different economic circumstances
+- The ideal would be like a randomized control trial (RCT) $\rightarrow$ higher/lower wages are randomly assigned over time
+
+---
+## Methodology
+
+- Obviously, that’s not possible
+- But hopefully there are no important differences between good and bad economic times other than the economy
+- Otherwise the treatment and control groups would be different.
+The key example of possible differences are that the types of people released during good economic times, within the same county, could differ from those released during bad economic times, within the same county
+- While some of this can be controlled for in the regression analysis (i.e. control variables), any differences that are not controlled for could cause bias
 
 ---
 class: segue-yellow

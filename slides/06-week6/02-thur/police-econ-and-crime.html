@@ -4,7 +4,7 @@
     <title>Effect of Police on Crime &amp; Economic Circumstances on Crime</title>
     <meta charset="utf-8" />
     <meta name="author" content="Hussain Hadah (he/him)" />
-    <meta name="date" content="2024-02-21" />
+    <meta name="date" content="2024-02-22" />
     <script src="police-econ-and-crime_files/header-attrs/header-attrs.js"></script>
     <link href="police-econ-and-crime_files/remark-css/default.css" rel="stylesheet" />
     <script type="text/x-mathjax-config">
@@ -36,15 +36,15 @@ class: center, middle, inverse, title-slide
 ### Hussain Hadah (he/him)
 ]
 .date[
-### 21 February 2024
+### 22 February 2024
 ]
 
 ---
 
 layout: true
-&lt;div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;"&gt;Hussain Hadah (he/him) (Tulane) | Police, Economic Circumstances, and Crime | 21 February 2024&lt;/div&gt;
+&lt;div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;"&gt;Hussain Hadah (he/him) (Tulane) | Police, Economic Circumstances, and Crime | 22 February 2024&lt;/div&gt;
 
-&lt;!--- Police, Economic Circumstances, and Crime | 21 February 2024--&gt;
+&lt;!--- Police, Economic Circumstances, and Crime | 22 February 2024--&gt;
 
 ---
 class: title-slide
@@ -528,6 +528,54 @@ background-position: 95% 95%
 ## Abstract
 
 &gt; Abstract: “This paper estimates the impact of local labor market conditions on criminal recidivism using administrative prison records on four million offenders released from 43 states between 2000 and 2013. Exploiting the timing of each offender’s release from prison, I find that being released to a county with higher low-skilled wages significantly decreases the risk of recidivism. The impact of higher wages on recidivism is larger for both black offenders and first-time offenders, and in sectors that report being more willing to hire ex-offenders. These results are robust to individual- and county-level controls, such as policing and corrections activity, and do not appear to be driven by changes in the composition of released offenders during good or bad economic times.”
+
+---
+## Summary Statistics
+
+.pull-left[
+
+- This is a summary statistics table showing you what her data looks like
+- This one shows facts about how often people return to prison (recidivate)
+]
+
+.pull-right[
+&lt;img src="police-econ-and-crime_files/figure-html/unnamed-chunk-19-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## Summary Statistics
+
+.pull-left[
+
+- This is another summary statistics table, showing what her sample looks like
+- E.g., what is the demographic and educational make-up of her sample?
+- What kind of offenses were committed?
+
+]
+
+.pull-right[
+&lt;img src="police-econ-and-crime_files/figure-html/unnamed-chunk-20-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## Methodology
+
+- Yang’s general approach is a version of a difference-in-differences
+- The idea to compare people released from prison in the same county in good economic conditions versus bad economic conditions
+- Yang measures economic conditions through wages in low skilled jobs
+- These are the jobs that are most likely to hire those with criminal records
+
+- By looking at people within the same county, during times with higher vs. lower wages, it removes any bias for the fixed differences between counties
+  - Recidivism rates and other factors may be different between counties
+- Comparisons between, rather than within counties would be more of an “apples to oranges” comparison
+- Like other DiD examples, where there are fixed differences that exist between groups
+
+---
+## Methodology
+
+- An assumption is required for Yang’s approach to provide an unbiased estimate of the causal effect of local economic conditions on crime
+- The assumption is that when comparing those within the same county in good and bad economic times, there are no differences other than the different economic circumstances
+- The ideal would be like a randomized control trial (RCT) `\(\rightarrow\)` higher/lower wages are randomly assigned over time
 
 
 ---
