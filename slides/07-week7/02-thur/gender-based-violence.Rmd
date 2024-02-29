@@ -380,11 +380,11 @@ library(countdown)
 countdown(minutes = 25, seconds = 0, top = 0)
 ```
 
-```{r gen_pdf, include = FALSE, cache = FALSE, eval = FALSE}
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
 # https://hhadah.github.io/xaringan/index.html
 
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html", 
-       to = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.pdf")
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/07-week7/02-thur/gender-based-violence.html", 
+       to = "~/Documents/GiT/urban-econ/slides/07-week7/02-thur/gender-based-violence.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/07-week7/02-thur/gender-based-violence.html")
 ```
