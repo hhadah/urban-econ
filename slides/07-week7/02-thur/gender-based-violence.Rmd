@@ -1,0 +1,390 @@
+---
+title: "Crime - Gender-Based Violence Module"
+subtitle: "Gender-Based Violence"
+author: "Hussain Hadah (he/him)"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/tulane-fonts.css", "assets/tulane.css"]
+    self_contained: false # if true, fonts will be stored locally
+    seal: true # show a title slide with YAML information
+    includes:
+      in_header: "assets/mathjax-equation-numbers.html"
+    nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9' # alternatives '16:9' or '4:3' or others e.g. 13:9
+      navigation:
+        scroll: false # disable slide transitions by scrolling
+---
+layout: true
+<div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;">`r rmarkdown::metadata$author` (Tulane) | `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`</div>
+
+<!--- `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`-->
+
+---
+class: title-slide
+background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+
+```{r, load_refs, echo=FALSE, cache=FALSE, message=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'authoryear', 
+           style = "markdown",
+           hyperlink = FALSE, 
+           dashed = FALSE)
+myBib <- ReadBib("assets/example.bib", check = FALSE)
+top_icon = function(x) {
+  icons::icon_style(
+    icons::fontawesome(x),
+    position = "fixed", top = 10, right = 10
+  )
+}
+```
+
+```{r setup, include=FALSE}
+# xaringanExtra::use_scribble() ## Draw on slides. Requires dev version of xaringanExtra.
+
+options(htmltools.dir.version = FALSE)
+library(knitr)
+opts_chunk$set(
+  fig.align="center",  
+  fig.height=4, fig.width=6,
+  out.width="748px", out.length="520.75px",
+  dpi=300, #fig.path='Figs/',
+  cache=F#, echo=F, warning=F, message=F
+  )
+```
+
+
+```{r, cache=FALSE, message=FALSE, warning=FALSE, include=TRUE, eval=TRUE, results=FALSE, echo=FALSE, tidy.opts = list(width.cutoff = 50), tidy = TRUE}
+## Load and install the packages that we'll be using today
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tictoc, parallel, pbapply, future, future.apply, furrr, RhpcBLASctl, memoise, here, foreign, mfx, tidyverse, hrbrthemes, estimatr, ivreg, fixest, sandwich, lmtest, margins, vtable, broom, modelsummary, stargazer, fastDummies, recipes, dummy, gplots, haven, huxtable, kableExtra, gmodels, survey, gtsummary, data.table, tidyfast, dtplyr, microbenchmark, ggpubr, tibble, viridis, wesanderson, censReg, rstatix, srvyr, formatR, sysfonts, showtextdb, showtext, thematic, sampleSelection, RefManageR, DT, googleVis, png, grid)
+# devtools::install_github("thomasp85/patchwork")
+remotes::install_github("mitchelloharawild/icons")
+remotes::install_github("ROpenSci/bibtex")
+
+# devtools::install_github("ajdamico/lodown")
+## My preferred ggplot2 plotting theme (optional)
+## https://github.com/hrbrmstr/hrbrthemes
+# scale_fill_ipsum()
+# scale_color_ipsum()
+font_add_google("Fira Sans", "firasans")
+font_add_google("Fira Code", "firasans")
+
+showtext_auto()
+
+theme_customs <- theme(
+  text = element_text(family = 'firasans', size = 16),
+  plot.title.position = 'plot',
+  plot.title = element_text(
+    face = 'bold', 
+    colour = thematic::okabe_ito(8)[6],
+    margin = margin(t = 2, r = 0, b = 7, l = 0, unit = "mm")
+  ),
+)
+
+colors <-  thematic::okabe_ito(5)
+
+# theme_set(theme_minimal() + theme_customs)
+theme_set(hrbrthemes::theme_ipsum() + theme_customs)
+## Set master directory where all sub-directories are located
+mdir <- "/Users/hhadah/Documents/GiT/urban-econ/slides/01-week1/tue"
+
+## Set working directory
+
+# COLOR PALLETES
+library(paletteer) 
+# paletteer_d("awtools::a_palette")
+# paletteer_d("suffrager::CarolMan")
+
+### COLOR BLIND PALLETES
+#paletteer_d("colorblindr::OkabeIto")
+#paletteer_d("colorblindr::OkabeIto_black")
+# paletteer_d("colorBlindness::paletteMartin")
+# paletteer_d("colorBlindness::Blue2DarkRed18Steps")
+# paletteer_d("colorBlindness::SteppedSequential5Steps")
+# paletteer_d("colorBlindness::PairedColor12Steps")
+# paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps")
+colorBlindness <- paletteer_d("colorBlindness::Blue2Orange12Steps")
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+# scale_colour_paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps", dynamic = FALSE)
+# To use for fills, add
+  scale_fill_manual(values="colorBlindness::Blue2Orange12Steps")
+
+# To use for line and point colors, add
+  scale_colour_manual(values="colorBlindness::Blue2Orange12Steps")
+  #<a><button>[Click me](#sources)</button></a>
+```
+
+```{css, echo=F}
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+```
+
+# .text-shadow[.white[Outline for Today]]
+
+
+<ol>
+    <li><h4 class="white"> COVID-19 and Gender-Based Violence</h4></li>
+    <li><h4 class="white"> Anecdotal Evidence of the </br> Effect of COVID-19 on Crime</h4></li>
+    <li><h4 class="white"> Ravindran and Shah (2020)</h4></li>
+    <li><h4 class="white"> Bullinger, Carr, and Packham (2020)</h4></li>
+    <li><h4 class="white"> Jigsaw Activity</h4></li>
+
+</ol>
+
+---
+## Next week `r top_icon("calendar-week")`
+
+- Quiz 2
+
+- Introduction to the Economics of Discrimination
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Anecdotal evidence of the effect of COVID-19 on crime
+
+---
+## COVID-19 and Crime: Anecdotal Evidence
+
+- By “anecdotal” here I mean things like news articles
+- This would contrast with research that can establish a causal link
+- It’s always great to use a causal framework to try to test for any causal links that are hypothesized
+- E.g., the media is discussing that COVID-19 may increase X, let’s test that!
+
+---
+## COVID-19 and Crime: Anecdotal Evidence
+
+- There are many anecdotal evidence on COVID-19 and crime coming from many sources
+
+- Sometimes the data on particular crime-city combinations show an increase, and sometimes they show a decrease
+- This makes it hard to pin down the exact effects on crime
+- In a discussion article, Boman and Gallups (2020) note that, on average, across all cities and crimes, anecdotal evidence from 911 service calls shows that crime is down in most cities
+- Other sources back this up, such as a report by USA Today on April 4, 2020, which found that crime decreased in 19/20 cities examined [[Link](https://www.usatoday.com/story/news/investigations/2020/04/04/coronavirus-crime-rates-drop-and-domestic-violence-spikes/2939120001/)]
+
+---
+## COVID-19 and Crime: Anecdotal Evidence
+ 
+- Other data sources show positive or negative trends. Here is a small sampling:
+- Arrest rates are down in the US, partly as police as intentionally arresting fewer people due to the COVID-19 risks both in interacting with people and the risk for those sent to jail [[Link](https://apnews.com/article/bbb7adc88d3fa067c5c1b5c72a1a8aa6)]
+- Robberies and property crimes appear down
+- Murder, homicide, aggravated assaults, and gun violence appear up [[Link](https://www.safewise.com/blog/covid-19-crimes/)]
+
+---
+## COVID-19 and Crime: Anecdotal Evidence
+
+- A more careful, early statistical analysis shows no consistent pattern in how six crime categories have changed in over a dozen US cities (Ashby, 2020)
+  - Serious assaults in public
+  - Serious assaults in residences
+  - Residential burglaries
+  - Non-residential burglaries
+  - Motor vehicle theft
+  - Stealing from cars
+
+---
+## COVID-19 and Crime: Anecdotal Evidence
+
+- However, all research done early in the pandemic suffers from a lack of data
+- We may not yet have the statistical power, due to a lack of data, to distinguish changes in trends (the “signal”) from the noise
+  - Observing the pandemic over a longer period of time or collecting data on more regions could help
+- Or, the only data sources have other issues
+  - Intimate partner violence (IPV) is notoriously underreported, with only about half of incidents resulting in a 911 call (Reaves, 2017)
+  - Not all 911 calls also lead to a report or arrest, an issue we will see later
+  - Self-reported data (e.g., from a survey or a complaint system) may be preferred
+
+---
+## COVID-19 and Crime: Anecdotal Evidence
+
+- So, we don’t have too many clear answers. The anecdotal evidence points in different directions
+- Until we have more/better data and good causal estimation strategies, I’ll be hard to say for sure
+- The two papers we will cover today are early attempts at leveraging early data to estimate a causal relationship between COVID-19 and crime
+- They both focus on domestic violence, which anecdotally seems to be increasing in importance as an issue
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Ravindran and Shah – Evidence from India
+
+---
+## COVID-19-Related Lockdown and Domestic Violence in India
+
+- The researchers study how COVID-19-related lockdown policies affected domestic violence rates in India
+- They do a difference-in-differences study comparing areas with stronger lockdown policies before and after to areas over the same time period with weaker policies
+- I.e. stronger lockdown (red zone) before and after, versus weaker lockdown (green zone) before and after
+- They use data of complaints made to the National Commission for Women, a national statutory body of the government of Indian with a mandate for protecting and promoting the interests of women
+
+---
+## Lockdown Zones in India
+
+.pull-left[
+- Indian government classified districts as red (more restrictive), orange, and green
+- They match this lockdown policy data with district-month level data on complaints
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image file
+img1 <- readPNG("assets/Picture1.png")
+
+# Plot the image
+grid.raster(img1)
+```
+
+]  
+
+---
+## Results: “Event Study” Type Difference-in-Differences
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image file
+img2 <- readPNG("assets/Picture2.png")
+
+# Plot the image
+grid.raster(img2)
+```
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Bullinger et al – Evidence from Chicago
+
+---
+## COVID-19-Related Lockdown and Domestic Violence in Chicago
+
+- Bullinger, Carr, and Packham (2020) estimate the effect of stay-at-home (SAH) policies in the city of Chicago on domestic violence
+- They use cell phone data at the block level to show that the SAH order increased time spend at home
+- There was a related decrease in total calls for police service, but then an increase in domestic violence-related calls
+- These estimates are at odds with official reports and arrests data, which show that domestic violence crimes fell by 8.7% for reports and 26.3% for arrests
+- Compared to similar data for other crimes, the decline in reported domestic violence crimes is significantly smaller than the decline in other crimes
+
+---
+## COVID-19-Related Lockdown and Domestic Violence in Chicago
+
+- The stay-at-home (MAH) order, which can help reduce the pandemic, could contribute to a “shadow pandemic” of domestic violence
+- SAH forces victims to spend more time with their abusers
+- COVID-19 is also increases stress and causing financial harm, which both contribute to domestic violence
+- Leaving the household may be difficult for victims to due given worse financial circumstances and it being more difficult to leave the house, get a job, etc
+- Since victims are also interacting less often with those who would report domestic violence (e.g., police, non-profit groups), this increase in domestic violence could go undetected (or be understated)
+- Both of these factors make it unclear if the data on reported domestic violence would show an increase or a decrease
+
+---
+## COVID-19-Related Lockdown and Domestic Violence in Chicago
+
+- The authors study the SAH policy in Chicago, which started on March 21, 2020
+- Their methodology is a version of a difference-in-differences:
+- Treatment group = blocks when SAH was in effect
+- Control group = same blocks last year when SAH was not in effect
+- The assumption is that changes in reported domestic violence in the comparison (control) weeks provide a good counterfactual for the change that would have occurred had there been no SAH policy
+
+---
+## Results
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image file
+img3 <- readPNG("assets/Picture3.png")
+
+# Plot the image
+grid.raster(img3)
+```
+
+---
+## Results: Reported Crime
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image file
+img4 <- readPNG("assets/Picture4.png")
+
+# Plot the image
+grid.raster(img4)
+```
+
+--- 
+## What's Going on With the Results?
+
+- There is a decrease in domestic violence calls, but a slight decrease in reports of domestic violence
+- Obviously a 911 call does not lead to a report or an arrest
+- It seems like there are more domestic violence concerns, given the increased calls. But reports are perhaps less likely to happen since victims are less able to interact with police or support services (e.g., shelters may have temporarily shut down)
+- Reporting could otherwise be more difficult during this time
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Jiigsaw Activity
+
+---
+## Focus Groups
+
+1) First grouping - "Focus Groups" - about 20 minutes
+
+  1. You will be in a groups with those who read the same paper as you. You will discuss your paper to all get on the same page about it. Specially, you will to be able to summarize your paper to your peers who have not read it in the next group, so you want to ensure you can provide a summary. Probably the best way to get on the same page about your reading is to share your summaries that you submitted before class and discuss how you can improve them. 
+
+  2. While in this group, each of you will answer the first set of questions here -> Cluster Jigsaw Questions (Work on During Class Jan 25.)
+
+```{r first-timer, echo=FALSE, message=FALSE}
+library(countdown)
+countdown(
+  minutes = 30, seconds = 0,
+  top = 0, # right = "50%",
+  play_sound = FALSE
+)
+```
+
+---
+## Task Groups
+
+2) Second grouping - "Task Groups" - remaining time of about 25 minutes
+
+  1. You will be in groups with those who read a different paper than you.
+  1. Briefly introduce yourselves and note which papers you were assigned. In some cases there may be two people who read the same paper. That is fine.
+  1. Take turns summarizing your paper to your peers orally in about 4 minutes. Focus on the key "takeaways" (think TL;DR). You can also provide them with the written summary by copy-pasting it into the chat. If there is more than one of you who did the same paper then please collaborate on this. Perhaps one person could give a summary and the second person can add anything that was missed or confirm those points.
+  1. While others are summarizing their papers to you, feel free to ask questions to help you better understand the papers.
+  1. Your goal will be to learn enough about the other papers such that you can answer the second set of questions here -> Cluster Jigsaw Questions (Work on During Class Jan. 25)
+  1. You are free to go once you've submitted your answers.
+
+```{r second-timer, echo=FALSE, message=FALSE}
+library(countdown)
+countdown(minutes = 25, seconds = 0, top = 0)
+```
+
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = FALSE}
+library(renderthis)
+# https://hhadah.github.io/xaringan/index.html
+
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html", 
+       to = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html")
+```

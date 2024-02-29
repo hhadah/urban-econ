@@ -890,7 +890,7 @@ grid.raster(img23)
 ]
 
 .pull-right[
-```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
 # Read the image
 img24 <- readPNG("assets/Picture24.png")
 
@@ -912,7 +912,7 @@ grid.raster(img24)
 ]
 
 .pull-right[
-```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
 # Read the image
 img24 <- readPNG("assets/Picture24.png")
 
