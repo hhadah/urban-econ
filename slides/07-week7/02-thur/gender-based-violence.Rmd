@@ -382,7 +382,7 @@ countdown(minutes = 25, seconds = 0, top = 0)
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
-# https://hhadah.github.io/xaringan/index.html
+# https://hhadah.github.io/urban-econ/slides/07-week7/02-thur/gender-based-violence.html
 
 to_pdf(from = "~/Documents/GiT/urban-econ/slides/07-week7/02-thur/gender-based-violence.html", 
        to = "~/Documents/GiT/urban-econ/slides/07-week7/02-thur/gender-based-violence.pdf")
