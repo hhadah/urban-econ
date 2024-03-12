@@ -147,7 +147,6 @@ background-color: #0148A4
     <li><h4 class="white"> Intro to Judge Fixed Effects</h4></li>
     <li><h4 class="white"> Summarize Papers on Racial Bias in <br> Criminal Justice System</h4></li>
     <li><h4 class="white"> Summarize Papers on Racial Bias in Racial</h4></li>
-    <li><h4 class="white"> Summarize Papers on Racial Bias in <br> Police Use of Force</h4></li>
 </ol>
 
 ---
@@ -1130,11 +1129,11 @@ These extra searches, driven by taste-based discrimination, are inefficient sinc
 There is no statistical reason to search black drivers more, suggesting again that these extra searches stem from taste-based discrimination
 ]
 
-```{r gen_pdf, include = FALSE, cache = FALSE, eval = FALSE}
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
 # https://hhadah.github.io/xaringan/index.html
 
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html", 
-       to = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.pdf")
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/09-week9/01-tue/racial-bias.html", 
+       to = "~/Documents/GiT/urban-econ/slides/09-week9/01-tue/racial-bias.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/09-week9/01-tue/racial-bias.html")
 ```
