@@ -25,6 +25,11 @@ layout: true
 <!--- `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`-->
 
 ---
+class: title-slide
+background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
 
 ```{r, load_refs, echo=FALSE, cache=FALSE, message=FALSE}
 library(RefManageR)
@@ -136,12 +141,6 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
         background-color: white;
     }
 ```
-
-class: title-slide
-background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
-background-position: 10% 90%, 100% 50%
-background-size: 160px, 50% 100%
-background-color: #0148A4
 # .text-shadow[.white[Outline for Today]]
 
 <ol>
