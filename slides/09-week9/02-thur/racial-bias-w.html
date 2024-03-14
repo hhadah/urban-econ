@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Racial Bias</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Hussain Hadah (he/him)" />
+    <meta name="date" content="2024-03-14" />
+    <script src="racial-bias-w_files/header-attrs/header-attrs.js"></script>
+    <link href="racial-bias-w_files/remark-css/default.css" rel="stylesheet" />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } },
+      });
+    </script>
+    <style>
+    .mjx-mrow a {
+      color: black;
+      pointer-events: none;
+      cursor: default;
+    }
+    </style>
+    <link rel="stylesheet" href="assets/tulane-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="assets/tulane.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Racial Bias
+]
+.subtitle[
+## Racial Bias
+]
+.author[
+### Hussain Hadah (he/him)
+]
+.date[
+### 14 March 2024
+]
+
+---
+
+layout: true
+&lt;div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;"&gt;Hussain Hadah (he/him) (Tulane) | Racial Bias | 14 March 2024&lt;/div&gt;
+
+&lt;!--- Racial Bias | 14 March 2024--&gt;
+
+---
+
+
+
+
+
+
+
+
+&lt;style type="text/css"&gt;
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+&lt;/style&gt;
+
+class: title-slide
+background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+# .text-shadow[.white[Outline for Today]]
+
+&lt;ol&gt;
+    &lt;li&gt;&lt;h4 class="white"&gt; Summarize Papers on Racial Bias in &lt;br&gt; Police Use of Force&lt;/h4&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;h4 class="white"&gt; Devi and Fryer (2020)&lt;/h4&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Racial Bias in Police Use of Force
+
+---
+## Johnson et al.
+
+&gt; Despite extensive attention to racial disparities in police shootings, two problems have hindered progress on this issue. 
+First, databases of fatal officer-involved shootings (FOIS) lack details about officers, making it difficult to test whether racial disparities vary by officer characteristics. 
+Second, there are conflicting views on which benchmark should be used to determine racial disparities when the outcome is the rate at which members from racial groups are fatally shot. 
+
+---
+## Benchmarks?
+
+- A persistent point of the debate in studying police use of force concerns how to calculate racial disparities
+- Racial disparities in FOISs have traditionally been tested by asking whether officers fatally shoot a racial group more than some benchmark, such as that group’s population proportion in the US
+- However, using population as a benchmark makes the strong assumption that white and Black civilians have equal exposure to situations that result in FOIS
+- Prior researchers tried to sometimes try to get around this issue by using race-specific violent crime as the benchmark instead of population
+
+---
+## Aside: Which Benchmark?
+
+- Much of the literature uses one of the two denominators (to divide the # of FOISs by victim rate by):
+
+1) Population of that racial group (e.g., # FOISs with Black victims / Black population).
+
+2) Race-specific violent crime (e.g., # FOISs with Black victims / # of incidents of violent crime involving Black suspects)
+
+They can tell us different things about disparities in policing: 1) tells us more about differentially higher probability that a Black person is a victim of FOIS
+
+Since FOISs are more likely in violent crime incidents, 2) tells us about the likelihood for a FOIS in incidents where police are sometimes motivated to use force
+
+Benchmark 1) increases if Black citizens face more police interactions, but this does not affect 2)
+
+In this case, the # of FOISs with Black victims rises just because of there being more police interactions, not because of a change in the likelihood of police using force in a given interaction
+
+---
+## Aside: Which Benchmark?
+
+- Much of the literature uses one of the two denominators (to divide the # of FOISs by victim rate by):
+
+1) Population of that racial group (e.g., # FOISs with Black victims / Black population).
+
+2) Race-specific violent crime (e.g., # FOISs with Black victims / # of incidents of violent crime involving Black suspects)
+
+If police are more likely to use force against Black citizens, then that appears especially in 2), but somewhat in 1)
+
+So, these different benchmarks motivate to factors that we would like to study, which each benchmark better capturing one of them:
+
+1. Are there racial disparities in how often citizens face interactions with police that lead to a FOIS? ( 1) better captures this.)
+2. Are police more likely to use fatal force against Black citizens? ( 2) better captures this).
+
+---
+## Officer Characteristics in Fatal Shootings
+
+- They address these issues [of which benchmark to use] by creating a database of fatal officer-involved shootings (FOIS) that includes detailed officer information
+- They [partially, in my opinion] sidestep the debate about benchmarking by using an approach that predicts the race of civilians who are fatally shot
+- So, making assumptions about the appropriate benchmark are not required
+
+---
+## Methodology
+
+&gt; Rather than trying to identify which benchmark is best, another way to test for racial disparities in FOIS is to directly predict the race of a person fatally shot. 
+Specifically, we used multinomial regression with civilian race as the outcome and various factors—officer, civilian, and county characteristics—as predictors. 
+In this way, we approached racial disparity from a different angle and asked: “What factors predict the race of a person fatally shot by police?
+
+- They use civilian race as the outcome variable (dependent variable, “left hand side” variable) and see how several factors relate to civilian race: officer, civilian, and county characteristics
+- This allows the authors to see which factors explain FOIS for each racial group, and if certain factors are more important for explaining FOIS against one group versus another
+
+---
+## Main Findings
+
+#### They report three main findings: 
+
+1. As the proportion of Black or Hispanic officers involved in a FOIS increases, a person shot is more likely to be Black or Hispanic than white, a disparity explained by county demographics
+  - Black and Hispanic officers are more likely to assigned to areas with more Black and/or Hispanic people, so this just reflects that and likely not the fact that Black and Hispanic officers are more likely to commit a FOIS against Black and Hispanic people. 
+2. Race-specific county-level violent crime strongly predicts the race of the civilian shot;
+  - So, when, e.g., the violent crime rates of Hispanics increases in 	a county, then Hispanics are more likely to be victims of FOIS.
+
+---
+## Main Findings
+
+#### They report three main findings: 
+3\. Although they find no overall evidence of anti-Black or anti-Hispanic disparities in fatal shootings, when focusing on different subtypes of shootings (e.g., unarmed shootings or “suicide by cop”), data are too uncertain to draw firm conclusions
+  - [May be due to a lack of statistical power: if you look at smaller categories, it can be hard to detect differences.]
+  - The authors highlight the need to enforce federal policies that record both officer and civilian information in FOIS.
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Fryer (2019)
+
+---
+## Abstract
+
+&gt;  This paper explores racial differences in police use of force. 
+On non-lethal uses of force, Blacks and Hispanics are more than 50 percent more likely to experience some form of force in interactions with police. Adding controls that account for important context and civilian behavior reduces, but cannot fully explain, these disparities. On the most extreme use of force—officer-involved shootings—we find no racial differences either in the raw data or when contextual factors are taken into account. We argue that the patterns in the data are consistent with a model in which police officers are utility maximizers, a fraction of whom have a preference for discrimination, who incur relatively high expected costs of officer-involved shootings.
+
+---
+## Critiques of Fryer (2019) and Johnson et al. (2019)
+
+- Hoekstra and Sloan (2020), the next paper I will cover, critiques the papers by Johnson et al. (2019) and Fryer (2019), arguing that they may give bias results
+
+- The key issue regards the appropriate “benchmark” that these papers use. Researchers often do not observe interactions in which force was not used
+
+- As a result, researchers must make assumptions regarding the appropriate benchmark, such as looking at incidents per capita [benchmark 1) from earlier] or incidents compared to violent crime rates or arrests [benchmark 2) from earlier] (Hoekstra and Sloan, 2020)
+
+- Also, most data sets do not allow the researchers to observe whether the underlying risk of situations involving white and minority civilians, or white and minority officers, is similar in terms of whether force was merited
+
+- White and minority civilians have different situations, and white and minority officers are usually allocated differently, making it difficult to isolate bias from these different circumstances
+- While researchers can try to control for these differences, data is imperfect
+
+---
+## Critiques of Fryer (2019) and Johnson et al. (2019)
+
+- As I will describe shortly, Hoekstra and Sloan (2020) argue that they improve on prior research by looking at a situation in which the race of the officer is as-good-as randomly assigned to 911 calls
+
+- This quasi-random assignment means that there is not concern that officers of difference races are put in different scenarios
+
+- Having officers put in different situations, on average, by officer race or ethnicity would generate selection bias
+
+- With selection bias, it’s hard to isolate differences by officer race from the fact that officers are allocated differently
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Hoekstra and Sloan (2020)
+
+---
+## Abstract
+
+&gt; This paper uses data on officers dispatched to over 2 million 911 calls in two cities [which ones they are is kept anonymous in the paper], neither of which allows for discretion in the dispatch process. Using a location-by-time fixed effects approach that isolates the random variation in officer race, we show white officers use force 60 percent more than Black officers and use gun force twice as often. To examine how civilian race affects use of force, we compare how white officers increase use of force as they are dispatched to more minority neighborhoods, compared to minority officers. Perhaps most strikingly, we show that while white and Black officers use gun force at similar rates in white and racially mixed neighborhoods, white officers are five times as likely to use gun force in predominantly Black neighborhoods. Similarly, white officers increase use of any force much more than minority officers when dispatched to more minority neighborhoods. Consequently, difference-in-differences estimates from individual officer fixed effect models indicate Black (Hispanic) civilians are 30 - 60 (75 - 120) percent more likely to experience any use of force, and five times as likely to experience gun use of force, compared to if white officers scaled up force similarly to minority officers. 
+These findings highlight race as an important determinant of police use of force, including and especially lethal force.
+
+---
+## 911 Calls
+
+- Documenting whether race matters for police use of force is difficult
+
+- Researchers often do not observe (have data on) interactions in which force was NOT used (they only have data for when force was used)
+
+- This forces researchers to make assumptions and use a particular denominator, such as population of that racial group (benchmark 1) from earlier) or number of violent crime interactions for that racial group (benchmark 2))
+
+- There are also issues with selection bias, where it’s usually not random where officers of different races are deployed, for example
+
+- A simple comparison of use of force probability between white and Black officers would provide a biased estimate of how race affects use of force, since those officers are not being deployed in the same situations or to the same areas
+
+---
+## 911 Calls
+
+- Documenting whether race matters for police use of force is difficult
+- Researchers often do not observe (have data on) interactions in which force was NOT used (they only have data for when force was used)
+- There are also issues with selection bias, where it’s usually not random where officers of different races are deployed, for example
+- A simple comparison of use of force probability between white and Black officers would provide a biased estimate of how race affects use of force, since those officers are not being deployed in the same situations or to the same areas
+
+---
+## 911 Calls
+
+- Hoekstra and Sloan get around these issues by using administrative data on over two million 911 calls
+- This data is unique in that it:
+1. Comes from two cities in which the dispatch protocols allow for no discretion on the part of the officer or the operator with respect to which officer is dispatched
+  (i.e., the race of the officer is as-good-as-randomly assigned)
+2. This data allows them to see over two million interactions, some of which end up with use of force and some which do not, rather than only having data on the incidents where force was used and having to pick a denominator (benchmark 1) or 2))
+
+---
+## Summary Statistics
+
+.pull-left[
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Use of force is quite rare, only 0.109% of 911 calls result in use of force.
+
+For gun use of force this is 0.00762%.
+
+In the raw data, white officers are much more likely to use force (with or without gun) compared to Black officers.
+911 dispatches occur to areas that tend to be predominantly Black.
+
+38% of officers are Black
+
+16% are female
+
+Officers have about 10 years of experience on average
+]
+
+---
+## White vs. Black Officers
+
+.pull-left[
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+No clear difference in the raw data as to if Black and white officers are deployed to 911 calls in different neighborhoods (based on proportion Black residents).
+
+This and other evidence in the paper is suggestive that officer race is as-good-as randomly assigned.
+
+i.e., this is a good natural experiment
+]
+
+---
+## White vs. Black Officers and Use of Force
+
+Y-axis = predicted use of force (left) or gun force (right), X-axis = proportion Black
+
+The figures show that white and Black officers are allocated to 911 calls in neighborhoods with a similar level of predicted use of (gun) force.
+
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-5-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+## White vs. Black Officers: Actual Use of Force
+
+.pull-left[
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-6-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Both white and Black officers are more likely to use force when randomly assigned to calls in areas with a higher proportion Black
+
+But white officers are SIGNIFICANTLY more likely to use force 1) in general (higher intercept) and 2) when proportion Black is higher (steeper slope)
+]
+
+---
+## White vs. Black Officers: Gun Use of Force
+
+.pull-left[
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-7-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Only white officers are more likely to use gun force when randomly assigned to calls in areas with a higher proportion Black
+
+This white-Black officer differential in use of force by portion Black is more pronounced for gun use of force
+]
+
+---
+## Use of Force and Gun Use of Force
+
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-8-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+## Use of Force and Gun Use of Force
+
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-9-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+## Use of Force and Gun Use of Force
+
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-10-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+## Summary of Papers
+
+- Johnson et al. (2019) – (1) As the proportion of Black or Hispanic officers involved in a FOIS increases, a person shot is more likely to be Black or Hispanic than white, a disparity explained by county demographics; (2) race-specific county-level violent crime strongly predicts the race of the civilian shot; (3) no disparities in fatal shootings on average, but they are unable to test if there is variation by type of interaction
+
+- Fryer (2019) – Minorities face more non-lethal use of force, but there are no differences in lethal use of force
+
+---
+## Summary of Papers
+
+- Hoekstra and Sloan (2020) – Uses 911 calls where there is quasi-randomization of officer race. Observe if there was use of force or not, so there is a clear denominator. 
+- Black citizens face significantly more police use of force (and gun force).
+- Finds that white officers are more likely to use force in general, and while all officers use more force is more Black neighborhoods, this relationship is MUCH stronger for white officers
+- The disparity of Black citizens facing more gun use of force is entirely explained by white officers being more likely to use gun force in Black neighborhoods
+- (Black officers don’t change their use of gun force behavior based on neighborhood demographics.
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Devi and Fryer (2020)
+
+---
+## Abstract
+
+&gt; This paper provides the first empirical examination of the impact of federal and state "Pattern-or-Practice" investigations on crime and policing. For investigations that were not preceded by "viral" incidents of deadly force, investigations, on average, led to a statistically significant reduction in homicides and total crime. In stark contrast, all investigations that were preceded by "viral" incidents of deadly force have led to a large and statistically significant increase in homicides and total crime. We estimate that these investigations caused almost 900 excess homicides and almost 34,000 excess felonies. The leading hypothesis for why these investigations increase homicides and total crime is an abrupt change in the quantity of policing activity. In Chicago, the number of police-civilian interactions decreased by almost 90% in the month after the investigation was announced. In Riverside CA, interactions decreased 54%. In St. Louis, self-initiated police activities declined by 46%. 
+Other theories we test such as changes in community trust or the aggressiveness of consent decrees associated with investigations – all contradict the data in important ways.
+
+---
+## What is Pattern or Practice?
+
+- On May 3, 1991, America witnessed - after a high speed chase i Rodney King being beaten by four Los Angeles police officers while a dozen others watched. The officers were charged with assault with a deadly weapon and use of excessive force - all were acquitted
+
+- Within hours of the acquittal, the 1992 Los Angeles riots began. The rioting lasted six days - sixty three people were killed and thousands injured (Post, 1992)
+
+- An independent commission linked the beating of King to institutional failure within the Los Angeles Police Department (LAPD) and Congress held hearings on how the federal government could do more to address police misconduct (Christopher Commission Report, 1991)
+
+- In 1994, Congress passed the Violent Crime Control and Law Enforcement Act which authorized the Attorney General to investigate and litigate cases involving a “pattern or practice of conduct by law enforcement officers" that violates the constitution or federal rights
+
+---
+## What is Pattern or Practice?
+
+- Under this authority, the Civil Rights Division of the Department of Justice may obtain a court order requiring state or local law enforcement agencies to address institutional failures that cause systemic police misconduct
+
+- Pattern-or-practice cases are investigated, litigated, and resolved by the Special Litigation Section of the Civil Rights Division of the Department of Justice
+
+- A typical investigation has the following arc. The **first step** involves a process by which staff of the Civil Rights Division decide whether to open an investigation into a particular law enforcement agency
+
+  1. Would the allegations, if proven, establish a violation of the Constitution or federal laws?
+  2. would the allegations, if proven, constitute a pattern or practice, as opposed to a sporadic or isolated, violation of the Constitution or federal laws
+
+- The **second step** is to prioritize among the set of viable investigations
+
+---
+## What is Pattern or Practice?
+
+- The **second step** is to prioritize among the set of viable investigations
+
+The Civil Rights Division reports that many more jurisdictions meet the basic criteria to be investigated but that they do not have the resources to investigate them all (Civil Rights Division, 2017). A range of metrics are reportedly used to choose which cities to investigate, including whether the issues a city is dealing with are common across other law enforcement agencies and thus an investigation can provide a model of reform for other jurisdictions - or whether other tools, such as civil rights lawsuits aimed at individual officers, are better suited to address the issues in a particular law enforcement agency.
+
+---
+## What is Pattern or Practice?
+
+- In brief, during an investigation, the Department of Justice examines complaints, scrutinizes past data and contemporary interactions between law enforcement officials and civilians to determine if police departments have engaged in a pattern or practice of civil rights violations
+
+- Since the initial investigation in Torrance, CA (May 1995), there have been 69 federal pattern or practice investigations
+
+---
+## Event Study, Investigations Both W/ And W/O Viral Incident Of Deadly Force
+
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-11-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+## Heterogeneous Effects – Each Dot Is A Separate Investigation
+
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-12-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+## Why Are There Hetereogeneous Effects?
+
+.pull-left[
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-13-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+No clear statistically significant evidence of a level break (jump) or trend break (change in slope) on average after investigations without viral incidents of deadly force
+
+Strong statistically significant evidence of a level break (jump) for homicides and total crime after investigations with viral incidents
+
+Strong statistically significant evidence of an increase in the growth rate of total crime after investigations with viral incidents
+]
+
+---
+## Alternative Explanations
+
+- There are two possible violations of their identification assumptions, i.e. two ways that they could be wrong in these results, which they discuss in their paper:
+1. The controversial police use of force that kills a civilian causes crime to increase, and this is being confounded with the pattern or practice investigations
+
+- That is, the increase in crime is caused be the event of police brutality, and not the investigations
+- This represents and endogeneity concern as likely the event prompted the pattern or practice investigation, but also caused the crime increase
+
+- A partial test of this hypothesis is to investigate the impact of viral shootings that resulted in a fatality but for which the federal or state government did not launch an investigation
+- Do we see the spike in crimes after these viral events, suggesting that it’s the viral events and not the pattern or practice investigations?
+
+---
+## Alternative Explanations
+
+- There are two possible violations of their identification assumptions, i.e. two ways that they could be wrong in these results, which they discuss in their paper:
+1. The controversial police use of force that kills a civilian causes crime to increase, and this is being confounded with the pattern or practice investigations
+
+- The authors construct a sample of 8 viral shootings that were not followed by pattern or practice investigations
+- They compared these to the “treated” cities (one that had viral events and then a pattern or practice investigations)
+- They use a synthetic control approach, which is a style of DiD
+
+---
+
+.pull-left[
+
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-14-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+Thick Black line = treated cities (viral event + PoP investigation)
+
+Thin gray line = the synthetic control (a combination of other cities with viral event but no PoP investigations)
+
+It appears that the increase in crime is related to the investigation and not the viral event of police brutality
+
+]
+
+---
+## Alternative Explanations
+
+2\. There was something unique about the five cities studied in the paper where there was a viral event of force followed by a pattern or practice investigation (Baltimore, Chicago, Cincinnati, Riverside, St. Louis). Perhaps for any controversial use of deadly force in these cities in a sensitive time period leads to an increase in crime
+
+i.e. there are heterogeneous treatment effects by city, and these cities just happen to be ones where events of police brutality lead to larger increases in crime, where this increase in crime wouldn’t happen to the same extent in other cities
+
+---
+## Alternative Explanations
+
+&gt; “Investigations are not randomly assigned. Thus, one may suspect that there is something special about cities that the Department of Justice decides to investigate. This, coupled with the increased scrutiny on policing after a controversial incident of deadly use of force, may violate our exogeneity condition. If there is something special about Baltimore, Chicago, Cincinnati, Riverside and Ferguson, then comparing them to cities that have had viral shootings but no investigations is inadequate because there is a reason that those cities were not investigated. To make this more concrete, consider the following thought experiment. Imagine that what leads to an investigation is that the Civil Rights Division is sufficiently convinced that a police department is racist. In the case of Baltimore, Chicago, Cincinnati, Riverside and Ferguson there were enough signals of racism that the death of Freddie Gray and the shootings of Laquan McDonald, Timothy Thomas, Tyisha Miller and Michael Brown were enough to tip the scales in favor of an investigation. Yet, for Baton Rouge, St. Paul, or North Charleston, there were not enough signals of racism that the shootings of Alton Sterling, Philando Castille, or Walter Scott were enough to lead to an investigation. In this case, our estimates are not simply the causal effect of investigations but are about a controversial shooting in a city with a racist police department in a sensitive time period.”
+
+---
+## Testing Explanation 2
+
+- A partial test of this hypothesis is to examine police shootings of unarmed Blacks in Baltimore, Chicago, and Cincinatti – three treated cities with a viral event and a PoP investigation – in the pre-investigation months but before the shootings that led to their investigation
+- Is it that case that these shootings of unarmed Blacks that were not followed by a PoP investigation also led to an increase in crime?
+
+---
+
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-15-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-16-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+## Recap of Results 
+
+- We see that crime increases after a PoP investigation if the investigation was preceded by a viral event of police brutality
+- This does not seem to have other explanations (the authors generally rule out explanations (1) and (2) from earlier)
+- However, PoP investigations that are not preceded by a viral event of police brutality there is some evidence of a smaller decrease in crime
+- It’s important to understand the mechanisms of what explains these effects
+- Why do we see an increase in crime after investigations preceded by viral police use of force?
+- Why do we see generally no change in crime after investigations NOT preceded by viral police use of force?
+- What is the explanation of all this?
+
+---
+## Likely Mechanism: Reduction in Police-civilian Contacts 
+
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-17-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="racial-bias-w_files/figure-html/unnamed-chunk-18-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+## Police Contact Decrease Seems To Explain The Increase In Crime
+
+- It appears that after the pattern or practice investigation, there is a significant decrease in police-civilian contact
+
+- This decrease in contact appears associated with an increase in crime
+
+- This is suggestive that police-civilian contact reduces crime
+
+---
+## Conclusion
+
+- The ideal goal of pattern or practice investigations is probably to eliminate racial bias in policing without causing police to retreat from activities that suppress crime, and save lives
+
+&gt; “A troubling possibility is that the types of police activities that keep crime low are inherently unconstitutional and hence we face a tradeoff between allowing uncomfortable amounts of police bias and reducing crime in the very communications which are most impacted by that bias.”
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="assets/remark-zoom.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

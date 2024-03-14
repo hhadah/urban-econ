@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Explanation of Common Terminology in Causal Studies in (Urban) Economics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Hussain Hadah (he/him)" />
+    <meta name="date" content="2024-02-20" />
+    <script src="causal-term_files/header-attrs/header-attrs.js"></script>
+    <link href="causal-term_files/remark-css/default.css" rel="stylesheet" />
+    <link href="causal-term_files/countdown/countdown.css" rel="stylesheet" />
+    <script src="causal-term_files/countdown/countdown.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } },
+      });
+    </script>
+    <style>
+    .mjx-mrow a {
+      color: black;
+      pointer-events: none;
+      cursor: default;
+    }
+    </style>
+    <link rel="stylesheet" href="assets/tulane-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="assets/tulane.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Explanation of Common Terminology in Causal Studies in (Urban) Economics
+]
+.subtitle[
+## Common Terminology in Causal Studies
+]
+.author[
+### Hussain Hadah (he/him)
+]
+.date[
+### 20 February 2024
+]
+
+---
+
+layout: true
+&lt;div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;"&gt;Hussain Hadah (he/him) (Tulane) | Common Terminology in Causal Studies | 20 February 2024&lt;/div&gt;
+
+&lt;!--- Common Terminology in Causal Studies | 20 February 2024--&gt;
+
+---
+class: title-slide
+background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+
+
+
+
+
+
+
+
+&lt;style type="text/css"&gt;
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+&lt;/style&gt;
+# .text-shadow[.white[Outline for Today]]
+
+&lt;ol&gt;
+    &lt;li&gt;&lt;h4 class="white"&gt;Introduce Endogeneity &lt;br&gt; ("Chicken or the Egg") Issue in Crime Econ&lt;/h4&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;h4 class="white"&gt;Exogeneity vs. Endogeneity&lt;/h4&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;h4 class="white"&gt;Bias in Causal Inference&lt;/h4&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;h4 class="white"&gt;Jigsaw Activity&lt;/h4&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+---
+## Next week &lt;svg viewBox="0 0 448 512" style="height:1em;display:inline-block;position:fixed;top:10;right:10;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm64-192c0-8.8 7.2-16 16-16h288c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-64zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+- Crime - Gender-Based Violence Module
+  - Jigsaw Activity: will randomize groups again
+  - Please read the content warning in the module and contact me if you have questions or concerns
+
+- COVID-19 and Gender-Based Violence
+
+- Introduction to the Economics of Discrimination
+
+- Quiz 2 is on March 5th 
+
+### Readings &lt;svg viewBox="0 0 576 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+- Ravindran, Shah (2020)
+
+- Bullinger, Carr, Packham (2020)
+
+- Slides on Gender-Based Violence Module
+
+- Grant proposal for a project I am wokring on
+
+---
+## Group Briefing Note &lt;svg viewBox="0 0 192 512" style="height:1em;display:inline-block;position:fixed;top:10;right:10;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M176 432c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80zM25.26 25.199l13.6 272C39.499 309.972 50.041 320 62.83 320h66.34c12.789 0 23.331-10.028 23.97-22.801l13.6-272C167.425 11.49 156.496 0 142.77 0H49.23C35.504 0 24.575 11.49 25.26 25.199z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+- It is due on Sunday
+
+- I graded the first drafts from those that submitted
+
+- Create a group when you submit the final version
+
+- You need to be in a group
+
+- Read the syllabus and module for more information
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Issues in Causal Inference: Endogeneity
+
+---
+## Endogeneity in Crime Econ &lt;svg viewBox="0 0 384 512" style="height:1em;display:inline-block;position:fixed;top:10;right:10;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+.pull-left[
+- Suppose you were to compare areas/cities with more police officers to areas/cities with fewer officers to see how crime differs. 
+- Do the areas/cities with more officers have less crime?
+- But the number of police officers is endogenous to crime.
+- Endogenous since crime affects the number of police officers, but police officers affect crime.
+- E.g., police officers allocated to high crime areas.
+- Increases in crime prompt the hiring of additional officers.
+]
+
+.pull-right[
+&lt;img src="causal-term_files/figure-html/unnamed-chunk-3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## Endogeneity in Crime Econ &lt;svg viewBox="0 0 384 512" style="height:1em;display:inline-block;position:fixed;top:10;right:10;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+.pull-left[
+- Suppose you were to do this comparison anyways…
+
+- Suppose you were to compare areas/cities with more police officers to areas/cities with fewer officers to see how crime differs. 
+- Do the areas/cities with more officers have less crime?
+- Do you think that by doing this comparison you would overestimate or underestimate the effect of police on reducing crime?
+]
+
+.pull-right[
+&lt;img src="causal-term_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## Endogeneity in Crime Econ &lt;svg viewBox="0 0 384 512" style="height:1em;display:inline-block;position:fixed;top:10;right:10;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+.pull-left[
+- Suppose you were to compare areas/cities with more police officers to areas/cities with fewer officers to see how crime differs.
+- This would probably underestimate the effect of police on crime, perhaps showing incorrectly that they increase crime, or that their effect on crime reduction is smaller than it actually is.
+- Estimates would be negatively biased.
+- Why?
+]
+
+.pull-right[
+&lt;img src="causal-term_files/figure-html/unnamed-chunk-5-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## Endogeneity in Crime Econ &lt;svg viewBox="0 0 384 512" style="height:1em;display:inline-block;position:fixed;top:10;right:10;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+.pull-left[
+- Estimates would be negatively biased.
+- Why?
+- Since police are allocated to places with higher crime rates, or more police are deployed when crime increases, there is going to be a positive correlation between the two.
+- Mistaking that for a causal relationship will bias the estimate.
+- We have to break this endogeneity loop!
+]
+
+.pull-right[
+&lt;img src="causal-term_files/figure-html/unnamed-chunk-6-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# How to Break the Endogeneity Loop?
+
+---
+## Solving the Egg and Chicken Problem: DALL-E
+
+&lt;img src="causal-term_files/figure-html/unnamed-chunk-7-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+## Randomization
+
+- We covered how Differece-in-Difference (DiD) can help us break the endogeneity loop.
+- The ideal way to investigate the effect of police on crime would be to randomly allocate areas/cities with more/fewer police officers.
+- Likely not possible…
+- Is there a way that police are allocated that is “quasi-random”?
+- Is there a natural experiment?
+- Or, phrased another way, is there a way that police were allocated that was independent from the crime level (i.e. Is there a case where police officers were not allocated based on crime levels?)
+
+---
+## Empirical Studies on How Police Affect Crime
+
+- In this course we will cover some neat empirical research articles that investigate how police affect crime using different experimental or “quasi-experimental” methods.
+- These are the readings for the Jigsaw activity
+- **Levitt, Steven D.** 1997. “Using Electoral Cycles in Police Hiring to Estimate the Effect of Police on
+Crime.” American Economic Review, 87(3): 270–290.
+- **Sullivan, Christopher M, and Zachary P. O’Keeffe.** 2017. “Evidence that curtailing proactive
+policing can reduce major crime.” Nature Human Behaviour, 1(10): 730–737.
+- **Di Tella, Rafael, and Ernesto Schargrodsky.** 2004. “Do Police Reduce Crime? Estimate Using the
+Allocation of Police Forces after a Terrorist Attack.” American Economic Review, 94(1): 115–133.
+- **Dur, Robert, and Ben Vollaard. 2019.** “Salience of law enforcement: A field experiment.” Journal
+of Environmental Economics and Management, 93: 208–220.
+- **Cheng, Cheng, and Wei Long. 2018.** “Improving police services: Evidence from the French quarter
+task force.” Journal of Public Economics, 164: 1–18.
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Terminology
+
+---
+## Some Terms that are Helpful to Know
+
+- These terms will come up in the practice questions you’ll do today, in the course, and in economics in general.
+1. Treatment variation
+1. Exogenous
+1. Endogenous
+1. External validity
+
+---
+## Treatment Variation
+
+- This term often comes up in empirical research that estimates causal effects.
+- Treatment variation refers to the variation in X that you are using to identify the causal effect of X on Y.
+- E.g., the variation in the timing and location of MDPs (as in GHM).
+- E.g., the increase in police officer hiring that occurs before elections (this is the variation used in Levitt, 1997).
+- E.g., the randomly-assigned change in police enforcement by location (as in Dur and Voolaard, 2019).
+
+---
+## Exogenous
+
+- If a variation is exogenous, then it is not a function of other factors.
+- It is not a function of other variable in the economic/statistical model.
+- If something is exogenous, you can think of it being random.
+- We ideally want to use treatment variation that is exogenous. 
+- The gold standard would be randomization `\(\rightarrow\)` randomized treatment (e.g., randomizing police) would be strictly exogenous since treatment status does not depend on anything.
+
+---
+## Endogenous
+
+- The opposite of exogenous.
+- More specifically, if something is endogenous, it means it is a function of (it depends on, it is endogenous to) something else.
+- E.g., police allocation is endogenous to crime (unless we find some random or quasi-random variation to use).
+- E.g., state adoption of tax incentives for the film industry may be endogenous to the size of the existing film industry (larger existing film industry = more likely to adopt an incentive)
+
+---
+## Endogenous vs. Exogenous
+
+- The key question is how exogenous/endogenous the treatment variation is. 
+- It’s not black and white where it is always clearly one or the other.
+- Most treatment variation outside of an experiment lies on a spectrum between fully exogenous and strongly endogenous.
+- There is no way to know or to test of treatment variation is endogenous.
+- Determining how endogenous it is requires thinking critically about the factors that affect the treatment variation.
+- For example, is there something non-random about the change in policing that is used in the paper? Could this non-randomness cause bias by creating a feedback loop (like the crime `\(\leftrightarrow\)` police feedback loop shown earlier)?
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Jigsaw Activity
+
+---
+## Jigsaw Activity
+
+1) First grouping - "Focus Groups" - about 10 minutes
+
+  1. You will be in a groups with those who read the same paper as you. You will discuss your paper to all get on the same page about it. Specially, you will to be able to summarize your paper to your peers who have not read it in the next group, so you want to ensure you can provide a summary. Probably the best way to get on the same page about your reading is to share your summaries that you submitted before class and discuss how you can improve them. 
+
+  2. While in this group, each of you will answer the first set of questions here -&gt; Cluster Jigsaw Questions (Work on During Class Feb. 20.)
+
+---
+## First grouping - "Focus Groups"
+
+- **Cheng, Long (2018):** O. Bisley, E. Jackson, E. Goldberg, A. Campisi, V. Chan, B. Butler, W. Scher, P. Bui, B. Zislin, D. Schaffer, K. Nguyen, T. Abbazia
+
+- **Dur, Vollaard (2019):** D. Morris, A. Curtis, S. Potter, C. Glew, L. Harding, J. Xu, R. Keegan, J. Agoglia, A. Lesser, T. Kang, S. Herbert, S. Maguire
+
+- **Di Tella, Schargrodsky (2004):** A. Stenzel, C. Walsh, A. Herrera, S. Roskin, N. Acosta, J. Odell, C. Allmon, C. Ates, I. Bedziner, A. Salcedo, B. Huang, S. Lum
+
+- **Levitt (1997):** T. Precilla, I. Arnold, M. Mangum, D. Pepe, J. Zhu, R. Sklar, T. Tewari, S. Schweitzer, J. Huang, S.C. Burgess, S. Lewis, A. Halfon
+
+- **Sullivan, O'Keeffe (2017):** T. Padon, L. Turner, V. Mahanti, D. Lutz, E. Meyer, T.-Y. Nguyen, S. Doran, Z. Burnett, K. Schwartz, T. Tran, A. Anderson, S. Mehran
+
+
+<div class="countdown" id="timer_3c81f09d" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+## Jigsaw Activity
+
+2) Second grouping - "Task Groups" - remaining time of about 30 minutes
+
+  1. You will be in groups with those who read a different paper than you.
+  1. Briefly introduce yourselves and note which papers you were assigned. In some cases there may be two people who read the same paper. That is fine.
+  1. Take turns summarizing your paper to your peers orally in about 4 minutes. Focus on the key "takeaways" (think TL;DR). You can also provide them with the written summary by copy-pasting it into the chat. If there is more than one of you who did the same paper then please collaborate on this. Perhaps one person could give a summary and the second person can add anything that was missed or confirm those points.
+  1. While others are summarizing their papers to you, feel free to ask questions to help you better understand the papers.
+  1. Your goal will be to learn enough about the other papers such that you can answer the second set of questions here -&gt; Cluster Jigsaw Questions (Work on During Class Feb. 20)
+  1. You are free to go once you've submitted your answers.
+
+---
+## Task Groups
+
+- **Group 0:** E. Jackson, A. Curtis, J. Huang, S. Roskin, K. Nguyen, A. Lesser
+- **Group 1:** J. Xu, A. Halfon, T. Padon, K. Schwartz, O. Bisley, D. Morris
+- **Group 2:** A. Salcedo, S. Lewis, B. Huang, S. Mehran, J. Agoglia, V. Chan
+- **Group 3:** S. Schweitzer, R. Sklar, A. Anderson, V. Mahanti, L. Turner, T.-Y. Nguyen
+- **Group 4:** Z. Burnett, C. Glew, A. Stenzel, S. Maguire, C. Walsh, W. Scher
+- **Group 5:** S. Lum, D. Schaffer, A. Campisi, E. Meyer, M. Mangum
+- **Group 6:** R. Keegan, T. Tran, D. Pepe, J. Zhu, C. Allmon
+- **Group 7:** L. Harding, T. Precilla, T. Tewari, B. Butler, D. Lutz
+- **Group 8:** T. Abbazia, P. Bui, C. Ates, N. Acosta, E. Goldberg
+- **Group 9:** T. Kang, J. Odell, I. Bedziner, S. Creager Burgess, S. Herbert
+
+
+<div class="countdown" id="timer_0a265b27" data-update-every="1" tabindex="0" style="top:0;right:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">30</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="assets/remark-zoom.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
