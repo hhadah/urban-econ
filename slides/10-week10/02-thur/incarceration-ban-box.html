@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Effects of Incarceration on Recidivism and Labor Market Outcomes and Ban the Box</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Hussain Hadah (he/him)" />
+    <meta name="date" content="2024-03-17" />
+    <script src="incarceration-ban-box_files/header-attrs/header-attrs.js"></script>
+    <link href="incarceration-ban-box_files/remark-css/default.css" rel="stylesheet" />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } },
+      });
+    </script>
+    <style>
+    .mjx-mrow a {
+      color: black;
+      pointer-events: none;
+      cursor: default;
+    }
+    </style>
+    <link rel="stylesheet" href="assets/tulane-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="assets/tulane.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Effects of Incarceration on Recidivism and Labor Market Outcomes and Ban the Box
+]
+.subtitle[
+## Incarceration, Labor Market, and Ban the Box
+]
+.author[
+### Hussain Hadah (he/him)
+]
+.date[
+### 17 March 2024
+]
+
+---
+
+layout: true
+&lt;div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;"&gt;Hussain Hadah (he/him) (Tulane) | Incarceration, Labor Market, and Ban the Box | 17 March 2024&lt;/div&gt;
+
+&lt;!--- Incarceration, Labor Market, and Ban the Box | 17 March 2024--&gt;
+
+---
+class: title-slide
+background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+
+
+
+
+
+
+
+
+&lt;style type="text/css"&gt;
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+&lt;/style&gt;
+# .text-shadow[.white[Outline for Today]]
+
+&lt;ol&gt;
+    &lt;li&gt;&lt;h4 class="white"&gt; Effect of Incarceration&lt;/h4&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;h4 class="white"&gt; Summary of Bhuller et al. (2020)&lt;/h4&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;h4 class="white"&gt; Summary of Eren, Mocan (2021)&lt;/h4&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;h4 class="white"&gt; Introduce Audit Studies&lt;/h4&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;h4 class="white"&gt; Ban the Box&lt;/h4&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Measuring the effects of incarceration
+
+---
+## How Does Incarceration Affect Recidivism, and Labor Market Outcomes?
+
+- The idea is that incarceration, i.e. putting people in jail, reduces the chances that they engage in criminal activity later
+- Is this the case?
+- First, let’s summarize some possible mechanisms of how incarceration could affect recidivism and labor market outcomes
+
+---
+## How Does Incarceration Affect Recidivism, and Labor Market Outcomes?
+
+- Incarceration could **reduce** recidivism by:
+
+  - Reducing the temptation to engage in criminal activity later, to avoid the costs of incarceration that were just experienced (i.e. a deterrent effect)
+  - Increasing education or job training, to the extent that those programs are available in prison. This could increase job market opportunities which would decrease incarceration (think the “rational criminal” model)
+  - Crime often occurs due to substance misuse or mental health issues. If incarceration reduces, rather than exacerbates, those issues then this could reduce recidivism and boost labor supply
+
+---
+## How Does Incarceration Affect Recidivism, and Labor Market Outcomes?
+
+- Incarceration could **increase** recidivism by:
+  - Causing a deterioration in human capital (i.e. skills, work experience) since the individual is generally not working. This needs to be contrasted with any education or training programs available in prison. The net effect could go either way
+  - Those with criminal records face discrimination in the job market, which reduces their ability to get a job. This leads to recidivism for many
+  - If incarceration increases substance misuse or mental health issues, that could reduce labor supply and increase recidivism
+
+---
+## How Does Incarceration Affect Recidivism, and Labor Market Outcomes?
+
+- Determining what the net effect is of incarceration – does it increase or decrease recidivism/labor market outcomes – is tricky because incarceration is not randomly assigned
+- Those who are sent to prison are different from those who are not
+- A simple comparison of, say, labor market outcomes between those who faced incarceration and those who did not would give a biased estimate of the “effect” of incarceration on labor market outcomes
+- E.g., those who faced incarceration had worse labor market outcomes anyways
+- The ideal would be to compare two on-average identical groups of people: one groups is put in prison and the other group is not
+- This sort of randomized control trial is obviously not possible or ethical
+- So, economists and social scientists look to “natural experiments”, or ways that there was quasi-random variation in incarceration
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Bhuller et al. (2020)
+
+---
+## Abstract
+
+*   Understanding the impact of prison time on criminal behavior is complex due to limited data and differences between those incarcerated and those not
+*   The study focuses on Norway's criminal justice system, utilizing a comprehensive dataset on criminal behavior and labor market outcomes
+*   It leverages the varying strictness of judges (as an instrumental variable) to assess the effects of incarceration on reoffending and employment
+*   Findings show that imprisonment significantly decreases the likelihood of reoffending by 27 percentage points and reduces subsequent criminal charges by 10
+
+---
+## Abstract
+
+*   In contrast, ordinary least squares (OLS) analysis suggests a positive relationship between incarceration and future crime, highlighting the influence of selection bias
+*   The study clarifies that the observed high recidivism rates among ex-convicts are more about the pre-existing likelihood of committing crimes rather than the prison experience itself
+*   The preventive effect of incarceration is particularly notable among individuals not employed before imprisonment, indicating the importance of rehabilitation programs in reducing recidivism and improving employment outcomes
+*   These results challenge the 'nothing works' doctrine, suggesting that prison, when focused on rehabilitation, can have a preventive effect on criminal behavior
+
+---
+## Testing the Random Assignment of Judges
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Columns (1) and (2) show how demographics, type of crime, and past work and criminal history affect the probability that you become incarcerated
+
+Not surprisingly, those who are incarcerated and different from those who are not
+
+E.g., older, more likely to be male, single, without education, more likely to have done violent crime, and they have more criminal history
+]
+
+---
+## Testing the Random Assignment of Judges
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Columns (3) and (4) show how these factors related to judge stringency
+
+What we want to see if judge stringency is as-good-as-random is that there are few statistically significant relationships between judge stringency and demographic, crime, or work and criminal history factors
+
+There is no association (nothing is statistically significant), so this strongly suggests that the assignment is as-good-as-random
+]
+
+---
+## Summary Statistics
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-5-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+This descriptive statistics table tells you about the general make-up of their sample of individuals who are either assigned to incarceration or not
+
+Defendants are more likely to be male, unmarried, have children, have low levels of education, have criminal history, and have low levels of employment history
+]
+
+---
+## First Stage: Testing the Stringency of Judges
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-6-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Yes, as stringency increases, the probability of incarceration increases
+
+Range of probabilities is about 46% (most lenient) to 57% (most strict)
+
+We can think of (57% - 46% = 11%)/57% = about 19% of incarcerations occur due to judges being pickier than the more lenient judge
+]
+
+---
+## The Effect of Incarceration on Recidivism
+
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-7-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+## The Effect of Incarceration on Recidivism
+
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-8-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+## The Effect of Incarceration on Recidivism
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+OLS estimates = Ordinary Least Squares. These are naïve estimates that just compare those incarcerated to those who are not
+
+These show a positive association between incarceration and recidivism
+
+Adding control variables cuts the effect in half, but even trying to control for observable factors to make those incarcerated = to those not incarcerated is an imperfect exercise
+]
+
+---
+## The Effect of Incarceration on Recidivism
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-10-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+RF/IV estimates = estimates that use judge fixed effects to compare on-average identical defendants who happened to be randomly assigned lenient vs strict judges
+
+These estimates show the opposite effect – incarceration reduces recidivism
+
+The decrease in recidivism persists even up to 60 months later
+]
+
+---
+## The Effect of Incarceration on Recidivism
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-11-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+The decrease is in recidivism is quite large
+
+The IV estimate for months 1-60 is -0.274
+
+The dependent mean (the baseline mean) “ever charged” probability for those not incarcerated is 0.70
+
+Therefore, we can think of incarceration decreasing this probability from 0.70 (70%) to 0.70-0.274 = 0.426 (42.6%)
+
+The incarceration rate decreases by 27.4 percentage points, or decreases by about 30.1% compared to the baseline rate of 70%
+]
+
+---
+## The Effect of Incarceration on Recidivism
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-12-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Being employed before the trial seems to affect the results
+
+We see that those who had been previously employed have employment decreases due to incarceration
+
+There is evidence that those who were non-employed before the trial experience an increase in employment due to incarceration
+
+In other results, the authors find that those previous non-employed were more likely to attend job training programs while in prison
+]
+
+---
+## What Does it Mean to be Incarcerated in Norway?
+
+- Their result that incarceration reduced recidivism and has mixed effects on employment may seem odd when thinking about incarceration in the US
+
+- Prisons in Norway are different, where “life inside will resemble life outside as much as possible” and “offenders shall be placed in the lowest possible security regime”
+
+- Low-level offenders to go “open” prisons, which are more like dorms
+
+- All prisons offer education, mental health and training programs
+
+- The most common programs are for high school and work-related training. Those not enrolled must work within prison
+
+---
+## What Does it Mean to be Incarcerated in Norway?
+
+- Inmates have the right to daily physical exercise and access to a library and newspapers
+
+- They have the same rights to health care as the regular population
+
+- 18% of inmates participate in a drug-related program while in prison
+
+- After release, there is also an emphasis on helping offenders reintegrate into society, with access to active labor market and other programs set up to help ex-convicts find a job and access social services like housing support
+
+.blockquote[
+### &lt;svg viewBox="0 0 384 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt; Key question
+- If this study were to have been done in the US, would the results be the same? Or would they be different since prisons in the US provide a much worse experience?
+]
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Eren, Mocan (2021)
+
+---
+## Introduction to Eren, Mocan (2021)
+
+*   The study examines the effect of juvenile crime punishment on high school completion and adult recidivism in Louisiana
+*   Cases were randomly assigned to judges, allowing for estimation of incarceration's causal effects based on varying judge stringency
+*   Juvenile incarceration is linked to a higher likelihood of adult drug offense convictions but a lower likelihood of property crime convictions
+*   A negative impact of juvenile incarceration on high school completion was observed for earlier cohorts, with no significant effect on later cohorts
+
+---
+## Summary Statistics
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-13-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+The juvenile defendants in their data are mostly black (65.3%), male (74.8%), and are age 15 on average
+
+Property and “other” crimes are most common
+
+On average 38.7% of these juvenile defendants get a conviction in adulthood, with the average age of the adult crime being at almost age 20
+
+Only 23.8% of the juvenile defendants will go on to eventually graduate high school
+]
+
+---
+## First Stage: Testing the Stringency of Judges
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-14-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+First stage = does judge stringency affect incarceration?
+
+Answer: Yes, absolutely. Incarceration rates are strongly linked to judge stringency
+]
+
+---
+## Testing the Random Assignment of Judges
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-15-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Is assignment to more lenient or more stringent judges as-good-as-random?
+
+Answer: Yes, there is almost no association between defendant characteristics and if they were assigned to a more stringent judge
+
+(Note: one estimate is significant at the 10% level, but even if there are no effects for all these variables, we would expect to find a false positive 10% of the time. So, likely this one significant estimate is a false positive)
+]
+
+---
+## Results: The Effect of Incarceration on Recidivism
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-16-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Using judge fixed effects, where they compare on-average juvenile defendants assigned either more lenient or more picky judges, they find that
+
+Incarceration increases drug-related crimes
+
+Incarceration decreases property crimes
+]
+
+---
+## Results: The Effect of Incarceration on Recidivism
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-17-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+In other results, these effects are stronger the longer the person is in prison, especially for drug-related crimes
+
+In other results, for those born before 1983, incarceration reduces the probability of high school graduation
+]
+
+---
+## Summary of Bhuller et al. (2016) and Eren and Mocan (2019)
+
+- Bhuller et al. (2016) – Adults, Norway – Incarceration reduces recidivism, mixed impacts on labor market outcomes
+
+- Eren and Mocan (2019) – Juveniles, Louisiana – Incarceration reduces property crime recidivism but increases drug crime recidivism. Incarceration also reduces the probability of high school graduation for earlier cohorts (born before 1983)
+
+- Are the different results due to the different contexts? (e.g., juveniles vs. adults, Louisiana prisons vs. Norway prisons)
+
+- More research is likely needed. These are two recent new papers that get around the difficult “selection” issue by using administrative data and judge fixed effects
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Overview of Audit Studies
+
+---
+## What are Audit Studies?
+
+- The most common way that economists and sociologists measure discrimination
+- Send on-average identical “testers” (e.g., resumes, emails, actors) that vary by minority status (e.g., white vs. black) to study discrimination in hiring, market access, etc
+- Since the testers only differ by race, any differences in responses to them can isolate discrimination
+- Audit field experiments are commonly used to study housing discrimination
+
+---
+## Audit field experiments - Housing
+
+- Phillips (2016) finds housing rental ads online (e.g., Craigslist)
+- He then sends housing rental viewing requests from potential tenants to these landlords that posted the rental ads
+- Viewing requests comes from individuals with white-sounding name (e.g., Emily Smith) of African-American names (e.g., Lakisha Washington)
+- Phillips (2016) also randomly includes a mention of if the individual is going to pay with a Section 8 voucher
+  - This is an anti-poverty program there the government pays part of your rent
+
+---
+## Audit field experiments - Housing
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-18-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+The average positive response rate (e.g., viewing offer) is 43%
+
+Those who mention Section 8 have about a 26 percentage point lower positive response rate (so, about 17%)
+
+Those with African-American names have about a 6 percentage point lower positive response rate (so, about 37%)
+]
+
+---
+## Audit field experiments - Hiring
+
+.pull-left[
+Audit field experiments are commonly used to study hiring discrimination
+
+These are the “resume experiments” you have likely heard of
+
+The Agan and Starr (2018) paper, the focus of today, is one of these resume experiments, but with an interesting difference-in-differences twist (explained later)
+]
+
+.pull-right[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-19-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## Audit field experiments - Hiring
+
+.pull-left[
+Researchers sent on-average identical applications (resumes) to job ads
+
+Applicants vary in minority status (e.g., white vs. African-American name, male vs. female, older vs. younger, criminal record vs. no criminal record)
+
+Discrimination is quantified by comparing “callback rates” – interview or similar positive response rates by employers
+]
+
+.pull-right[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-20-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Ban the Box
+
+---
+## What is Ban the Box?
+
+- Before I get into the methodology of the Agan and Starr (2018) resume experiment, I first want to explain what “Ban the Box” is
+- From Wikipedia: **“Ban the Box is the name of an American campaign by advocates for ex-offenders, aimed at removing the check box that asks if applicants have a criminal record from hiring applications. Its purpose is to enable ex-offenders to display their qualifications in the hiring process before being asked about their criminal records. The premise of the campaign is that anything that makes it harder for ex-offenders to find a job makes it likelier that they will re-offend, which is bad for society.” **
+
+---
+## What is Ban the Box? 2019 Data
+
+.pull-left[
+- Dark blue = box is banned for private employers and public employers
+- Light blue = box is banned for public employers only
+- Gray = no ban the box
+
+- Note: this figure doesn’t show city or county-level laws, just state laws
+
+- There is no “Ban the Box” law at the federal level
+]
+
+.pull-right[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-21-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Agan and Starr (2018)
+
+---
+## Introduction to Agan and Starr (2018)
+
+*   "Ban the Box" (BTB) policies aim to help reduce unemployment among black men by restricting employer inquiries into applicants' criminal histories.
+*   There's a concern that BTB may lead to increased racial discrimination, with employers potentially making assumptions based on race.
+*   A study involving around 15,000 online job applications was conducted to assess the effects of BTB policies in New Jersey and New York City.
+*   Applications simulated young, male applicants with names signaling either black or white racial identity, along with varied felony conviction status.
+*   Evidence showed criminal records greatly reduce employment opportunities: employers without the box were 63% more likely to respond to applicants without a record.
+*   The racial gap in employer callbacks increased post-BTB, with white applicants initially receiving 7% more callbacks than black applicants, which widened to 43% after BTB.
+*   This suggests employers may rely on racial biases regarding criminality in the absence of explicit information about criminal records.
+
+
+---
+## BTB Audit Study
+
+- Agan and Starr (2018) study the impact of the enactment of a BTB law on hiring discrimination against those with criminal records and African-Americans
+- They use an audit study – a resume field experiment – to quantify this discrimination
+- Race or ethnicity is signaled through names (e.g., Greg Nelson, Darius Washington)
+- Criminal record is signaled by checking the “box” or not, if it is available
+
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-22-1.png" width="40%" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+---
+## BTB Audit Study
+
+- This is study is innovative because it uses an audit field experiment combined with a difference-in-differences to quantify the effect of BTB
+- They first do a cross-sectional analysis, which just uses data before the BTB policy was passed
+- They compare discrimination in jobs with and without a box, to see if having a box is associated with a different amount of racial discrimination
+- They then use temporal variation in box, which occurs after NYC passes a BTB policy, and almost all NYC employers get rid of the box
+- They compare New York City before and after its BTB to New Jersey during a similar time period, to see how racial discrimination in NYC changed during that time period, compared to the “control” of NJ
+
+---
+## Summary Statistics
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-23-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+- This table presents what their data looks like
+- About half of the job applicants are white (vs. black), have a conviction (vs. no conviction), have a GED (vs. no GED), and have an 11-13 month employment gap in work history (vs. 0-2 month gap)
+- Callback rates on average are 10.9%, and interview offer rates are 6.0%
+  - The difference between them – 4.9%, is other positive employer response that is not an explicit interview offer
+]
+
+---
+## Summary Statistics
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-24-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+- This table presents what their data looks like
+- Callback rates are lower for blacks, slightly lower for GED compared to high school diploma, but are similar for those with and without employment gaps
+- Callback rates seem to be increasing over time, hence the general increase comparing pre to post-BTB
+- But the key question is if discrimination changes differentially after BTB (NYC) compared to the same time period without a BTB change (NJ)
+]
+
+---
+## Callback Rates are Lower for Those with Criminal Records
+
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-25-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+## Callback Rates are Lower for Those with Criminal Records
+
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-26-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+## Difference-in-differences in Regression Form
+
+$$
+Callback_{ij} = \alpha + \beta_1 Box_j + \beta_2 White_i + \beta_3 Box_j \times White_i + \mathbf{\Gamma X_i}
+$$
+
+- They first use cross-sectional data (i.e. data from just one time period, in this case, pre BTB)
+- They quantify how racial discrimination differs between firms that use or do not use the box
+- The coefficient tells us the callback difference in general, regardless of race when there is a box
+- The coefficient tells us the callback difference by race, regardless of if there is a box
+- The coefficient gives the difference in differences estimate, which tells us if having a box differentially affects whites vs blacks
+- It captures the interaction effect: does having a box increase or decrease racial discrimination?
+
+---
+## Raw Data: Before BTB
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-27-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+- Callback rates are similar between whites and blacks with a criminal record (only disclosed when there is a box)
+- Whites get a 0.9 percentage point higher callback rate compared to blacks when neither has a criminal record
+- **Callback rates for whites are 3.1 percentage points higher, compared to blacks, when there is no box**
+]
+
+---
+## Adding Temporal Variation
+
+- Agan and Starr (2018) then build up to their ideal DiD specification by using temporal variation in BTB
+- New York City passes a BTB law, which creates variation in BTB that can be used in a DiD to try to quantify the effect of BTB on discrimination
+- This DiD is preferred to their earlier cross-sectional approach (similar to the naïve approach of only using one time period, from earlier)
+
+---
+## Adding Temporal Variation
+
+- The DiD is preferred because there could be non-random reasons why some employers use a box and others don’t. Given then, it’s hard to isolate how the box affects discrimination compared to how firms that use the box different and how this could affect racial differences
+- For example, what if firms that use the box are more racist anyways? Then we might confuse the effect of the box for selection into who uses the box
+- In this hypothetical example, banning the box doesn’t reduce racial discrimination
+
+---
+## Results
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-28-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+- Turns out their results are similar comparing the naïve cross-sectional approach (column (1)) to the more advanced DiD approach (columns (2) to (4))
+- Looking at column (2), the coefficient on white shows a 4.4 percentage point higher callback rate for whites when there is no box
+- The coefficient on box is not statistically significant – callback rates for whites are similar with and without the box
+]
+
+---
+## Results
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-29-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+- Box x white, the coefficient of interest is -0.036, suggesting that callback rates for whites are 3.6 percentage points lower, compared to blacks, when there is a box, compared to when there is no box
+- Putting this together, the white “benefit” is 4.4 percentage points when there is no box, but only about 0.8 p.p.s when there is a box
+- **Removing the box is associated with an increase in racial discrimination**
+]
+
+---
+## Results
+
+.pull-left[
+&lt;img src="incarceration-ban-box_files/figure-html/unnamed-chunk-30-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+- The White “benefit” is about 7 percentage points when a box is present, regardless of criminal record
+- **Callback rates for whites are 4.5 percentage points higher, compared to blacks, when there is no box**
+- This is similar to the cross-sectional results, but a bigger magnitude of an effect
+]
+
+---
+## Conclusion
+
+- The evidence from this paper suggests that employers statistically discriminate against black applicants, by being more likely to assume they have criminal convictions when they do not have information on criminal conviction status
+- When the box is banned, employers who used to rely on the box make the assumption that black applicants are more likely to have a criminal record
+- Therefore, we see racial discrimination increase after BTB takes effects
+- This suggests unintended consequences, as BTB was ideally supposed to reduce employment disparities for blacks, who are more likely to have criminal records
+- There is the benefit that without a box, there is less discrimination against those with records, and those with records are disproportionately black, so that is still a benefit of BTB
+- But the cost is an increase, in general, in discrimination against blacks
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="assets/remark-zoom.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
