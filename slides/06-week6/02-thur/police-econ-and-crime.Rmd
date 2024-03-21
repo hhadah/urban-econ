@@ -1,0 +1,970 @@
+---
+title: "Effect of Police on Crime & Economic Circumstances on Crime"
+subtitle: "Police, Economic Circumstances, and Crime"
+author: "Hussain Hadah (he/him)"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/tulane-fonts.css", "assets/tulane.css"]
+    self_contained: false # if true, fonts will be stored locally
+    seal: true # show a title slide with YAML information
+    includes:
+      in_header: "assets/mathjax-equation-numbers.html"
+    nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9' # alternatives '16:9' or '4:3' or others e.g. 13:9
+      navigation:
+        scroll: false # disable slide transitions by scrolling
+---
+layout: true
+<div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;">`r rmarkdown::metadata$author` (Tulane) | `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`</div>
+
+<!--- `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`-->
+
+---
+class: title-slide
+background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+
+```{r, load_refs, echo=FALSE, cache=FALSE, message=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'authoryear', 
+           style = "markdown",
+           hyperlink = FALSE, 
+           dashed = FALSE)
+myBib <- ReadBib("assets/example.bib", check = FALSE)
+top_icon = function(x) {
+  icons::icon_style(
+    icons::fontawesome(x),
+    position = "fixed", top = 10, right = 10
+  )
+}
+```
+
+```{r setup, include=FALSE}
+# xaringanExtra::use_scribble() ## Draw on slides. Requires dev version of xaringanExtra.
+
+options(htmltools.dir.version = FALSE)
+library(knitr)
+opts_chunk$set(
+  fig.align="center",  
+  fig.height=4, fig.width=6,
+  out.width="748px", out.length="520.75px",
+  dpi=300, #fig.path='Figs/',
+  cache=F#, echo=F, warning=F, message=F
+  )
+```
+
+
+```{r, cache=FALSE, message=FALSE, warning=FALSE, include=TRUE, eval=TRUE, results=FALSE, echo=FALSE, tidy.opts = list(width.cutoff = 50), tidy = TRUE}
+## Load and install the packages that we'll be using today
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tictoc, parallel, pbapply, future, future.apply, furrr, RhpcBLASctl, memoise, here, foreign, mfx, tidyverse, hrbrthemes, estimatr, ivreg, fixest, sandwich, lmtest, margins, vtable, broom, modelsummary, stargazer, fastDummies, recipes, dummy, gplots, haven, huxtable, kableExtra, gmodels, survey, gtsummary, data.table, tidyfast, dtplyr, microbenchmark, ggpubr, tibble, viridis, wesanderson, censReg, rstatix, srvyr, formatR, sysfonts, showtextdb, showtext, thematic, sampleSelection, RefManageR, DT, googleVis, png, grid)
+# devtools::install_github("thomasp85/patchwork")
+remotes::install_github("mitchelloharawild/icons")
+remotes::install_github("ROpenSci/bibtex")
+
+# devtools::install_github("ajdamico/lodown")
+## My preferred ggplot2 plotting theme (optional)
+## https://github.com/hrbrmstr/hrbrthemes
+# scale_fill_ipsum()
+# scale_color_ipsum()
+font_add_google("Fira Sans", "firasans")
+font_add_google("Fira Code", "firasans")
+
+showtext_auto()
+
+theme_customs <- theme(
+  text = element_text(family = 'firasans', size = 16),
+  plot.title.position = 'plot',
+  plot.title = element_text(
+    face = 'bold', 
+    colour = thematic::okabe_ito(8)[6],
+    margin = margin(t = 2, r = 0, b = 7, l = 0, unit = "mm")
+  ),
+)
+
+colors <-  thematic::okabe_ito(5)
+
+# theme_set(theme_minimal() + theme_customs)
+theme_set(hrbrthemes::theme_ipsum() + theme_customs)
+## Set master directory where all sub-directories are located
+mdir <- "/Users/hhadah/Documents/GiT/urban-econ/slides/01-week1/tue"
+
+## Set working directory
+
+# COLOR PALLETES
+library(paletteer) 
+# paletteer_d("awtools::a_palette")
+# paletteer_d("suffrager::CarolMan")
+
+### COLOR BLIND PALLETES
+#paletteer_d("colorblindr::OkabeIto")
+#paletteer_d("colorblindr::OkabeIto_black")
+# paletteer_d("colorBlindness::paletteMartin")
+# paletteer_d("colorBlindness::Blue2DarkRed18Steps")
+# paletteer_d("colorBlindness::SteppedSequential5Steps")
+# paletteer_d("colorBlindness::PairedColor12Steps")
+# paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps")
+colorBlindness <- paletteer_d("colorBlindness::Blue2Orange12Steps")
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+# scale_colour_paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps", dynamic = FALSE)
+# To use for fills, add
+  scale_fill_manual(values="colorBlindness::Blue2Orange12Steps")
+
+# To use for line and point colors, add
+  scale_colour_manual(values="colorBlindness::Blue2Orange12Steps")
+  #<a><button>[Click me](#sources)</button></a>
+```
+
+```{css, echo=F}
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+```
+
+# .text-shadow[.white[Outline for Today]]
+
+<ol>
+    <li><h4 class="white">Discuss Jigsaw Papers</h4></li>
+    <li><h4 class="white">Summarize Yang (2017) </h4></li>
+    <li><h4 class="white">Summarize Palmer, Phillips, Sullivan (2019) </h4></li>
+</ol>
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Cheng and Long (2018)
+
+---
+## The French Quarter (FQ) Task Force
+
+- The paper uses DiD
+
+- Compares policing policy changes in the French Quarter in New Orleans and how they affected crime
+
+- It compares the FQ before and after the task force was implemented to other neighborhoods during the same period
+
+- The policy change is the creation of the "French Quarter Task Force" (FQTF)
+
+```{r, echo=FALSE, warning=FALSE, out.width="35%", fig.show='hold', fig.align='center'}
+# Read the image file
+img1 <- readPNG("assets/Picture1.png")
+
+# Plot the image
+grid.raster(img1)
+```
+
+---
+## The French Quarter (FQ) Task Force: Background
+
+- Funded by Sidney Torres, a local entrepreneur
+
+- They would drive around the FQ in these tiny cars to more quickly respond to reported crimes or issues (which could be reported via an app), and to otherwise patrol the FQ
+
+- Cheng and Long study three phases:
+
+  1. Pre-FQTF
+  2. FQTF under private management
+  3. FQTF under public management
+
+```{r, echo=FALSE, warning=FALSE, out.width="35%", fig.show='hold', fig.align='center'}
+# Read the image file
+img2 <- readPNG("assets/Picture2.png")
+
+# Plot the image
+grid.raster(img2)
+```
+
+---
+## Check and Long: Treatment
+
+- They study .brand-crawfest[susceptible crimes].
+
+- .brand-crawfest[susceptible crimes] are those that could be affected by the presence of the FQTF patrols:
+
+  - .orange[Roberry]
+  - .orange[Aggravated Assault]
+  - .orange[Bulglary]
+  - .orange[Theft (larceny and auto theft)]
+
+
+---
+## Check and Long: Falsification Test
+
+- They use non-susceptible crimes (.brand-crawfest[homocide])---crimes that should not be affected by FQTF---as a falsification test
+
+- A falsification test is a way to see if the results you are finding in your study could potentially be spurious (i.e., false)
+
+- Test an outcome that you think you should not change at all
+
+- If there is good reason that it shouldn’t change due to the treatment, and you find an effect, it may suggest problems with your DiD approach
+
+  - E.g., parallel trends (aka “common trends”) assumption doesn’t hold
+
+---
+## Check and Long: Methodology
+
+- The methodology is a difference-in-differences:
+- Compare FQ during the three phases:
+  - Before FQTF
+  - During FQTF – private management
+  - During FQTF – public management
+- To the 70 other neighborhoods in New Orleans over the same time period.
+
+---
+## Check and Long: Results
+
+- They find that the increased police presence from the FQTF reduced robberies by 37.4%, aggravated assaults by 16.9%, and thefts by 13%
+- However, the program was more effective under private management rather than public management (NOPD)
+- This may be because the private management structure provided more incentives for police to be productive
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Di tella and Schargrodsky (2004)
+
+---
+## Introduction
+
+- The paper uses the change in policing after a terrorist attack as a .brand-crawfest[natural expirement]
+
+- They study the effect of change in policing on crime
+
+- The main Jewish center in Buenos Aires, Argentina was targeted by a terrorist attack in July 1994
+
+- After the attack, all Jewish institutions in Argentina received police protection
+
+- The paper leverages this change in policy in a Difference-in-Differences design
+
+- They compare blocks next to the Jewish centers before and after increase in police presence to similar areas during the same period
+
+.pull-left[
+
+- Treatment groups = block with a Jewish inst + one block away + two blocks away
+
+- Control groups = 2+ blocks from Jewish institution
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="90%", fig.show='hold', fig.align='center'}
+# Read the image file
+img3 <- readPNG("assets/Picture3.png")
+
+# Plot the image
+grid.raster(img3)
+```
+]
+
+---
+## Key Assumption
+
+- The key assumption is that the allocation of police outside Jewish centers and synagogues is exogenous to the crime trends in those areas
+
+- They study the effect on crimes like property theft
+
+- So for their to be an endogeneity concern, it would have to be the case that there was increased property theft right near synagogues, and the police were allocated in an endogenous way to curb that
+
+- This seems highly unlikely
+
+- The allocation of police here has nothing to do with LOCAL crime trends in property crime, etc., local to the area right by Jewish centers
+
+---
+## Results
+
+.pull-left[
+```{r, echo=FALSE, warning=FALSE, out.width="140%", fig.show='hold', fig.align='center'}
+# Read the image file
+img4 <- readPNG("assets/Picture4.png")
+
+# Plot the image
+grid.raster(img4)
+```
+]
+
+.pull-right[
+- They find that the increased police presence reduced car theft on the same block of the jewish center
+- No effect in blocks one and two blocks away
+- What is “Cross section”?
+- This is the naïve comparison of not using the pre-period data
+- Compare treatment to control group in the post period
+- This could create bias if there are fixed average differences between same-block and one/two blocks, however this generates only a smaller effect estimate
+]
+
+---
+## Results
+
+.pull-left[
+```{r, echo=FALSE, warning=FALSE, out.width="140%", fig.show='hold', fig.align='center'}
+# Read the image file
+img4 <- readPNG("assets/Picture4.png")
+
+# Plot the image
+grid.raster(img4)
+```
+]
+
+.pull-right[
+- What is “Time series”?
+- This is the naïve comparison of not using a control group.
+- Just look at crime before and after
+- Could be biased from existing time trends. In this case the estimate decreases. 
+- Perhaps this is because there was an existing trend of decreasing crime over time?
+]
+
+---
+## Results
+
+
+- The authors find that the police presence has a significant effect on reducing car thefts, but only right by the Jewish centers that got police protection
+
+- The effects don’t seem to occur outside of adjacent blocks, so the effects dissipate significantly with geography
+
+- This could be due to the nature of this policing, which was more like armed guards near the entrance, and less like proactive policing where the police patrol around
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Dur And Vollaard (2019)
+
+---
+## RCT on waste disposal enforcement
+
+- This is a randomized control trial (RCT) where the researchers worked with police to randomize a trash enforcement policy
+- They picked 56 trash disposal sites in a city in the Netherlands. They randomized those sites into treatment and control
+- .brand-crawfest[Control] = no change in policing policy
+- .brand-mardigras[Treatment] = illegal disposed of trash bags got a warning label applied to the bags that noted that the bag was disposed of illegally and that there is a fine for this
+- Thus the “treatment” is more saliency policy enforcement of laws
+
+---
+## RCT on waste disposal enforcement
+
+```{r, echo=FALSE, warning=FALSE, out.width="90%", fig.show='hold', fig.align='center'}
+# Read the image file
+img5 <- readPNG("assets/Picture5.png")
+
+# Plot the image
+grid.raster(img5)
+```
+
+
+---
+## RCT on waste disposal enforcement
+
+.pull-left[
+```{r, echo=FALSE, warning=FALSE, out.width="90%", fig.show='hold', fig.align='center'}
+# Read the image file
+img6 <- readPNG("assets/Picture6.png")
+
+# Plot the image
+grid.raster(img6)
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="90%", fig.show='hold', fig.align='center'}
+# Read the image file
+img7 <- readPNG("assets/Picture7.png")
+
+# Plot the image
+grid.raster(img7)
+```
+]
+
+- The message reads “Found by law enforcement. Fine: at least 90 euros.
+
+---
+## Treatment vs. Control
+
+
+```{r, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+# Read the image file
+img8 <- readPNG("assets/Picture8.png")
+
+# Plot the image
+grid.raster(img8)
+```
+
+---
+## Results
+
+
+```{r, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+# Read the image file
+img9 <- readPNG("assets/Picture9.png")
+
+# Plot the image
+grid.raster(img9)
+```
+
+---
+## Results
+
+
+```{r, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+# Read the image file
+img10 <- readPNG("assets/Picture10.png")
+
+# Plot the image
+grid.raster(img10)
+```
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Levitt (1997)
+
+---
+## Using Police Hiring During Election Cycles as a Natural Experiment
+
+- Levitt uses the fact that police hiring is often used as a political tool during election cycles
+
+- Levitt wanted to try to break the endogeneity loop, where crime affects allocation of police, by leveraging the fact that more police are hired during electoral cycles, before mayoral/municipal and gubernatorial elections
+
+- If this increase in policing is quasi-random and not endogenous, then it provides useful treatment variation to isolate the effect of police on crime, while ignoring the back channel of crime affecting the allocation of police
+
+---
+## Police Hiring: Election Cycles vs Non-Election Cycles
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the
+img11 <- readPNG("assets/Picture11.png")
+
+# Plot the image
+grid.raster(img11)
+```
+
+---
+## Instrumental Variable (IV) Approach
+
+- Levitt uses an instrumental variable (IV) approach to estimate the effect of police on crime
+
+- The IV approach is a way to try to break the endogeneity loop
+
+- The idea is to find an instrumental variable (an IV) that is related to your X variable (# of police) but is only related to your Y variable (crime) through it effect of the IV on X
+
+- I.e. the IV cannot have an independent effect on Y
+
+- The IV can only affect Y through X
+
+---
+## Instrumental Variable (IV) Approach
+
+.pull-left[
+```{r, echo=FALSE, warning=FALSE, out.width="90%", fig.show='hold', fig.align='center'}
+# Read the image
+img12 <- readPNG("assets/Picture12.png")
+
+# Plot the image
+grid.raster(img12)
+```
+]
+
+.pull-right[
+
+- This is a directed acyclic graph (DAG) that shows the relationship between the IV, the X variable, and the Y variable
+
+- Z = IV (election cycles)
+
+- X = # of police
+
+- Y = crime
+
+- U = confounding factors that affect crime
+
+- In this case, we should have an arrow going from Y yo X
+]
+
+---
+## Results
+
+.pull-left[
+```{r, echo=FALSE, warning=FALSE, out.width="90%", fig.show='hold', fig.align='center'}
+# Read the image
+img13 <- readPNG("assets/Picture13.png")
+
+# Plot the image
+grid.raster(img13)
+```
+]
+
+.pull-right[
+
+- The main estimates are in columns (3) to (6)
+- These use the IV approach
+- Columns (1) and (2) just estimate the general effect of police on crime, without using the instrumental variable
+- We are concerned that the estimates from (1) and (2) are biased due to endogeneity
+- Using IV makes the estimate much more negative -> police have a big effect on reducing crime
+]
+
+---
+## Results
+
+- Levitt finds that the increase in police hiring during electoral cycles is associated with a substantial reduction in violent crime
+- The impacts on property crime as smaller
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Sullivan and O'Keeffe (2017)
+
+---
+## The One Where the NYC Police Goes on Strike
+
+- In 2014-2015, like now, there was intense political discussions around police brutality, racism, violent protests, and how policing policy should be changed
+- NYPD stopped proactive policing (systematic and aggressive enforcement of low-level violations) in late 2014 to early 2015
+- This was a “work slowdown” for seven weeks to try to show how valuable NYPD was.
+- (Narrator: they did not show this)
+- This is a great paper to study what the effects of proactive policing are. Should we believe the “broken window” theory, or is the narrative that proactive policing increases - criminality correct?
+
+---
+## The One Where the NYC Police Goes on Strike
+
+- The researchers compare crime before, during, and after this “work slowdown” to crime levels during the same time of the year in a prior year
+- This is like a DiD, so it comes down to if the seasonal pattern in crime would have been the same in May 2013 to May 2014 (control) compared to May 2014 to May 2015 (treated) had “treatment” not occurred
+- Key results
+- The figures I’ll show you -> the work slowdown did reduce proactive policing
+- The table I’ll show you ->  this seems to have caused a decrease in complaints of more serious crimes
+
+---
+## Results
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img14 <- readPNG("assets/Picture14.png")
+
+# Plot the image
+grid.raster(img14)
+```
+
+---
+## Results
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img15 <- readPNG("assets/Picture15.png")
+
+# Plot the image
+grid.raster(img15)
+```
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Concluding Thoughts on Policing and Crime
+
+---
+## Comparing External Validity
+
+- An important way to compare these studies is based on external validity
+- Do they tell us about policing or police policy more broadly?
+- Or are they very specific case studies that are only externally valid for similar cases?
+- How broadly can be apply the lessons learned from this paper?
+
+---
+## Comparing External Validity
+
+- My hot take is that the papers can be sorted in this way, from most externally valid to least externally valid:
+1. Levitt (uses variation that tells us about the effects of police in general, uses a national set of data)
+1. Sullivan and O’Keeffe (only issue is that it’s NYC only, and NYC could be unique)
+1. Cheng and Long (NOLA is rather unique, as is the FQ)
+1. Di Tella and Schargrodsky (this isn’t policing so much as armed guards outside synagogues)
+1. Dur and Vollaard (it’s basically a case study of trash enforcement practices in a western European city)
+
+---
+## Comparing Exogeneity
+
+- Another important way to compare these papers is in terms of how exogenous the treatment variation is
+  - Was the variation in police or policy random? Close to random? Or could it have been endogenous to something?
+
+- Cheng and Long – FQ Task Force – For this paper it comes down to the parallel trends assumption since this is a DiD
+  - E.g., were pre-existing time trends in the FQ similar to those in the control group neighborhoods?
+  - Were any other changes going on that differentially impacted one neighborhood over others over time?
+
+- It’s a big subjective as to if the assumption holds or not
+
+---
+## Comparing Exogeneity
+
+- Di Tella and Schargrodsky – Terrorist Attack
+  - This paper leverages a fairly random event – a terrorist attack
+  - The terrorist attack led to the gov’t adding police outside of synagogues
+  - This is a DiD study, so the parallel trends assumption is important again
+  - The “treatment” here is likely exogenous to LOCAL crime trends in those neighborhoods
+  - So, I don’t have concerns that blocks adjacent to a synagogue and blocks just a bit further away, for example, had different trends in crime
+  - Seems like a pretty good “natural experiment”
+
+---
+## Comparing Exogeneity
+
+- Dur and Vollaard – Trash Enforcement RCT
+  - This is a randomized control trial (RCT), i.e. an experiment, that seems well done (e.g., properly randomized)
+  - This paper uses the most exogeneous treatment variation for that reason
+
+---
+## Comparing Exogeneit
+
+- Levitt – More police hired before elections
+- Levitt exploits the fact that more police were hired before mayoral/municipal elections
+- To some extent, this hiring is exogenous, since it is related to electoral cycles
+- However, the increase in hiring due to an electoral cycle could vary in an endogenous way
+- E.g., pre-election hiring increases more in higher crime areas? In red states? Etc
+- Given this, while Levitt may use treatment variation that is more exogenous then more naïve approaches, there are still some concerns
+
+---
+## Comparing Exogeneity
+
+- Sullivan and O’Keeffe – NYC police strike and effect on serious crime
+- NYPD had a seven week “work slowdown”, where proactive policing was reduced
+- The researchers compare crime before, during, and after this “work slowdown” to crime levels during the same time of the year in a prior year
+- This is like a DiD, so it comes down to if the seasonal pattern in crime would have been the same in May 2013 to May 2014 (control) compared to May 2014 to May 2015 (treated) had - “treatment” not occurred
+- Was the seasonal pattern and trend in crime the same in May 2013 to May 2014 as it would have been in May 2014 to May 2015, absent the work slowdown?
+- Seems relatively likely and the figures show similar trends, with the effects during the work slowdowns being clear outliers
+- Generally seems exogeneous
+
+---
+## Comparing Exogeneity
+
+- My hot take is that the papers fall in this range from most exogeneous to least:
+1. Dur and Voollaard (it’s an RCT!)
+1. Di Tella and Schargrodsky
+1. Sullivan and O’Keeffe
+1. Cheng and Long (to be clear, this paper maybe only has mild concerns)
+1. Levitt (there are endogeneity concerns and other economists have brought this up)
+
+---
+class: title-slide
+background-image: url("assets/TulaneLogo-black.svg"), url("assets/title-image2.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 100% 100%
+
+# .black[Measuring the Effect of Economic Circumstances on Crime]
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Yang (2017)
+
+---
+## Abstract
+
+> Abstract: “This paper estimates the impact of local labor market conditions on criminal recidivism using administrative prison records on four million offenders released from 43 states between 2000 and 2013. Exploiting the timing of each offender’s release from prison, I find that being released to a county with higher low-skilled wages significantly decreases the risk of recidivism. The impact of higher wages on recidivism is larger for both black offenders and first-time offenders, and in sectors that report being more willing to hire ex-offenders. These results are robust to individual- and county-level controls, such as policing and corrections activity, and do not appear to be driven by changes in the composition of released offenders during good or bad economic times.”
+
+---
+## Summary Statistics
+
+.pull-left[
+
+- This is a summary statistics table showing you what her data looks like
+- This one shows facts about how often people return to prison (recidivate)
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img16 <- readPNG("assets/Picture16.png")
+
+# Plot the image
+grid.raster(img16)
+```
+]
+
+---
+## Summary Statistics
+
+.pull-left[
+
+- This is another summary statistics table, showing what her sample looks like
+- E.g., what is the demographic and educational make-up of her sample?
+- What kind of offenses were committed?
+
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img17 <- readPNG("assets/Picture17.png")
+
+# Plot the image
+grid.raster(img17)
+```
+]
+
+---
+## Methodology
+
+- Yang’s general approach is a version of a difference-in-differences
+- The idea to compare people released from prison in the same county in good economic conditions versus bad economic conditions
+- Yang measures economic conditions through wages in low skilled jobs
+- These are the jobs that are most likely to hire those with criminal records
+
+- By looking at people within the same county, during times with higher vs. lower wages, it removes any bias for the fixed differences between counties
+  - Recidivism rates and other factors may be different between counties
+- Comparisons between, rather than within counties would be more of an “apples to oranges” comparison
+- Like other DiD examples, where there are fixed differences that exist between groups
+
+---
+## Methodology
+
+- An assumption is required for Yang’s approach to provide an unbiased estimate of the causal effect of local economic conditions on crime
+- The assumption is that when comparing those within the same county in good and bad economic times, there are no differences other than the different economic circumstances
+- The ideal would be like a randomized control trial (RCT) $\rightarrow$ higher/lower wages are randomly assigned over time
+
+---
+## Methodology
+
+- Obviously, that’s not possible
+- But hopefully there are no important differences between good and bad economic times other than the economy
+- Otherwise the treatment and control groups would be different.
+The key example of possible differences are that the types of people released during good economic times, within the same county, could differ from those released during bad economic times, within the same county
+- While some of this can be controlled for in the regression analysis (i.e. control variables), any differences that are not controlled for could cause bias
+
+---
+## Results
+
+.pull-left[
+- This is the main results table
+- Results show that if the low-skill wage is higher, then recidivism decreases (hence the negative coefficient)
+- Results are very similar even when control variables are added
+- Other results:
+  - Blacks, non-Hispanics, younger people, those with less education, men, and those with less time served are more likely to recidivate
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img18 <- readPNG("assets/Picture18.png")
+
+# Plot the image
+grid.raster(img18)
+```
+]
+
+---
+## Results
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img19 <- readPNG("assets/Picture19.png")
+
+# Plot the image
+grid.raster(img19)
+```
+
+---
+## Results: Heterogeneity
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img20 <- readPNG("assets/Picture20.png")
+
+# Plot the image
+grid.raster(img20)
+```
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Palmer, Phillips, Sullivan (2019)
+
+---
+## Abstract
+
+> Abstract: “Does emergency financial assistance reduce criminal behavior among those experiencing negative shocks? To address this question, we exploit quasi-random variation in the allocation of temporary financial assistance to eligible individuals and families that have experienced an economic shock. Chicago's Homelessness Prevention Call Center (HPCC) connects such families and individuals with assistance, but the availability of funding varies unpredictably. Consequently, we can determine the impact of temporary assistance on crime by comparing outcomes for those who call when funds are available to those who call when no funds are available…
+
+---
+## What do they do?
+
+- Linking this call center information to arrest records from the Chicago Police Department, we find some evidence that total arrests fall between 1 and 2 years after the call
+- For violent crime, police arrest those for whom funds were available 51% less often than those who were eligible but for whom no funds were available.
+- Single individuals drive this decrease.
+- The decline in crime appears to be related, in part, to greater housing stability—being referred to assistance significantly decreases arrests for homelessness-related, outdoor crimes such as trespassing
+
+---
+## What do they do?
+
+- However, we also find that financial assistance leads to an increase in property crime arrests
+
+- This increase is evident for family heads, but not single individuals; 
+
+- The increase is mostly due to shoplifting; and the timing of this increase suggests that financial assistance enables some families to take on financial obligations that they are subsequently unable to meet
+
+- Overall, the change in the mix of crime induced by financial assistance generates considerable social benefits due to the greater social cost of violence”
+
+
+---
+## Call Volumes
+
+.pull-left[
+- The researchers use “eligible calls”, which are the people who are eligible, based on the HPCC’s criteria, for the assistance
+
+- For these people it’s almost a coin toss if they get the funding
+
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img21 <- readPNG("assets/Picture21.png")
+
+# Plot the image
+grid.raster(img21)
+```
+]
+
+---
+## Funding is Random
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img22 <- readPNG("assets/Picture22.png")
+
+# Plot the image
+grid.raster(img22)
+```
+
+---
+## Sample of Callers
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img23 <- readPNG("assets/Picture23.png")
+
+# Plot the image
+grid.raster(img23)
+```
+
+---
+## Main Results
+
+.pull-left[
+- Effect are strongest (more statistically significant) for violent arrests
+
+- E.g., one year after getting the funding, violent arrests are 0.0087 lower
+
+- Compared to average rate (control group mean of 0.017), this is a decrease of about 50%!!!
+
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img24 <- readPNG("assets/Picture24.png")
+
+# Plot the image
+grid.raster(img24)
+```
+]
+
+---
+## Main Results
+
+.pull-left[
+- There is an increase in property arrests three years later, due to getting the funding
+
+- The authors argue that this may be that when the families get the funding, they get requests for that money, and they overcommit on who they promise to give money to
+
+- This could lead to an incentive to commit shoplifting once those “debts” catch up
+
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img24 <- readPNG("assets/Picture24.png")
+
+# Plot the image
+grid.raster(img24)
+```
+]
+
+---
+## More Results
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img25 <- readPNG("assets/Picture25.png")
+
+# Plot the image
+grid.raster(img25)
+```
+
+---
+## Effects on Single Individuals vs Families
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img26 <- readPNG("assets/Picture26.png")
+
+# Plot the image
+grid.raster(img26)
+```
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Practice Questions
+
+---
+## What could be on the quiz?
+
+- You may be wondering what quiz/exam questions on this content might be like
+
+- One question on Yang, one on Palmer et al
+
+- If you want feedback on these practice problems, then please submit by Sunday
+
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
+library(renderthis)
+# https://hhadah.github.io/xaringan/index.html
+
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/06-week6/02-thur/police-econ-and-crime.html", 
+       to = "~/Documents/GiT/urban-econ/slides/06-week6/02-thur/police-econ-and-crime.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/06-week6/02-thur/police-econ-and-crime.html")
+```
