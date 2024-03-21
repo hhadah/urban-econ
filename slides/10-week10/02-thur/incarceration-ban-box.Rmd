@@ -296,7 +296,7 @@ We can think of (57% - 46% = 11%)/57% = about 19% of incarcerations occur due to
 ---
 ## The Effect of Incarceration on Recidivism
 
-```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+```{r, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
 
 # Plot the image
 grid.raster(readPNG("assets/Picture4.png"))
@@ -305,7 +305,7 @@ grid.raster(readPNG("assets/Picture4.png"))
 ---
 ## The Effect of Incarceration on Recidivism
 
-```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+```{r, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
 
 # Plot the image
 grid.raster(readPNG("assets/Picture5.png"))
@@ -743,7 +743,7 @@ grid.raster(readPNG("assets/Picture17.png"))
 ---
 ## Callback Rates are Lower for Those with Criminal Records
 
-```{r, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
 
 # Plot the image
 grid.raster(readPNG("assets/Picture18.png"))
@@ -752,7 +752,7 @@ grid.raster(readPNG("assets/Picture18.png"))
 ---
 ## Callback Rates are Lower for Those with Criminal Records
 
-```{r, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+```{r, echo=FALSE, warning=FALSE, out.width="60%", fig.show='hold', fig.align='center'}
 
 # Plot the image
 grid.raster(readPNG("assets/Picture19.png"))
@@ -835,7 +835,7 @@ grid.raster(readPNG("assets/Picture22.png"))
 ]
 
 .pull-right[
-- Box x white, the coefficient of interest is -0.036, suggesting that callback rates for whites are 3.6 percentage points lower, compared to blacks, when there is a box, compared to when there is no box
+- $Box \times white$, the coefficient of interest is -0.036, suggesting that callback rates for whites are 3.6 percentage points lower, compared to blacks, when there is a box, compared to when there is no box
 - Putting this together, the white “benefit” is 4.4 percentage points when there is no box, but only about 0.8 p.p.s when there is a box
 - **Removing the box is associated with an increase in racial discrimination**
 ]
