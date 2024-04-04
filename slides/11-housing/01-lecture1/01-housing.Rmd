@@ -151,12 +151,14 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 
 <ol>
     <li><h4 class="white"> Cover chapter 7</h4></li>
-    <li><h4 class="white"> Go over Metcalf (2018)</h4></li>
+    <li><h4 class="white"> Introduce Housing Policies</h4></li>
+    <li><h4 class="white"> Economics Models and Housing Policies</h4></li>
+    <!-- <li><h4 class="white"> Go over Metcalf (2018)</h4></li>
     <li><h4 class="white"> Go over Gyourko (1990)</h4></li>
     <li><h4 class="white"> Go over Clarke and Freedman (2019) </h4></li>
     <li><h4 class="white"> Go over Aaronson et. al. (2021) </h4></li>
     <li><h4 class="white"> Go over Anagol el. al (2021)</h4></li>
-    <li><h4 class="white"> Go over Hanlon and Heblich (2022)</h4></li>
+    <li><h4 class="white"> Go over Hanlon and Heblich (2022)</h4></li> -->
 </ol>
 
 ---
