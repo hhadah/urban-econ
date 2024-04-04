@@ -4,7 +4,7 @@
     <title>Housing Policies</title>
     <meta charset="utf-8" />
     <meta name="author" content="Hussain Hadah (he/him)" />
-    <meta name="date" content="2024-04-02" />
+    <meta name="date" content="2024-04-04" />
     <script src="01-housing_files/header-attrs/header-attrs.js"></script>
     <link href="01-housing_files/remark-css/default.css" rel="stylesheet" />
     <script type="text/x-mathjax-config">
@@ -36,15 +36,19 @@ class: center, middle, inverse, title-slide
 ### Hussain Hadah (he/him)
 ]
 .date[
-### 02 April 2024
+### 04 April 2024
 ]
 
 ---
 
 layout: true
-&lt;div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;"&gt;Hussain Hadah (he/him) (Tulane) | Housing | 02 April 2024&lt;/div&gt;
+&lt;div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;"&gt;Hussain Hadah (he/him) (Tulane) | Housing | 04 April 2024&lt;/div&gt;
 
-&lt;!--- Housing | 02 April 2024--&gt;
+&lt;!--- Housing | 04 April 2024--&gt;
+
+&lt;!---- This is a macro for Mathjax -----&gt;
+$$\newcommand\dollars{\$}$$
+&lt;!---- --------------------------- -----&gt;
 
 ---
 class: title-slide
@@ -96,6 +100,7 @@ background-color: #0148A4
 
 ### Readings
 
+- There are many readings on housing, check them on Canvas
 
 ---
 class: segue-yellow
@@ -103,10 +108,429 @@ background-image: url("assets/TulaneLogo.svg")
 background-size: 20%
 background-position: 95% 95%
 
-# 
+# Chapter 7: Housing Policies
+
+---
+## Housing Policies
+
+We will examine a few housing policies that are commonly used to address housing issues.
+
+1. Housing subsidies
+2. Rent control
+3. Homelessness
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Housing Subsidies
+
+---
+## What are Housing Subsidies?
+
+.large[.brand-crawfest[Housing subsidies] are financial assistance provided by the government to subsidize housing consumption]
+
+.large[.brand-crawfest[Housing subsidies] can be targeted to low-income households or to the general population]
+
+--
+
+### What are the goals of housing subsidies?
+
+1. Increase standard of living for low-income families
+2. Provide incentives to improve housing, particularly in low-income areas
+
+---
+## Types of Housing Subsidies
+
+1. **Proportion rent subsidy (PRS)**: The government pays a fraction of the rent bill. This fraction is `\(\beta\)`. So, the household pays `\((1-\beta) \times \text{rent}\)`. E.g., `\(\beta = 0.3\)` means the household pays 70% of the rent.
+
+2. **Income Grant (IG)**: The government gives households a lump sum of money. This lump sum does not depend on housing consumption. This is simply an income boost (increase in `\(y\)`)
+
+3. **Housing Vouchers (HV)**: The government gives households a voucher that can be used to pay for housing
+
+4. **Public Housing (PH)**: Families rent housing units for the government. The housing units are typically priced below market rent and are often higher quality
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# How do Housing Subsidies Affect the Market?
+
+---
+## Let's consider a simple model of rent subsidies
+
+- The government pays a fraction of the rent bill
+- This fraction is `\(\beta\)`, and `\(0 \leq \beta \leq 1\)`
+- So, the household pays `\((1-\beta) \times \text{rent}\)`. E.g., `\(\beta = 0.3\)` means the household pays 70% of the rent
+- Families choose between housing ($q$) and consumption/"bread" ($C$)
+- The price of housing is `\(p\)`
+- The price of bread is `\(1\)`
+- Since the government pays a fraction of the rent, the effective price of housing is `\(p(1-\beta)\)`
+
+---
+## The Budget Constraint
+
+- Households cannot spend more than their income, so there is a budget constraint
+- Let the household spend all of their disposable income on housing and bread, so `\(\text{total expenditure} = \text{disposable income}\)`
+- Price of bread x quantity of bread + price of housing x quantity of housing = disposable income (y)
+- `\(c + pq = y\)` 
+- We can use this to derive plot the budget
+- The x-axis is the quantity of bread, and the y-axis is the quantity of housing
+
+---
+## The Budget Constraint
+
+$$
+c + pq = y
+$$
+
+- Rearrange and solve for quantity of housing (q)
+
+$$
+`\begin{align*}
+pq &amp;= y - c \\
+q &amp;= \frac{y - c}{p} = \frac{y}{p} - \frac{c}{p}
+\end{align*}`
+$$
+
+---
+## Plotting the Budget Line
+
+.pull-left[
+
+- To plot the budget constraint, we need to find two points
+
+- When `\(q = 0\)`, plug into the budget constraint and solve for `\(c\)`, we get `\((0, \frac{y}{p})\)`
+
+- When `\(c = 0\)`, plug into the budget constraint and solve for `\(q\)`, we get `\((y, 0)\)`
+
+- The optimal choice of `\(c\)` and `\(q\)` for a given income `\(y\)`, and the price of rent `\(p\)` is where the budget line is tangent to the indifference curve (U)
+
+- Let us call this point `\((c^*, q^*)\)`
+]
+
+.pull-right[
+
+&lt;img src="01-housing_files/figure-html/unnamed-chunk-3-1.png" width="748px" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## What happens when the government pays a fraction of the rent?
+
+.pull-left[
+- If the government introduced a proportional rent subsidy (PRS), the price of housing decreases from `\(p\)` to `\(p(1-\beta)\)`
+
+- The budget constraint rotates outwards
+
+- The x-axis stays the same
+
+- The y-axis increases from `\(\frac{y}{p}\)` to `\(\frac{y}{p(1-\beta)}\)`
+
+]
+
+.pull-right[
+&lt;img src="01-housing_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## What happens when the government pays a fraction of the rent?
+
+.pull-left[
+- Both quantities of housing and bread increase, but the quantity of housing increases more than the quantity of bread
+
+- Why?
+
+  - Substitution effect: housing is cheaper, so households consume more housing and less bread
+
+  - Income effect: households have more disposable income, so they consume more of both goods
 
 
+]
 
+.pull-right[
+&lt;img src="01-housing_files/figure-html/unnamed-chunk-5-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## What happens when the government pays a fraction of the rent?
+
+.pull-left[
+
+- Substitution effect: housing is cheaper, so households consume more housing and less bread
+
+- Income effect: households have more disposable income, so they consume more of both goods
+
+- The substitution effect decreases c, while the income effect increases c. Which effect dominates? It depends on which effect, income or substitution, is larger. In the figure, the income effect is slightly larger, showing a slight net increase in c.
+
+]
+
+.pull-right[
+&lt;img src="01-housing_files/figure-html/unnamed-chunk-6-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## What happens when the government introduces Income Grants (IG)?
+
+- An income grant is a lump sum of money given to households
+
+- This is not tied to housing consumption
+
+- It acts as an income boost (increase in `\(y\)`) from `\(y\)` to `\(y + \text{G}\)`
+
+- Suppose the government gives a grant of `\(\text{G}\)` that is the same as the PRS
+
+- Under PRS, government pays `\(\beta \times p \times q_{PRS}\)`
+
+- Under IG, government pays `\(\text{G}\)`, so `\(\text{G} = \beta \times p \times q_{PRS}\)`
+
+---
+## PRS vs. IG
+
+.pull-left[
+  - The budget constraint rotates outwards under both PRS and IG
+  - Under PRS, the budget constraint rotates outwards and price drops from `\(p\)` to `\(p(1-\beta)\)`
+  - Under IG, the budget constraint shift out parallel to the original budget constraint
+- Both the PRS and IG budget lines go through the same point PRS---since G = `\(\beta \times p \times q_{PRS}\)` and PRS = `\(\beta \times p \times q\)`
+]
+
+.pull-right[
+&lt;img src="01-housing_files/figure-html/unnamed-chunk-7-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## PRS vs. IG
+
+.pull-left[
+- Utility is higher under IG than PRS
+- IG comes with no strings attached, so households can spend the money on whatever they want
+- PRS costs the government the same as IG, but it constrains households to spend the money on housing
+- PRS benefits households through price reduction
+- Under PRS, housing consumption is higher. This means that slum-reduction effect is greater because families demand better housing
+]
+
+.pull-right[
+&lt;img src="01-housing_files/figure-html/unnamed-chunk-8-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## What happens when the government introduces Housing Vouchers (HV)?
+
+- Housing vouchers are like cash grants that can only be used to pay for housing
+
+- It is like a gift card that can only be used to pay rent
+
+- The gift card is worth `\(\dollars\text{G}\)`
+
+- HV is same as IG, except voucher has the constraint that `\(c \leq y\)`, because it can only be used to pay for housing
+
+---
+## HV vs. IG: Two Cases
+
+
+1. Binding constraint: This constraint matters because under the IG, where income is `\(y + G\)`, consumption of `\(c\)` is between `\(y\)` and `\(y + G\)`
+
+2. Non-binding constraint: This constraint does not matter because under the IG, where household income is `\(y + G\)`, consumption of `\(c\)` is between `\(y\)` and `\(y + G\)`
+
+--
+
+#### Which scenario occurs? 
+
+- Depends on the shape of the indifference curve and income elasticity
+
+---
+## Binding Case: HV vs. IG
+
+.pull-left[
+- The budget constraint shifts outwards under both HV and IG
+
+- Under binding case, the household would like to consume more bread, but the voucher can only be used for housing
+
+- The constraint `\(c \leq y\)` is binding, so the best they could do is set `\(c = y\)`
+
+- Utility is lower, but housing consumption is higher
+
+]
+
+.pull-right[
+&lt;img src="01-housing_files/figure-html/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## Non-Binding Case: HV vs. IG
+
+.pull-left[
+
+- Household doesn't consume/spend more than `\(y\)` on bread even after IG increases income to `\(y + G\)`
+
+- The IG and HV programs lead to the same consumption of bread
+
+- Note that since the households have different preferences, the budget constraint might bind for some and not other
+
+]
+
+.pull-right[
+&lt;img src="01-housing_files/figure-html/unnamed-chunk-10-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## Public Housing (PH)
+
+- Families rent housing units for the government
+- The government charges rent for these housing units at a rate below the market rent
+- To allow an easier comparison between PH and PRS, IG, and HV, suppose that the household pays the same total rent bill in the original case (no programs) and under PH
+- The government simply gives families a larger dwelling (higher `\(q\)`) for the same price
+- This leads to an increase in q but no change in `\(c\)`
+- To keep the expenditure on all programs the same, the government spends G to make the dwellings larger
+- Assume the government can build housing at cost `\(p\)` per `\(ft^2\)` (the market price), the increase in `\(q\)` is the same budget line as with IG `\(y + G\)` 
+- If government can only build housing at a higher cost than `\(p\)` (the government is inefficient) then the increase in `\(q\)` isn’t quite as high
+
+---
+## Public Housing (PH): Figure
+
+.pull-left[
+
+- The consumer’s budget set is a bit weird in this case. Either they reject the public housing and consume on the original budget line (the low one), or they pick the point PH
+
+- They will pick PH since the utility is much higher there
+
+- Under PH, `\(q\)` increases from `\(q_0\)` to `\(q_{PH}\)`
+
+- No change in `\(c\)`
+
+- Families are essentially just given more `\(q\)`
+
+]
+
+.pull-right[
+&lt;img src="01-housing_files/figure-html/unnamed-chunk-11-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## Public Housing (PH): Figure
+
+.pull-left[
+
+- Let's consider the budget constraint for IG (income is `\(y + G\)`)
+
+- The budget constraint for IG goes through point PH
+
+- PH lies on an indifference curve that is NOT tangent to this budget line
+
+- Tangency actually occurs at IG
+
+- If the household were given a grant `\(G\)` instead of getting `\(\dollars G\)` worth of housing, they would chose to increase both `\(q\)` and `\(c\)`, not just `\(c\)`
+
+- PH imposes the largest constraint on consumption choices
+]
+
+.pull-right[
+&lt;img src="01-housing_files/figure-html/unnamed-chunk-12-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## PRS vs. HV vs. IG vs. PH
+
+.pull-left[
+
+- IG has the highest utility because it places no restriction of consumer choice
+
+- HV is next best. It is either the same as IG (non-binding case) or leads to less utility since `\(c\)` must equal `\(y\)`
+
+- PRS is third. A price decrease instead of a voucher is more restrictive, so utility is lower.
+
+- PH has the smallest increase in utility. This is because the same amount of money ($G$) is spent to only increase housing. Relative to the other three policies, this is extremely restrictive to consumer choice
+
+]
+
+.pull-right[
+&lt;img src="01-housing_files/figure-html/unnamed-chunk-13-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## PRS vs. HV vs. IG vs. PH: Slum Reduction
+
+.pull-left[
+
+- IG poses no restrictions, so the increase in `\(q\)` is the lowest
+
+- HV increases `\(q\)` a bit more than IG does in the binding case
+
+- PRS increases q quite a bit more by making it cheaper through a subsidy
+
+- PH increases `\(q\)` very directly, by building better housing. Avoids a market-based approach to increasing `\(q\)` as in the other three policies
+
+]
+
+.pull-right[
+&lt;img src="01-housing_files/figure-html/unnamed-chunk-14-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Public Housing in Practice
+
+---
+## Public housing is a popular policy
+
+- Public housing leads to the largest increase in spending on housing `\(q\)`
+
+- Critics don't like PH because it concentrates poor people in one area, leading to neighborhoods with more crime and social issues
+
+- More recent applications of PH focused on spreading out public housing units throughout the city
+
+- Another applications is having "mixed-income" housing, where some units are public housing and others are market rate
+
+- See this [link](https://www.hano.org/Communities) for more information on public housing in the US
+
+---
+## Low-Income Housing Tax Credit (LIHTC)
+
+- While not exactly a PRS, the Low-Income Housing Tax Credit (LIHTC, pronounced “lie-tech”) has similar effects
+- LIHTC was created under the Tax Reform Act of 1986
+- LIHTC accounts for about 90% of all affordable rental housing created in the United States today
+- LIHTC provides a subsidy for building developers when they build low-income housing. The subsidy is given on the condition that the developers build a certain number of units that are occupied by low income households at reduced rents
+- This the LIHTC subsidies housing developers who make low-income housing, rather than subsidizing the price of housing for low-income individuals
+
+- [Source](https://en.wikipedia.org/wiki/Low-Income_Housing_Tax_Credit)
+
+---
+## Section 8 Housing Choice Voucher Program
+
+- Refers to Section 8 of the Housing Act of 1937 (42 U.S.C. § 1437f)
+- Primary part of Section 8 is the Housing Choice Voucher which pays a large portion of the rents and utilities of about 2.1 million households. ([Source](https://en.wikipedia.org/wiki/Section_8_(housing)))
+- Vouchers can be applied to housing units that meet a minimum housing quality standard
+- Eligibility is determined by the Public Housing Authority (PHA) based on income and family size
+- See this [link](http://portal.hud.gov/hudportal/HUD?src=/topics/housing_choice_voucher_program_section_8) for more information
+
+---
+## Section 8 Housing Choice Voucher Program
+
+- Section 8’s Housing Choice Voucher isn’t a housing voucher program like the one we discussed
+- The Housing Choice Voucher pays a portion of the rent directly to the landlord and the families that get the voucher only pay 30% of their income in rent
+- The payment to the landlord is based on a computation of the “fair market rent” for a housing unit that is large enough for the family
+- “Fair market rent” is based on local market conditions
+- The subsidy equals “fair market rent” minus 30% of the household’s income. This is a positive number since these low-income families have low household income, so 30% of that is a small number
+- So Section 8’s Housing Choice Voucher is similar to a PRS
+- Examples of section 8 housing in New Orleans can be found [here](https://www.hano.org/Housing)
 
 
     </textarea>
