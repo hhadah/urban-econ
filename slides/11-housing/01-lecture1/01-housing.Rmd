@@ -248,6 +248,7 @@ background-position: 95% 95%
 - We can use this to derive plot the budget
 - The x-axis is the quantity of bread, and the y-axis is the quantity of housing
 
+
 ---
 ## The Budget Constraint
 
@@ -294,6 +295,15 @@ $$
 \draw [dotted, thick] (0,3) -- (2.9,3) -- (2.9,0);
 \draw (1.5,6.4) to [out=-90, in=130] (2.9,3) to [out=-50, in=170] (6,1.4);
 \draw (0,6.1) -- (5.75,0);
+
+% Adding a higher utility curve
+\draw (2.5,6.4) to [out=-90, in=130] (4.4,3.5) to [out=-50, in=170] (7.5,2);
+\node [right] at (7.5,2) {$U'$};
+
+% Adding a lower utility curve
+\draw (1,5.8) to [out=-90, in=130] (2.4,2.5) to [out=-50, in=170] (5.5,0.9);
+\node [right] at (5.5,0.9) {$U''$};
+
 \end{tikzpicture}
 ```
 ]
