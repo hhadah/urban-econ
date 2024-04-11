@@ -395,11 +395,11 @@ background-position: 5% 95%
 - Friday and Saturday April 12 and 13 
 
 
-```{r gen_pdf, include = FALSE, cache = FALSE, eval = FALSE}
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
 # https://hhadah.github.io/xaringan/index.html
 
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html", 
-       to = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.pdf")
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/11-housing/03-lecture3/03-housing.html", 
+       to = "~/Documents/GiT/urban-econ/slides/11-housing/03-lecture3/03-housing.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/11-housing/03-lecture3/03-housing.html")
 ```
