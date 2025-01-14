@@ -186,6 +186,10 @@ background-position: 95% 95%
 
 - Scavenger Hunt—no due date and you can redo to improve your grade
 
+### Note `r icons::fontawesome("exclamation")`
+
+- There is no class on Thursday January 30th
+
 ---
 class: segue-yellow
 background-image: url("assets/TulaneLogo.svg")
@@ -317,7 +321,7 @@ The required book is Brueckner, Jan. 2011. Lectures on Urban Economics. Cambridg
 
 - During class time
 
-- Tentative schedule is Feb. 8, Mar. 5, Mar. 28, and Apr. 25
+- Tentative schedule is Feb. 11, Mar. 11, Apr. 2, and Apr. 25
 
 - Quiz are open book, you can bring notes, documents, computer, etc.
 
@@ -403,6 +407,19 @@ The required book is Brueckner, Jan. 2011. Lectures on Urban Economics. Cambridg
 - Lowest three will be dropped
 
 - These activities are always due the next Sunday
+
+---
+## The Use of AI and Large Language Models
+
+- I will allow the use of AI and large language models to help you with your work
+
+- This is only allowed for edits like improving writing, spell checking, etc.
+
+- You cannot use AI to write your work
+
+- I will use Turnitin to check for plagiarism and use of AI to write your work
+
+- Students that violate the policy will receive a zero on the assignment and will be reported for failure to follow the academic honesty policy
 
 ---
 class: segue-yellow

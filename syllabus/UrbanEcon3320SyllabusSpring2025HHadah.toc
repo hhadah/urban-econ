@@ -1,0 +1,33 @@
+\contentsline {section}{Catalog/Course Description}{2}{section*.2}%
+\contentsline {subsection}{A More Detailed/Updated Course Description}{2}{section*.3}%
+\contentsline {subsection}{Prerequisites}{2}{section*.4}%
+\contentsline {section}{Course Objectives}{2}{section*.5}%
+\contentsline {section}{Course Learning Objectives}{3}{section*.6}%
+\contentsline {section}{Program-Level Outcomes}{6}{section*.7}%
+\contentsline {section}{Core Curriculum Outcomes}{6}{section*.8}%
+\contentsline {section}{Required Student Resources}{6}{section*.9}%
+\contentsline {section}{Evaluation Procedures and Grading}{7}{section*.10}%
+\contentsline {subsection}{Quizzes}{7}{section*.11}%
+\contentsline {subsection}{Group Briefing Notes}{7}{section*.12}%
+\contentsline {subsubsection}{Grading and Revising the Group Briefing Notes}{8}{section*.13}%
+\contentsline {subsubsection}{How to Properly Submit the Group Briefing Notes}{8}{section*.14}%
+\contentsline {subsection}{Other Activities}{9}{section*.15}%
+\contentsline {section}{Course Schedule}{10}{section*.16}%
+\contentsline {subsection}{Assessment Schedule}{10}{section*.17}%
+\contentsline {subsection}{Topics and Readings Outline}{10}{section*.18}%
+\contentsline {section}{Course Policies}{15}{section*.19}%
+\contentsline {subsection}{Attendance Statement}{15}{section*.20}%
+\contentsline {subsubsection}{Canvas}{15}{section*.21}%
+\contentsline {subsection}{Deadline Flexibility}{16}{section*.22}%
+\contentsline {subsection}{Office Hours}{16}{section*.23}%
+\contentsline {subsection}{Regrading}{16}{section*.24}%
+\contentsline {subsection}{Code of Academic Conduct}{17}{section*.25}%
+\contentsline {section}{ADA, Accessibility, Title IX, and Inclusivity Statements and Supports}{17}{section*.26}%
+\contentsline {subsection}{Mental Health}{18}{section*.27}%
+\contentsline {subsection}{Religious Accommodation Policy}{18}{section*.28}%
+\contentsline {subsection}{Policies on Children in Class}{18}{section*.29}%
+\contentsline {subsection}{Preferred Gender Pronouns}{19}{section*.30}%
+\contentsline {subsection}{Title IX}{19}{section*.31}%
+\contentsline {section}{Emergency Preparedness and Response}{21}{section*.33}%
+\contentsline {section}{Class Schedule}{21}{section*.35}%
+\contentsline {section}{References: Readings on the Syllabus}{23}{section*.37}%
