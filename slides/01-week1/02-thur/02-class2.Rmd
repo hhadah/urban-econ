@@ -266,7 +266,7 @@ grid.raster(img2)
 
 --
 - Building blocks: Counties
-- 361 Metropolitan and 559 Micropolitan areas (as of 2000)
+- As of July 2023, there are 387 metropolitan statistical areas and 538 micropolitan statistical areas in the United States
 - 93% of U.S. population in CBSAs (83% Metropolitan, 10% Micropolitan)
 
 ---
