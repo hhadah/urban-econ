@@ -196,14 +196,11 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 - Difference-in-Differences in _Mastering Metrics Difference in Differences_
 
 ---
-## Thursday Readings `r icons::fontawesome("book-open")`
+## Tuesday Readings `r icons::fontawesome("book-open")`
 
-- Last name A to G
-  - Saxenian - 1996
-- Last name H to R
-  - Florida, Mellander, Stolarick - 2011
-- Last name S to Z
-  - Klepper - 2007
+- I randomized the groups and the readings
+
+- The assignments are posted on Canvas
 
 ---
 class: segue-yellow
@@ -731,8 +728,7 @@ Some recaps of the benefits of agglomeration that could or could not be affected
 
 - What are some questions on this content and earlier content that could appear on the quiz or final exam?
 - What are short answer questions like in this course?
-- To help you figure this out, you will do a practice quiz in groups of 2 or 3.
-- Make your own groups if you are in the classroom.
+- To help you figure this out, you can do these questions on your own or in a group
 - There are two separate mini-quizzes that you will do on Canvas:
 
 1. Practice Quiz 1 – Part 1 (Multiple Choice)

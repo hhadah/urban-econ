@@ -145,7 +145,7 @@ xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
 ---
 ## Jigsaw Activity
 
-1) First grouping - "Focus Groups" - about 20 minutes
+1) First grouping - "Focus Groups" - about 10 minutes
 
   1. You will be in a groups with those who read the same paper as you. You will discuss your paper to all get on the same page about it. Specially, you will to be able to summarize your paper to your peers who have not read it in the next group, so you want to ensure you can provide a summary. Probably the best way to get on the same page about your reading is to share your summaries that you submitted before class and discuss how you can improve them. 
 
@@ -154,7 +154,7 @@ xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
 ```{r first-timer, echo=FALSE, message=FALSE}
 library(countdown)
 countdown(
-  minutes = 20, seconds = 0,
+  minutes = 10, seconds = 0,
   top = 0, # right = "50%",
   play_sound = FALSE
 )
@@ -163,7 +163,7 @@ countdown(
 ---
 ## Jigsaw Activity
 
-2) Second grouping - "Task Groups" - remaining time of about 50 minutes
+2) Second grouping - "Task Groups" - remaining time of about 15 minutes
 
   1. You will be in groups with those who read a different paper than you.
   1. Briefly introduce yourselves and note which papers you were assigned. In some cases there may be two people who read the same paper. That is fine.
@@ -174,7 +174,7 @@ countdown(
 
 ```{r second-timer, echo=FALSE, message=FALSE}
 library(countdown)
-countdown(minutes = 50, seconds = 0, top = 0)
+countdown(minutes = 15, seconds = 0, top = 0)
 ```
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
