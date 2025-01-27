@@ -202,6 +202,12 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 
 - The assignments are posted on Canvas
 
+### .red[There is no class on Thursday]
+
+- I posted an activity on Canvas for Thursday
+- The activity would introduce you to difference-in-differences
+- Read it and do the assignment
+
 ---
 class: segue-yellow
 background-image: url("assets/TulaneLogo.svg")
