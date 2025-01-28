@@ -176,7 +176,7 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
     <li><h4 class="white">Benefits of Agglomeration</h4></li>
     <li><h4 class="white">Tech clusters</h4></li>
     <li><h4 class="white">Activity on COVID-19 and agglomeration</h4></li>
-    <li><h4 class="white">Practice questions in groups </h4></li>
+    <li><h4 class="white">Practice questions: After class activity </h4></li>
 
 </ol>
 
@@ -246,7 +246,7 @@ background-position: 95% 95%
 cluster
 - A few examples:
   - Silicon Valley in the greater San Francisco area (tech firms)
-  - Hollywood” in the greater Los Angeles area (entertainment), and a similar entertainment cluster in New York City
+  - "Hollywood" in the greater Los Angeles area (entertainment), and a similar entertainment cluster in New York City
       - About half of all motion picture production in the US occurs in Los Angeles County!
   - Automobile manufacturing in Detroit
   - Biotech and health sciences firms in Boston
