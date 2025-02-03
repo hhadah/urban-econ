@@ -154,7 +154,7 @@ xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
 ```{r first-timer, echo=FALSE, message=FALSE}
 library(countdown)
 countdown(
-  minutes = 10, seconds = 0,
+  minutes = 15, seconds = 0,
   top = 0, # right = "50%",
   play_sound = FALSE
 )
@@ -174,7 +174,7 @@ countdown(
 
 ```{r second-timer, echo=FALSE, message=FALSE}
 library(countdown)
-countdown(minutes = 15, seconds = 0, top = 0)
+countdown(minutes = 25, seconds = 0, top = 0)
 ```
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}

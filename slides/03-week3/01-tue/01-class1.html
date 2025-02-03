@@ -4,7 +4,7 @@
     <title>Overview of Greenstone, Hornbeck, and Moretti (2010)</title>
     <meta charset="utf-8" />
     <meta name="author" content="Hussain Hadah (he/him)" />
-    <meta name="date" content="2024-02-06" />
+    <meta name="date" content="2025-02-03" />
     <script src="01-class1_files/header-attrs/header-attrs.js"></script>
     <link href="01-class1_files/remark-css/default.css" rel="stylesheet" />
     <script type="text/x-mathjax-config">
@@ -36,15 +36,15 @@ class: center, middle, inverse, title-slide
 ### Hussain Hadah (he/him)
 ]
 .date[
-### 06 February 2024
+### 03 February 2025
 ]
 
 ---
 
 layout: true
-&lt;div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;"&gt;Hussain Hadah (he/him) (Tulane) | GHM (2010) | 06 February 2024&lt;/div&gt;
+&lt;div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;"&gt;Hussain Hadah (he/him) (Tulane) | GHM (2010) | 03 February 2025&lt;/div&gt;
 
-&lt;!--- GHM (2010) | 06 February 2024--&gt;
+&lt;!--- GHM (2010) | 03 February 2025--&gt;
 
 ---
 
@@ -93,7 +93,7 @@ background-color: #0148A4
 
 2. Economic development incentives briefing note
 
-3. First quiz is on February 8th
+3. First quiz is on February 11th
 
 ---
 ## Readings &lt;svg viewBox="0 0 576 512" style="height:1em;display:inline-block;position:fixed;top:10;right:10;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -601,51 +601,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-(function(time) {
-  var d2 = function(number) {
-    return ('0' + number).slice(-2); // left-pad 0 to minutes/seconds
-  },
-
-  time_format = function(total) {
-    var secs = Math.abs(total) / 1000;
-    var h = Math.floor(secs / 3600);
-    var m = Math.floor(secs % 3600 / 60);
-    var s = Math.round(secs % 60);
-    var res = d2(m) + ':' + d2(s);
-    if (h > 0) res = h + ':' + res;
-    return res;  // [hh:]mm:ss
-  },
-
-  slide_number_div = function(i) {
-    return document.getElementsByClassName('remark-slide-number').item(i);
-  },
-
-  current_page_number = function(i) {
-    return slide_number_div(i).firstChild.textContent;  // text "i / N"
-  };
-
-  var timer = document.createElement('span'); timer.id = 'slide-time-left';
-  var time_left = time, k = slideshow.getCurrentSlideIndex(),
-      last_page_number = current_page_number(k);
-
-  setInterval(function() {
-    time_left = time_left - 1000;
-    timer.innerHTML = ' ' + time_format(time_left);
-    if (time_left < 0) timer.style.color = 'red';
-  }, 1000);
-
-  slide_number_div(k).appendChild(timer);
-
-  slideshow.on('showSlide', function(slide) {
-    var i = slide.getSlideIndex(), n = current_page_number(i);
-    // reset timer when a new slide is shown and the page number is changed
-    if (last_page_number !== n) {
-      time_left = time; last_page_number = n;
-      timer.innerHTML = ' ' + time_format(time); timer.style.color = null;
-    }
-    slide_number_div(i).appendChild(timer);
-  });
-})(120000);
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {

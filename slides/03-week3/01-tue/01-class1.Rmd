@@ -183,7 +183,7 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 
 2. Economic development incentives briefing note
 
-3. First quiz is on February 8th
+3. First quiz is on February 11th
 
 ---
 ## Readings `r top_icon("book-open")`
@@ -423,56 +423,113 @@ grid.raster(img3)
 ---
 ## The Difference-Difference Estimate: Plot
 
-```{python, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+```{python, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center', results='hide'}
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Define the data points for control and treatment groups before and after the treatment
-Time = ['Before MDP', 'After MDP']
-Control_Outcome = [1, 3]  # D to C
-Treatment_Outcome_Before = [2, 6]  # B to A
-Treatment_Outcome_After = [2, 4]  # Hypothetical change if there was no treatment (B to C)
+# ------------------------------------------------------------
+# 1) REPLICATE THE SAME DATA
+# ------------------------------------------------------------
+# From your R code:
+# Treatment group: Before=30, Intervention=35, After=50
+# Control group:   Before=20, Intervention=25, After=30
 
-# Re-creating the plot with correctly positioned arrows and annotations
-plt.figure(figsize=(10, 6))
+x_labels = ["Before", "Intervention", "After"]
+x_vals = [0, 1, 2]  # numeric positions for plotting
 
-# Plotting the lines again
-plt.plot(Time, Control_Outcome, label='Control Group (D to C)', marker='o')
-plt.plot(Time, Treatment_Outcome_Before, label='Treatment Group (B to A)', marker='o', linestyle='--')
-plt.plot(Time, Treatment_Outcome_After, label='Hypothetical Change for Treated if no Treatment (B to C)', marker='o', linestyle=':')
+# Treatment line (blue)
+treatment_x = x_vals
+treatment_y = [30, 35, 50]
 
-# Annotations with arrows
-# Arrow for 'Observed change in outcomes over time for control group' (D to C)
-plt.annotate('Observed change in \noutcomes over time \nfor control group', 
-             xy=(0.5, (Control_Outcome[0] + Control_Outcome[1]) / 2), 
-             xytext=(0.7, 1), 
-             arrowprops=dict(facecolor='black', arrowstyle='->'), 
-             ha='center')
+# Control line (green)
+control_x = x_vals
+control_y = [20, 25, 30]
 
-# Arrow for 'Observed change in outcomes over time for treated' (B to A)
-plt.annotate('Observed change in \noutcomes over time \nfor treated', 
-             xy=(0.5, (Treatment_Outcome_Before[0] + Treatment_Outcome_Before[1]) / 2), 
-             xytext=(0.3, 4.0), 
-             arrowprops=dict(facecolor='black', arrowstyle='->'), 
-             ha='center')
+# ------------------------------------------------------------
+# 2) FIGURE & BASIC SETUP
+# ------------------------------------------------------------
+plt.figure(figsize=(10,6))
 
-# Arrow for 'Hypothetical change in outcomes over time for treated IF they had not received treatment' (B to C)
-plt.annotate('Hypothetical change in \noutcomes over time for \ntreated if they had not received treatment', 
-             xy=(0.5, (Treatment_Outcome_After[0] + Treatment_Outcome_After[1]) / 2), 
-             xytext=(0.7, 3.5), 
-             arrowprops=dict(facecolor='black', arrowstyle='->'), 
-             ha='center')
+# Set up some nice color constants to match your R code
+COLOR_TREATMENT = "#0074D9"  # the same blue from your ggplot
+COLOR_CONTROL   = "#3D9970"  # the same green
+COLOR_EFFECT    = "#FF4136"  # the red used for the "causal effect"
 
-# Adding points A, B, C, D
-plt.text(1, Control_Outcome[1], 'C', ha='center', va='center', fontsize=12, bbox=dict(facecolor='white', edgecolor='black'))
-plt.text(0, Control_Outcome[0], 'D', ha='center', va='center', fontsize=12, bbox=dict(facecolor='white', edgecolor='black'))
-plt.text(1, Treatment_Outcome_Before[1], 'A', ha='center', va='center', fontsize=12, bbox=dict(facecolor='white', edgecolor='black'))
-plt.text(0, Treatment_Outcome_Before[0], 'B', ha='center', va='center', fontsize=12, bbox=dict(facecolor='white', edgecolor='black'))
+# ------------------------------------------------------------
+# 3) MAIN LINES (with thick lines & big markers)
+# ------------------------------------------------------------
+plt.plot(treatment_x, treatment_y,
+         label="Treatment", color=COLOR_TREATMENT,
+         linewidth=3, marker="o", markersize=15)
+plt.plot(control_x, control_y,
+         label="Control", color=COLOR_CONTROL,
+         linewidth=3, marker="o", markersize=15)
 
-# Other elements
-plt.title('Difference in Differences Plot')
-plt.ylabel('Y = Outcome variable (e.g., Productivity)')
-plt.legend(loc='upper left')
+# ------------------------------------------------------------
+# 4) VERTICAL LINE AT x=1 (Intervention)
+# ------------------------------------------------------------
+plt.axvline(x=1, color="black", linewidth=2)
+
+# ------------------------------------------------------------
+# 5) EXTRA “DiD” SEGMENTS (to illustrate hypothetical vs. actual)
+# ------------------------------------------------------------
+#  - First segment: from (x=1, y=35) to (x=2, y=40) in blue, dashed
+#    (shows how the Treatment group would have changed if it followed Control’s slope)
+plt.plot([1,2], [35,40],
+         color=COLOR_TREATMENT, linewidth=2,
+         dashes=[2,2])  # dash pattern 2 on, 2 off
+
+#  - Second segment: from (x=2, y=40) up to (x=2, y=50) in red
+#    (the extra jump we label as "causal effect")
+plt.plot([2,2], [40,50],
+         color=COLOR_EFFECT, linewidth=2)
+
+# Label that vertical jump
+plt.text(2.03, 45, "Causal\neffect", color="white",
+         ha="left", va="center", fontsize=12,
+         bbox=dict(facecolor=COLOR_EFFECT, edgecolor="none", pad=8))
+
+# ------------------------------------------------------------
+# 6) BIG POINTS LABELED A, B, C, D
+# ------------------------------------------------------------
+# From your R labels:
+#   Treatment Before -> A  = (x=0, y=30)
+#   Treatment After  -> B  = (x=2, y=50)
+#   Control   Before -> C  = (x=0, y=20)
+#   Control   After  -> D  = (x=2, y=30)
+
+# We’ll draw large circles in the group color, then put white text on top.
+def big_labeled_point(x, y, label, facecolor):
+    """Plot a large colored circle at (x,y) with label text in white."""
+    plt.scatter([x], [y], s=900, color=facecolor, zorder=3)
+    plt.text(x, y, label, color="white", ha="center", va="center", fontsize=14, zorder=4)
+
+# Treatment points: A (0,30), B (2,50)
+big_labeled_point(0, 30, "A", COLOR_TREATMENT)
+big_labeled_point(2, 50, "B", COLOR_TREATMENT)
+
+# Control points: C (0,20), D (2,30)
+big_labeled_point(0, 20, "C", COLOR_CONTROL)
+big_labeled_point(2, 30, "D", COLOR_CONTROL)
+
+# ------------------------------------------------------------
+# 7) AXES, LIMITS, LABELS
+# ------------------------------------------------------------
+plt.xlim(-0.2, 2.2)
+plt.ylim(15, 55)
+
+plt.xticks(ticks=x_vals, labels=x_labels, fontsize=14)
+plt.yticks(fontsize=14)
+plt.ylabel("Outcome", fontsize=16)
+
+# Optional legend (if you want to show which line is which)
+# plt.legend(fontsize=12, loc="upper left")
+
+plt.title("Difference-in-Differences Graph", fontsize=18)
+plt.grid(False)   # turn off grid if you prefer
+plt.box(False)    # remove the top/right spines
+
+plt.tight_layout()
 plt.show()
 ```
 
