@@ -142,7 +142,7 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
     }
 ```
 
-# .text-shadow[.white[Outline for Today]]
+# .text-shadow[.white[Outline for Slides]]
 
 <ol>
     <li><h4 class="white">Overview of motivations.</h4></li>
@@ -150,74 +150,6 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
     <li><h4 class="white">Key points in O’Flaherty</h4></li>
     <li><h4 class="white">Briefing note</h4></li>
 </ol>
-
----
-## Quiz `r top_icon("calendar-week")`
-
-### The quiz in on Thursday
-
---
-#### Quiz Topics
-
-- Geographical Definitions & Scavenger Hunt
-
-- Finding data on data.census.gov
-
-- Agglomeration, Clusters, and Cities
-
-- Practice Jigsaw - Economic Clusters
-
-- Greenstone, Hornbeck, & Moretti (2010) + Intro. to Diff-in-Diff
-
-- Reading Results Tables
-
----
-## Q&A on Quiz Content
-
---
-
-- **Question:** How could the content from the cluster jigsaw appear on a quiz?
-
-- **Answer:** I will not ask you to provide anything detailed about any specific paper.
-
-
----
-## Quiz timing, content, and logistics
-
-- The quiz will be 75 minutes long
- - Three short answer questions
- - Possibly one or two multiple choice questions
-
-- Start at 11:00 am and you will need to submit the quiz by 12:15 pm unless you have extra time (via Goldman)
-
-- It will be conducted on Canvas (so you will need a computer).
-
-- It is an open book quiz but you cannot work with anyone or communicate in any way with anyone.
-
-- No need for lockdown, zoom, or any other software
-
-- You do not need to take the quiz in the classroom. That is optional.
-
-- Please ask me any questions! If we are both in the room then come up and talk to me. Otherwise email me at hhadah@tulane.edu. I will monitor my email consistently. 
-
----
-## Next Week `r top_icon("calendar-week")`
-
-1. Mardi Gras Break!
-
-2. Introduction to the Economics of Crime
-
---
-
-### Readings `r icons::fontawesome("book-open")`
-
-1. .small[Marie (2014)]
-
-2. .small[Brueckner (2011) - "the textbook" - Ch. 10]
-
-3. .small[What the data says (and doesn’t say) about crime in the United States---Link on canvas]
-
-4. .small[Optional:  Dills, Miron, and Summers (2010)]
 
 ---
 class: segue-yellow
@@ -409,16 +341,16 @@ grid.raster(img1)
 ---
 
 1. Cash rebates or grants
-  1. Money given directly to the business, rather than indirectly like with tax credits.
+  - Money given directly to the business, rather than indirectly like with tax credits.
 1. Refundable tax credits
-  1. Tax credits that can pay for state/federal taxes (depending on the entity giving them out). HOWEVER, if you don’t use all your tax credits, you can get the remaining credits back in cash.
+  - Tax credits that can pay for state/federal taxes (depending on the entity giving them out). HOWEVER, if you don’t use all your tax credits, you can get the remaining credits back in cash.
   1. In effect this is like just getting a cash rebate or grant.
 1. Transferable tax credits
-  1. … HOWEVER, if you don’t use all your tax credits, you can sell them to others who have tax liabilities.
-  1. These tax credits are usually sold of broker firms, that take a 20-25% cut.
-  1. This incentive is like refundable tax credits, but slightly weaker due to the transaction costs will selling them.
+  - These tax credits are usually sold of broker firms, that take a 20-25% cut.
+  - This incentive is like refundable tax credits, but slightly weaker due to the transaction costs will selling them.
+  - … HOWEVER, if you don’t use all your tax credits, you can sell them to others who have tax liabilities.
 1. Tax credits that allow carry forward
-  1. …HOWEVER, if you don’t use all your tax credits this year, you can apply them to pay your future taxes.
+  - …HOWEVER, if you don’t use all your tax credits this year, you can apply them to pay your future taxes.
 
 ---
 ## Stylized facts about incentives (via bartik, 2017)
@@ -434,7 +366,7 @@ grid.raster(img1)
 ## Stylized facts about incentives (via bartik, 2017)
 
 - Business incentives vary by state/region
-  - This is even the case for bordering (adjacent) states or “contiguous counties” (bordering counties – see the Holmes paper on Thursday)
+  - This is even the case for bordering (adjacent) states or “contiguous counties” (bordering counties – see the Holmes paper on Tuesday)
   - There is significant political science/economics research on what factors predict state/local adoption of incentives, and politics often plays a major role, as does the role of lobbying groups.
 - Business incentives have more than tripled since 1990
   - However, the average national rate of increase has slowed since 2000 (i.e. growth is at a more gradual rate).

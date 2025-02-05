@@ -144,7 +144,7 @@ background-position: 10% 90%, 100% 50%
 background-size: 160px, 50% 100%
 background-color: #0148A4
 
-# .text-shadow[.white[Outline for Today]]
+# .text-shadow[.white[Outline for Slides]]
 
 <ol>
     <li><h4 class="white">General layout of statistical results tables</h4></li>
@@ -155,9 +155,80 @@ background-color: #0148A4
 </ol>
 
 ---
-## This Week
+## Quiz `r top_icon("calendar-week")`
 
-- Don't forget about the Difference-in-differences quiz
+### The quiz in on Thursday
+
+--
+#### Quiz Topics
+
+- Geographical Definitions & Scavenger Hunt
+
+- Finding data on data.census.gov
+
+- Agglomeration, Clusters, and Cities
+
+- Practice Jigsaw - Economic Clusters
+
+- Greenstone, Hornbeck, & Moretti (2010) + Intro. to Diff-in-Diff
+
+- Reading Results Tables
+
+---
+## Q&A on Quiz Content
+
+--
+
+- **Question:** How could the content from the cluster jigsaw appear on a quiz?
+
+- **Answer:** I will not ask you to provide anything detailed about any specific paper.
+
+
+---
+## Quiz timing, content, and logistics
+
+- The quiz will be 75 minutes long
+ - Three short answer questions
+ - Possibly one or two multiple choice questions
+
+- Start at 11:00 am and you will need to submit the quiz by 12:15 pm unless you have extra time (via Goldman)
+
+- It will be conducted on Canvas (so you will need a computer).
+
+- It is an open book quiz but you cannot work with anyone or communicate in any way with anyone.
+
+- No need for lockdown, zoom, or any other software
+
+- You do not need to take the quiz in the classroom. That is optional.
+
+- Please ask me any questions! If we are both in the room then come up and talk to me. Otherwise email me at hhadah@tulane.edu. I will monitor my email consistently. 
+
+---
+## Next Week `r top_icon("calendar-week")`
+
+1. Economic Incentives Briefing Note
+
+2. Quiz on Thursday Feb 13th
+
+--
+
+### Readings `r icons::fontawesome("book-open")`
+
+3. .small[Briefing note readings:]
+
+  1. .small[Last Names A to D -> Neumark, Kolko - 2010]
+
+  2. .small[Last Names E to G -> Button - 2019]
+
+  3. .small[Last Names H to J -> Holmes - 1998]
+
+  4. .small[Last Names K to L -> Coates and Humphreys - The Stadium Gambit]
+
+  5. .small[Last Names M to O -> Moretti, Wilson - 2014]
+
+  6. .small[Last Names P to S -> Strauss-Kahn, Vives - 2009]
+
+  7. .small[Last Names T to Z -> Lee - 2008]
 
 ---
 ## General layout of statistical results tables
@@ -431,22 +502,13 @@ background-position: 95% 95%
 # Confidence Intervals Activity
 
 ---
-## Activity break – Calculating confidence intervals  `r top_icon("pause")`
+## After Class Activity – Calculating confidence intervals  `r top_icon("pause")`
 
-- Let’s take a break from lecture to calculate some intervals.
 - For this, I’m going to have you calculate “eye-ball” 95% confidence intervals, i.e. using 2 instead of 1.96 for the critical value.
 - Therefore, the formula is:
   - Lower bound = estimate – 2&ast;SE, Upper bound = estimate + 2&ast;SE
 - Remember order of operations -> multiply SE by 2 first!
-- I’ll give you five minutes to do the short quiz “Confidence Interval Calculation” on Canvas. I’ll put you into breakout rooms so you can more easily ask each other or me (by summoning me) questions.
-
-```{r first-timer, echo=FALSE, message=FALSE}
-library(countdown)
-countdown(
-  minutes = 5, seconds = 0,
-  play_sound = FALSE
-)
-```
+- The short quiz “Confidence Interval Calculation” on Canvas. 
 
 ---
 class: segue-yellow
@@ -583,21 +645,12 @@ $$
 ]
 
 ---
-## Activity break – t-statistics and hypothesis testing  `r top_icon("pause")`
+## After Class Activity – t-statistics and hypothesis testing  `r top_icon("pause")`
 
 - Let’s take a break from lecture to calculate some intervals.
 - For this, I’m going to have you do hypothesis tests (“t-tests”) using the “eye-ball” method, i.e. using 2 instead of 1.96 for the critical value.
 - Therefore, the formula is:
   - $|t-statistic| \ge 2$
-- I’ll give you five minutes to do the short quiz “t-statistics and hypothesis testing” on Canvas. Ask each other or me questions.
-
-```{r second-timer, echo=FALSE, message=FALSE}
-library(countdown)
-countdown(
-  minutes = 5, seconds = 0,
-  play_sound = FALSE
-)
-```
 
 ---
 ## What do the &ast;s beside the estimates in tables mean?
