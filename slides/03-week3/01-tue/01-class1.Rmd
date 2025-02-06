@@ -610,6 +610,116 @@ DiD removes two sources of bias:
 
 - I am going to rephrase this several times as rephrasing this might make it more understandable.
 
+```{python, echo=FALSE, warning=FALSE, out.width="50%", fig.show='hold', fig.align='center', results='hide'}
+import matplotlib.pyplot as plt
+import numpy as np
+
+# ------------------------------------------------------------
+# 1) REPLICATE THE SAME DATA
+# ------------------------------------------------------------
+# From your R code:
+# Treatment group: Before=30, Intervention=35, After=50
+# Control group:   Before=20, Intervention=25, After=30
+
+x_labels = ["Before", "Intervention", "After"]
+x_vals = [0, 1, 2]  # numeric positions for plotting
+
+# Treatment line (blue)
+treatment_x = x_vals
+treatment_y = [30, 35, 50]
+
+# Control line (green)
+control_x = x_vals
+control_y = [20, 25, 30]
+
+# ------------------------------------------------------------
+# 2) FIGURE & BASIC SETUP
+# ------------------------------------------------------------
+plt.figure(figsize=(10,6))
+
+# Set up some nice color constants to match your R code
+COLOR_TREATMENT = "#0074D9"  # the same blue from your ggplot
+COLOR_CONTROL   = "#3D9970"  # the same green
+COLOR_EFFECT    = "#FF4136"  # the red used for the "causal effect"
+
+# ------------------------------------------------------------
+# 3) MAIN LINES (with thick lines & big markers)
+# ------------------------------------------------------------
+plt.plot(treatment_x, treatment_y,
+         label="Treatment", color=COLOR_TREATMENT,
+         linewidth=3, marker="o", markersize=15)
+plt.plot(control_x, control_y,
+         label="Control", color=COLOR_CONTROL,
+         linewidth=3, marker="o", markersize=15)
+
+# ------------------------------------------------------------
+# 4) VERTICAL LINE AT x=1 (Intervention)
+# ------------------------------------------------------------
+plt.axvline(x=1, color="black", linewidth=2)
+
+# ------------------------------------------------------------
+# 5) EXTRA “DiD” SEGMENTS (to illustrate hypothetical vs. actual)
+# ------------------------------------------------------------
+#  - First segment: from (x=1, y=35) to (x=2, y=40) in blue, dashed
+#    (shows how the Treatment group would have changed if it followed Control’s slope)
+plt.plot([1,2], [35,40],
+         color=COLOR_TREATMENT, linewidth=2,
+         dashes=[2,2])  # dash pattern 2 on, 2 off
+
+#  - Second segment: from (x=2, y=40) up to (x=2, y=50) in red
+#    (the extra jump we label as "causal effect")
+plt.plot([2,2], [40,50],
+         color=COLOR_EFFECT, linewidth=2)
+
+# Label that vertical jump
+plt.text(2.03, 45, "Causal\neffect", color="white",
+         ha="left", va="center", fontsize=12,
+         bbox=dict(facecolor=COLOR_EFFECT, edgecolor="none", pad=8))
+
+# ------------------------------------------------------------
+# 6) BIG POINTS LABELED A, B, C, D
+# ------------------------------------------------------------
+# From your R labels:
+#   Treatment Before -> B  = (x=0, y=30)
+#   Treatment After  -> A  = (x=2, y=50)
+#   Control   Before -> D  = (x=0, y=20)
+#   Control   After  -> C  = (x=2, y=30)
+
+# We’ll draw large circles in the group color, then put white text on top.
+def big_labeled_point(x, y, label, facecolor):
+    """Plot a large colored circle at (x,y) with label text in white."""
+    plt.scatter([x], [y], s=900, color=facecolor, zorder=3)
+    plt.text(x, y, label, color="white", ha="center", va="center", fontsize=14, zorder=4)
+
+# Treatment points: A (0,30), B (2,50)
+big_labeled_point(0, 30, "A", COLOR_TREATMENT)
+big_labeled_point(2, 50, "B", COLOR_TREATMENT)
+
+# Control points: C (0,20), D (2,30)
+big_labeled_point(0, 20, "C", COLOR_CONTROL)
+big_labeled_point(2, 30, "D", COLOR_CONTROL)
+
+# ------------------------------------------------------------
+# 7) AXES, LIMITS, LABELS
+# ------------------------------------------------------------
+plt.xlim(-0.2, 2.2)
+plt.ylim(15, 55)
+
+plt.xticks(ticks=x_vals, labels=x_labels, fontsize=14)
+plt.yticks(fontsize=14)
+plt.ylabel("Outcome", fontsize=16)
+
+# Optional legend (if you want to show which line is which)
+# plt.legend(fontsize=12, loc="upper left")
+
+plt.title("Difference-in-Differences Graph", fontsize=18)
+plt.grid(False)   # turn off grid if you prefer
+plt.box(False)    # remove the top/right spines
+
+plt.tight_layout()
+plt.show()
+```
+
 ---
 ## Parallel Trends Assumption
 
