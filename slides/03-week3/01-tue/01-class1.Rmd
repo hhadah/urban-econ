@@ -493,10 +493,10 @@ plt.text(2.03, 45, "Causal\neffect", color="white",
 # 6) BIG POINTS LABELED A, B, C, D
 # ------------------------------------------------------------
 # From your R labels:
-#   Treatment Before -> A  = (x=0, y=30)
-#   Treatment After  -> B  = (x=2, y=50)
-#   Control   Before -> C  = (x=0, y=20)
-#   Control   After  -> D  = (x=2, y=30)
+#   Treatment Before -> B  = (x=0, y=30)
+#   Treatment After  -> A  = (x=2, y=50)
+#   Control   Before -> D  = (x=0, y=20)
+#   Control   After  -> C  = (x=2, y=30)
 
 # We’ll draw large circles in the group color, then put white text on top.
 def big_labeled_point(x, y, label, facecolor):
