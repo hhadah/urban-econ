@@ -151,7 +151,6 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
     <li><h4 class="white">Popular crime topics studied by economists</h4></li>
 </ol>
 
----
 ## Quiz 1 Stats
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, cache=TRUE, results='asis'}
