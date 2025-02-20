@@ -136,7 +136,41 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
         background-color: white;
     }
 ```
+## Some Order of Business
 
+1. I extended the due date for the briefing note till next Tuesday Feb. 25th
+
+  - I will post the grades and give you back my comments today
+
+2. Today's activity is now due on March 2nd
+
+---
+## Quiz 1 Stats
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, cache=TRUE, results='asis'}
+library(tidyverse)
+library(dplyr)
+
+quiz1 <- read.csv("/Users/hhadah/Downloads/quiz_1.csv") %>%
+  select("score")
+
+# Calculate mean and median
+mean_quiz1 <- mean(quiz1$score, na.rm = TRUE)
+median_quiz1 <- median(quiz1$score, na.rm = TRUE)
+
+# Plot the histogram and add vertical lines for mean and median
+ggplot(quiz1, aes(x = score)) +
+  geom_histogram(binwidth = 0.5, color = "black", fill = "lightblue") +
+  geom_vline(xintercept = mean_quiz1, color = "red", linetype = "dashed", size = 1) +
+  geom_vline(xintercept = median_quiz1, color = "blue", linetype = "dotted", size = 1) +
+  annotate("text", x = mean_quiz1 - 0.2, y = 10, label = paste("Mean:", round(mean_quiz1, 2)), color = "red", angle = 90, size = 3.5) + 
+  annotate("text", x = median_quiz1 + 0.2, y = 10, label = paste("Median:", round(median_quiz1, 2)), color = "blue", angle = 90, size = 3.5) + 
+  labs(title = "Quiz 1 Scores", x = "Score", y = "Frequency") +
+  scale_x_continuous(limits = c(0, 11), breaks = seq(1,11)) +
+  theme_classic()
+```
+
+---
 ## Jigsaw Activity
 
 1) First grouping - "Focus Groups" - about 10 minutes
