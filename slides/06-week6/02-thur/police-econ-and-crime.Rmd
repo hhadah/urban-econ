@@ -960,11 +960,13 @@ background-position: 95% 95%
 
 - If you want feedback on these practice problems, then please submit by Sunday
 
-```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = FALSE}
 library(renderthis)
 # https://hhadah.github.io/xaringan/index.html
 
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/06-week6/02-thur/police-econ-and-crime.html", 
-       to = "~/Documents/GiT/urban-econ/slides/06-week6/02-thur/police-econ-and-crime.pdf")
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/06-week6/02-thur/police-econ-and-crime.html")
+#to_pdf(from = "~/Documents/GiT/urban-econ/slides/06-week6/02-thur/police-econ-and-crime.html", 
+#       to = "~/Documents/GiT/urban-econ/slides/06-week6/02-thur/police-econ-and-crime.pdf")
+# to_pdf(from = "~/Documents/GiT/urban-econ/slides/06-week6/02-thur/police-econ-and-crime.html")
+
+pagedown::chrome_print("slides/06-week6/02-thur/police-econ-and-crime.html")
 ```
