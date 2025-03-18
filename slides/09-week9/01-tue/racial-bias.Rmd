@@ -894,7 +894,7 @@ grid.raster(readPNG("assets/Picture12.png"))
 ]
 
 .pull-right[
-In all case (with and without precinct fixed effects) there is strong or at least weak evidence that African Americans are more likely to be frisks compared to whites
+In all case (with and without precinct fixed effects) there is strong or at least weak evidence that African Americans are more likely to be frisked compared to whites
 ]
 
 ---
@@ -966,7 +966,7 @@ background-position: 95% 95%
 ---
 ## Statistical Discrimination: Policing 
 
-- Police offers could (and likely do) statistically discriminate in interactions with citizens
+- Police officers could (and likely do) statistically discriminate in interactions with citizens
 - They may, for example, be more likely to assume that people of color have done something wrong, have drugs in their car, etc.
 - For these “reasons”, police may be more likely to search people of color through car searches, “stop and frisk” etc.
 - In this example, race is used as a proxy for assumptions about criminality
