@@ -702,7 +702,7 @@ grid.raster(readPNG("assets/Picture16.png"))
 
 > “A troubling possibility is that the types of police activities that keep crime low are inherently unconstitutional and hence we face a tradeoff between allowing uncomfortable amounts of police bias and reducing crime in the very communications which are most impacted by that bias.”
 
-```{r gen_pdf, include = FALSE, cache = FALSE, eval = FALSE}
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
 # https://hhadah.github.io/xaringan/index.html
 
