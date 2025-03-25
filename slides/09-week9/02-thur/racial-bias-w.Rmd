@@ -702,6 +702,184 @@ grid.raster(readPNG("assets/Picture16.png"))
 
 > “A troubling possibility is that the types of police activities that keep crime low are inherently unconstitutional and hence we face a tradeoff between allowing uncomfortable amounts of police bias and reducing crime in the very communications which are most impacted by that bias.”
 
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Cubukcu et al. (2021)
+
+---
+## Abstract
+
+> Police body-worn cameras (BWCs) have been the subject of much research on how the technology’s enhanced documentation of police/citizen interactions impact police behavior. Less attention has been paid to how BWC recordings affect the adjudication of citizen complaints against the police. 
+
+> We employ citizen complaint data from the Chicago Police Department and Civilian Office of Police Accountability filed between 2012-2020 to <ins>determine the extent to which BWC footage enhances</ins> **the efficacy of evidence used to formulate a conclusion of responsibility, and whether bias against complainants based on race would subsequently be reduced. **
+
+---
+## Abstract
+
+> Accordingly, we exploit the staggered deployment of BWCs across 22 Chicago police districts over time to estimate the effect of BWCs on these outcomes. [Think a difference-in-differences]
+Our findings indicate that BWCs led to a significant decrease in the dismissal of investigations due to insufficient evidence ("not sustained") 
+
+- [Their findings also indicate]… a significant increase in disciplinary actions against police officers ("sustained" outcomes”) with sufficient evidence to sanction their misconduct. 
+
+> We further find that disparities in complaints across racial groups for the “unsustained” category fade away with the implementation of BWCs.
+
+---
+
+```{r, echo=FALSE, warning=FALSE, out.width="60%", fig.show='hold', fig.align='center'}
+# Plot the image
+grid.raster(readPNG("assets/Picture17.png"))
+```
+
+- Not Sustained = Dismissal of investigations due to insufficient evidence
+
+- Sustained = Disciplinary actions against police officers
+
+---
+### Black and Hispanic individuals are more likely to have their complaints dismissed but BWCS reduce this disparity
+
+```{r, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+# Plot the image
+grid.raster(readPNG("assets/Picture18.png"))
+```
+
+---
+### Officers are less likely to be disciplined for complaints from Black and Hispanic individuals and BWCs does not change this
+
+```{r, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+# Plot the image
+grid.raster(readPNG("assets/Picture18.png"))
+```
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Campbell (2021)
+
+---
+## Abstract
+
+> Has Black Lives Matter influenced police lethal use-of-force? 
+A difference-in-differences design finds census places with Black Lives Matter protests experience a 15% to 20% decrease in police homicides over the ensuing five years, around 300 fewer deaths. 
+The gap in lethal use-of-force between places with and without protests widens over these subsequent years and is most prominent when protests are large or frequent. This result holds for alternative specifications, estimators, police homicide datasets, and population screens; however, it does not hold if lethal use-of-force is normalized by violent crime or arrests. 
+
+- [So, when using benchmark 1: deaths / pop, there are effects, but not for benchmark 2: deaths / violent crime arrests]
+
+---
+## Abstract
+
+> Protests also influence local police agencies, which may explain the reduction. 
+
+- Agencies with local protests become more likely to:
+
+  1. Obtain body cameras
+  2. Implement community policing programs
+  3. Receive a larger operating budget from their local government
+  4. Reduce the number of property crime-related arrests
+
+- but forego some black officer employment and college education requirements.
+
+---
+## Compared to the control group, the treatment group had significantly more exposure to BLM protests
+
+.pull-left[
+```{r, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+# Plot the image
+grid.raster(readPNG("assets/Picture19.png"))
+```
+]
+
+.pull-right[
+- Method id DiD
+- Treatment = census places with BLM protests
+- Control = census places without BLM protests
+AND
+- Before and after the protests
+
+- Sustained = Disciplinary actions against police officers
+]
+
+---
+### There is a decrease in police homicides in places with protests
+
+
+```{r, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+# Plot the image
+grid.raster(readPNG("assets/Picture20.png"))
+```
+
+---
+### The year of the first protest, and afterwards, areas with BLM protests experience fewer police homicides
+
+
+```{r, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+# Plot the image
+grid.raster(readPNG("assets/Picture21.png"))
+```
+
+---
+### Effects by city
+
+
+```{r, echo=FALSE, warning=FALSE, out.width="80%", fig.show='hold', fig.align='center'}
+# Plot the image
+grid.raster(readPNG("assets/Picture22.png"))
+```
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Goncalves and Mello
+
+---
+## Abstract
+
+> We estimate the degree to which individual police officers practice racial discrimination. 
+Using a bunching estimation design and data from the Florida Highway Patrol, we show that minorities are less likely to receive a discount on their speeding tickets than White drivers.
+Disaggregating this difference to the individual police officer, we estimate that 42 percent of officers practice discrimination. 
+We then apply our officer-level discrimination measures to various policy-relevant questions in the literature. In particular, reassigning officers across locations based on their lenience can effectively reduce the aggregate disparity in treatment. We then apply our officer-level discrimination measures to various policy-relevant questions in the literature. 
+In particular, reassigning officers across locations based on their lenience can effectively reduce the aggregate disparity in treatment.
+
+---
+### Obvious “bunching” of tickets written as being 9, 14, 19, 24, or 29 MPH over the speed limit
+
+<div style="display: flex; align-items: flex-start;">
+  <div style="width: 70%; padding-right: 10px;">
+  
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Plot the image
+grid.raster(readPNG("assets/Picture23.png"))
+```
+
+  </div>
+  <div style="width: 30%; padding-left: 10px;">
+  <ul>
+    <li>Usually fines increase at 5 MPH increments</li>
+    <li>This bunching happens more for white motorists</li>
+    <li>Officers “round down” more for them</li>
+  </ul>
+  </div>
+</div>
+
+---
+### Policies to reduce racial bias in speeding tickets discounts
+
+- Focusing on policies to reduce this disparity, the authors investigate to what extent re-assigning officers across locations can reduce this disparity
+
+- Option 1): Sort officers such that the <ins>least racially biased officers</ins> are in counties with the most minorities. .brand-crawfest[Reduces the gap by 11%]
+- Option 2): Sort officers such that the <ins>more lenient officers</ins> are in counties with the most minorities. .brand-crawfest[Reduces the gap by 91%]
+
+- “The policy aimed at exposing minorities to lenience is much more effective than removing overall bias through firing biased officers or hiring minority and female officers.”
+
+
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
 # https://hhadah.github.io/xaringan/index.html
