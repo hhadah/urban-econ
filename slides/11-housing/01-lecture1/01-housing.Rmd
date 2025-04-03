@@ -169,6 +169,12 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 
 - There are many readings on housing, check them on Canvas
 
+### Assignment
+
+- Briefing note on racial bias
+
+  - Many of you have not joined a group yet
+  
 ---
 class: segue-yellow
 background-image: url("assets/TulaneLogo.svg")
