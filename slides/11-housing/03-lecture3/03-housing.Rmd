@@ -330,6 +330,8 @@ background-position: 95% 95%
 
 - [The Falafel Gambit](https://medium.com/yimbyneoliberal/the-great-falafel-debacle-27231edce59e)
 
+- Right here in Nola opposition to [zoning law change](https://wgno.com/news/louisiana/jefferson-parish/some-elmwood-residents-concerned-about-potential-amazon-warehouse-impact-on-neighborhood/amp/) that could create 150 to 200 new jobs
+
 --
 ### So, is local opposition to projects democratic?
 
@@ -383,17 +385,6 @@ grid.raster(readPNG("assets/pic13.png"))
 ```{r, echo=FALSE, fig.align='center'}
 grid.raster(readPNG("assets/pic14.png"))
 ```
-
----
-class: tulane-blue
-background-image: url(assets/TulaneLogo-white.svg)
-background-size: 260px
-background-position: 5% 95%
-
-# Tulane and the Murphy Institute are hosting a housing sympoisum
-
-- Friday and Saturday April 12 and 13 
-
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
