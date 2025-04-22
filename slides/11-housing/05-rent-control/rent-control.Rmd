@@ -675,11 +675,11 @@ Perfect competition predicts many negative effects of rent control. But under a 
 
 ### But there are some cities where companies have lots of market power because they own all or most of the housing (e.g., Irvine Company in Irvine, CA). In this case, rent control might get prices closer to the efficient level if rent control is applied correctly
 
-```{r gen_pdf, include = FALSE, cache = FALSE, eval = FALSE}
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
 # https://hhadah.github.io/xaringan/index.html
 
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html", 
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/11-housing/05-rent-control/rent-control.html", 
        to = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.pdf")
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/11-housing/05-rent-control/rent-control.html")
 ```
