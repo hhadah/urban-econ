@@ -142,7 +142,7 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 
 ### Our final quiz is on April 29th
 
-### Final briefing note is due on May 7th and this is a hard deadline
+### Final briefing note is due on May 3rd and this is a hard deadline
 
 
 ---
@@ -152,15 +152,6 @@ background-size: 20%
 background-position: 95% 95%
 
 # Rent Control
-
----
-### In this chapter (Ch 7)
-
-In this chapter we will examine a few policies that seek to make housing more affordable and accessible. We will look at:
-
-1. Rent control
-2. Housing subsidies
-3. Minimum dwelling size
 
 ---
 ### Why housing policies?
@@ -573,7 +564,7 @@ Since populations are increasing in more cities, it’s usually a matter of how 
 
 ### Those in poverty who need the cheaper housing are the most likely to be screened out
 
-### While discrimination against protected groups is often illegal, it is not well enforced and not all groups are protected (e.g., LGBT)
+### While discrimination against protected groups is often illegal, it is not well enforced and not all groups are protected (e.g., LGBTQ+)
 
 ---
 ## Inefficient allocation of housing
