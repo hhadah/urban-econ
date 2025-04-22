@@ -211,7 +211,7 @@ We will look at both sets of evidence, starting with (1)
 ### There are different models of the economy that will generate different predictions of the impact of rent control.
 
 ### Consider two extremes:
-1. Percent competition
+1. Perfect competition
 2. Monopoly
 
 ### Under perfect competition, rent control will have adverse consequences, making it undesirable
@@ -509,7 +509,7 @@ Since populations are increasing in more cities, it’s usually a matter of how 
     \draw[thick] (1,1) -- (5,5) node[right] {$S_{LR}$};
     
     % Long-run perfectly inelastic supply line (moved to Q = 3)
-    \draw[thick, red] (3,0) -- (3,6) node[above] {$S_{SR}$};
+    \draw[thick, red] (3,0) -- (3,6) node[above] {$S_{LR}$};
     
     % Demand curve
     \draw[thick] (1,5) -- (5,1) node[right] {$D$};
@@ -523,11 +523,11 @@ Since populations are increasing in more cities, it’s usually a matter of how 
     
     % Short-run quantity supplied at P_RC
     \draw[dotted] (2.2,2.2) -- (2.2,0);
-    \node[below=1pt] at (2.2,0) {\scriptsize $Q_{S}^{SR}$};
+    \node[below=1pt] at (2.2,0) {\scriptsize $Q_{S}^{LR}$};
     
     % Long-run quantity supplied at P_RC (now at Q = 3)
     \draw[dotted, red] (3,2.2) -- (3,0);
-    \node[below=1pt] at (3,0) {\scriptsize $Q_{S}^{LR}$};
+    \node[below=1pt] at (3,0) {\scriptsize $Q_{S}^{SR}$};
     
     % Quantity demanded at P_RC
     \draw[dotted] (3.8,2.2) -- (3.8,0);
