@@ -170,25 +170,6 @@ background-position: 95% 95%
 # Overview `r top_icon("list-ul")`
 
 ---
-## This Week `r top_icon("calendar-week")`
-
-1. Introduction to the course
-
-2. Geographical data
-
-### Readings `r icons::fontawesome("book-open")`
-
-- Syllabus
-
-- OSullivan - Census Definitions (pdf posted on Canvas)
-
-### What's due? `r icons::fontawesome("exclamation")`
-
-- Scavenger Hunt—no due date and you can redo to improve your grade
-
-### Note `r icons::fontawesome("exclamation")`
-
----
 class: segue-yellow
 background-image: url("assets/TulaneLogo.svg")
 background-size: 20%
@@ -278,6 +259,8 @@ The required book is Brueckner, Jan. 2011. Lectures on Urban Economics. Cambridg
 - It is your responsibility to keep up with the announcements, not doing so will affect your grade
 
   - Many in-class activities may require that you have read the readings before class
+
+- I like to have students interact in class, this could only happen if many of you have done the readings beforehand
 
 ---
 ## Grading
@@ -553,11 +536,40 @@ background-position: 5% 95%
 ]]
 
 
+---
+## This Week `r top_icon("calendar-week")`
+
+1. Introduction to the course
+
+2. Geographical data
+
+3. Agglomeration part I
+
+### Readings `r icons::fontawesome("book-open")`
+
+.pull-left[
+- Syllabus
+
+- OSullivan - Census Definitions (pdf posted on Canvas)
+
+- Textbook Ch. 1 to 1.3 (pdf posted on Canvas)
+]
+
+.pull-right[
+- Glaeser, Kolko, Saiz - 2001
+
+- Kerr, Robert-Nicoud - 2020]
+
+### What's due? `r icons::fontawesome("exclamation")`
+
+- Scavenger Hunt—no due date and you can redo to improve your grade
+
+
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
-# https://hhadah.github.io/urban-econ/slides/01-week1/01-tue/01-class1.html
+# https://hhadah.github.io/urban-econ/slides/01-week1/01-class01/01-class1.html
 
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/01-tue/01-class1.html", 
-       to = "~/Documents/GiT/urban-econ/slides/01-week1/01-tue/01-class1.pdf")
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/01-tue/01-class1.html")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/01-class01/01-class1.html", 
+       to = "~/Documents/GiT/urban-econ/slides/01-week1/01-class01/01-class1.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/01-class01/01-class1.html")
 ```
