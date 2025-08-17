@@ -188,8 +188,6 @@ background-position: 95% 95%
 
 ### Note `r icons::fontawesome("exclamation")`
 
-- There is no class on Thursday January 30th
-
 ---
 class: segue-yellow
 background-image: url("assets/TulaneLogo.svg")
@@ -321,14 +319,13 @@ The required book is Brueckner, Jan. 2011. Lectures on Urban Economics. Cambridg
 
 - During class time
 
-- Tentative schedule is Feb. 11, Mar. 11, Apr. 2, and Apr. 25
+- Tentative schedule is September 19, October 17, November 14, and December 5---tentative and subject to change
 
-- Quiz are open book, you can bring notes, documents, computer, etc.
+- Quiz are open book, you can bring notes, documents, etc.
 
 - You cannot talk or work with other students
 
-- You can take the quiz remotely as well
-
+- Lockdown browser will be used
 
 ]
 
@@ -411,15 +408,34 @@ The required book is Brueckner, Jan. 2011. Lectures on Urban Economics. Cambridg
 ---
 ## The Use of AI and Large Language Models
 
-- I will allow the use of AI and large language models to help you with your work
+.pull-left[
 
-- This is only allowed for edits like improving writing, spell checking, etc.
+**🚫 Prohibited**  
+- Briefing notes  
+- Quizzes  
+- In-class work  
+- Data/research analysis  
+- Citations & references  
 
-- You cannot use AI to write your work
+**📌 Rationale**  
+- Build critical thinking  
+- Interpret research  
+- Practice clear writing  
 
-- I will use Turnitin to check for plagiarism and use of AI to write your work
+]
 
-- Students that violate the policy will receive a zero on the assignment and will be reported for failure to follow the academic honesty policy
+.pull-right[
+
+**⚠️ Violations**  
+- Count as dishonesty  
+- Reported to university  
+- Ask if unsure  
+
+**✅ Allowed**  
+- Only if stated in instructions  
+- Ex: brainstorming, prelim research  
+
+]
 
 ---
 class: segue-yellow
