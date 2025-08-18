@@ -143,11 +143,11 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 
 - Email: [hhadah@tulane.edu](mailto:hhadah@tulane.edu)
 
-- I am an labor economist
+- I am a labor economist
 
   - I study topics on discrimination, racial and ethnic identities, mental health, and immigration
 
-- I love to run
+- I love to run and hike
 
   - You can find me running in Audubon Park with my dog Bill
 
