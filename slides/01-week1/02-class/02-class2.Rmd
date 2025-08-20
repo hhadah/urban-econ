@@ -206,6 +206,27 @@ grid.raster(img)
 ```
 
 ---
+## Census Tracts
+
+.blockquote[
+###  .brand-crawfest[Census tract]
+
+- .black[Census tracts are small, relatively permanent geographic entities within
+counties (or the statistical equivalents of counties) delineated by a committee of local data users. Generally, census tracts have between 2,500 and 8,000 residents and boundaries that follow visible features.]
+]
+
+---
+## 
+
+```{r census-geo-units, echo=FALSE, warning=FALSE, out.width="60%", fig.show='hold', fig.align='center'}
+# Read the image file
+imgx <- readPNG("maptitude-census-summary-levels-example.png")
+
+# Plot the image
+grid.raster(imgx)
+```
+
+---
 ## Types of Urban Populations
 
 .blockquote[
