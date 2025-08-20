@@ -159,6 +159,8 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 
 2. Practice Jigsaw
 
+3. Greenstone, Hornbeck, & Moretti (2010)
+
 ### Readings `r icons::fontawesome("book-open")`
 
 - All the rest of the agglomeration readings (on canvas)
