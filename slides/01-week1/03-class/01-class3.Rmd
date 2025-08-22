@@ -491,6 +491,8 @@ background-position: 95% 95%
 --
 - Think of a place in your daily life where businesses or people cluster. Why do you think that clustering happens?
 
+- Give me your consumption examples that make you prefer living in a city.
+
 ---
 ## 1) Rich variety of services and consumer goods
 
