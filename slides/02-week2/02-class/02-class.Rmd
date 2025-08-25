@@ -840,7 +840,7 @@ background-position: 95% 95%
 - But labor costs also increase.
 - So part of the profit increase that would come from the TFP increase is eaten by labor costs.
 
-```{r gen_pdf, include = FALSE, cache = FALSE, eval = FALSE}
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
 # https://hhadah.github.io/urban-econ/slides/02-week2/02-class/02-class.html
 

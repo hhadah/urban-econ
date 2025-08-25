@@ -179,9 +179,9 @@ countdown(minutes = 25, seconds = 0, top = 0)
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
-# https://hhadah.github.io/urban-econ/slides/02-week2/02-thur/02-class2.html
+# https://hhadah.github.io/urban-econ/slides/02-week2/01-class/01-class.html
 
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/02-week2/02-thur/02-class2.html", 
-       to = "~/Documents/GiT/urban-econ/slides/02-week2/02-thur/02-class2.pdf")
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/02-week2/02-thur/02-class2.html")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/02-week2/01-class/01-class.html", 
+       to = "~/Documents/GiT/urban-econ/slides/02-week2/01-class/01-class.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/02-week2/01-class/01-class.html")
 ```
