@@ -183,8 +183,6 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 
 2. Economic development incentives briefing note
 
-3. First quiz is on February 11th
-
 ---
 ## Readings `r top_icon("book-open")`
 
@@ -215,6 +213,15 @@ background-size: 20%
 background-position: 95% 95%
 
 # Agglomeration Spillovers in Action `r top_icon("city")`
+
+---
+## Let's discuss the paper
+
+### What is the main question the article is trying to answer?
+
+### Why is the method the authors used?
+
+### Why is it important to quantify the spillovers from agglomeration?
 
 ---
 ## Paper's abstract `r top_icon("file-alt")`
@@ -249,6 +256,7 @@ background-position: 95% 95%
 ---
 ## What is selection bias?
 
+--
 - Suppose I want to know the effect of a college degree on earnings.
 
 - I compare the earnings of people with a college degree to those without a college degree.
@@ -262,6 +270,17 @@ background-position: 95% 95%
 - This is called .red[selection bias].
 
 - We need to control for these other factors that affect earnings.
+
+---
+## We can only observe one road
+
+```{r road-not, echo=FALSE, warning=FALSE, out.width="60%", fig.show='hold', fig.align='center'}
+# Read the image file
+img_road <- readPNG("assets/road-not-taken.png")
+
+# Plot the image
+grid.raster(img_road)
+```
 
 ---
 ## Example of selection bias
@@ -349,6 +368,8 @@ We also want to estimate the effect of a policy or program that controls for oth
 
 ---
 ## What do Greenstone et al. (2010) do?
+
+--
 
 - GHM look at large manufacturing firms (“million dollar plants” or MDPs) that chose to set up in certain counties (“winner” counties).
 - They then use information to determine their runner-up (loser) counties. They determine what the loser counties are by using published information in the corporate real estate journal Site Selection.
