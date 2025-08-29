@@ -219,7 +219,7 @@ background-position: 95% 95%
 
 ### What is the main question the article is trying to answer?
 
-### Why is the method the authors used?
+### What is the method the authors used?
 
 ### Why is it important to quantify the spillovers from agglomeration?
 
