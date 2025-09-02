@@ -2,7 +2,7 @@
 title: "Introduction to Economic Development Incentives"
 subtitle: "Economic Development Incentives"
 author: "Hussain Hadah (he/him)"
-date: "`r format(Sys.time(), '%d %B %Y')`"
+date: "September 5, 2025"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/tulane-fonts.css", "assets/tulane.css"]
