@@ -758,7 +758,7 @@ background-position: 95% 95%
 
 - The dataset could be downloaded from [here](https://raw.githubusercontent.com/hhadah/urban-econ/main/slides/03-week3/01-class/assets/minwage_short.csv)
 
-```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=FALSE}
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=TRUE}
 # Load the data
 library(haven)
 library(tidyverse)
@@ -779,7 +779,7 @@ names(data)
 
 - Filter missing data
 
-```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=FALSE}
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=TRUE}
 min_wage_data <- data %>%
   filter(!(is.na(emptot1)), !(is.na(emptot2)))
 names(min_wage_data)
@@ -787,7 +787,7 @@ names(min_wage_data)
 
 - Create a new variable `treat` to indicate the treatment group
 
-```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=FALSE}
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=TRUE}
 min_wage_data <- min_wage_data %>%
   mutate(nj = state == 1)
 ```
@@ -795,7 +795,7 @@ min_wage_data <- min_wage_data %>%
 ---
 ## Do Difference-in-differences by hand
 
-```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=FALSE}
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=TRUE}
 nj_before <- min_wage_data %>%
   filter(nj == 1) %>%
   summarise(mean_empt1 = mean(emptot1), sd_empt1 = sd(emptot1))
@@ -814,20 +814,20 @@ pa_after <- min_wage_data %>%
 ## Do Difference-in-differences by hand
 
 .pull-left[
-```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=FALSE}
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=TRUE}
 nj_after
 nj_before
 ```
 ]
 
 .pull-right[
-```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=FALSE}
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=TRUE}
 pa_after
 pa_before
 ```
 ]
 
-```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=FALSE}
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=TRUE}
 nj_after - nj_before - (pa_after - pa_before)
 ```
 
@@ -836,7 +836,7 @@ nj_after - nj_before - (pa_after - pa_before)
 
 ### Now, change over time (after - before)
 
-```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=FALSE}
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=TRUE}
 min_wage_data <- min_wage_data %>%
   mutate(demp = (emptot2 - emptot1))
 summary_demp <- min_wage_data %>%
@@ -848,7 +848,7 @@ summary_demp
 ---
 ## Difference-in-differences in regression form
 
-```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=FALSE}
+```{r, echo=TRUE, warning=FALSE, message=FALSE, out.width="100%", fig.show='hold', fig.align='center', eval=TRUE}
 DD_Regression <- lm(demp ~ nj, data = min_wage_data)
 tidy(DD_Regression)
 ```

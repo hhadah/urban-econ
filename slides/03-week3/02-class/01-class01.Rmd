@@ -576,7 +576,7 @@ background-position: 95% 95%
 library(renderthis)
 # https://hhadah.github.io/xaringan/index.html
 
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/04-week4/01-tue/01-class01.html", 
-       to = "~/Documents/GiT/urban-econ/slides/04-week4/01-tue/01-class01.pdf")
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/04-week4/01-tue/01-class01.html")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/03-week3/02-class/01-class01.html", 
+       to = "~/Documents/GiT/urban-econ/slides/03-week3/02-class/01-class01.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/03-week3/02-class/01-class01.html")
 ```

@@ -577,6 +577,12 @@ data &lt;- read_csv(url(urlfile))
 names(data)
 ```
 
+```
+##  [1] "state"          "empft1"         "emppt1"         "nmgrs1"        
+##  [5] "empft2"         "emppt2"         "nmgrs2"         "store_id"      
+##  [9] "emptot1"        "emptot2"        "store_has_data"
+```
+
 
 ---
 ## Difference-in-differences R Code
@@ -588,6 +594,12 @@ names(data)
 min_wage_data &lt;- data %&gt;%
   filter(!(is.na(emptot1)), !(is.na(emptot2)))
 names(min_wage_data)
+```
+
+```
+##  [1] "state"          "empft1"         "emppt1"         "nmgrs1"        
+##  [5] "empft2"         "emppt2"         "nmgrs2"         "store_id"      
+##  [9] "emptot1"        "emptot2"        "store_has_data"
 ```
 
 - Create a new variable `treat` to indicate the treatment group
@@ -624,7 +636,24 @@ pa_after &lt;- min_wage_data %&gt;%
 
 ``` r
 nj_after
+```
+
+```
+## # A tibble: 1 × 2
+##   mean_empt1 sd_empt1
+##        &lt;dbl&gt;    &lt;dbl&gt;
+## 1       23.4     12.0
+```
+
+``` r
 nj_before
+```
+
+```
+## # A tibble: 1 × 2
+##   mean_empt1 sd_empt1
+##        &lt;dbl&gt;    &lt;dbl&gt;
+## 1       20.4     9.21
 ```
 ]
 
@@ -632,13 +661,35 @@ nj_before
 
 ``` r
 pa_after
+```
+
+```
+## # A tibble: 1 × 2
+##   mean_empt2 sd_empt2
+##        &lt;dbl&gt;    &lt;dbl&gt;
+## 1       21.1     8.38
+```
+
+``` r
 pa_before
+```
+
+```
+## # A tibble: 1 × 2
+##   mean_empt2 sd_empt2
+##        &lt;dbl&gt;    &lt;dbl&gt;
+## 1       20.9     9.38
 ```
 ]
 
 
 ``` r
 nj_after - nj_before - (pa_after - pa_before)
+```
+
+```
+##   mean_empt1 sd_empt1
+## 1       2.75 3.803228
 ```
 
 ---
@@ -656,6 +707,14 @@ summary_demp &lt;- min_wage_data %&gt;%
 summary_demp
 ```
 
+```
+## # A tibble: 2 × 3
+##   state   mean    sd
+##   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+## 1     0 -2.28  10.9 
+## 2     1  0.467  8.45
+```
+
 ---
 ## Difference-in-differences in regression form
 
@@ -663,6 +722,14 @@ summary_demp
 ``` r
 DD_Regression &lt;- lm(demp ~ nj, data = min_wage_data)
 tidy(DD_Regression)
+```
+
+```
+## # A tibble: 2 × 5
+##   term        estimate std.error statistic p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (Intercept)    -2.28      1.04     -2.21  0.0280
+## 2 njTRUE          2.75      1.15      2.38  0.0177
 ```
 
 
