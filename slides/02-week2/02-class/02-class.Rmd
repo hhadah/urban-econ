@@ -525,13 +525,13 @@ def big_labeled_point(x, y, label, facecolor):
     plt.scatter([x], [y], s=900, color=facecolor, zorder=3)
     plt.text(x, y, label, color="white", ha="center", va="center", fontsize=14, zorder=4)
 
-# Treatment points: A (0,30), B (2,50)
-big_labeled_point(0, 30, "A", COLOR_TREATMENT)
-big_labeled_point(2, 50, "B", COLOR_TREATMENT)
+# Treatment points: B (0,30), A (2,50)
+big_labeled_point(0, 30, "B", COLOR_TREATMENT)
+big_labeled_point(2, 50, "A", COLOR_TREATMENT)
 
-# Control points: C (0,20), D (2,30)
-big_labeled_point(0, 20, "C", COLOR_CONTROL)
-big_labeled_point(2, 30, "D", COLOR_CONTROL)
+# Control points: D (0,20), C (2,30)
+big_labeled_point(0, 20, "D", COLOR_CONTROL)
+big_labeled_point(2, 30, "C", COLOR_CONTROL)
 
 # ------------------------------------------------------------
 # 7) AXES, LIMITS, LABELS
@@ -713,12 +713,12 @@ def big_labeled_point(x, y, label, facecolor):
     plt.text(x, y, label, color="white", ha="center", va="center", fontsize=14, zorder=4)
 
 # Treatment points: A (0,30), B (2,50)
-big_labeled_point(0, 30, "A", COLOR_TREATMENT)
-big_labeled_point(2, 50, "B", COLOR_TREATMENT)
+big_labeled_point(0, 30, "B", COLOR_TREATMENT)
+big_labeled_point(2, 50, "A", COLOR_TREATMENT)
 
 # Control points: C (0,20), D (2,30)
-big_labeled_point(0, 20, "C", COLOR_CONTROL)
-big_labeled_point(2, 30, "D", COLOR_CONTROL)
+big_labeled_point(0, 20, "D", COLOR_CONTROL)
+big_labeled_point(2, 30, "C", COLOR_CONTROL)
 
 # ------------------------------------------------------------
 # 7) AXES, LIMITS, LABELS
