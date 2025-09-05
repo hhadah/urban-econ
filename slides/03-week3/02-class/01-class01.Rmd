@@ -170,6 +170,9 @@ background-position: 95% 95%
 ---
 ## Why incentives?
 
+### Why do governments offer incentives?
+
+--
 - Economic development is important as it can lead to job creation, wage increases, and increases in job quality. 
 - Better economic conditions is associated with many societal benefits (e.g., reduction in poverty and crime, improved standard of living, more tax revenue – see O’Flaherty reading for summary)
 - Policymakers often consider incentives so they can try to increase this economic activity, or a least appear to be doing so.
@@ -346,7 +349,7 @@ grid.raster(img1)
   - Tax credits that can pay for state/federal taxes (depending on the entity giving them out). HOWEVER, if you don’t use all your tax credits, you can get the remaining credits back in cash.
   1. In effect this is like just getting a cash rebate or grant.
 1. Transferable tax credits
-  - These tax credits are usually sold of broker firms, that take a 20-25% cut.
+  - These tax credits are usually sold by broker firms, that take a 20-25% cut.
   - This incentive is like refundable tax credits, but slightly weaker due to the transaction costs will selling them.
   - … HOWEVER, if you don’t use all your tax credits, you can sell them to others who have tax liabilities.
 1. Tax credits that allow carry forward
@@ -540,6 +543,92 @@ plt.show()
 
 - Hard examples (transition to long run is slow):
 - E.g., if the incentive affects an entire country – it can be tricky for individuals to hop borders.
+
+---
+## Short-run vs. long-run effects mental exercise
+
+### Consider the following scenarios, and think how wages and employment would change in each case
+
+1. A state tax incentive creates a huge business activity and a huge increase in migration
+2. A state tax incentive creates a huge business activity but a small increase in migration
+3. A state tax incentive creates a small business activity but a huge increase in migration
+4. A state tax incentive creates a small business activity and a small increase in migration
+5. City-level incentive for tech firms in city A, what happens to city B that has a large tech presence?
+6. City A offers incentives to attract tech firms, city B does not
+7. City A offers incentives to attract tech firms, city B offers incentives to keep them
+
+---
+
+```{python, echo=FALSE, warning=FALSE, results='hide', out.width="60%", fig.show='hold', fig.align='center'}
+# Create all four plots in a single figure with subplots
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+def equilibrium(a, b, c, d):
+    Q = (a - c) / (b + d)
+    P = a - b * Q
+    return Q, P
+
+def draw_subplot(ax, title, a, b, c, d, a_shift=0, c_shift=0, label_variant="*"):
+    labor = np.linspace(1, 10, 200)
+    D0 = a - b * labor
+    S0 = c + d * labor
+    D1 = (a + a_shift) - b * labor
+    S1 = (c + c_shift) + d * labor
+
+    Q0, P0 = equilibrium(a, b, c, d)
+    Q1, P1 = equilibrium(a + a_shift, b, c + c_shift, d)
+
+    ax.plot(labor, D0, color="blue")
+    ax.plot(labor, S0, color="red")
+    ax.plot(labor, D1, color="blue", linestyle="dashed")
+    ax.plot(labor, S1, color="red", linestyle="dashed")
+
+    ax.text(labor[-1], D0[-1], "D", va="bottom")
+    ax.text(labor[-1], S0[-1], "S", va="bottom")
+    ax.text(labor[-1], D1[-1], f"D{label_variant}", va="bottom")
+    ax.text(labor[-1], S1[-1], f"S{label_variant}", va="bottom")
+
+    ax.scatter([Q0], [P0], zorder=3, color="black")
+    ax.text(Q0, P0, "E", va="bottom", ha="left")
+    ax.scatter([Q1], [P1], zorder=3, color="black")
+    ax.text(Q1, P1, f"E{label_variant}", va="bottom", ha="left")
+
+    ax.axhline(P0, linestyle=":", linewidth=1, color="gray")
+    ax.axvline(Q0, linestyle=":", linewidth=1, color="gray")
+    ax.axhline(P1, linestyle=":", linewidth=1, color="gray")
+    ax.axvline(Q1, linestyle=":", linewidth=1, color="gray")
+
+    ax.set_title(title)
+    ax.set_xticks([])
+    ax.set_yticks([])
+
+# Base parameters
+a, b = 100, 8
+c, d = 20, 5
+
+# Precompute shifts
+Q0, P0 = equilibrium(a, b, c, d)
+a_shift_1 = 18
+c_shift_1 = ((b + d) * P0 - (a + a_shift_1) * d - c * b) / b
+a_shift_2, c_shift_2 = 25, 5
+a_shift_3, c_shift_3 = 5, 25
+a_shift_4, c_shift_4 = 6, 6
+
+# Plot in 2x2 grid
+fig, axs = plt.subplots(2, 2, figsize=(15, 12))
+
+draw_subplot(axs[0, 0], "1) Demand shifts, then supply shifts — same price level", a, b, c, d, a_shift_1, c_shift_1, "′")
+draw_subplot(axs[0, 1], "2) Demand shifts a lot; supply shifts a little", a, b, c, d, a_shift_2, c_shift_2, "′")
+draw_subplot(axs[1, 0], "3) Demand shifts a little; supply shifts a lot", a, b, c, d, a_shift_3, c_shift_3, "′")
+draw_subplot(axs[1, 1], "4) Demand and supply both shift just a little", a, b, c, d, a_shift_4, c_shift_4, "′")
+
+fig.suptitle("Market Scenarios: Demand and Supply Shifts", fontsize=16)
+plt.tight_layout()
+plt.show()
+
+```
 
 ---
 class: segue-yellow
