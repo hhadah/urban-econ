@@ -2,7 +2,7 @@
 title: "The Economics of Crime: An Overview"
 subtitle: "Economics of Crime"
 author: "Hussain Hadah (he/him)"
-date: "`r format(Sys.time(), '%d %B %Y')`"
+date: "September 10, 2025"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/tulane-fonts.css", "assets/tulane.css"]
@@ -154,19 +154,13 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 ---
 ## Next week `r top_icon("calendar-week")`
 
-- Intro to Measuring the Effect of Police on Crime
 
-- Measuring the Effect of Police on Crime - Jigsaw Activity
-
-  - To make the in-class activities more smooth, I will assign the readings and groups to students randomly
-  - I assigned the readings to students randomly on Canvas
-  - I also assigned task groups randomly
+- Measuring the Effect of Police on Crime
 
 - Measuring the effect of economic circumstances on crime
 
 ### Readings
 
-- Jigsaw Activity: Readings on Canvas
 
 - Yang (2017)
 
@@ -877,7 +871,7 @@ grid.raster(img18)
 library(renderthis)
 # https://hhadah.github.io/xaringan/index.html
 
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/05-week5/02-thur/crime-intro.html", 
-       to = "~/Documents/GiT/urban-econ/slides/05-week5/02-thur/crime-intro.pdf")
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/05-week5/02-thur/crime-intro.html")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/04-week4/02-class/crime-intro.html", 
+       to = "~/Documents/GiT/urban-econ/slides/04-week4/02-class/crime-intro.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/04-week4/02-class/crime-intro.html")
 ```
