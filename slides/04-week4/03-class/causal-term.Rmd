@@ -346,16 +346,24 @@ background-position: 95% 95%
 ---
 ## Jigsaw Activity
 
-![](jigsaw.jpg)
-
----
-## Jigsaw Activity
-
 1) First grouping - "Focus Groups" - about 10 minutes
 
   1. You will be in a groups with those who read the same paper as you. You will discuss your paper to all get on the same page about it. Specially, you will to be able to summarize your paper to your peers who have not read it in the next group, so you want to ensure you can provide a summary. Probably the best way to get on the same page about your reading is to share your summaries that you submitted before class and discuss how you can improve them. 
 
-  2. While in this group, each of you will answer the first set of questions here -> Cluster Jigsaw Questions (Work on During Class Aug. 27.)
+  2. While in this group, each of you will answer the first set of questions here -> Cluster Jigsaw Questions (Work on During Class Feb. 20.)
+
+---
+## First grouping - "Focus Groups"
+
+- **Cheng, Long (2018):** Last names A-F
+
+- **Dur, Vollaard (2019):** Last names G-H
+
+- **Di Tella, Schargrodsky (2004):** Last names H-Mb
+- **Levitt (1997):** Last names Mb-Shc
+
+- **Sullivan, O'Keeffe (2017):** Last names Shc-Z
+
 
 ```{r first-timer, echo=FALSE, message=FALSE}
 library(countdown)
@@ -369,13 +377,15 @@ countdown(
 ---
 ## Jigsaw Activity
 
-2) Second grouping - "Task Groups" - remaining time
+2) Second grouping - "Task Groups" - remaining time of about 30 minutes
 
   1. You will be in groups with those who read a different paper than you.
   1. Briefly introduce yourselves and note which papers you were assigned. In some cases there may be two people who read the same paper. That is fine.
   1. Take turns summarizing your paper to your peers orally in about 4 minutes. Focus on the key "takeaways" (think TL;DR). You can also provide them with the written summary by copy-pasting it into the chat. If there is more than one of you who did the same paper then please collaborate on this. Perhaps one person could give a summary and the second person can add anything that was missed or confirm those points.
   1. While others are summarizing their papers to you, feel free to ask questions to help you better understand the papers.
-  1. Your goal will be to learn enough about the other papers such that you can answer the second set of questions here -> Cluster Jigsaw Questions (Work on During Class Aug. 27)
+  1. Your goal will be to learn enough about the other papers such that you can answer the second set of questions here -> Cluster Jigsaw Questions (Work on During Class Feb. 20)
+  1. You are free to go once you've submitted your answers.
+
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
