@@ -1,0 +1,426 @@
+---
+title: "Effect of Economic Circumstances on Crime"
+subtitle: "Economic Circumstances and Crime"
+author: "Hussain Hadah (he/him)"
+date: "September 19, 2025"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/tulane-fonts.css", "assets/tulane.css"]
+    self_contained: false # if true, fonts will be stored locally
+    seal: true # show a title slide with YAML information
+    includes:
+      in_header: "assets/mathjax-equation-numbers.html"
+    nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9' # alternatives '16:9' or '4:3' or others e.g. 13:9
+      navigation:
+        scroll: false # disable slide transitions by scrolling
+---
+layout: true
+<div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;">`r rmarkdown::metadata$author` (Tulane) | `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`</div>
+
+<!--- `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`-->
+
+---
+class: title-slide
+background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+
+```{r, load_refs, echo=FALSE, cache=FALSE, message=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'authoryear', 
+           style = "markdown",
+           hyperlink = FALSE, 
+           dashed = FALSE)
+myBib <- ReadBib("assets/example.bib", check = FALSE)
+top_icon = function(x) {
+  icons::icon_style(
+    icons::fontawesome(x),
+    position = "fixed", top = 10, right = 10
+  )
+}
+```
+
+```{r setup, include=FALSE}
+# xaringanExtra::use_scribble() ## Draw on slides. Requires dev version of xaringanExtra.
+
+options(htmltools.dir.version = FALSE)
+library(knitr)
+opts_chunk$set(
+  fig.align="center",  
+  fig.height=4, fig.width=6,
+  out.width="748px", out.length="520.75px",
+  dpi=300, #fig.path='Figs/',
+  cache=F#, echo=F, warning=F, message=F
+  )
+```
+
+
+```{r, cache=FALSE, message=FALSE, warning=FALSE, include=TRUE, eval=TRUE, results=FALSE, echo=FALSE, tidy.opts = list(width.cutoff = 50), tidy = TRUE}
+## Load and install the packages that we'll be using today
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tictoc, parallel, pbapply, future, future.apply, furrr, RhpcBLASctl, memoise, here, foreign, mfx, tidyverse, hrbrthemes, estimatr, ivreg, fixest, sandwich, lmtest, margins, vtable, broom, modelsummary, stargazer, fastDummies, recipes, dummy, gplots, haven, huxtable, kableExtra, gmodels, survey, gtsummary, data.table, tidyfast, dtplyr, microbenchmark, ggpubr, tibble, viridis, wesanderson, censReg, rstatix, srvyr, formatR, sysfonts, showtextdb, showtext, thematic, sampleSelection, RefManageR, DT, googleVis, png, grid)
+# devtools::install_github("thomasp85/patchwork")
+remotes::install_github("mitchelloharawild/icons")
+remotes::install_github("ROpenSci/bibtex")
+
+# devtools::install_github("ajdamico/lodown")
+## My preferred ggplot2 plotting theme (optional)
+## https://github.com/hrbrmstr/hrbrthemes
+# scale_fill_ipsum()
+# scale_color_ipsum()
+font_add_google("Fira Sans", "firasans")
+font_add_google("Fira Code", "firasans")
+
+showtext_auto()
+
+theme_customs <- theme(
+  text = element_text(family = 'firasans', size = 16),
+  plot.title.position = 'plot',
+  plot.title = element_text(
+    face = 'bold', 
+    colour = thematic::okabe_ito(8)[6],
+    margin = margin(t = 2, r = 0, b = 7, l = 0, unit = "mm")
+  ),
+)
+
+colors <-  thematic::okabe_ito(5)
+
+# theme_set(theme_minimal() + theme_customs)
+theme_set(hrbrthemes::theme_ipsum() + theme_customs)
+## Set master directory where all sub-directories are located
+mdir <- "/Users/hhadah/Documents/GiT/urban-econ/slides/01-week1/tue"
+
+## Set working directory
+
+# COLOR PALLETES
+library(paletteer) 
+# paletteer_d("awtools::a_palette")
+# paletteer_d("suffrager::CarolMan")
+
+### COLOR BLIND PALLETES
+#paletteer_d("colorblindr::OkabeIto")
+#paletteer_d("colorblindr::OkabeIto_black")
+# paletteer_d("colorBlindness::paletteMartin")
+# paletteer_d("colorBlindness::Blue2DarkRed18Steps")
+# paletteer_d("colorBlindness::SteppedSequential5Steps")
+# paletteer_d("colorBlindness::PairedColor12Steps")
+# paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps")
+colorBlindness <- paletteer_d("colorBlindness::Blue2Orange12Steps")
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+# scale_colour_paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps", dynamic = FALSE)
+# To use for fills, add
+  scale_fill_manual(values="colorBlindness::Blue2Orange12Steps")
+
+# To use for line and point colors, add
+  scale_colour_manual(values="colorBlindness::Blue2Orange12Steps")
+  #<a><button>[Click me](#sources)</button></a>
+```
+
+```{css, echo=F}
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+```
+
+# .text-shadow[.white[Outline for Today]]
+
+<ol>
+    <li><h4 class="white">Summarize Yang (2017) </h4></li>
+    <li><h4 class="white">Summarize Palmer, Phillips, Sullivan (2019) </h4></li>
+</ol>
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Yang (2017)
+
+---
+## Abstract
+
+> Abstract: “This paper estimates the impact of local labor market conditions on criminal recidivism using administrative prison records on four million offenders released from 43 states between 2000 and 2013. Exploiting the timing of each offender’s release from prison, I find that being released to a county with higher low-skilled wages significantly decreases the risk of recidivism. The impact of higher wages on recidivism is larger for both black offenders and first-time offenders, and in sectors that report being more willing to hire ex-offenders. These results are robust to individual- and county-level controls, such as policing and corrections activity, and do not appear to be driven by changes in the composition of released offenders during good or bad economic times.”
+
+---
+## Summary Statistics
+
+.pull-left[
+
+- This is a summary statistics table showing you what her data looks like
+- This one shows facts about how often people return to prison (recidivate)
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img16 <- readPNG("assets/Picture16.png")
+
+# Plot the image
+grid.raster(img16)
+```
+]
+
+---
+## Summary Statistics
+
+.pull-left[
+
+- This is another summary statistics table, showing what her sample looks like
+- E.g., what is the demographic and educational make-up of her sample?
+- What kind of offenses were committed?
+
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img17 <- readPNG("assets/Picture17.png")
+
+# Plot the image
+grid.raster(img17)
+```
+]
+
+---
+## Methodology
+
+- Yang’s general approach is a version of a difference-in-differences
+- The idea to compare people released from prison in the same county in good economic conditions versus bad economic conditions
+- Yang measures economic conditions through wages in low skilled jobs
+- These are the jobs that are most likely to hire those with criminal records
+
+- By looking at people within the same county, during times with higher vs. lower wages, it removes any bias for the fixed differences between counties
+  - Recidivism rates and other factors may be different between counties
+- Comparisons between, rather than within counties would be more of an “apples to oranges” comparison
+- Like other DiD examples, where there are fixed differences that exist between groups
+
+---
+## Methodology
+
+- An assumption is required for Yang’s approach to provide an unbiased estimate of the causal effect of local economic conditions on crime
+- The assumption is that when comparing those within the same county in good and bad economic times, there are no differences other than the different economic circumstances
+- The ideal would be like a randomized control trial (RCT) $\rightarrow$ higher/lower wages are randomly assigned over time
+
+---
+## Methodology
+
+- Obviously, that’s not possible
+- But hopefully there are no important differences between good and bad economic times other than the economy
+- Otherwise the treatment and control groups would be different.
+The key example of possible differences are that the types of people released during good economic times, within the same county, could differ from those released during bad economic times, within the same county
+- While some of this can be controlled for in the regression analysis (i.e. control variables), any differences that are not controlled for could cause bias
+
+---
+## Results
+
+.pull-left[
+- This is the main results table
+- Results show that if the low-skill wage is higher, then recidivism decreases (hence the negative coefficient)
+- Results are very similar even when control variables are added
+- Other results:
+  - Blacks, non-Hispanics, younger people, those with less education, men, and those with less time served are more likely to recidivate
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img18 <- readPNG("assets/Picture18.png")
+
+# Plot the image
+grid.raster(img18)
+```
+]
+
+---
+## Results
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img19 <- readPNG("assets/Picture19.png")
+
+# Plot the image
+grid.raster(img19)
+```
+
+---
+## Results: Heterogeneity
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img20 <- readPNG("assets/Picture20.png")
+
+# Plot the image
+grid.raster(img20)
+```
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Palmer, Phillips, Sullivan (2019)
+
+---
+## Abstract
+
+> Abstract: “Does emergency financial assistance reduce criminal behavior among those experiencing negative shocks? To address this question, we exploit quasi-random variation in the allocation of temporary financial assistance to eligible individuals and families that have experienced an economic shock. Chicago's Homelessness Prevention Call Center (HPCC) connects such families and individuals with assistance, but the availability of funding varies unpredictably. Consequently, we can determine the impact of temporary assistance on crime by comparing outcomes for those who call when funds are available to those who call when no funds are available…
+
+---
+## What do they do?
+
+- Linking this call center information to arrest records from the Chicago Police Department, we find some evidence that total arrests fall between 1 and 2 years after the call
+- For violent crime, police arrest those for whom funds were available 51% less often than those who were eligible but for whom no funds were available.
+- Single individuals drive this decrease.
+- The decline in crime appears to be related, in part, to greater housing stability—being referred to assistance significantly decreases arrests for homelessness-related, outdoor crimes such as trespassing
+
+---
+## What do they do?
+
+- However, we also find that financial assistance leads to an increase in property crime arrests
+
+- This increase is evident for family heads, but not single individuals; 
+
+- The increase is mostly due to shoplifting; and the timing of this increase suggests that financial assistance enables some families to take on financial obligations that they are subsequently unable to meet
+
+- Overall, the change in the mix of crime induced by financial assistance generates considerable social benefits due to the greater social cost of violence”
+
+
+---
+## Call Volumes
+
+.pull-left[
+- The researchers use “eligible calls”, which are the people who are eligible, based on the HPCC’s criteria, for the assistance
+
+- For these people it’s almost a coin toss if they get the funding
+
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img21 <- readPNG("assets/Picture21.png")
+
+# Plot the image
+grid.raster(img21)
+```
+]
+
+---
+## Funding is Random
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img22 <- readPNG("assets/Picture22.png")
+
+# Plot the image
+grid.raster(img22)
+```
+
+---
+## Sample of Callers
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img23 <- readPNG("assets/Picture23.png")
+
+# Plot the image
+grid.raster(img23)
+```
+
+---
+## Main Results
+
+.pull-left[
+- Effect are strongest (more statistically significant) for violent arrests
+
+- E.g., one year after getting the funding, violent arrests are 0.0087 lower
+
+- Compared to average rate (control group mean of 0.017), this is a decrease of about 50%!!!
+
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img24 <- readPNG("assets/Picture24.png")
+
+# Plot the image
+grid.raster(img24)
+```
+]
+
+---
+## Main Results
+
+.pull-left[
+- There is an increase in property arrests three years later, due to getting the funding
+
+- The authors argue that this may be that when the families get the funding, they get requests for that money, and they overcommit on who they promise to give money to
+
+- This could lead to an incentive to commit shoplifting once those “debts” catch up
+
+]
+
+.pull-right[
+```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
+# Read the image
+img24 <- readPNG("assets/Picture24.png")
+
+# Plot the image
+grid.raster(img24)
+```
+]
+
+---
+## More Results
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img25 <- readPNG("assets/Picture25.png")
+
+# Plot the image
+grid.raster(img25)
+```
+
+---
+## Effects on Single Individuals vs Families
+
+```{r, echo=FALSE, warning=FALSE, out.width="70%", fig.show='hold', fig.align='center'}
+# Read the image
+img26 <- readPNG("assets/Picture26.png")
+
+# Plot the image
+grid.raster(img26)
+```
+
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
+library(renderthis)
+# https://hhadah.github.io/xaringan/index.html
+
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/05-week5/03-class/03-class3.html", 
+       to = "~/Documents/GiT/urban-econ/slides/05-week5/03-class/03-class3.pdf")
+# to_pdf(from = "~/Documents/GiT/urban-econ/slides/05-week5/03-class/03-class3.html")
+
+```

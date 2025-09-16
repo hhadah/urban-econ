@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Effect of Economic Circumstances on Crime</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Hussain Hadah (he/him)" />
+    <meta name="date" content="2025-09-19" />
+    <script src="03-class3_files/header-attrs/header-attrs.js"></script>
+    <link href="03-class3_files/remark-css/default.css" rel="stylesheet" />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } },
+      });
+    </script>
+    <style>
+    .mjx-mrow a {
+      color: black;
+      pointer-events: none;
+      cursor: default;
+    }
+    </style>
+    <link rel="stylesheet" href="assets/tulane-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="assets/tulane.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Effect of Economic Circumstances on Crime
+]
+.subtitle[
+## Economic Circumstances and Crime
+]
+.author[
+### Hussain Hadah (he/him)
+]
+.date[
+### September 19, 2025
+]
+
+---
+
+layout: true
+&lt;div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;"&gt;Hussain Hadah (he/him) (Tulane) | Economic Circumstances and Crime | 16 September 2025&lt;/div&gt;
+
+&lt;!--- Economic Circumstances and Crime | 16 September 2025--&gt;
+
+---
+class: title-slide
+background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+
+
+
+
+
+
+
+
+&lt;style type="text/css"&gt;
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+&lt;/style&gt;
+
+# .text-shadow[.white[Outline for Today]]
+
+&lt;ol&gt;
+    &lt;li&gt;&lt;h4 class="white"&gt;Summarize Yang (2017) &lt;/h4&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;h4 class="white"&gt;Summarize Palmer, Phillips, Sullivan (2019) &lt;/h4&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Yang (2017)
+
+---
+## Abstract
+
+&gt; Abstract: “This paper estimates the impact of local labor market conditions on criminal recidivism using administrative prison records on four million offenders released from 43 states between 2000 and 2013. Exploiting the timing of each offender’s release from prison, I find that being released to a county with higher low-skilled wages significantly decreases the risk of recidivism. The impact of higher wages on recidivism is larger for both black offenders and first-time offenders, and in sectors that report being more willing to hire ex-offenders. These results are robust to individual- and county-level controls, such as policing and corrections activity, and do not appear to be driven by changes in the composition of released offenders during good or bad economic times.”
+
+---
+## Summary Statistics
+
+.pull-left[
+
+- This is a summary statistics table showing you what her data looks like
+- This one shows facts about how often people return to prison (recidivate)
+]
+
+.pull-right[
+&lt;img src="03-class3_files/figure-html/unnamed-chunk-3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## Summary Statistics
+
+.pull-left[
+
+- This is another summary statistics table, showing what her sample looks like
+- E.g., what is the demographic and educational make-up of her sample?
+- What kind of offenses were committed?
+
+]
+
+.pull-right[
+&lt;img src="03-class3_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## Methodology
+
+- Yang’s general approach is a version of a difference-in-differences
+- The idea to compare people released from prison in the same county in good economic conditions versus bad economic conditions
+- Yang measures economic conditions through wages in low skilled jobs
+- These are the jobs that are most likely to hire those with criminal records
+
+- By looking at people within the same county, during times with higher vs. lower wages, it removes any bias for the fixed differences between counties
+  - Recidivism rates and other factors may be different between counties
+- Comparisons between, rather than within counties would be more of an “apples to oranges” comparison
+- Like other DiD examples, where there are fixed differences that exist between groups
+
+---
+## Methodology
+
+- An assumption is required for Yang’s approach to provide an unbiased estimate of the causal effect of local economic conditions on crime
+- The assumption is that when comparing those within the same county in good and bad economic times, there are no differences other than the different economic circumstances
+- The ideal would be like a randomized control trial (RCT) `\(\rightarrow\)` higher/lower wages are randomly assigned over time
+
+---
+## Methodology
+
+- Obviously, that’s not possible
+- But hopefully there are no important differences between good and bad economic times other than the economy
+- Otherwise the treatment and control groups would be different.
+The key example of possible differences are that the types of people released during good economic times, within the same county, could differ from those released during bad economic times, within the same county
+- While some of this can be controlled for in the regression analysis (i.e. control variables), any differences that are not controlled for could cause bias
+
+---
+## Results
+
+.pull-left[
+- This is the main results table
+- Results show that if the low-skill wage is higher, then recidivism decreases (hence the negative coefficient)
+- Results are very similar even when control variables are added
+- Other results:
+  - Blacks, non-Hispanics, younger people, those with less education, men, and those with less time served are more likely to recidivate
+]
+
+.pull-right[
+&lt;img src="03-class3_files/figure-html/unnamed-chunk-5-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## Results
+
+&lt;img src="03-class3_files/figure-html/unnamed-chunk-6-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+## Results: Heterogeneity
+
+&lt;img src="03-class3_files/figure-html/unnamed-chunk-7-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Palmer, Phillips, Sullivan (2019)
+
+---
+## Abstract
+
+&gt; Abstract: “Does emergency financial assistance reduce criminal behavior among those experiencing negative shocks? To address this question, we exploit quasi-random variation in the allocation of temporary financial assistance to eligible individuals and families that have experienced an economic shock. Chicago's Homelessness Prevention Call Center (HPCC) connects such families and individuals with assistance, but the availability of funding varies unpredictably. Consequently, we can determine the impact of temporary assistance on crime by comparing outcomes for those who call when funds are available to those who call when no funds are available…
+
+---
+## What do they do?
+
+- Linking this call center information to arrest records from the Chicago Police Department, we find some evidence that total arrests fall between 1 and 2 years after the call
+- For violent crime, police arrest those for whom funds were available 51% less often than those who were eligible but for whom no funds were available.
+- Single individuals drive this decrease.
+- The decline in crime appears to be related, in part, to greater housing stability—being referred to assistance significantly decreases arrests for homelessness-related, outdoor crimes such as trespassing
+
+---
+## What do they do?
+
+- However, we also find that financial assistance leads to an increase in property crime arrests
+
+- This increase is evident for family heads, but not single individuals; 
+
+- The increase is mostly due to shoplifting; and the timing of this increase suggests that financial assistance enables some families to take on financial obligations that they are subsequently unable to meet
+
+- Overall, the change in the mix of crime induced by financial assistance generates considerable social benefits due to the greater social cost of violence”
+
+
+---
+## Call Volumes
+
+.pull-left[
+- The researchers use “eligible calls”, which are the people who are eligible, based on the HPCC’s criteria, for the assistance
+
+- For these people it’s almost a coin toss if they get the funding
+
+]
+
+.pull-right[
+&lt;img src="03-class3_files/figure-html/unnamed-chunk-8-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## Funding is Random
+
+&lt;img src="03-class3_files/figure-html/unnamed-chunk-9-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+## Sample of Callers
+
+&lt;img src="03-class3_files/figure-html/unnamed-chunk-10-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+## Main Results
+
+.pull-left[
+- Effect are strongest (more statistically significant) for violent arrests
+
+- E.g., one year after getting the funding, violent arrests are 0.0087 lower
+
+- Compared to average rate (control group mean of 0.017), this is a decrease of about 50%!!!
+
+]
+
+.pull-right[
+&lt;img src="03-class3_files/figure-html/unnamed-chunk-11-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## Main Results
+
+.pull-left[
+- There is an increase in property arrests three years later, due to getting the funding
+
+- The authors argue that this may be that when the families get the funding, they get requests for that money, and they overcommit on who they promise to give money to
+
+- This could lead to an incentive to commit shoplifting once those “debts” catch up
+
+]
+
+.pull-right[
+&lt;img src="03-class3_files/figure-html/unnamed-chunk-12-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## More Results
+
+&lt;img src="03-class3_files/figure-html/unnamed-chunk-13-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+## Effects on Single Individuals vs Families
+
+&lt;img src="03-class3_files/figure-html/unnamed-chunk-14-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="assets/remark-zoom.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9",
+  "navigation": {
+    "scroll": false
+  }
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
