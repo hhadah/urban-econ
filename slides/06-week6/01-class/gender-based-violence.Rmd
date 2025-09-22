@@ -155,22 +155,13 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 </ol>
 
 ---
-## This week `r top_icon("calendar-week")`
-
-- Introduction to the Ec
-
-- Racial Bias in Policing
-
-- Fall Break (No Class on Tuesday, October 2)
-
----
 ## Next week `r top_icon("calendar-week")`
 
 - Quiz 2
 
 - Racial Bias in Policing
 
-- Fall Break (No Class on Tuesday, October 2)
+- Fall Break (No Class on Friday, October 3)
 
 ---
 class: segue-yellow
