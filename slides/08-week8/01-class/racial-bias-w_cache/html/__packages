@@ -1,15 +1,7 @@
-base
-methods
-datasets
-utils
-grDevices
-graphics
-stats
 RefManageR
 knitr
 pacman
 tictoc
-parallel
 pbapply
 future
 future.apply
@@ -51,7 +43,6 @@ gplots
 haven
 huxtable
 gmodels
-grid
 Matrix
 survival
 survey

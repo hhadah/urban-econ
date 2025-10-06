@@ -149,6 +149,38 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 </ol>
 
 ---
+## Quiz 2 Stats
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, cache=TRUE, results='asis'}
+library(tidyverse)
+library(dplyr)
+
+quiz1 <- read.csv("/Users/hhadah/Downloads/quiz-2.csv") %>%
+  select("score")
+
+# Create a censored version of the dataset
+quiz1_censored <- quiz1 %>%
+  mutate(censored_score = ifelse(score < 6, 6, score))
+
+# Calculate mean and median on the original data
+mean_quiz1 <- mean(quiz1$score, na.rm = TRUE)
+median_quiz1 <- median(quiz1$score, na.rm = TRUE)
+
+# Plot the histogram with censored scores and add vertical lines for mean and median
+ggplot(quiz1_censored, aes(x = censored_score)) +
+  geom_histogram(binwidth = 0.5, color = "black", fill = "lightblue") +
+  geom_vline(xintercept = mean_quiz1, color = "red", linetype = "dashed", size = 1) +
+  geom_vline(xintercept = median_quiz1, color = "blue", linetype = "dotted", size = 1) +
+  annotate("text", x = mean_quiz1 - 0.2, y = 5, label = paste("Mean:", round(mean_quiz1, 2)), color = "red", angle = 90, size = 6) + 
+  annotate("text", x = median_quiz1 + 0.2, y = 5, label = paste("Median:", round(median_quiz1, 2)), color = "blue", angle = 90, size = 6) + 
+  labs(title = "Quiz 2 Scores", x = "Score", y = "Frequency") +
+  scale_x_continuous(limits = c(5.5, 11.5), 
+                     breaks = c(6, 7, 8, 9, 10, 11),
+                     labels = c("< 6", "7", "8", "9", "10", "11")) +
+  theme_classic()
+```
+
+---
 class: segue-yellow
 background-image: url("assets/TulaneLogo.svg")
 background-size: 20%
