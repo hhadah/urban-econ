@@ -660,7 +660,7 @@ background-position: 95% 95%
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
-# https://hhadah.github.io/xaringan/urban-econ/slides/09-week9/03-class/01-housing.html
+# https://hhadah.github.io/urban-econ/slides/09-week9/03-class/01-housing.html
 
 to_pdf(from = "~/Documents/GiT/urban-econ/slides/09-week9/03-class/01-housing.html", 
        to = "~/Documents/GiT/urban-econ/slides/09-week9/03-class/01-housing.pdf")
