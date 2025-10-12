@@ -1,0 +1,9 @@
+columns_to_keep = ['Sender_First_Name_R1', 'Spouse_Name_R1', 'Last_Name_R1', 'Sexual_Orientation_R1',
+                   'Sender_Gender_R1', 'Race_R1', 'id_batchR1', 'From', 'To']
+df_filtered = df[columns_to_keep]
+
+# batches to keep
+batches_to_keep = ['JS_01_1', 'NS_01_1']
+
+# Filter the DataFrame to exclude rows where the 'id_batchR1' column matches any of the IDs in batches_to_keep
+df_filtered = df_filtered[df_filtered['From'].isin(batches_to_keep)]
