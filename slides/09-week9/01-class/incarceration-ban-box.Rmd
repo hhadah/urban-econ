@@ -195,6 +195,9 @@ background-position: 95% 95%
 - Is this the case?
 - First, let’s summarize some possible mechanisms of how incarceration could affect recidivism and labor market outcomes
 
+--
+### What are some possible ways of how incarceration could affect recidivism and labor market outcomes?
+
 ---
 ## How Does Incarceration Affect Recidivism, and Labor Market Outcomes?
 
@@ -437,6 +440,7 @@ In other results, the authors find that those previous non-employed were more li
 ---
 ## What Does it Mean to be Incarcerated in Norway?
 
+.pull-left[
 - Inmates have the right to daily physical exercise and access to a library and newspapers
 
 - They have the same rights to health care as the regular population
@@ -444,10 +448,19 @@ In other results, the authors find that those previous non-employed were more li
 - 18% of inmates participate in a drug-related program while in prison
 
 - After release, there is also an emphasis on helping offenders reintegrate into society, with access to active labor market and other programs set up to help ex-convicts find a job and access social services like housing support
+]
 
+.pull-right[
 .blockquote[
 ### `r icons::fontawesome("question")` Key question
 - If this study were to have been done in the US, would the results be the same? Or would they be different since prisons in the US provide a much worse experience?
+]
+
+```{r, echo=FALSE, warning=FALSE, out.width="50%", fig.show='hold', fig.align='center'}
+
+# Plot the image
+grid.raster(readPNG("assets/prison.png"))
+```
 ]
 
 ---
@@ -905,7 +918,4 @@ grid.raster(readPNG("assets/Picture23.png"))
 library(pagedown)
 pagedown::chrome_print("~/Documents/GiT/urban-econ/slides/09-week9/01-class/incarceration-ban-box.html",
                        "~/Documents/GiT/urban-econ/slides/09-week9/01-class/incarceration-ban-box.pdf")
-
-library(renderthis)
-# https://hhadah.github.io/urban-econ/slides/09-week9/01-class/incarceration-ban-box.html
 ```
