@@ -485,10 +485,70 @@ grid.raster(readPNG("assets/Picture3.png"))
 ]
 
 .pull-right[
-```{r, echo=FALSE, warning=FALSE, out.width="100%", fig.show='hold', fig.align='center'}
 
-# Plot the image
-grid.raster(readPNG("assets/Picture4.png"))
+```{tikz, fig.ext = 'png', echo = FALSE}
+\begin{tikzpicture}[scale=.95]
+\tikzset{every node/.style={font=\small}}
+% ---------- Coordinates ----------
+\coordinate (O)   at (0,0);
+\coordinate (Cy)  at (4.5,0);        % c = y
+\coordinate (Cyg) at (7,0);          % c = y+G
+\coordinate (qy)  at (0,4.5);        % (0, y/p)
+\coordinate (qyg) at (0,7);          % (0, (y+G)/p)
+
+% ---------- Axes ----------
+\draw (0,7.6) node[left] {$q$} -- (O) node[below left] {$0$} -- (8.2,0) node[below right] {$C$};
+
+% ---------- Budget constraints ----------
+\draw[thick] (qy) -- (Cy);           % original BC
+\draw[thick] (qyg) -- (Cyg);         % IG (parallel shift)
+
+% Axis-intercept labels (tucked, not on the baseline)
+\node[left,xshift=-2pt]  at (qyg) {$\bigl(0,\tfrac{y+G}{p}\bigr)$};
+\node[left,xshift=-2pt]  at (qy)  {$\bigl(0,\tfrac{y}{p}\bigr)$};
+\node[below,yshift=-2pt] at (Cyg) {$(y{+}G,0)$};
+\node[below,yshift=-2pt] at (Cy)  {$(y,0)$};
+
+% ---------- HV constraint (shorter) ----------
+% Where IG hits c=y: q = 7 - 4.5 = 2.5
+\draw[dashed,blue,thick] (Cy) -- ++(0,2.7);   % stop just above the intersection
+\node[blue,above] at (4.5,2.9) {$c=y$};
+
+% ---------- "Not feasible" segment to the right of c=y on the IG line ----------
+\draw[dashed,blue,very thick,shorten >=2pt] (4.5,2.5) -- (7,0);
+\node[blue,rotate=-40] at (6.1,1.1) {\footnotesize not feasible under HV};
+
+% ---------- Indifference curves ----------
+% U0 (through original optimum)
+\draw (0.9,5.1) to[out=-90,in=130] (2.2,2.3) to[out=-50,in=175] (4.9,1.1);
+\node[right] at (4.9,1.1) {$U_0$};
+
+% Lower IC (for shape cue only)
+\draw (0.6,3.3) to[out=-80,in=140] (1.6,1.8) to[out=-40,in=180] (3.6,0.8);
+
+% U1 (tangent to IG at new choice)
+\draw (1.9,6.7) to[out=-90,in=135] (3.6,3.4) to[out=-45,in=175] (6.6,1.9);
+\node[right] at (6.6,1.9) {$U_1$};
+
+% ---------- Optima & guides ----------
+% Original optimum
+\fill (2.2,2.3) circle (2pt);
+\draw[dotted] (0,2.3) -- (2.2,2.3) -- (2.2,0);
+\node[left]  at (0,2.3) {$q_0$};
+\node[below] at (2.2,0) {$c_0$};
+
+% New optimum (IG = HV in non-binding case)
+\fill (3.6,3.4) circle (2pt);
+\draw[dotted] (0,3.4) -- (3.6,3.4) -- (3.6,0);
+\node[left]  at (0,3.4) {$q_{IG}=q_{HV}$};
+\node[below] at (3.6,0) {$c_{IG}=c_{HV}$};
+\node[above right] at (3.6,3.4) {\footnotesize IG = HV};
+
+% Intersection marker where IG meets c=y
+\fill[violet] (4.5,2.5) circle (2pt);
+
+\end{tikzpicture}
+
 ```
 
 ]
