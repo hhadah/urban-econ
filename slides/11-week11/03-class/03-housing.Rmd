@@ -257,6 +257,11 @@ background-position: 95% 95%
 # Clarke and Freedman (2019)
 
 ---
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Colorado is leading the way on housing reform! <a href="https://t.co/7Qn8QwQk8n">https://t.co/7Qn8QwQk8n</a></p>&mdash; Jared Polis (@jaredpolis) <a href="https://twitter.com/jaredpolis/status/1663944583225688065?ref_src=twsrc%5Etfw">June 1, 2023</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+---
 ## What is the relationship between being in a homeowners association and housing prices?
 
 ### Having an HOA increases housing prices by 4.2% on average
