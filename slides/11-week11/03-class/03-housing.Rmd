@@ -2,7 +2,7 @@
 title: "Housing Policies in Practice: A Dive into the Evidence"
 subtitle: "Housing Policies in Practice"
 author: "Hussain Hadah (he/him)"
-date: "`r format(Sys.time(), '%d %B %Y')`"
+date: "October 31, 2025"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/tulane-fonts.css", "assets/tulane.css"]
@@ -137,6 +137,13 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
         background-color: white;
     }
 ```
+## Happy Halloween!
+
+<p align="center">
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzRuanBlM2luZWQ0MHI4Z3o0em1qOGhjcndtbDdzaTZ2NHpvdnFjciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pxQ81PbMvzCG13ABPu/giphy.gif" alt="Happy Halloween!" width="400"/>
+</p>
+
+---
 
 ## Overview of the Evidence
 
@@ -390,7 +397,7 @@ grid.raster(readPNG("assets/pic14.png"))
 library(renderthis)
 # https://hhadah.github.io/xaringan/index.html
 
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/11-housing/03-lecture3/03-housing.html", 
-       to = "~/Documents/GiT/urban-econ/slides/11-housing/03-lecture3/03-housing.pdf")
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/11-housing/03-lecture3/03-housing.html")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/11-week11/03-class/03-housing.html", 
+       to = "~/Documents/GiT/urban-econ/slides/11-week11/03-class/03-housing.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/11-week11/03-class/03-housing.html")
 ```
