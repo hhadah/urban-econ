@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Urban Economics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Hussain Hadah (he/him)" />
+    <meta name="date" content="2025-11-02" />
+    <script src="01-class_files/header-attrs/header-attrs.js"></script>
+    <link href="01-class_files/remark-css/default.css" rel="stylesheet" />
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } },
+      });
+    </script>
+    <style>
+    .mjx-mrow a {
+      color: black;
+      pointer-events: none;
+      cursor: default;
+    }
+    </style>
+    <link rel="stylesheet" href="assets/tulane-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="assets/tulane.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Urban Economics
+]
+.subtitle[
+## What’s in a Neighborhood? Measuring Neighborhood Effects
+]
+.author[
+### Hussain Hadah (he/him)
+]
+.date[
+### 02 November 2025
+]
+
+---
+
+layout: true
+&lt;div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;"&gt;Hussain Hadah (he/him) (Tulane) | What’s in a Neighborhood? Measuring Neighborhood Effects | 02 November 2025&lt;/div&gt;
+
+&lt;!--- What’s in a Neighborhood? Measuring Neighborhood Effects | 02 November 2025--&gt;
+
+---
+
+
+
+
+
+
+
+
+&lt;style type="text/css"&gt;
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+&lt;/style&gt;
+
+## Next week &lt;svg viewBox="0 0 448 512" style="height:1em;display:inline-block;position:fixed;top:10;right:10;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm64-192c0-8.8 7.2-16 16-16h288c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-64zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+- New material on transportation
+
+### Housing Briefing Note on Nov. 12th &amp; Nov 14th
+
+- Form your groups
+- This assignment is going to be different than prior briefing notes
+- No assigned readings
+- You can come to class and work on it in groups
+- Or you can form groups outside of class
+- I will not be in the classroom on both days
+
+### The last group briefing note will be different as well
+
+- It will be a letter that you are sending your city council
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Why Neighborhoods Matter? 
+
+---
+## Where we live matters for many life outcomes
+
+- Victimization from crime
+- Education (especially if there are school zone boundaries, whereby you need to go to a school in your zone)
+- Health
+- Employment
+
+---
+## Why we need to know if neighborhoods matter?
+
+- It is important to know what the effects of neighborhoods are, as this may indicate how public policy should be conducted
+
+- For example, your peers in your neighborhood could affect you or your family, such as by affecting the educational outcomes for children 
+- Going to schools with children from low-income families may have a negative effect on your educational outcomes
+- On the other hand, children from high-income families may have a positive effect
+- Where you live may affect your access to jobs, quality of schools, exposure to crime, etc.
+  - You neighbors could let you know about job opportunities
+  - Which could affect your income
+  - If there is a strong neighborhood effect, then maybe it is important to have mixed-income schools/neighborhoods/public housing
+
+---
+## It is difficult to measure neighborhood effects
+
+.blockquote[
+  ### .black[Neighborhood Effects ]
+  The effect of the characteristics of a neighborhood on the outcomes of its residents, above and beyond the individual characteristics of those residents.
+]
+
+### What would a potential issue be with measuring neighborhood effects?
+
+--
+.pull-left[
+  - A fundamental issue is **selection bias**
+]
+.pull-right[
+  &lt;div class="tenor-gif-embed" data-postid="2820554417460659481" data-share-method="host" data-aspect-ratio="1.77857" data-width="50%"&gt;&lt;a href="https://tenor.com/view/for-real-is-this-really-gif-2820554417460659481"&gt;For Real GIF&lt;/a&gt;from &lt;a href="https://tenor.com/search/for-gifs"&gt;For GIFs&lt;/a&gt;&lt;/div&gt; &lt;script type="text/javascript" async src="https://tenor.com/embed.js"&gt;&lt;/script&gt;
+]
+
+---
+## Selection bias in neighborhood effects
+
+- People are not randomly assigned to neighborhoods
+- The choice of neighborhood is endogenous, and is influenced:
+  - Income
+  - Preferences for neighborhood characteristics (e.g., good schools, low crime, proximity to work)
+  - Race
+  - Employment (where to work)
+  - Local schools
+  - and more....
+
+---
+# Crime is a common neighborhood effect studied
+
+- The extent that your neighbors are involved in criminal activity may affect the likelihood that you engage in criminal activity
+- Suppose we want to determine the effect that neighbors have on criminal behavior
+- i.e., does moving to a high crime neighborhood increase the likelihood that you engage in criminal activity?
+- We could measure if criminal activity changes when individuals move from a low crime to a high crime neighborhood (or vice-versa)
+- The individual stays the same, but the neighborhood changes. So could this help us determine the effect of neighborhoods on crime?
+
+---
+## But there is Selection Bias
+
+- Individuals who choose to move into a higher crime neighborhood may be more likely to engage in criminal activity INDEPENDENTLY of the effect of their neighbors on them
+- So we get an upward biased estimate of the effect of neighborhoods on crime
+- Estimated effect = causal effect + selection bias
+- So, if we see that moving to a high crime neighborhood increases the likelihood of criminal activity, is it because the neighbors changed (causal effect)?
+- or is it because this individual already had a high propensity to engage in criminal activity (selection bias)?
+
+---
+## We can add controls, but it is not enough
+
+- To help make the comparison more apples to apples, we can control for individual or family characteristics that may affect criminal behavior and also effect neighborhood choice
+- These control variables would be income, education, gender, race, ethnicity, family type, employment status, etc…
+- But even with lots of data, we can’t control for everything that affects neighborhood choice or criminal behavior
+- Controls might be able to reduce selection bias, but it cannot eliminate it
+
+---
+## We can randomly assign people to neighborhoods?
+
+- Suppose individuals were assigned to neighborhoods randomly
+- Then we have no selection bias, since individuals don’t choose neighborhoods based on factors that may also affect their criminal behavior
+- The neighborhood is independent of all individual/family characteristics (e.g., income, education)
+- In one neighborhood, individuals may randomly get high-crime neighbors, and other individuals may randomly get low-crime neighbors
+- Comparing individuals in one neighborhood to another captures only the casual effect of neighborhoods on crime
+- Estimated effect = causal effect + selection bias = causal effect + 0 = causal effect
+- It’s unethical to force people to move
+- Is there a way we can still randomly assign neighborhoods so we can measure neighborhood effects?
+- The Moving to Opportunity (MTO) program did this in an ethical and welfare-enhancing way
+
+---
+## The moving to opportunity (MTO) experiment
+
+- Moving to Opportunity (MTO) was a housing mobility experiment
+- Conducted from 1994 to 1998
+- Conducted in Baltimore, Boston, Chicago, Los Angeles, and New York
+- Enrolled 4,604 low-income public housing families living in high poverty (poverty rate &gt; 40%)
+
+--
+#### Families were randomly assigned to one of three groups:
+1. **Low-Poverty Voucher Group (LPV):** received housing vouchers to subsidize private-market rents but could only be used in census tracts with 1990 poverty rates below 10%
+2. **Traditional Voucher (TRV) group:** received a housing voucher without the LPV constraint
+3. **Control group:** Received no assistance
+
+---
+## The outcome variables
+
+### The MTO research team was interested in the following outcomes:
+
+- Economic self-sufficiency
+- Physical health
+- Mental health
+- Subjective well-being
+  
+(more specific outcomes, e.g., impact of obesity, where looked at in other studies about MTO. The paper you had to read was a summary paper.)
+
+#### This paper measures long term outcomes, measured 10 to 15 years later
+
+---
+## Group comparisons
+
+**Comparing Traditional Voucher (TRV)** to the Control Group allows us to estimate the causal effect of receiving a housing voucher on the outcome variables (economic self-sufficiency, physical health, mental health, subjective well-being)
+
+**Comparing Low-Poverty Voucher (LPV)** to Traditional Voucher (TRV) allows us to estimate the causal effect of the low-poverty neighborhood constraint. Since this constraint forces families to move to better neighborhoods, this difference captures if better neighborhoods have different effects on the outcome variables
+
+- In the assigned paper, they show the average differences between the control groups and the two treatment groups (TRV and LPV), and a pooled treatment group (TRV + LPV)
+
+---
+## Summary of results
+
+#### 1) Did the randomization work? i.e., are the treatment and control groups on average identical?
+
+- Evidence of this in Table 1 – Baseline characteristics
+
+#### 2) Assuming that 1) holds, did MTO affect the neighborhood you live in? i.e., did families actually move to better neighborhoods?
+
+- Evidence of this in Table 2
+
+#### 3) Assuming that there is an effect in 2), then do we see an effect on long-term outcomes? (physical health, mental health, subjective well-being, economic self-sufficiency)
+
+- Evidence in Figure 1
+
+---
+count: false
+
+## Summary of results
+
+#### 1) Did the randomization work? i.e., are the treatment and control groups on average identical?
+
+- Evidence of this in Table 1 – Baseline characteristics
+- **Yes, the groups look similar on average**
+
+#### 2) Assuming that 1) holds, did MTO affect the neighborhood you live in? i.e., did families actually move to better neighborhoods?
+
+- Evidence of this in Table 2
+- **Yes, strong evidence of this**
+
+#### 3) Assuming that there is an effect in 2), then do we see an effect on long-term outcomes? (physical health, mental health, subjective well-being, economic self-sufficiency)
+
+- Evidence in Figure 1
+- **No statistically significant effect on economic self-sufficiency, physical health, and mental health. Statistically significant effect on subjective well-being.**
+
+---
+## Did the randomization work?
+
+- The researchers gave out a survey of baseline characteristics
+- Baseline means BEFORE they randomized everyone into treatment (voucher offered) and control (no voucher offered) groups
+- Asked them questions about social-economic background (gender, race, ethnicity, education, household income, marital status, current neighborhood characteristics, reasons they want to move)
+- If the randomization was successful, there should be few differences between the treatment and control groups
+
+---
+## Did the randomization work?
+
+.pull-left[
+
+- The means for each variable are similar for the control group and the treatment group
+  
+- Only twos estimates are weakly statistically significant
+]
+.pull-right[
+
+&lt;img src="01-class_files/figure-html/unnamed-chunk-3-1.png" width="120%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## How can randomization fail?
+
+In this case it looks like the randomization worked, and that is tested by comparing the means of the baseline characteristics. They are extremely similar
+
+The randomization could fail if individuals who didn’t randomly get assigned a voucher could get one anyways (e.g., pleading for one, bribing study officials)
+
+Similarly, study officials who do the randomization may not do it correctly. They may decide to give out vouchers non-randomly. They may give a voucher to a family that seems to really need it, even if they weren’t randomly supposed to get one
+
+These non-random assignments could be reflected in differences in baseline characteristics
+
+---
+## How can randomization fail? (cont’d)
+
+Imagine an extreme scenario: Housing vouchers are supposed to be randomized. But the officials who give out the vouchers are corrupt, and will accept small bribes to exchange for vouchers
+
+Families with higher incomes may be more likely to pay the bribe
+
+So household income would be higher in baseline for the treatment group
+
+Implication of this: selection bias! 
+
+The treatment and control groups are not on average identical
+
+Choice of neighborhood (through getting a voucher or not) becomes a function of family characteristics because individuals can select into getting vouchers
+
+Thus the experiment provides biased estimates of how neighborhoods affect outcomes
+
+---
+## Did MTO affect the neighborhood you live in?
+
+&lt;img src="01-class_files/figure-html/unnamed-chunk-4-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+---
+## Accepting or declining the "treatment"
+
+Many families that were offered a voucher still chose not to move
+
+Thus, they didn’t accept the “treatment”, where the treatment is moving and using the voucher. Those who moved and use the voucher “complied” with the treatment and are called “compliers”.
+  Those who moved and use the voucher “complied” with the treatment and are called “compliers”
+  Complier = You were randomly given a voucher and you used it
+
+### Compliance Rates
+48% of families in the Low-Poverty Voucher (LPV) group managed to relocate using the MTO voucher
+63% for the Traditional Voucher (TRV) group
+The compliance rate is likely higher for the TRV group because the LPV had the restriction that they had to move to a low-poverty neighborhood
+
+---
+## implications of compliance
+
+So, families who got vouchers “selected” into if they wanted to take the voucher and move.
+Several factors may affect the decision to take the voucher or not. For example:
+-Family structure
+-Income
+-Employment (especially work location)
+-Race/Ethnicity
+-Schools
+Is there still selection bias?
+
+Ignoring the fact that families “select” into using the voucher leads to selection bias.
+How do the authors deal with this?
+The authors calculate and present two types of estimates: intent to treat (ITT) and the treatment-on-the-treated (TOT) (to be explained in the next several slides)
+
+---
+
+## Intent to Treat (ITT)
+
+- The “Intent to Treat” (ITT) estimate answers: **What is the effect of being offered a voucher?**
+- ITT is calculated as:
+
+  $$
+  	ext{ITT estimate} =  \text{Average outcome of those offered voucher} - \text{Average outcome for control group}
+  $$
+- The treatment group includes:
+  - **Compliers:** used the voucher (moved)
+  - **Non-compliers:** did not use the voucher (did not move)
+- Not all individuals in the treatment group are “treated.”
+
+
+---
+
+## What does ITT mean?
+
+- ITT answers: **What is the effect of being offered a voucher?**
+- Some people move (compliers), some do not (non-compliers).
+- The ITT estimate is **not** the same as the effect of actually moving.
+
+---
+## Treatment-on-the-Treated (TOT)
+
+- TOT answers: **What is the effect for those who actually moved?**
+- TOT is always larger in magnitude than ITT when compliance is less than 100%.
+- TOT does **not** include non-movers (non-compliers).
+
+---
+
+## ITT vs. TOT (Summary)
+
+- **ITT:** Effect of being offered a voucher (includes both movers and non-movers)
+- **TOT:** Effect for those who actually moved (compliers only)
+- **TOT &gt; ITT** (in magnitude) when not everyone moves
+
+---
+## A Silly but Helpful Example
+
+- (Based on [Kevin Lang, Boston University](http://people.bu.edu/lang/itt-tot.pdf))
+- Suppose I want to know the effect of giving you a chocolate bar on how many you have.
+- I randomly give out chocolate bars:
+  - Flip a coin for each person
+  - HEADS = gets a chocolate bar
+  - TAILS = does not get a chocolate bar
+
+---
+## Chocolate bar survey (100% compliance)
+
+- After random assignment, I survey the class: “How many chocolate bars do you have?”
+- Everyone in the treatment group has one more chocolate bar than everyone in the control group.
+- **ITT = 1 bar**
+- Since everyone who was assigned a chocolate bar got one (**100% compliance**),
+  - **ITT = TOT**
+
+---
+## Chocolate, with restrictions (Imperfect compliance)
+
+- Now, instead of handing out chocolate bars, I email the treatment group to pick up a bar during office hours.
+- Not everyone will come. Decision depends on:
+  - Preference for chocolate
+  - Like/dislike for professor
+  - Time constraints
+  - Dietary restrictions
+
+---
+## Chocolate, with restrictions (Imperfect compliance)
+
+- Suppose 40% of the treatment group shows up (compliers), 60% do not (non-compliers).
+- Control group: 0 bars.
+- **ITT = 0.4 bars** (average difference between groups)
+- **TOT = 1 bar** (for those who actually got a bar)
+
+---
+## Inflating ITT to get TOT
+
+- If you know the ITT effect and the compliance rate, you can get the TOT:
+  - **ITT = 0.4 bars**
+  - **Compliance rate = 40%**
+  - **TOT = ITT / compliance rate = 0.4 / 0.4 = 1**
+- This tells us what the effect would be if everyone in the treatment group had picked up a chocolate bar.
+
+---
+## ITT Example from MTO
+
+- In the control group, 19.6% of families indicated they “felt unsafe during day.”
+- The ITT point estimate is **-0.039** (3.9 percentage point decrease).
+- This means the treatment group had a 15.7% probability of saying they “felt unsafe during the day.”
+- This decrease comes from both movers (compliers) and non-movers (non-compliers).
+- If everyone had moved, the effect would have been larger than 3.9 percentage points!
+
+---
+## From ITT to TOT in MTO
+
+- ITT for “feel unsafe during day” = **-0.039**
+- Compliance rates:
+  - 48% in LPV group
+  - 63% in TRV group
+  - Average compliance rate = **55.5%**
+- If everyone had moved, the effect would be larger.
+- To get TOT:
+  - **TOT = ITT / compliance rate = -0.039 / 0.555 ≈ -0.070**
+- The ITT estimate gets inflated by 1.8 times (1/0.555 = 1.8) to get the TOT estimate.
+
+---
+## A more formal way to get the TOT
+
+- “Inflating” the ITT is a simple way to get the TOT.
+- The more formal way is through a regression analysis strategy called **instrumental variables (IV)**.
+- We saw IV previously in the Bhuller et al. (2016) paper (incarceration and criminality).
+- IV allows researchers to:
+  - Ignore variation due to selection bias
+  - Use only the random variation induced by the experiment (e.g., random assignment of judges or vouchers)
+
+---
+## IV in this MTO Paper
+
+- The IV approach here is similar to the previous example.
+- Researchers do **not** compare:
+  - Those that moved to those that did not, **or**
+  - Those that used the voucher to those that did not.
+- In both cases, there would be selection bias.
+
+---
+## IV in this MTO Paper (cont.)
+
+- Instead, they use IV to only use the variation in where you live that is induced by the **random voucher offer**.
+- This allows them to estimate the effect of neighborhoods on outcomes, using just this random variation, and not other variation in neighborhoods that would have selection bias.
+- This is as much detail as you need to know about IV for this class.
+- You don’t need to know the equations or technical aspects.
+
+---
+## Effects of MTO on Long-Term Outcomes
+
+&lt;img src="01-class_files/figure-html/unnamed-chunk-5-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+## Policy Implications of the Results
+
+Moving to Opportunity had a positive and statistically significant effect on subjective well-being, but no statistically significant effects on physical or mental health, or economic self-sufficiency.
+Suggests the housing vouchers can’t be used to affect certain policy outcomes in the long run (e.g., improve health, increase income) but it does increase well-being.
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="assets/remark-zoom.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9",
+  "navigation": {
+    "scroll": false
+  }
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
