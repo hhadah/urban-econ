@@ -214,7 +214,7 @@ background-position: 95% 95%
   - and more....
 
 ---
-# Crime is a common neighborhood effect studied
+## Crime is a common neighborhood effect studied
 
 - The extent that your neighbors are involved in criminal activity may affect the likelihood that you engage in criminal activity
 - Suppose we want to determine the effect that neighbors have on criminal behavior
@@ -240,12 +240,16 @@ background-position: 95% 95%
 - Controls might be able to reduce selection bias, but it cannot eliminate it
 
 ---
-## We can randomly assign people to neighborhoods?
+## Can we randomly assign people to neighborhoods?
 
 - Suppose individuals were assigned to neighborhoods randomly
 - Then we have no selection bias, since individuals don’t choose neighborhoods based on factors that may also affect their criminal behavior
 - The neighborhood is independent of all individual/family characteristics (e.g., income, education)
 - In one neighborhood, individuals may randomly get high-crime neighbors, and other individuals may randomly get low-crime neighbors
+
+---
+## Can we randomly assign people to neighborhoods?
+
 - Comparing individuals in one neighborhood to another captures only the casual effect of neighborhoods on crime
 - Estimated effect = causal effect + selection bias = causal effect + 0 = causal effect
 - It’s unethical to force people to move
@@ -262,6 +266,7 @@ background-position: 95% 95%
 
 --
 #### Families were randomly assigned to one of three groups:
+
 1. **Low-Poverty Voucher Group (LPV):** received housing vouchers to subsidize private-market rents but could only be used in census tracts with 1990 poverty rates below 10%
 2. **Traditional Voucher (TRV) group:** received a housing voucher without the LPV constraint
 3. **Control group:** Received no assistance
@@ -353,30 +358,30 @@ grid.raster(readPNG("assets/Picture1.png"))
 ---
 ## How can randomization fail?
 
-In this case it looks like the randomization worked, and that is tested by comparing the means of the baseline characteristics. They are extremely similar
+#### In this case it looks like the randomization worked, and that is tested by comparing the means of the baseline characteristics. They are extremely similar
 
-The randomization could fail if individuals who didn’t randomly get assigned a voucher could get one anyways (e.g., pleading for one, bribing study officials)
+#### The randomization could fail if individuals who didn’t randomly get assigned a voucher could get one anyways (e.g., pleading for one, bribing study officials)
 
-Similarly, study officials who do the randomization may not do it correctly. They may decide to give out vouchers non-randomly. They may give a voucher to a family that seems to really need it, even if they weren’t randomly supposed to get one
+####  Similarly, study officials who do the randomization may not do it correctly. They may decide to give out vouchers non-randomly. They may give a voucher to a family that seems to really need it, even if they weren’t randomly supposed to get one
 
-These non-random assignments could be reflected in differences in baseline characteristics
+#### These non-random assignments could be reflected in differences in baseline characteristics
 
 ---
 ## How can randomization fail? (cont’d)
 
-Imagine an extreme scenario: Housing vouchers are supposed to be randomized. But the officials who give out the vouchers are corrupt, and will accept small bribes to exchange for vouchers
+#### Imagine an extreme scenario: Housing vouchers are supposed to be randomized. But the officials who give out the vouchers are corrupt, and will accept small bribes to exchange for vouchers
 
-Families with higher incomes may be more likely to pay the bribe
+#### Families with higher incomes may be more likely to pay the bribe
 
-So household income would be higher in baseline for the treatment group
+#### So household income would be higher in baseline for the treatment group
 
-Implication of this: selection bias! 
+### Implication of this: selection bias! 
 
-The treatment and control groups are not on average identical
+#### The treatment and control groups are not on average identical
 
-Choice of neighborhood (through getting a voucher or not) becomes a function of family characteristics because individuals can select into getting vouchers
+#### Choice of neighborhood (through getting a voucher or not) becomes a function of family characteristics because individuals can select into getting vouchers
 
-Thus the experiment provides biased estimates of how neighborhoods affect outcomes
+#### Thus the experiment provides biased estimates of how neighborhoods affect outcomes
 
 ---
 ## Did MTO affect the neighborhood you live in?
@@ -386,45 +391,51 @@ Thus the experiment provides biased estimates of how neighborhoods affect outcom
 # Plot the image
 grid.raster(readPNG("assets/Picture2.png"))
 ```
+
 ---
 ## Accepting or declining the "treatment"
 
-Many families that were offered a voucher still chose not to move
+#### Many families that were offered a voucher still chose not to move
 
-Thus, they didn’t accept the “treatment”, where the treatment is moving and using the voucher. Those who moved and use the voucher “complied” with the treatment and are called “compliers”.
-  Those who moved and use the voucher “complied” with the treatment and are called “compliers”
-  Complier = You were randomly given a voucher and you used it
+#### Thus, they didn’t accept the “treatment”, where the treatment is moving and using the voucher. Those who moved and use the voucher “complied” with the treatment and are called “compliers”.
+  #### - Those who moved and use the voucher “complied” with the treatment and are called “compliers”
+  #### - Complier = You were randomly given a voucher and you used it
 
 ### Compliance Rates
-48% of families in the Low-Poverty Voucher (LPV) group managed to relocate using the MTO voucher
-63% for the Traditional Voucher (TRV) group
+#### - 48% of families in the Low-Poverty Voucher (LPV) group managed to relocate using the MTO voucher
+
+#### - 63% for the Traditional Voucher (TRV) group
+
 The compliance rate is likely higher for the TRV group because the LPV had the restriction that they had to move to a low-poverty neighborhood
 
 ---
 ## implications of compliance
 
-So, families who got vouchers “selected” into if they wanted to take the voucher and move.
-Several factors may affect the decision to take the voucher or not. For example:
--Family structure
--Income
--Employment (especially work location)
--Race/Ethnicity
--Schools
-Is there still selection bias?
+#### So, families who got vouchers “selected” into if they wanted to take the voucher and move.
+
+#### Several factors may affect the decision to take the voucher or not. For example:
+
+- Family structure
+- Income
+- Employment (especially work location)
+- Race/Ethnicity
+- Schools
+  
+--
+### Is there still selection bias?
 
 Ignoring the fact that families “select” into using the voucher leads to selection bias.
 How do the authors deal with this?
 The authors calculate and present two types of estimates: intent to treat (ITT) and the treatment-on-the-treated (TOT) (to be explained in the next several slides)
 
 ---
-
 ## Intent to Treat (ITT)
 
 - The “Intent to Treat” (ITT) estimate answers: **What is the effect of being offered a voucher?**
 - ITT is calculated as:
 
   $$
-  	ext{ITT estimate} =  \text{Average outcome of those offered voucher} - \text{Average outcome for control group}
+  	\text{ITT estimate} =  \text{Average outcome of those offered voucher} - \text{Average outcome for control group}
   $$
 - The treatment group includes:
   - **Compliers:** used the voucher (moved)
@@ -433,7 +444,6 @@ The authors calculate and present two types of estimates: intent to treat (ITT) 
 
 
 ---
-
 ## What does ITT mean?
 
 - ITT answers: **What is the effect of being offered a voucher?**
@@ -448,7 +458,6 @@ The authors calculate and present two types of estimates: intent to treat (ITT) 
 - TOT does **not** include non-movers (non-compliers).
 
 ---
-
 ## ITT vs. TOT (Summary)
 
 - **ITT:** Effect of being offered a voucher (includes both movers and non-movers)
@@ -561,8 +570,11 @@ grid.raster(readPNG("assets/Picture3.png"))
 ---
 ## Policy Implications of the Results
 
-Moving to Opportunity had a positive and statistically significant effect on subjective well-being, but no statistically significant effects on physical or mental health, or economic self-sufficiency.
-Suggests the housing vouchers can’t be used to affect certain policy outcomes in the long run (e.g., improve health, increase income) but it does increase well-being.
+### Moving to Opportunity had a positive and statistically significant effect on subjective well-being
+
+### No statistically significant effects on physical or mental health, or economic self-sufficiency.
+
+### Suggests the housing vouchers can’t be used to affect certain policy outcomes in the long run (e.g., improve health, increase income) but it does increase well-being.
 
 
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
