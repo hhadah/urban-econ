@@ -25,6 +25,11 @@ layout: true
 <!--- `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`-->
 
 ---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
 
 ```{r, load_refs, echo=FALSE, cache=FALSE, message=FALSE}
 library(RefManageR)
@@ -136,20 +141,6 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
         background-color: white;
     }
 ```
-
-## Next week `r top_icon("calendar-week")`
-
-
-### Our final quiz is on April 29th
-
-### Final briefing note is due on May 3rd and this is a hard deadline
-
-
----
-class: segue-yellow
-background-image: url("assets/TulaneLogo.svg")
-background-size: 20%
-background-position: 95% 95%
 
 # Rent Control
 
