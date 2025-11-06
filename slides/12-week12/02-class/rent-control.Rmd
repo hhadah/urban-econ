@@ -645,6 +645,40 @@ Perfect competition predicts many negative effects of rent control. But under a 
 
 ### But there are some cities where companies have lots of market power because they own all or most of the housing (e.g., Irvine Company in Irvine, CA). In this case, rent control might get prices closer to the efficient level if rent control is applied correctly
 
+
+---
+## Quiz 3 Stats
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, cache=TRUE, results='asis'}
+library(tidyverse)
+library(dplyr)
+
+quiz3 <- read.csv("/Users/hhadah/Downloads/quiz-3.csv") %>%
+  select("score")
+
+# Create a censored version of the dataset
+quiz3_censored <- quiz3 %>%
+  mutate(censored_score = ifelse(score < 6, 6, score))
+
+# Calculate mean and median on the original data
+mean_quiz3 <- mean(quiz3$score, na.rm = TRUE)
+median_quiz3 <- median(quiz3$score, na.rm = TRUE)
+
+# Plot the histogram with censored scores and add vertical lines for mean and median
+ggplot(quiz3_censored, aes(x = censored_score)) +
+  geom_histogram(binwidth = 0.5, color = "black", fill = "lightblue") +
+  geom_vline(xintercept = mean_quiz3, color = "red", linetype = "dashed", size = 1) +
+  geom_vline(xintercept = median_quiz3, color = "blue", linetype = "dotted", size = 1) +
+  annotate("text", x = mean_quiz3 - 0.2, y = 5, label = paste("Mean:", round(mean_quiz3, 2)), color = "red", angle = 90, size = 6) + 
+  annotate("text", x = median_quiz3 + 0.2, y = 5, label = paste("Median:", round(median_quiz3, 2)), color = "blue", angle = 90, size = 6) + 
+  labs(title = "Quiz 3 Scores", x = "Score", y = "Frequency") +
+  scale_x_continuous(limits = c(5.5, 11.5),
+                     breaks = c(6, 7, 8, 9, 10, 11),
+                     labels = c("< 6", "7", "8", "9", "10", "11")) +
+  theme_classic()
+```
+
+
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
 # https://hhadah.github.io/xaringan/index.html
