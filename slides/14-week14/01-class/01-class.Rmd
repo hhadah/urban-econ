@@ -1,0 +1,271 @@
+---
+title: "Urban Economics"
+subtitle: "Urban Sprawl and Land-Use Controls"
+author: "Hussain Hadah (he/him)"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/tulane-fonts.css", "assets/tulane.css"]
+    self_contained: false # if true, fonts will be stored locally
+    seal: true # show a title slide with YAML information
+    includes:
+      in_header: "assets/mathjax-equation-numbers.html"
+    nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9' # alternatives '16:9' or '4:3' or others e.g. 13:9
+      navigation:
+        scroll: false # disable slide transitions by scrolling
+---
+layout: true
+<div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;">`r rmarkdown::metadata$author` (Tulane) | `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`</div>
+
+<!--- `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`-->
+
+```{r, load_refs, echo=FALSE, cache=FALSE, message=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'authoryear', 
+           style = "markdown",
+           hyperlink = FALSE, 
+           dashed = FALSE)
+myBib <- ReadBib("assets/example.bib", check = FALSE)
+top_icon = function(x) {
+  icons::icon_style(
+    icons::fontawesome(x),
+    position = "fixed", top = 10, right = 10
+  )
+}
+```
+
+```{r setup, include=FALSE}
+# xaringanExtra::use_scribble() ## Draw on slides. Requires dev version of xaringanExtra.
+
+options(htmltools.dir.version = FALSE)
+library(knitr)
+opts_chunk$set(
+  fig.align="center",  
+  fig.height=4, fig.width=6,
+  out.width="748px", out.length="520.75px",
+  dpi=300, #fig.path='Figs/',
+  cache=F#, echo=F, warning=F, message=F
+  )
+```
+
+
+```{r, cache=FALSE, message=FALSE, warning=FALSE, include=TRUE, eval=TRUE, results=FALSE, echo=FALSE, tidy.opts = list(width.cutoff = 50), tidy = TRUE}
+## Load and install the packages that we'll be using today
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tictoc, parallel, pbapply, future, future.apply, furrr, RhpcBLASctl, memoise, here, foreign, mfx, tidyverse, hrbrthemes, estimatr, ivreg, fixest, sandwich, lmtest, margins, vtable, broom, modelsummary, stargazer, fastDummies, recipes, dummy, gplots, haven, huxtable, kableExtra, gmodels, survey, gtsummary, data.table, tidyfast, dtplyr, microbenchmark, ggpubr, tibble, viridis, wesanderson, censReg, rstatix, srvyr, formatR, sysfonts, showtextdb, showtext, thematic, sampleSelection, RefManageR, DT, googleVis, png, grid)
+# devtools::install_github("thomasp85/patchwork")
+remotes::install_github("mitchelloharawild/icons")
+remotes::install_github("ROpenSci/bibtex")
+
+# devtools::install_github("ajdamico/lodown")
+## My preferred ggplot2 plotting theme (optional)
+## https://github.com/hrbrmstr/hrbrthemes
+# scale_fill_ipsum()
+# scale_color_ipsum()
+font_add_google("Fira Sans", "firasans")
+font_add_google("Fira Code", "firasans")
+
+showtext_auto()
+
+theme_customs <- theme(
+  text = element_text(family = 'firasans', size = 16),
+  plot.title.position = 'plot',
+  plot.title = element_text(
+    face = 'bold', 
+    colour = thematic::okabe_ito(8)[6],
+    margin = margin(t = 2, r = 0, b = 7, l = 0, unit = "mm")
+  ),
+)
+
+colors <-  thematic::okabe_ito(5)
+
+# theme_set(theme_minimal() + theme_customs)
+theme_set(hrbrthemes::theme_ipsum() + theme_customs)
+## Set master directory where all sub-directories are located
+mdir <- "/Users/hhadah/Documents/GiT/urban-econ/slides/01-week1/tue"
+
+## Set working directory
+
+# COLOR PALLETES
+library(paletteer) 
+# paletteer_d("awtools::a_palette")
+# paletteer_d("suffrager::CarolMan")
+
+### COLOR BLIND PALLETES
+#paletteer_d("colorblindr::OkabeIto")
+#paletteer_d("colorblindr::OkabeIto_black")
+# paletteer_d("colorBlindness::paletteMartin")
+# paletteer_d("colorBlindness::Blue2DarkRed18Steps")
+# paletteer_d("colorBlindness::SteppedSequential5Steps")
+# paletteer_d("colorBlindness::PairedColor12Steps")
+# paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps")
+colorBlindness <- paletteer_d("colorBlindness::Blue2Orange12Steps")
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+# scale_colour_paletteer_d("colorBlindness::ModifiedSpectralScheme11Steps", dynamic = FALSE)
+# To use for fills, add
+  scale_fill_manual(values="colorBlindness::Blue2Orange12Steps")
+
+# To use for line and point colors, add
+  scale_colour_manual(values="colorBlindness::Blue2Orange12Steps")
+  #<a><button>[Click me](#sources)</button></a>
+```
+
+```{css, echo=F}
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: auto !important; /* Adjusts table width */
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+    .remark-slide thead, .remark-slide tr:nth-child(n) {
+        background-color: white;
+    }
+```
+
+---
+class: title-slide
+background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+# .text-shadow[.white[Outline for Today]]
+
+<ol>
+    <li><h4 class="white"> </h4></li>
+</ol>
+
+---
+## Next week `r top_icon("calendar-week")`
+
+
+### Readings
+
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Introduction
+
+---
+## Urban sprawl has been drawing strong feelings `r top_icon("angry")` 
+
+.pull-left[
+### Critics say:
+
+- Increases traffic congestion and pollution `r icons::fontawesome("car-crash")`
+- Consumes too much land `r icons::fontawesome("tree")`
+- Less incentives to develop downtown areas `r icons::fontawesome("city")`
+- Low density sprawl reduces social interaction `r icons::fontawesome("people-arrows")`
+- Dependence on automobiles increases obesity rates
+]
+
+.pull-right[
+### The data shows:
+- Spatial growth was really high---from 1.3% to 1.9% of land area got developed from 1976 to 1992 (Burchfield et al., 2006) `r icons::fontawesome("chart-line")`
+- Other sources show that the rate is even higher
+]
+
+As a result, many cities have implemented land-use controls to limit sprawl 
+
+---
+## Growth management policies to control urban sprawl `r top_icon("city")`
+
+### At least 12 states have growth management policies
+
+### New Jersey committed in 1998 to spend $1 billion to purchase vacant land to limit 
+
+---
+## Do the critics have a point? `r top_icon("question")`
+
+<br>
+
+### Do cities take up too much space?
+
+<br>
+
+### Should they implement land-use controls to limit sprawl?
+
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# The Empirical Evidence
+
+---
+## This table shows the results from two papers
+
+
+```{r table01, echo=FALSE, message=FALSE, warning=FALSE, results='asis', width='120%'}
+# insert image
+knitr::include_graphics("assets/image01.png")
+```
+
+#### The results tells us if X increases by 1 percent, Y increases by how much percent?
+
+#### Both studies show that higher population leads to more land use
+
+  - 1 percent increase in population leads to 1.1 and 0.76 percent increase in land use
+
+#### Income effects are large: 1 percent increase in income leads to 1.5 and 0.3 percent increase in land use
+
+#### Higher agricultural rent leads to less land use, mixed evidence on the effect of commuting costs 
+
+---
+## It is easy to see why urban sprawl happens in the US 
+
+<br>
+
+### So, if we are growing in population and getting richer, is it bad that we are sprawling out?
+
+<br>
+
+--
+
+### Well, it depends
+
+### If this sprawl is being driven by consumer preferences, then it is .brand-mardigras[not a problem]
+
+### However, if sprawl is being driven by market failures, then it is a .brand-crawfest[problem]
+
+---
+## Market failures related present in economic process that determines size of cities
+
+<br>
+
+### 1. The amenity value of open space
+
+<br>
+
+- Assume each acre of open space provides $\mathbf{b}$ dollars above and beyond its agricultural value
+- This benefit is not captured when land is converted from agricultural to urban use
+- A landowner can either rent the land to a developer $\mathbf{r}$ rent it out to a farmer $\mathbf{r_a}$
+- If $\mathbf{r}$ > $\mathbf{r_a}$, the land will be developed
+- Society would ideally want the landowner to take into account the amenity value $\mathbf{b}$
+- So society would want the land developed only if $\mathbf{r} + \mathbf{b}$ > $\mathbf{r_a}$ $\Rightarrow$ city boundary rent should be $\mathbf{r} = \mathbf{r_a} - \mathbf{b}$  
+
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = FALSE}
+library(renderthis)
+# https://hhadah.github.io/xaringan/index.html
+
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html", 
+       to = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html")
+```
