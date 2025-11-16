@@ -418,6 +418,253 @@ knitr::include_graphics(c("assets/image04.png", "assets/image05.png"))
   **charging congestion tolls moves the city toward the socially optimal spatial size.**
 
 
+---
+class: segue-yellow
+background-image: url("assets/TulaneLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Land-Use Controls: Policies
+
+---
+## Using Land-Use Controls to Attack Sprawl `r top_icon("map")`
+
+### Two main anti-sprawl policies discussed:
+
+1. **Development tax**  
+   - Price-based instrument  
+   - Internalizes the open-space externality (amenity benefits)
+
+2. **Congestion toll**  
+   - Corrects the congestion externality  
+   - Shrinks the city by raising effective commuting costs
+
+---
+
+## Urban Growth Boundary (UGB)
+
+### What is a UGB?
+
+- A **quantity-based** anti-sprawl instrument  
+- Government sets a maximum city radius $\bar{x}_1$  
+- Development outside this boundary is prohibited
+
+### Key point:
+> A UGB can replicate the **same effect** as a development tax *if set at the optimal radius$ \bar{x}_1$.
+
+- In the model, restricting development at $\bar{x}_1$  produces the same land-rent curve shift as imposing a per-acre development tax $b$.
+
+---
+
+## Why UGBs Can Be Problematic
+
+- A UGB limits **land area**, not commuting decisions
+- Thus, it corrects the symptom (too much land consumption), not the cause (externality)
+- When the externality is **traffic congestion**, a UGB **cannot substitute** for a congestion toll
+
+### Important distinction:
+- A development tax fixes the underlying externality  
+- A UGB **mimics the outcome** only in the open-space amenity case  
+- But it **fails** in the congestion case because it does not change commuting incentives
+
+---
+
+## UGBs and Consumer Welfare
+
+### When UGBs can reduce welfare:
+
+- If average consumers do **not** value preserved open space highly
+- Limiting housing supply increases:
+  - **Land rents**
+  - **Housing prices**
+  - **Density**
+  - **Living costs**
+
+### Policy implication:
+> UGBs should be used with caution because the welfare costs may exceed the benefits.
+
+---
+
+## A Motive for UGBs: Landowner Gain
+
+### Political economy explanation
+
+- Landowners **gain** when UGB raises land rents inside boundary
+  - Restricting city size shifts the rent curve up  
+  - Generates rent gains represented by area **S**  
+  - These gains accrue to landowners
+
+- As long as the rent gain **S > V** (the loss outside the boundary), landowners push for tighter UGBs
+
+### Result:
+UGBs may be adopted **not** for efficiency reasons, but because landowners benefit financially.
+
+---
+
+```{r echo=FALSE, out.width='70%'}
+knitr::include_graphics("assets/image06.jpg")
+```
+
+---
+
+```{r echo=FALSE, out.width='70%'}
+knitr::include_graphics("assets/image07.jpg")
+```
+
+---
+
+```{r echo=FALSE, out.width='70%'}
+knitr::include_graphics("assets/image08.jpg")
+```
+
+---
+
+
+```{r echo=FALSE, out.width='70%'}
+knitr::include_graphics("assets/image09.jpg")
+```
+
+---
+
+## Additional Motives for UGBs
+
+- Some motivations are **not** about market failures:
+  - Desire to boost housing capital gains  
+  - Local political pressure to preserve aesthetics or neighborhood character  
+  - Resistance to density and “undesirable” growth
+
+### Key point:
+> Policies may be driven by politics, not economics.
+
+---
+
+## Building-Height and Density Restrictions `r top_icon("building")`
+
+
+.pull-left[
+### Height limits:
+
+- Many cities impose max building heights or Floor Area Ratio (FAR) limits  
+- Examples:
+  - Washington, DC  
+  - Paris  
+  - Mumbai and Bangalore
+]
+
+.pull-right[
+
+### Effect in the urban model:
+
+- Lower allowed FAR leads to:
+  - Smaller buildings in the city center  
+  - Housing becomes more expensive  
+  - Residents consume smaller dwellings  
+  - City expands spatially → **more sprawl**
+
+]
+
+### Takeaway:
+Building-height limits **increase** sprawl by reducing density where people most want to live.
+
+---
+
+## FAR Restrictions: Model Implications
+
+- When FAR is restricted:
+  - Housing prices $p$ increase  
+  - Land rents $r$ increase  
+  - The city’s boundary $\bar{x}$ expands  
+  - Dwellings get smaller  
+  - Outer areas see **taller buildings** (nonbinding FAR)
+
+### Irony:
+Policies intended to reduce density at the core **increase overall sprawl**.
+
+---
+
+## Minimum Lot Size Rules
+
+- Common in suburban communities  
+- Example: min lot size of ½ acre for a detached house
+- These effectively **limit population density**
+- Result:
+  - Higher land consumption per household  
+  - Larger city footprint  
+  - Additional sprawl
+
+---
+
+## Zoning Laws
+
+.pull-left[
+### Most pervasive land-use control in U.S.
+
+- Separate land uses into zones:
+  - Residential  
+  - Commercial  
+  - Industrial  
+  - High/low density classifications  
+
+]
+
+.pull-right[
+
+### Purpose:
+> Prevent negative externalities (noise, pollution, traffic)
+
+### Example:
+- Factories generate noise/dirt → lower nearby housing prices  
+- Zoning places factories at city’s edge to minimize externalities
+]
+
+---
+
+## Zoning and Land Rents
+
+- Without zoning:
+  - Factories locating near residential areas lower $p$ nearby  
+  - Land rents fall across large neighborhoods
+- With zoning:
+  - Factories are consolidated in one area  
+  - Negative externality footprint reduced by ~75%  
+  - Landowner income loss decreases proportionally
+
+### Takeaway:
+Zoning can improve welfare by **reducing negative externalities**.
+
+---
+
+## Is Zoning Necessary?
+
+- Some cities impose **no zoning at all** (e.g., Houston)
+- Houston’s development patterns don’t look dramatically different from zoned cities
+- Argument:
+  - Externalities sometimes manage themselves  
+  - Market forces may naturally separate incompatible land uses
+
+### But:
+- Houston’s growth was unusual (large-scale single-ownership developments)  
+- These internal arrangements acted *like* zoning substitutes
+
+---
+
+## Empirical Evidence on Land-Use Controls `r top_icon("chart-bar")`
+
+### Findings from the literature:
+
+- UGBs  
+- Height restrictions  
+- Density restrictions  
+- Impact fees  
+
+➡ **All tend to raise housing prices**.
+
+### Why?
+- They restrict supply  
+- They increase scarcity of developable land  
+- They reduce the elasticity of housing production
+
+
 ```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
 # https://hhadah.github.io/xaringan/index.html
