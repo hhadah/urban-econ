@@ -1,6 +1,6 @@
 ---
 title: "Urban Economics"
-subtitle: "Introduction to Class"
+subtitle: "Transportation"
 author: "Hussain Hadah (he/him)"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
@@ -23,33 +23,6 @@ layout: true
 <div style="position: absolute;left:20px;bottom:5px;color:black;font-size: 12px;">`r rmarkdown::metadata$author` (Tulane) | `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`</div>
 
 <!--- `r rmarkdown::metadata$subtitle` | `r format(Sys.time(), '%d %B %Y')`-->
-
----
-class: title-slide
-background-image: url("assets/TulaneLogo-white.svg"), url("assets/title-image1.jpg")
-background-position: 10% 90%, 100% 50%
-background-size: 160px, 50% 100%
-background-color: #0148A4
-# .text-shadow[.white[Outline for Today]]
-
-<ol>
-    <li><h4 class="white"> </h4></li>
-</ol>
-
----
-## Next week `r top_icon("calendar-week")`
-
-
-### Readings
-
-
----
-class: segue-yellow
-background-image: url("assets/TulaneLogo.svg")
-background-size: 20%
-background-position: 95% 95%
-
-# 
 
 ---
 
@@ -164,13 +137,38 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
     }
 ```
 
+---
+## Everyone hates traffic jams
+
+<br>
+
+### Everyday, people spends hours stuck in traffic around the world
+
+<br>
+
+### It's a big problem in many US cities and even worse in other countries
+
+<br>
 
 
-```{r gen_pdf, include = FALSE, cache = FALSE, eval = FALSE}
+### This is time that could be used for something more productive or enjoyable
+.pull-left[
+- Spending time with family
+- Exercising
+- Relaxing
+]
+.pull-right[
+- Working
+- etc.
+]
+
+
+
+```{r gen_pdf, include = FALSE, cache = FALSE, eval = TRUE}
 library(renderthis)
 # https://hhadah.github.io/xaringan/index.html
 
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html", 
-       to = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.pdf")
-to_pdf(from = "~/Documents/GiT/urban-econ/slides/01-week1/tue/01-class1.html")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/14-week14/02-class/02-class.html", 
+       to = "~/Documents/GiT/urban-econ/slides/14-week14/02-class/02-class.pdf")
+to_pdf(from = "~/Documents/GiT/urban-econ/slides/14-week14/02-class/02-class.html")
 ```

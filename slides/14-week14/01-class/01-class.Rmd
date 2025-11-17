@@ -144,7 +144,9 @@ background-color: #0148A4
 # .text-shadow[.white[Outline for Today]]
 
 <ol>
-    <li><h4 class="white"> </h4></li>
+    <li><h4 class="white"> Evidence on City Sprawl</h4></li>
+    <li><h4 class="white"> Market Failures Leading to Sprawl</h4></li>
+    <li><h4 class="white"> Land-Use Controls to Limit Sprawl</h4></li>
 </ol>
 
 ---
@@ -390,7 +392,7 @@ knitr::include_graphics("assets/image01.png")
 - **Singapore** (one of the earliest and most comprehensive systems)  
 - **London** (central-city cordon charge)  
 - **Stockholm** (peak-hour bridge tolls)
-- **New York City**
+- **New York City** just did this! 
 
 ### What studies find:
 - After toll adoption, cities become **more compact**
@@ -401,7 +403,7 @@ knitr::include_graphics("assets/image01.png")
 ## From the News
 
 
-```{r echo=FALSE, results='asis', fig.show='hold', out.width='50%'}
+```{r echo=FALSE, results='asis', fig.show='hold', out.width='40%'}
 # insert images side by side
 knitr::include_graphics(c("assets/image04.png", "assets/image05.png"))
 ```
@@ -450,7 +452,7 @@ background-position: 95% 95%
 - Development outside this boundary is prohibited
 
 ### Key point:
-> A UGB can replicate the **same effect** as a development tax *if set at the optimal radius$ \bar{x}_1$.
+> A UGB can replicate the **same effect** as a development tax *if set at the optimal radius $\bar{x}_1$.
 
 - In the model, restricting development at $\bar{x}_1$  produces the same land-rent curve shift as imposing a per-acre development tax $b$.
 
@@ -484,6 +486,27 @@ background-position: 95% 95%
 > UGBs should be used with caution because the welfare costs may exceed the benefits.
 
 ---
+## Let's plot this out
+
+.pull-left[
+- Assume landowners act as a group, so all they care about is rent
+
+- The government restricts land use at $\bar{x}_1 < \bar{x}_0$
+
+- Land between $\bar{x}_1$ and $\bar{x}_0$ earns rent $r_a$  instead of $r_0$ and they lose area $V$
+- Land inside $\bar{x}_1$ earns rent $r_1$ instead of $r_0$ and they gain area $S$
+- If $S > V$, land rent rises and landowners benefit
+- Similar models that apply to homeowners would show that they benefit as well by increasing their property values
+]
+
+.pull-right[
+
+```{r echo=FALSE, out.width='100%'}
+knitr::include_graphics("assets/image06.jpg")
+```
+]
+
+---
 
 ## A Motive for UGBs: Landowner Gain
 
@@ -498,33 +521,6 @@ background-position: 95% 95%
 
 ### Result:
 UGBs may be adopted **not** for efficiency reasons, but because landowners benefit financially.
-
----
-
-```{r echo=FALSE, out.width='70%'}
-knitr::include_graphics("assets/image06.jpg")
-```
-
----
-
-```{r echo=FALSE, out.width='70%'}
-knitr::include_graphics("assets/image07.jpg")
-```
-
----
-
-```{r echo=FALSE, out.width='70%'}
-knitr::include_graphics("assets/image08.jpg")
-```
-
----
-
-
-```{r echo=FALSE, out.width='70%'}
-knitr::include_graphics("assets/image09.jpg")
-```
-
----
 
 ## Additional Motives for UGBs
 
@@ -548,7 +544,8 @@ knitr::include_graphics("assets/image09.jpg")
 - Examples:
   - Washington, DC  
   - Paris  
-  - Mumbai and Bangalore
+  - Barcelona
+  - Huntsville, AL
 ]
 
 .pull-right[
@@ -571,6 +568,7 @@ Building-height limits **increase** sprawl by reducing density where people most
 ## FAR Restrictions: Model Implications
 
 - When FAR is restricted:
+  - It restricts the height of buildings in the city where otherwise they would be tallest
   - Housing prices $p$ increase  
   - Land rents $r$ increase  
   - The city’s boundary $\bar{x}$ expands  
@@ -580,17 +578,12 @@ Building-height limits **increase** sprawl by reducing density where people most
 ### Irony:
 Policies intended to reduce density at the core **increase overall sprawl**.
 
+
 ---
 
-## Minimum Lot Size Rules
-
-- Common in suburban communities  
-- Example: min lot size of ½ acre for a detached house
-- These effectively **limit population density**
-- Result:
-  - Higher land consumption per household  
-  - Larger city footprint  
-  - Additional sprawl
+```{r echo=FALSE, out.width='70%'}
+knitr::include_graphics("assets/image07.jpg")
+```
 
 ---
 
@@ -645,6 +638,23 @@ Zoning can improve welfare by **reducing negative externalities**.
 ### But:
 - Houston’s growth was unusual (large-scale single-ownership developments)  
 - These internal arrangements acted *like* zoning substitutes
+
+---
+
+## Empirical Evidence on Land-Use Controls (cont'd)
+
+.pull-left[
+```{r echo=FALSE, out.width='100%'}
+knitr::include_graphics("assets/image08.jpg")
+```
+]
+
+.pull-right[
+```{r echo=FALSE, out.width='100%'}
+knitr::include_graphics("assets/image09.jpg")
+```
+]
+
 
 ---
 
